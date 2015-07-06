@@ -8,10 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
+#import "VAPHumanTests.h"
+
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
-        // insert code here...
-        NSLog(@"Hello, World!");
+        VAPHumanTests *test = [[VAPHumanTests new] autorelease];
+        [test VAPHumanBehavourTest];
     }
     return 0;
 }

@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1F5474DE1B4AA5DC00157DE1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F5474DD1B4AA5DC00157DE1 /* main.m */; };
+		1F5474E61B4AA61E00157DE1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F5474E51B4AA61E00157DE1 /* main.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -24,7 +24,7 @@
 
 /* Begin PBXFileReference section */
 		1F5474DA1B4AA5DC00157DE1 /* VAPObjCCources */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = VAPObjCCources; sourceTree = BUILT_PRODUCTS_DIR; };
-		1F5474DD1B4AA5DC00157DE1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		1F5474E51B4AA61E00157DE1 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,9 +57,17 @@
 		1F5474DC1B4AA5DC00157DE1 /* VAPObjCCources */ = {
 			isa = PBXGroup;
 			children = (
-				1F5474DD1B4AA5DC00157DE1 /* main.m */,
+				1F5474E41B4AA5F000157DE1 /* Source */,
 			);
 			path = VAPObjCCources;
+			sourceTree = "<group>";
+		};
+		1F5474E41B4AA5F000157DE1 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				1F5474E51B4AA61E00157DE1 /* main.m */,
+			);
+			path = Source;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -118,7 +126,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1F5474DE1B4AA5DC00157DE1 /* main.m in Sources */,
+				1F5474E61B4AA61E00157DE1 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -205,6 +213,7 @@
 		1F5474E21B4AA5DC00157DE1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -212,6 +221,7 @@
 		1F5474E31B4AA5DC00157DE1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

@@ -10,6 +10,6 @@
 
 @interface VAPHumanTests : NSObject
 
-- (void)VAPHumanBehavourTest;
++ (void)VAPHumanBehavourTest;
 
 @end

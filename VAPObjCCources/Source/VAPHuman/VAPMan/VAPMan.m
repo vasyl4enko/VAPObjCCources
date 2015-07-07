@@ -10,9 +10,14 @@
 
 @implementation VAPMan
 
+//- (void)dealloc {
+//    
+//    [super dealloc];
+//}
+
 - (id)performGenderSpecificOperation {
-    
     NSLog(@"man");
+    
     return nil;
 }
 

@@ -10,8 +10,15 @@
 
 @implementation VAPWoman
 
+//- (void)dealloc {
+//    
+//    [super dealloc];
+//}
+
 - (id)performGenderSpecificOperation {
-    return [[self VAPHumanBirthChild] autorelease];
+    NSLog(@"Мой ребенок пошел на органы");
+//    return [[self birthChild] autorelease];
+    return [self birthChild];
 }
 
 @end

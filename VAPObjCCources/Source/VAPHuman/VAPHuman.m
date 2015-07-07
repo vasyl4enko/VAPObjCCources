@@ -22,28 +22,27 @@
 
 
 #import "VAPHuman.h"
-
-@implementation VAPHuman
+#import "VAPWoman.h"
+#import "VAPMan.h"
+#import "VAPHuman+VAPHumanExtension.h"
 
 NSString *const kDefaultNameHuman = @"defaultName";
 
+@interface VAPHuman ()
 
+@property(nonatomic, retain) NSMutableArray *mutableChildren;
 
-- (void)dealloc {
-    [self.name release];
-    [self.children release];
-    
-    [super dealloc];
-}
+@end
 
-#pragma mark -
-#pragma mark Public Implementation
+@implementation VAPHuman
+
+@dynamic children;
 
 - (instancetype)initWithName:(NSString *)name gender:(VAPHumanGender)gender age:(uint16_t)age {
     self = [super init];
+    
     if (self) {
         self.name = name;
-        self.gender = gender;
         self.age = age;
     }
     
@@ -57,58 +56,59 @@ NSString *const kDefaultNameHuman = @"defaultName";
     return self;
 }
 
-- (void)VAPHumanGoToWar {
-    NSLog(@"I belive I can fly");
-    NSLog(@"I belive I can touch the sky");
-    NSLog(@"But I go to war");
+- (void)dealloc {
+    self.name = nil;
+    self.mutableChildren = nil;
+    
+    [super dealloc];
 }
 
-- (VAPHuman *)VAPHumanBirthChild {
-    return Nil;
+#pragma mark -
+#pragma mark Public Implementation
+
+#warning  need delete
+- (void)goToWar {
+    NSLog(@"I go to war");
+}
+#warning  need delete
+- (VAPHuman *)birthChild {
+    return [[VAPHuman alloc] init];
 }
 
-- (SEL)VAPHumanActionByGender{
-    SEL result;
-    if (VAPHumanGenderOther != self.gender) {
-        if (VAPHumanGenderMale == self.gender) {
-            result = NSSelectorFromString(@"VAPHumanGoToWar");
-        } else {
-            result = NSSelectorFromString(@"VAPHumanBirthChild");
-        }
-        
-    }
-    return result;
-}
-
-- (void)VAPHumanSayHello {
-    NSLog(@"What's man up, my namy is %@" , self.name);
+- (void)sayHello {
+    NSLog(@"What's up man, my namy is %@" , self.name);
     for (VAPHuman *child in self.children) {
-        [child VAPHumanSayHello];
+        [child sayHello];
     }
 }
 
-- (void)VAPHumanAddChild:(VAPHuman *) child {
-        [self.children addObject:child];
+- (void)addChild:(VAPHuman *) child {
+    [self.mutableChildren addObject: child];
+}
+
+- (void)removeChild:(VAPHuman *) child {
+    [self.mutableChildren removeObject: child];
+}
+
+- (id)performGenderSpecificOperation {
+    return nil;
 }
 
 #pragma mark -
 #pragma mark Accessors
 
-- (NSMutableArray *)children {
-    if (nil == _children) {
-        _children = [[NSMutableArray alloc] init];
+- (NSMutableArray *)mutableChildren {
+    if (!_mutableChildren) {
+        _mutableChildren = [[NSMutableArray alloc] init];
     }
-    
-    return _children;
+
+    return _mutableChildren;
 }
 
-- (NSString *)name {
-    if (nil == _name) {
-        _name = [[NSString alloc] init];
-    }
-    
-    return _name;
+- (NSArray *)children {
+    return [[_mutableChildren copy] autorelease];
 }
+
 
 
 @end

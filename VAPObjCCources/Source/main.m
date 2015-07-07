@@ -12,8 +12,7 @@
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
-        VAPHumanTests *test = [[VAPHumanTests new] autorelease];
-        [test VAPHumanBehavourTest];
+        [VAPHumanTests VAPHumanBehavourTest];
     }
     return 0;
 }

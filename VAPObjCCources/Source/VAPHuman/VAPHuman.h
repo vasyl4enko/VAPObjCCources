@@ -18,31 +18,29 @@
 #import <Foundation/Foundation.h>
 
 
-typedef enum VAPHumanGender VAPHumanGender;
+typedef enum{ 
+    VAPHumanGenderMale,
+    VAPHumanGenderFemale
+} VAPHumanGender;
 
 @interface VAPHuman : NSObject
-@property(nonatomic, copy) NSString *name;
-@property(nonatomic, assign) uint16_t mass;
-@property(nonatomic, assign) VAPHumanGender gender;
-@property(nonatomic, assign) uint16_t age;
-@property(nonatomic, retain) NSMutableArray *children;
+@property(nonatomic, readonly, retain)      NSArray             *children;
+@property(nonatomic, copy)                  NSString            *name;
+@property(nonatomic, assign)                uint16_t            mass;
+@property(nonatomic, assign)                uint16_t            age;
+
 
 - (instancetype)initWithName:(NSString *) name gender:(VAPHumanGender) gender age:(uint16_t) age;
 
-- (void)VAPHumanGoToWar;
+- (VAPHuman *)birthChild;
 
-- (VAPHuman *)VAPHumanBirthChild;
+- (void)sayHello;
 
-- (SEL)VAPHumanActionByGender;
+- (void)addChild:(VAPHuman *) child;
 
-- (void)VAPHumanSayHello;
+- (void)removeChild:(VAPHuman *) child;
 
-- (void)VAPHumanAddChild:(VAPHuman *) child;
+- (id)performGenderSpecificOperation;
 
 @end
 
-enum  VAPHumanGender {
-    VAPHumanGenderOther,
-    VAPHumanGenderMale,
-    VAPHumanGenderFemale
-};

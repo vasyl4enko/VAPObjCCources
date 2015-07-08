@@ -10,4 +10,5 @@
 
 @interface VAPMan : VAPHuman
 
+
 @end

@@ -17,10 +17,10 @@
 
 #import <Foundation/Foundation.h>
 
-typedef enum{ 
+typedef NS_ENUM(NSInteger, VAPHumanGender){
     VAPHumanGenderMale,
     VAPHumanGenderFemale
-} VAPHumanGender;
+};
 
 @interface VAPHuman : NSObject
 @property(nonatomic, readonly, retain)      NSArray             *children;
@@ -28,7 +28,9 @@ typedef enum{
 @property(nonatomic, assign)                uint16_t            mass;
 @property(nonatomic, assign)                uint16_t            age;
 
-- (instancetype)initWithName:(NSString *) name gender:(VAPHumanGender) gender age:(uint16_t) age;
+- (instancetype)initWithGender:(VAPHumanGender) gender;
+
+- (instancetype)initWithName:(NSString *) name  age:(uint16_t) age;
 
 - (void)sayHello;
 

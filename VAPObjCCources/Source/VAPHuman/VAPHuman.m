@@ -16,15 +16,10 @@
 //3. В цикле пройти по массиву существ и проверить их пол. Если мужик, то надо отправить существо воевать, если баба, то рожать детей;
 //4. У существа наружу должен быть немутабельный массив детей через динамическое проперти с копи+авторелиз, а внутри - еще и мутабельное свойство.
 
-
-
-
-
-
 #import "VAPHuman.h"
-#import "VAPWoman.h"
-#import "VAPMan.h"
 #import "VAPHuman+VAPHumanExtension.h"
+#import "VAPMan.h"
+#import "VAPWoman.h"
 
 static NSString *const kDefaultNameHuman = @"defaultName";
 static NSString *const kGreeting = @"What's up man, my namy is %@";
@@ -39,9 +34,23 @@ static NSString *const kGreeting = @"What's up man, my namy is %@";
 
 @dynamic children;
 
-- (instancetype)initWithName:(NSString *)name gender:(VAPHumanGender)gender age:(uint16_t)age {
+#pragma mark -
+#pragma mark Initializations and Deallocations
+
+- (instancetype)initWithGender:(VAPHumanGender) gender{
     self = [super init];
+    [self release];
+    if (VAPHumanGenderMale == gender) {
+        self = [[VAPMan alloc] initWithName: kDefaultNameHuman age:0];
+    } else {
+        self = [[VAPWoman alloc] initWithName: kDefaultNameHuman age:0];
+    }
     
+    return self;
+}
+
+- (instancetype)initWithName:(NSString *) name  age:(uint16_t) age {
+    self = [super init];
     if (self) {
         self.name = name;
         self.age = age;
@@ -50,9 +59,8 @@ static NSString *const kGreeting = @"What's up man, my namy is %@";
     return self;
 }
 
-- (instancetype)init
-{
-    self = [self initWithName: kDefaultNameHuman gender: arc4random_uniform(2) + 1 age:0];
+- (instancetype)init {
+    self = [self initWithGender: arc4random_uniform(2)];
     
     return self;
 }

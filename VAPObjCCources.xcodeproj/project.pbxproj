@@ -13,6 +13,7 @@
 		1F670BA41B4BFC04003E17DB /* VAPMan.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F670BA31B4BFC04003E17DB /* VAPMan.m */; };
 		1F670BA71B4BFC51003E17DB /* VAPWoman.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F670BA61B4BFC51003E17DB /* VAPWoman.m */; };
 		1F670BAA1B4C0BCC003E17DB /* VAPHuman+VAPHumanExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F670BA91B4C0BCC003E17DB /* VAPHuman+VAPHumanExtension.m */; };
+		1FF0BC591B4D500200E3FA9F /* VAPHumanTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FF0BC581B4D500200E3FA9F /* VAPHumanTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -41,10 +42,20 @@
 		1F670BA61B4BFC51003E17DB /* VAPWoman.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VAPWoman.m; sourceTree = "<group>"; };
 		1F670BA81B4C0BCC003E17DB /* VAPHuman+VAPHumanExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "VAPHuman+VAPHumanExtension.h"; sourceTree = "<group>"; };
 		1F670BA91B4C0BCC003E17DB /* VAPHuman+VAPHumanExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "VAPHuman+VAPHumanExtension.m"; sourceTree = "<group>"; };
+		1FF0BC541B4D500200E3FA9F /* VAPHumanTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VAPHumanTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1FF0BC571B4D500200E3FA9F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1FF0BC581B4D500200E3FA9F /* VAPHumanTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VAPHumanTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		1F5474D71B4AA5DC00157DE1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1FF0BC511B4D500200E3FA9F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -59,6 +70,7 @@
 			children = (
 				1F670B9F1B4BF71B003E17DB /* IDPStudyPlan */,
 				1F5474DC1B4AA5DC00157DE1 /* VAPObjCCources */,
+				1FF0BC551B4D500200E3FA9F /* VAPHumanTests */,
 				1F5474DB1B4AA5DC00157DE1 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -67,6 +79,7 @@
 			isa = PBXGroup;
 			children = (
 				1F5474DA1B4AA5DC00157DE1 /* VAPObjCCources */,
+				1FF0BC541B4D500200E3FA9F /* VAPHumanTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -129,6 +142,23 @@
 			path = VAPWoman;
 			sourceTree = "<group>";
 		};
+		1FF0BC551B4D500200E3FA9F /* VAPHumanTests */ = {
+			isa = PBXGroup;
+			children = (
+				1FF0BC581B4D500200E3FA9F /* VAPHumanTests.m */,
+				1FF0BC561B4D500200E3FA9F /* Supporting Files */,
+			);
+			path = VAPHumanTests;
+			sourceTree = "<group>";
+		};
+		1FF0BC561B4D500200E3FA9F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				1FF0BC571B4D500200E3FA9F /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -149,6 +179,23 @@
 			productReference = 1F5474DA1B4AA5DC00157DE1 /* VAPObjCCources */;
 			productType = "com.apple.product-type.tool";
 		};
+		1FF0BC531B4D500200E3FA9F /* VAPHumanTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1FF0BC5C1B4D500200E3FA9F /* Build configuration list for PBXNativeTarget "VAPHumanTests" */;
+			buildPhases = (
+				1FF0BC501B4D500200E3FA9F /* Sources */,
+				1FF0BC511B4D500200E3FA9F /* Frameworks */,
+				1FF0BC521B4D500200E3FA9F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = VAPHumanTests;
+			productName = VAPHumanTests;
+			productReference = 1FF0BC541B4D500200E3FA9F /* VAPHumanTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -159,6 +206,9 @@
 				ORGANIZATIONNAME = "Aleksandr Vasylchenko";
 				TargetAttributes = {
 					1F5474D91B4AA5DC00157DE1 = {
+						CreatedOnToolsVersion = 6.4;
+					};
+					1FF0BC531B4D500200E3FA9F = {
 						CreatedOnToolsVersion = 6.4;
 					};
 				};
@@ -176,9 +226,20 @@
 			projectRoot = "";
 			targets = (
 				1F5474D91B4AA5DC00157DE1 /* VAPObjCCources */,
+				1FF0BC531B4D500200E3FA9F /* VAPHumanTests */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1FF0BC521B4D500200E3FA9F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		1F5474D61B4AA5DC00157DE1 /* Sources */ = {
@@ -191,6 +252,14 @@
 				1F670BA71B4BFC51003E17DB /* VAPWoman.m in Sources */,
 				1F670BA41B4BFC04003E17DB /* VAPMan.m in Sources */,
 				1F5474EC1B4AAF0700157DE1 /* VAPHuman.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1FF0BC501B4D500200E3FA9F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1FF0BC591B4D500200E3FA9F /* VAPHumanTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -290,6 +359,38 @@
 			};
 			name = Release;
 		};
+		1FF0BC5A1B4D500200E3FA9F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = VAPHumanTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		1FF0BC5B1B4D500200E3FA9F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = VAPHumanTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -310,6 +411,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		1FF0BC5C1B4D500200E3FA9F /* Build configuration list for PBXNativeTarget "VAPHumanTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1FF0BC5A1B4D500200E3FA9F /* Debug */,
+				1FF0BC5B1B4D500200E3FA9F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};

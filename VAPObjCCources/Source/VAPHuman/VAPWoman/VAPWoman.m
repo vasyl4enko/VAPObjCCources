@@ -7,6 +7,7 @@
 //
 
 #import "VAPWoman.h"
+#import "VAPMan.h"
 #import "VAPHuman+VAPHumanExtension.h"
 
 static NSString *const kBabyBirth = @"Baby-birth";
@@ -17,7 +18,7 @@ static NSString *const kBabyBirth = @"Baby-birth";
 #pragma mark Public Implementation
 
 - (id)performGenderSpecificOperation {
-    NSLog(kBabyBirth);
+//    NSLog(kBabyBirth);
     
     return [VAPWoman object];
 }

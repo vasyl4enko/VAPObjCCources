@@ -11,7 +11,7 @@
 @implementation VAPHuman (VAPHumanExtension)
 
 + (id)object{
-    return [[[VAPHuman alloc] init] autorelease];
+    return [[[self alloc] init] autorelease];
 }
 
 @end

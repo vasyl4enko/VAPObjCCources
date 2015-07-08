@@ -41,9 +41,9 @@ static NSString *const kGreeting = @"What's up man, my namy is %@";
     self = [super init];
     [self release];
     if (VAPHumanGenderMale == gender) {
-        self = [[VAPMan alloc] initWithName: kDefaultNameHuman age:0];
+        self = [[VAPMan alloc] init];
     } else {
-        self = [[VAPWoman alloc] initWithName: kDefaultNameHuman age:0];
+        self = [[VAPWoman alloc] init];
     }
     
     return self;
@@ -55,12 +55,6 @@ static NSString *const kGreeting = @"What's up man, my namy is %@";
         self.name = name;
         self.age = age;
     }
-    
-    return self;
-}
-
-- (instancetype)init {
-    self = [self initWithGender: arc4random_uniform(2)];
     
     return self;
 }

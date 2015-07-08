@@ -15,12 +15,16 @@ static NSString *const kBabyBirth = @"Baby-birth";
 @implementation VAPWoman
 
 #pragma mark -
+#pragma mark Initializations and Deallocations
+
+
+#pragma mark -
 #pragma mark Public Implementation
 
 - (id)performGenderSpecificOperation {
 //    NSLog(kBabyBirth);
     
-    return [VAPWoman object];
+    return [[[VAPWoman alloc] initWithGender:arc4random_uniform(2)] autorelease];
 }
 
 @end

@@ -25,11 +25,7 @@
     
     NSArray *array = @[sara, john, termik, bess];
     for (VAPHuman *human in array) {
-        id obj = [human performGenderSpecificOperation];
-        if (nil != obj) {
-            [obj autorelease];
-        }
-        
+        [human performGenderSpecificOperation];
     }
     
     

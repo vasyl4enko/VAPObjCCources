@@ -17,7 +17,6 @@
 
 #import <Foundation/Foundation.h>
 
-
 typedef enum{ 
     VAPHumanGenderMale,
     VAPHumanGenderFemale
@@ -29,10 +28,7 @@ typedef enum{
 @property(nonatomic, assign)                uint16_t            mass;
 @property(nonatomic, assign)                uint16_t            age;
 
-
 - (instancetype)initWithName:(NSString *) name gender:(VAPHumanGender) gender age:(uint16_t) age;
-
-- (VAPHuman *)birthChild;
 
 - (void)sayHello;
 

@@ -26,7 +26,8 @@
 #import "VAPMan.h"
 #import "VAPHuman+VAPHumanExtension.h"
 
-NSString *const kDefaultNameHuman = @"defaultName";
+static NSString *const kDefaultNameHuman = @"defaultName";
+static NSString *const kGreeting = @"What's up man, my namy is %@";
 
 @interface VAPHuman ()
 
@@ -66,17 +67,8 @@ NSString *const kDefaultNameHuman = @"defaultName";
 #pragma mark -
 #pragma mark Public Implementation
 
-#warning  need delete
-- (void)goToWar {
-    NSLog(@"I go to war");
-}
-#warning  need delete
-- (VAPHuman *)birthChild {
-    return [[VAPHuman alloc] init];
-}
-
 - (void)sayHello {
-    NSLog(@"What's up man, my namy is %@" , self.name);
+    NSLog(kGreeting, self.name);
     for (VAPHuman *child in self.children) {
         [child sayHello];
     }

@@ -8,15 +8,15 @@
 
 #import "VAPMan.h"
 
+static NSString *const kGoToWar = @"I go to war";
+
 @implementation VAPMan
 
-//- (void)dealloc {
-//    
-//    [super dealloc];
-//}
+#pragma mark -
+#pragma mark Public Implementation
 
 - (id)performGenderSpecificOperation {
-    NSLog(@"man");
+    NSLog(kGoToWar);
     
     return nil;
 }

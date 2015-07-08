@@ -7,18 +7,19 @@
 //
 
 #import "VAPWoman.h"
+#import "VAPHuman+VAPHumanExtension.h"
+
+static NSString *const kBabyBirth = @"Baby-birth";
 
 @implementation VAPWoman
 
-//- (void)dealloc {
-//    
-//    [super dealloc];
-//}
+#pragma mark -
+#pragma mark Public Implementation
 
 - (id)performGenderSpecificOperation {
-    NSLog(@"Мой ребенок пошел на органы");
-//    return [[self birthChild] autorelease];
-    return [self birthChild];
+    NSLog(kBabyBirth);
+    
+    return [VAPWoman object];
 }
 
 @end

@@ -14,7 +14,6 @@
 //3. В цикле пройти по массиву существ и проверить их пол. Если мужик, то надо отправить существо воевать, если баба, то рожать детей;
 //4. У существа наружу должен быть немутабельный массив детей через динамическое проперти с копи+авторелиз, а внутри - еще и мутабельное свойство.
 
-
 #import <Foundation/Foundation.h>
 
 typedef NS_ENUM(NSInteger, VAPHumanGender){
@@ -30,7 +29,8 @@ typedef NS_ENUM(NSInteger, VAPHumanGender){
 @property(nonatomic, assign)                uint16_t            mass;
 @property(nonatomic, assign)                uint16_t            age;
 
-- (id)initWithGender:(VAPHumanGender) gender;
+
+- (id)initWithGender:(VAPHumanGender) gender NS_DESIGNATED_INITIALIZER;
 
 - (void)sayHello;
 

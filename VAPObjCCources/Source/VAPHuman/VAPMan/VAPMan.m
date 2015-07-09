@@ -18,7 +18,7 @@ static NSString *const kGoToWar = @"I go to war";
 - (id)performGenderSpecificOperation {
     NSLog(kGoToWar);
     
-    return nil;
+    return [super performGenderSpecificOperation];
 }
 
 @end

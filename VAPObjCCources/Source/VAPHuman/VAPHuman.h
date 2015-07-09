@@ -23,14 +23,14 @@ typedef NS_ENUM(NSInteger, VAPHumanGender){
 };
 
 @interface VAPHuman : NSObject
+
 @property(nonatomic, readonly, retain)      NSArray             *children;
 @property(nonatomic, copy)                  NSString            *name;
+
 @property(nonatomic, assign)                uint16_t            mass;
 @property(nonatomic, assign)                uint16_t            age;
 
-- (instancetype)initWithGender:(VAPHumanGender) gender;
-
-- (instancetype)initWithName:(NSString *) name  age:(uint16_t) age;
+- (id)initWithGender:(VAPHumanGender) gender;
 
 - (void)sayHello;
 

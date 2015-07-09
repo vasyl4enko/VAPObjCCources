@@ -8,9 +8,8 @@
 
 #import "VAPWoman.h"
 #import "VAPMan.h"
-#import "VAPHuman+VAPHumanExtension.h"
 
-static NSString *const kBabyBirth = @"Baby-birth";
+//static NSString *const kBabyBirth = @"Baby-birth";
 
 @implementation VAPWoman
 

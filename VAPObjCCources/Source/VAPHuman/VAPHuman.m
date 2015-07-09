@@ -17,12 +17,12 @@
 //4. У существа наружу должен быть немутабельный массив детей через динамическое проперти с копи+авторелиз, а внутри - еще и мутабельное свойство.
 
 #import "VAPHuman.h"
-#import "VAPHuman+VAPHumanExtension.h"
+#import "NSObject+VAPNSObjectExtension.h"
 #import "VAPMan.h"
 #import "VAPWoman.h"
 
-static NSString *const kDefaultNameHuman = @"defaultName";
-static NSString *const kGreeting = @"What's up man, my namy is %@";
+//static NSString *const kDefaultNameHuman    = @"defaultName";
+static NSString *const kGreeting            = @"What's up man, my namy is %@";
 
 @interface VAPHuman ()
 
@@ -35,28 +35,21 @@ static NSString *const kGreeting = @"What's up man, my namy is %@";
 @dynamic children;
 
 #pragma mark -
-#pragma mark Initializations and Deallocations
+#pragma mark Class Methods
 
-- (instancetype)initWithGender:(VAPHumanGender) gender{
-    self = [super init];
-    [self release];
-    if (VAPHumanGenderMale == gender) {
-        self = [[VAPMan alloc] init];
-    } else {
-        self = [[VAPWoman alloc] init];
-    }
-    
-    return self;
++ (Class)humanClassForGender:(VAPHumanGender) gender {
+    return VAPHumanGenderMale == gender ? [VAPMan class] : [VAPWoman class];
 }
 
-- (instancetype)initWithName:(NSString *) name  age:(uint16_t) age {
+#pragma mark -
+#pragma mark Initializations and Deallocations
+
+- (id)initWithGender:(VAPHumanGender) gender {
     self = [super init];
-    if (self) {
-        self.name = name;
-        self.age = age;
-    }
+    Class genderClass = [[self class] humanClassForGender:gender];
+    [self release];
     
-    return self;
+    return [[genderClass alloc] init];
 }
 
 - (void)dealloc {
@@ -77,11 +70,13 @@ static NSString *const kGreeting = @"What's up man, my namy is %@";
 }
 
 - (void)addChild:(VAPHuman *) child {
-    [self.mutableChildren addObject: child];
+    if (child) {
+        [self.mutableChildren addObject:child];
+    }
 }
 
 - (void)removeChild:(VAPHuman *) child {
-    [self.mutableChildren removeObject: child];
+    [self.mutableChildren removeObject:child];
 }
 
 - (id)performGenderSpecificOperation {

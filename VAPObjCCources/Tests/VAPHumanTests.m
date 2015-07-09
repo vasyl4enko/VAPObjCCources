@@ -14,11 +14,13 @@
 @implementation VAPHumanTests
 
 + (void)VAPHumanBehavourTest {
-    VAPHuman *sara = [[[VAPWoman alloc] initWithName: @"Sara Connor"  age:30] autorelease];
-    VAPHuman *john = [[[VAPMan alloc] initWithName:@"John Connor"  age:20] autorelease];
-    VAPHuman *termik = [[[VAPMan alloc] initWithName:@"t1000"  age:43] autorelease];
-    VAPHuman *bess = [[[VAPWoman alloc] initWithName:@"Бесс Мотта"  age:16] autorelease];
-    
+    VAPHuman *sara = [[VAPWoman alloc] init];
+    VAPHuman *john = [[VAPMan alloc] init];
+    VAPHuman *termik = [[VAPMan alloc] init];
+    VAPHuman *bess = [[VAPWoman alloc] init];
+    sara.name = @"Sara Connor";
+    john.name = @"John Connor";
+    termik.name = @"t1000";
     
     [sara addChild:john];
     [john addChild:termik];
@@ -29,7 +31,7 @@
       [human performGenderSpecificOperation];
     }
     
-    uint64_t index = 0;
+    uint64_t index;
     
     while (index < 10) {
         id obj = [sara performGenderSpecificOperation];

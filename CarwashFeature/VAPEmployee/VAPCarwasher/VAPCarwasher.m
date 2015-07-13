@@ -10,4 +10,11 @@
 
 @implementation VAPCarwasher
 
+#pragma mark -
+#pragma mark Public Methods
+
+- (void)performEmployeeSpecificOperation {
+    NSLog(@"test - carwasher");
+}
+
 @end

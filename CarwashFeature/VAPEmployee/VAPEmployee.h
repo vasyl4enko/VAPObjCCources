@@ -10,4 +10,14 @@
 
 @interface VAPEmployee : NSObject
 
+typedef NS_ENUM(NSUInteger, VAPEmployeeType) {
+    VAPAccountantType,
+    VAPCarwasherType,
+    VAPDirectorType
+};
+
+- (id)initWithEmployeeType:(VAPEmployeeType) type NS_DESIGNATED_INITIALIZER;
+
+- (void)performEmployeeSpecificOperation;
+
 @end

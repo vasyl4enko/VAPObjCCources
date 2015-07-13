@@ -10,4 +10,10 @@
 
 @interface VAPRoom : NSObject
 
+//директоры
+//бухгалетра
+//мойщики
+@property (nonatomic, retain, readonly)     NSArray     *emploees;
+@property (nonatomic, assign)               NSUInteger  employeesCount;
+
 @end

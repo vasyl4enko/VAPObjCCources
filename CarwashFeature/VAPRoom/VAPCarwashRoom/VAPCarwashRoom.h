@@ -7,7 +7,8 @@
 //
 
 #import "VAPRoom.h"
+#import "VAPCar.h"
 
 @interface VAPCarwashRoom : VAPRoom
-
+@property (nonatomic, retain)   VAPCar  *car;
 @end

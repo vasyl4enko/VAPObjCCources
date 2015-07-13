@@ -10,4 +10,11 @@
 
 @implementation VAPAccountant
 
+#pragma mark -
+#pragma mark Public Methods
+
+- (void)performEmployeeSpecificOperation {
+    NSLog(@"test - accountant");
+}
+
 @end

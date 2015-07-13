@@ -15,8 +15,6 @@
 		1F795F821B53DD6D002CAB5B /* NSObject+VAPExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F795F811B53DD6D002CAB5B /* NSObject+VAPExtension.m */; };
 		1F795FA11B53E844002CAB5B /* VAPHumanTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FF0BC581B4D500200E3FA9F /* VAPHumanTests.m */; };
 		1F795FB01B53EE59002CAB5B /* VAPBuilding.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F795FAF1B53EE59002CAB5B /* VAPBuilding.m */; };
-		1F795FB31B53F485002CAB5B /* VAPCarwashBuilding.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F795FB21B53F485002CAB5B /* VAPCarwashBuilding.m */; };
-		1F795FB61B53F495002CAB5B /* VAPOfficeBuilding.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F795FB51B53F495002CAB5B /* VAPOfficeBuilding.m */; };
 		1F795FB91B53FF6F002CAB5B /* VAPRoom.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F795FB81B53FF6F002CAB5B /* VAPRoom.m */; };
 		1F795FBC1B540001002CAB5B /* VAPCarwashRoom.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F795FBB1B540001002CAB5B /* VAPCarwashRoom.m */; };
 		1F795FC31B540336002CAB5B /* VAPCar.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F795FC21B540336002CAB5B /* VAPCar.m */; };
@@ -55,10 +53,6 @@
 		1F795F811B53DD6D002CAB5B /* NSObject+VAPExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+VAPExtension.m"; sourceTree = "<group>"; };
 		1F795FAE1B53EE59002CAB5B /* VAPBuilding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VAPBuilding.h; sourceTree = "<group>"; };
 		1F795FAF1B53EE59002CAB5B /* VAPBuilding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VAPBuilding.m; sourceTree = "<group>"; };
-		1F795FB11B53F485002CAB5B /* VAPCarwashBuilding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VAPCarwashBuilding.h; sourceTree = "<group>"; };
-		1F795FB21B53F485002CAB5B /* VAPCarwashBuilding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VAPCarwashBuilding.m; sourceTree = "<group>"; };
-		1F795FB41B53F495002CAB5B /* VAPOfficeBuilding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VAPOfficeBuilding.h; sourceTree = "<group>"; };
-		1F795FB51B53F495002CAB5B /* VAPOfficeBuilding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VAPOfficeBuilding.m; sourceTree = "<group>"; };
 		1F795FB71B53FF6F002CAB5B /* VAPRoom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VAPRoom.h; sourceTree = "<group>"; };
 		1F795FB81B53FF6F002CAB5B /* VAPRoom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VAPRoom.m; sourceTree = "<group>"; };
 		1F795FBA1B540001002CAB5B /* VAPCarwashRoom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VAPCarwashRoom.h; sourceTree = "<group>"; };
@@ -196,30 +190,10 @@
 		1F795FA51B53EC06002CAB5B /* VAPBuilding */ = {
 			isa = PBXGroup;
 			children = (
-				1F795FA71B53EC69002CAB5B /* VAPCarwashBuilding */,
-				1F795FA61B53EC66002CAB5B /* VAPOfficeBuilding */,
 				1F795FAE1B53EE59002CAB5B /* VAPBuilding.h */,
 				1F795FAF1B53EE59002CAB5B /* VAPBuilding.m */,
 			);
 			path = VAPBuilding;
-			sourceTree = "<group>";
-		};
-		1F795FA61B53EC66002CAB5B /* VAPOfficeBuilding */ = {
-			isa = PBXGroup;
-			children = (
-				1F795FB41B53F495002CAB5B /* VAPOfficeBuilding.h */,
-				1F795FB51B53F495002CAB5B /* VAPOfficeBuilding.m */,
-			);
-			path = VAPOfficeBuilding;
-			sourceTree = "<group>";
-		};
-		1F795FA71B53EC69002CAB5B /* VAPCarwashBuilding */ = {
-			isa = PBXGroup;
-			children = (
-				1F795FB11B53F485002CAB5B /* VAPCarwashBuilding.h */,
-				1F795FB21B53F485002CAB5B /* VAPCarwashBuilding.m */,
-			);
-			path = VAPCarwashBuilding;
 			sourceTree = "<group>";
 		};
 		1F795FA81B53ECD6002CAB5B /* VAPRoom */ = {
@@ -402,12 +376,10 @@
 				1F795FBC1B540001002CAB5B /* VAPCarwashRoom.m in Sources */,
 				1F795FB01B53EE59002CAB5B /* VAPBuilding.m in Sources */,
 				1F795FCC1B540B52002CAB5B /* VAPAccountant.m in Sources */,
-				1F795FB31B53F485002CAB5B /* VAPCarwashBuilding.m in Sources */,
 				1F795FC61B540AE8002CAB5B /* VAPEmployee.m in Sources */,
 				1F795FCF1B540B85002CAB5B /* VAPDirector.m in Sources */,
 				1F795FC91B540B18002CAB5B /* VAPCarwasher.m in Sources */,
 				1F670BA41B4BFC04003E17DB /* VAPMan.m in Sources */,
-				1F795FB61B53F495002CAB5B /* VAPOfficeBuilding.m in Sources */,
 				1F5474EC1B4AAF0700157DE1 /* VAPHuman.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

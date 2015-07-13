@@ -7,22 +7,13 @@
 //
 
 #import "VAPBuilding.h"
-#import "VAPCarwashBuilding.h"
-#import "VAPOfficeBuilding.h"
 
 @interface VAPBuilding ()
-@property (nonatomic, retain) NSMutableArray *mutableRooms;
+@property (nonatomic, retain)               NSMutableArray      *mutableRooms;
 
 @end
 
 @implementation VAPBuilding
-
-#pragma mark -
-#pragma mark
-
-+ (Class)buildingClassForGender:(VAPBuildingType) type {
-    return VAPBuildingTypeCarwash == type ? [VAPCarwashBuilding class] : [VAPOfficeBuilding class];
-}
 
 #pragma mark -
 #pragma mark
@@ -36,9 +27,10 @@
 
 - (id)initWithBuildingType:(VAPBuildingType) type {
     self = [super init];
-    Class class = [[self class] buildingClassForGender:type];
-    [self release];
-    return [[class alloc] init];
+    if (self) {
+        
+    }
+    return self;
 }
 
 #warning make init mutable rooms

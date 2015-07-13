@@ -8,6 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		1F5474E61B4AA61E00157DE1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F5474E51B4AA61E00157DE1 /* main.m */; };
+		1F5474EC1B4AAF0700157DE1 /* VAPHuman.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F5474EB1B4AAF0700157DE1 /* VAPHuman.m */; };
+		1F5474F01B4B187800157DE1 /* VAPHumanTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F5474EF1B4B187800157DE1 /* VAPHumanTests.m */; };
+		1F670BA41B4BFC04003E17DB /* VAPMan.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F670BA31B4BFC04003E17DB /* VAPMan.m */; };
+		1F670BA71B4BFC51003E17DB /* VAPWoman.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F670BA61B4BFC51003E17DB /* VAPWoman.m */; };
+		1F795F821B53DD6D002CAB5B /* NSObject+VAPExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F795F811B53DD6D002CAB5B /* NSObject+VAPExtension.m */; };
+		1FE597101B4EA4C500BDF0D8 /* VAPHuman.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F5474EB1B4AAF0700157DE1 /* VAPHuman.m */; };
+		1FF0BC591B4D500200E3FA9F /* VAPHumanTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FF0BC581B4D500200E3FA9F /* VAPHumanTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,10 +32,31 @@
 /* Begin PBXFileReference section */
 		1F5474DA1B4AA5DC00157DE1 /* VAPObjCCources */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = VAPObjCCources; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F5474E51B4AA61E00157DE1 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		1F5474EA1B4AAF0700157DE1 /* VAPHuman.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VAPHuman.h; sourceTree = "<group>"; };
+		1F5474EB1B4AAF0700157DE1 /* VAPHuman.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VAPHuman.m; sourceTree = "<group>"; };
+		1F5474EE1B4B187800157DE1 /* VAPHumanTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VAPHumanTests.h; sourceTree = "<group>"; };
+		1F5474EF1B4B187800157DE1 /* VAPHumanTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VAPHumanTests.m; sourceTree = "<group>"; };
+		1F670B9F1B4BF71B003E17DB /* IDPStudyPlan */ = {isa = PBXFileReference; lastKnownFileType = text; name = IDPStudyPlan; path = ../../Users/aleksandr/Dropbox/IDPStudyPlan; sourceTree = "<group>"; };
+		1F670BA21B4BFC04003E17DB /* VAPMan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VAPMan.h; sourceTree = "<group>"; };
+		1F670BA31B4BFC04003E17DB /* VAPMan.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VAPMan.m; sourceTree = "<group>"; };
+		1F670BA51B4BFC51003E17DB /* VAPWoman.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VAPWoman.h; sourceTree = "<group>"; };
+		1F670BA61B4BFC51003E17DB /* VAPWoman.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VAPWoman.m; sourceTree = "<group>"; };
+		1F795F801B53DD6D002CAB5B /* NSObject+VAPExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+VAPExtension.h"; sourceTree = "<group>"; };
+		1F795F811B53DD6D002CAB5B /* NSObject+VAPExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+VAPExtension.m"; sourceTree = "<group>"; };
+		1FF0BC541B4D500200E3FA9F /* VAPHumanTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VAPHumanTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1FF0BC571B4D500200E3FA9F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1FF0BC581B4D500200E3FA9F /* VAPHumanTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VAPHumanTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		1F5474D71B4AA5DC00157DE1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1FF0BC511B4D500200E3FA9F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -41,7 +69,9 @@
 		1F5474D11B4AA5DC00157DE1 = {
 			isa = PBXGroup;
 			children = (
+				1F670B9F1B4BF71B003E17DB /* IDPStudyPlan */,
 				1F5474DC1B4AA5DC00157DE1 /* VAPObjCCources */,
+				1FF0BC551B4D500200E3FA9F /* VAPHumanTests */,
 				1F5474DB1B4AA5DC00157DE1 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -50,6 +80,7 @@
 			isa = PBXGroup;
 			children = (
 				1F5474DA1B4AA5DC00157DE1 /* VAPObjCCources */,
+				1FF0BC541B4D500200E3FA9F /* VAPHumanTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -57,6 +88,7 @@
 		1F5474DC1B4AA5DC00157DE1 /* VAPObjCCources */ = {
 			isa = PBXGroup;
 			children = (
+				1F5474ED1B4AAFDE00157DE1 /* Tests */,
 				1F5474E41B4AA5F000157DE1 /* Source */,
 			);
 			path = VAPObjCCources;
@@ -65,9 +97,75 @@
 		1F5474E41B4AA5F000157DE1 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				1F795F7F1B53DD1E002CAB5B /* VAPCategories */,
+				1F5474E71B4AA76800157DE1 /* VAPHuman */,
 				1F5474E51B4AA61E00157DE1 /* main.m */,
 			);
 			path = Source;
+			sourceTree = "<group>";
+		};
+		1F5474E71B4AA76800157DE1 /* VAPHuman */ = {
+			isa = PBXGroup;
+			children = (
+				1F670BA11B4BFBB1003E17DB /* VAPWoman */,
+				1F670BA01B4BFBAB003E17DB /* VAPMan */,
+				1F5474EA1B4AAF0700157DE1 /* VAPHuman.h */,
+				1F5474EB1B4AAF0700157DE1 /* VAPHuman.m */,
+			);
+			path = VAPHuman;
+			sourceTree = "<group>";
+		};
+		1F5474ED1B4AAFDE00157DE1 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				1F5474EE1B4B187800157DE1 /* VAPHumanTests.h */,
+				1F5474EF1B4B187800157DE1 /* VAPHumanTests.m */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+		1F670BA01B4BFBAB003E17DB /* VAPMan */ = {
+			isa = PBXGroup;
+			children = (
+				1F670BA21B4BFC04003E17DB /* VAPMan.h */,
+				1F670BA31B4BFC04003E17DB /* VAPMan.m */,
+			);
+			path = VAPMan;
+			sourceTree = "<group>";
+		};
+		1F670BA11B4BFBB1003E17DB /* VAPWoman */ = {
+			isa = PBXGroup;
+			children = (
+				1F670BA51B4BFC51003E17DB /* VAPWoman.h */,
+				1F670BA61B4BFC51003E17DB /* VAPWoman.m */,
+			);
+			path = VAPWoman;
+			sourceTree = "<group>";
+		};
+		1F795F7F1B53DD1E002CAB5B /* VAPCategories */ = {
+			isa = PBXGroup;
+			children = (
+				1F795F801B53DD6D002CAB5B /* NSObject+VAPExtension.h */,
+				1F795F811B53DD6D002CAB5B /* NSObject+VAPExtension.m */,
+			);
+			path = VAPCategories;
+			sourceTree = "<group>";
+		};
+		1FF0BC551B4D500200E3FA9F /* VAPHumanTests */ = {
+			isa = PBXGroup;
+			children = (
+				1FF0BC581B4D500200E3FA9F /* VAPHumanTests.m */,
+				1FF0BC561B4D500200E3FA9F /* Supporting Files */,
+			);
+			path = VAPHumanTests;
+			sourceTree = "<group>";
+		};
+		1FF0BC561B4D500200E3FA9F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				1FF0BC571B4D500200E3FA9F /* Info.plist */,
+			);
+			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -90,6 +188,23 @@
 			productReference = 1F5474DA1B4AA5DC00157DE1 /* VAPObjCCources */;
 			productType = "com.apple.product-type.tool";
 		};
+		1FF0BC531B4D500200E3FA9F /* VAPHumanTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1FF0BC5C1B4D500200E3FA9F /* Build configuration list for PBXNativeTarget "VAPHumanTests" */;
+			buildPhases = (
+				1FF0BC501B4D500200E3FA9F /* Sources */,
+				1FF0BC511B4D500200E3FA9F /* Frameworks */,
+				1FF0BC521B4D500200E3FA9F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = VAPHumanTests;
+			productName = VAPHumanTests;
+			productReference = 1FF0BC541B4D500200E3FA9F /* VAPHumanTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -100,6 +215,9 @@
 				ORGANIZATIONNAME = "Aleksandr Vasylchenko";
 				TargetAttributes = {
 					1F5474D91B4AA5DC00157DE1 = {
+						CreatedOnToolsVersion = 6.4;
+					};
+					1FF0BC531B4D500200E3FA9F = {
 						CreatedOnToolsVersion = 6.4;
 					};
 				};
@@ -117,9 +235,20 @@
 			projectRoot = "";
 			targets = (
 				1F5474D91B4AA5DC00157DE1 /* VAPObjCCources */,
+				1FF0BC531B4D500200E3FA9F /* VAPHumanTests */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1FF0BC521B4D500200E3FA9F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		1F5474D61B4AA5DC00157DE1 /* Sources */ = {
@@ -127,6 +256,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				1F5474E61B4AA61E00157DE1 /* main.m in Sources */,
+				1F795F821B53DD6D002CAB5B /* NSObject+VAPExtension.m in Sources */,
+				1F5474F01B4B187800157DE1 /* VAPHumanTests.m in Sources */,
+				1F670BA71B4BFC51003E17DB /* VAPWoman.m in Sources */,
+				1F670BA41B4BFC04003E17DB /* VAPMan.m in Sources */,
+				1F5474EC1B4AAF0700157DE1 /* VAPHuman.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1FF0BC501B4D500200E3FA9F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1FF0BC591B4D500200E3FA9F /* VAPHumanTests.m in Sources */,
+				1FE597101B4EA4C500BDF0D8 /* VAPHuman.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -226,6 +369,38 @@
 			};
 			name = Release;
 		};
+		1FF0BC5A1B4D500200E3FA9F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = VAPHumanTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		1FF0BC5B1B4D500200E3FA9F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = VAPHumanTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -245,6 +420,16 @@
 				1F5474E31B4AA5DC00157DE1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1FF0BC5C1B4D500200E3FA9F /* Build configuration list for PBXNativeTarget "VAPHumanTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1FF0BC5A1B4D500200E3FA9F /* Debug */,
+				1FF0BC5B1B4D500200E3FA9F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

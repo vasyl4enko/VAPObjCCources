@@ -1,5 +1,5 @@
 //
-//  main.m
+//  VAPHumanTests.h
 //  VAPObjCCources
 //
 //  Created by Aleksandr Vasylchenko on 06.07.15.
@@ -8,11 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
-#import "VAPHumanTests.h"
+@interface VAPHumanTests : NSObject
 
-int main(int argc, const char * argv[]) {
-    @autoreleasepool {
-        [VAPHumanTests VAPHumanBehavourTest];
-    }
-    return 0;
-}
++ (void)VAPHumanBehavourTest;
+
+@end

@@ -12,7 +12,7 @@
 		1F5474F01B4B187800157DE1 /* VAPHumanTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F5474EF1B4B187800157DE1 /* VAPHumanTests.m */; };
 		1F670BA41B4BFC04003E17DB /* VAPMan.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F670BA31B4BFC04003E17DB /* VAPMan.m */; };
 		1F670BA71B4BFC51003E17DB /* VAPWoman.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F670BA61B4BFC51003E17DB /* VAPWoman.m */; };
-		1FE5970F1B4EA33400BDF0D8 /* NSObject+VAPNSObjectExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FE5970E1B4EA33400BDF0D8 /* NSObject+VAPNSObjectExtension.m */; };
+		1F795F821B53DD6D002CAB5B /* NSObject+VAPExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F795F811B53DD6D002CAB5B /* NSObject+VAPExtension.m */; };
 		1FE597101B4EA4C500BDF0D8 /* VAPHuman.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F5474EB1B4AAF0700157DE1 /* VAPHuman.m */; };
 		1FF0BC591B4D500200E3FA9F /* VAPHumanTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FF0BC581B4D500200E3FA9F /* VAPHumanTests.m */; };
 /* End PBXBuildFile section */
@@ -41,8 +41,8 @@
 		1F670BA31B4BFC04003E17DB /* VAPMan.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VAPMan.m; sourceTree = "<group>"; };
 		1F670BA51B4BFC51003E17DB /* VAPWoman.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VAPWoman.h; sourceTree = "<group>"; };
 		1F670BA61B4BFC51003E17DB /* VAPWoman.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VAPWoman.m; sourceTree = "<group>"; };
-		1FE5970D1B4EA33400BDF0D8 /* NSObject+VAPNSObjectExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+VAPNSObjectExtension.h"; sourceTree = "<group>"; };
-		1FE5970E1B4EA33400BDF0D8 /* NSObject+VAPNSObjectExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+VAPNSObjectExtension.m"; sourceTree = "<group>"; };
+		1F795F801B53DD6D002CAB5B /* NSObject+VAPExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+VAPExtension.h"; sourceTree = "<group>"; };
+		1F795F811B53DD6D002CAB5B /* NSObject+VAPExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+VAPExtension.m"; sourceTree = "<group>"; };
 		1FF0BC541B4D500200E3FA9F /* VAPHumanTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VAPHumanTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FF0BC571B4D500200E3FA9F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1FF0BC581B4D500200E3FA9F /* VAPHumanTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VAPHumanTests.m; sourceTree = "<group>"; };
@@ -97,6 +97,7 @@
 		1F5474E41B4AA5F000157DE1 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				1F795F7F1B53DD1E002CAB5B /* VAPCategories */,
 				1F5474E71B4AA76800157DE1 /* VAPHuman */,
 				1F5474E51B4AA61E00157DE1 /* main.m */,
 			);
@@ -110,8 +111,6 @@
 				1F670BA01B4BFBAB003E17DB /* VAPMan */,
 				1F5474EA1B4AAF0700157DE1 /* VAPHuman.h */,
 				1F5474EB1B4AAF0700157DE1 /* VAPHuman.m */,
-				1FE5970D1B4EA33400BDF0D8 /* NSObject+VAPNSObjectExtension.h */,
-				1FE5970E1B4EA33400BDF0D8 /* NSObject+VAPNSObjectExtension.m */,
 			);
 			path = VAPHuman;
 			sourceTree = "<group>";
@@ -141,6 +140,15 @@
 				1F670BA61B4BFC51003E17DB /* VAPWoman.m */,
 			);
 			path = VAPWoman;
+			sourceTree = "<group>";
+		};
+		1F795F7F1B53DD1E002CAB5B /* VAPCategories */ = {
+			isa = PBXGroup;
+			children = (
+				1F795F801B53DD6D002CAB5B /* NSObject+VAPExtension.h */,
+				1F795F811B53DD6D002CAB5B /* NSObject+VAPExtension.m */,
+			);
+			path = VAPCategories;
 			sourceTree = "<group>";
 		};
 		1FF0BC551B4D500200E3FA9F /* VAPHumanTests */ = {
@@ -248,7 +256,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1F5474E61B4AA61E00157DE1 /* main.m in Sources */,
-				1FE5970F1B4EA33400BDF0D8 /* NSObject+VAPNSObjectExtension.m in Sources */,
+				1F795F821B53DD6D002CAB5B /* NSObject+VAPExtension.m in Sources */,
 				1F5474F01B4B187800157DE1 /* VAPHumanTests.m in Sources */,
 				1F670BA71B4BFC51003E17DB /* VAPWoman.m in Sources */,
 				1F670BA41B4BFC04003E17DB /* VAPMan.m in Sources */,

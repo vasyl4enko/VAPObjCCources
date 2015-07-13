@@ -1,14 +1,14 @@
 //
-//  NSObject+VAPNSObjectExtension.h
+//  NSObject+VAPExtension.h
 //  VAPObjCCources
 //
-//  Created by Aleksandr Vasylchenko on 09.07.15.
+//  Created by Aleksandr Vasylchenko on 13.07.15.
 //  Copyright (c) 2015 Aleksandr Vasylchenko. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 
-@interface NSObject (VAPNSObjectExtension)
+@interface NSObject (VAPExtension)
 
 + (id)object;
 

@@ -18,6 +18,8 @@
     VAPHuman *john = [[VAPMan alloc] init];
     VAPHuman *termik = [[VAPMan alloc] init];
     VAPHuman *bess = [[VAPWoman alloc] init];
+    
+    VAPHuman *sdf = [[VAPHuman alloc] init];
     sara.name = @"Sara Connor";
     john.name = @"John Connor";
     termik.name = @"t1000";

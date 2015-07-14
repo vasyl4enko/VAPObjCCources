@@ -10,4 +10,8 @@
 
 @interface VAPOfficeBuilding : VAPBuilding
 
+- (instancetype)initWithDefaultRoom;
+
+- (instancetype)initWithRoomCount:(NSUInteger) count NS_DESIGNATED_INITIALIZER;
+
 @end

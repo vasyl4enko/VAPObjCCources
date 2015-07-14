@@ -7,16 +7,28 @@
 //
 
 #import "VAPBuilding.h"
+#import "VAPCarwashBuilding.h"
+#import "VAPOfficeBuilding.h"
 
 @interface VAPBuilding ()
-@property (nonatomic, retain)               NSMutableArray      *mutableRooms;
+@property (nonatomic, retain)     NSMutableArray    *mutableRooms;
+
++ (Class)buildingForType:(VAPBuildingType) type;
 
 @end
 
 @implementation VAPBuilding
+@dynamic rooms;
 
 #pragma mark -
-#pragma mark
+#pragma mark Class Methods
+
++ (Class)buildingForType:(VAPBuildingType) type {
+    return VAPBuildingTypeCarwash == type ? [VAPCarwashBuilding class] : [VAPOfficeBuilding class];
+}
+
+#pragma mark -
+#pragma mark - init
 
 - (void)dealloc
 {
@@ -27,17 +39,37 @@
 
 - (id)initWithBuildingType:(VAPBuildingType) type {
     self = [super init];
-    if (self) {
-        
-    }
-    return self;
+    Class class = [[self class] buildingForType:type];
+    [self release];
+    
+    return [[class alloc] initWithDefaultRoom];
 }
 
-#warning make init mutable rooms
-@dynamic rooms;
 
--(NSArray *)rooms {
+
+#pragma mark -
+#pragma mark Accessors
+
+- (NSSet *)rooms {
     return [[self.mutableRooms copy] autorelease];
 }
+
+- (NSMutableArray *)mutableRooms {
+    if (!_mutableRooms) {
+        _mutableRooms = [[NSMutableArray alloc] init];
+    }
+    
+    return _mutableRooms;
+}
+
+#pragma mark -
+#pragma mark Public
+
+- (void)addRooms:(id)object {
+    if (nil != object && NO == [self.mutableRooms containsObject:object]) {
+        [self.mutableRooms addObject:object];
+    }
+}
+
 
 @end

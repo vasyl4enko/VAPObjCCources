@@ -14,9 +14,10 @@ typedef NS_ENUM(NSUInteger, VAPBuildingType) {
 };
 
 @interface VAPBuilding : NSObject
-@property (nonatomic, retain, readonly)     NSArray             *rooms;
-@property (nonatomic, assign)               VAPBuildingType     type;
+@property (nonatomic, readonly)       NSArray       *rooms;
 
-- (id)initWithBuildingType:(VAPBuildingType) type NS_DESIGNATED_INITIALIZER;
+- (id)initWithBuildingType:(VAPBuildingType) type;
+
+- (void)addRooms:(id)objects;
 
 @end

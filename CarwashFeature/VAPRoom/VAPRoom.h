@@ -8,16 +8,16 @@
 
 #import <Foundation/Foundation.h>
 
-@interface VAPRoom : NSObject
+extern NSUInteger const kVAPDefaultEmployeesCount;
 
-//директоры
-//бухгалетра
-//мойщики
+@interface VAPRoom : NSObject
 @property (nonatomic, retain, readonly)     NSArray     *employees;
 @property (nonatomic, assign, readonly)     NSUInteger  employeesCount;
 
 - (instancetype)initWithEmployeesCount:(NSUInteger) employeesCount NS_DESIGNATED_INITIALIZER;
 
 - (void)addEmployee:(id) object;
+
+- (void)removeEmployee:(id) object;
 
 @end

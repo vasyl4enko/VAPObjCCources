@@ -8,7 +8,7 @@
 
 #import "VAPRoom.h"
 
-static NSUInteger const kVAPDefaultEmployeesCount = 1;
+NSUInteger const kVAPDefaultEmployeesCount = 1;
 
 @interface VAPRoom ()
 
@@ -21,7 +21,10 @@ static NSUInteger const kVAPDefaultEmployeesCount = 1;
 @dynamic employees;
 
 #pragma mark -
-#pragma mark Initi
+#pragma mark Class Methods
+
+#pragma mark -
+#pragma mark Initializations and Deallocations
 
 - (void)dealloc
 {
@@ -34,6 +37,7 @@ static NSUInteger const kVAPDefaultEmployeesCount = 1;
     self = [super init];
     if (self) {
         _employeesCount = employeesCount;
+        self.mutableEmployees = [[NSMutableArray alloc] initWithCapacity:_employeesCount];
     }
     
     return self;
@@ -52,13 +56,22 @@ static NSUInteger const kVAPDefaultEmployeesCount = 1;
     return [[self.mutableEmployees copy] autorelease];
 }
 
+
+
 #pragma mark -
-#pragma mark Public
+#pragma mark Public Implementation
 
 - (void)addEmployee:(id)object {
-    if (nil != object && NO == [self.mutableEmployees containsObject:object]) {
+    if (nil != object
+        && NO == [self.mutableEmployees containsObject:object]
+        && self.employeesCount > [self.mutableEmployees count])
+    {
         [self.mutableEmployees addObject:object];
     }
+}
+
+- (void)removeEmployee:(id) object {
+    [self.mutableEmployees removeObject:object];
 }
 
 @end

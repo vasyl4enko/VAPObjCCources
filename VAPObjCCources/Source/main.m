@@ -9,10 +9,17 @@
 #import <Foundation/Foundation.h>
 
 #import "VAPHumanTests.h"
+#import "VAPCarwashRoom.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
         [VAPHumanTests VAPHumanBehavourTest];
+        VAPRoom *room = [[VAPRoom alloc] init];
+        NSString *str = @"dsf";
+        [room addEmployee:str];
+        [room removeEmployee:str];
+        
+        
     }
     return 0;
 }

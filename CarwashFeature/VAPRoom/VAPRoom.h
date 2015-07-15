@@ -12,7 +12,7 @@ extern NSUInteger const kVAPDefaultEmployeesCount;
 
 @interface VAPRoom : NSObject
 @property (nonatomic, retain, readonly)     NSArray     *employees;
-@property (nonatomic, assign, readonly)     NSUInteger  employeesCount;
+@property (nonatomic, assign)               NSUInteger  employeesCount;
 
 - (instancetype)initWithEmployeesCount:(NSUInteger) employeesCount NS_DESIGNATED_INITIALIZER;
 

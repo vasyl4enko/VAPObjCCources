@@ -13,7 +13,7 @@ extern NSUInteger const kVAPDefaultCarsCount;
 
 @interface VAPCarwashRoom : VAPRoom
 @property (nonatomic, retain, readonly)     NSArray     *cars;
-@property (nonatomic, assign, readonly)     NSUInteger  carsCount;
+@property (nonatomic, assign)               NSUInteger  carsCount;
 
 - (instancetype)initWithEmployeesCount:(NSUInteger) employeesCount
                              carsCount:(NSUInteger) carsCount;

@@ -36,7 +36,7 @@ NSUInteger const kVAPDefaultEmployeesCount = 1;
 - (instancetype)initWithEmployeesCount:(NSUInteger) employeesCount {
     self = [super init];
     if (self) {
-        _employeesCount = employeesCount;
+        self.employeesCount = employeesCount;
         self.mutableEmployees = [[NSMutableArray alloc] initWithCapacity:_employeesCount];
     }
     

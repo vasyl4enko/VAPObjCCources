@@ -36,7 +36,7 @@ NSUInteger const kVAPDefaultCarsCount = 1;
 {
     self = [super initWithEmployeesCount:employeesCount];
     if (self) {
-        _carsCount = carsCount;
+        self.carsCount = carsCount;
         self.mutableCars = [[NSMutableArray alloc] initWithCapacity:_carsCount];
     }
     

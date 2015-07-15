@@ -10,4 +10,8 @@
 
 @interface VAPCarwashBuilding : VAPBuilding
 
+- (instancetype)initWithDefaultRoom;
+
+- (instancetype)initWithRoomsCount:(NSUInteger) count;
+
 @end

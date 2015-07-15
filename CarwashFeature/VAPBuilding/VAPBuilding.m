@@ -10,6 +10,8 @@
 #import "VAPCarwashBuilding.h"
 #import "VAPOfficeBuilding.h"
 
+NSUInteger const kVAPDefaultCountRooms = 1;
+
 @interface VAPBuilding ()
 @property (nonatomic, retain)     NSMutableArray    *mutableRooms;
 
@@ -28,7 +30,7 @@
 }
 
 #pragma mark -
-#pragma mark - init
+#pragma mark Initializations and Deallocations
 
 - (void)dealloc
 {
@@ -37,15 +39,17 @@
     [super dealloc];
 }
 
-- (id)initWithBuildingType:(VAPBuildingType) type {
+- (id)initWithBuildingType:(VAPBuildingType) type roomsCount:(NSUInteger) count {
     self = [super init];
     Class class = [[self class] buildingForType:type];
     [self release];
     
-    return [[class alloc] initWithDefaultRoom];
+    return [[class alloc] initWithRoomsCount:count];
 }
 
-
+- (id)initWithBuildingType:(VAPBuildingType) type {
+    return [self initWithBuildingType:type roomsCount:kVAPDefaultCountRooms];
+}
 
 #pragma mark -
 #pragma mark Accessors
@@ -63,12 +67,19 @@
 }
 
 #pragma mark -
-#pragma mark Public
+#pragma mark Public Implementation
 
-- (void)addRooms:(id)object {
-    if (nil != object && NO == [self.mutableRooms containsObject:object]) {
+- (void)addRoom:(id)object {
+    if (nil != object
+        && NO == [self.mutableRooms containsObject:object]
+        && self.roomsCount > [self.mutableRooms count])
+    {
         [self.mutableRooms addObject:object];
     }
+}
+
+- (void)removeRoom:(id)objects {
+    [self.mutableRooms removeObject:objects];
 }
 
 

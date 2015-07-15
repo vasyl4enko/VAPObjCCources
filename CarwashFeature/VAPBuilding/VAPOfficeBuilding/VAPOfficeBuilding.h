@@ -12,6 +12,6 @@
 
 - (instancetype)initWithDefaultRoom;
 
-- (instancetype)initWithRoomCount:(NSUInteger) count NS_DESIGNATED_INITIALIZER;
+- (instancetype)initWithRoomsCount:(NSUInteger) count;
 
 @end

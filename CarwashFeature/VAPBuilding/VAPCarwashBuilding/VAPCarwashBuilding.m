@@ -7,7 +7,18 @@
 //
 
 #import "VAPCarwashBuilding.h"
+#import "VAPCarwashRoom.h"
 
 @implementation VAPCarwashBuilding
+
+- (instancetype)initWithDefaultRoom {
+    return [self initWithRoomsCount:kVAPDefaultCountRooms];
+}
+
+- (instancetype)initWithRoomsCount:(NSUInteger) count {
+    self = [super init];
+    self.roomsCount = count;
+    return self;
+}
 
 @end

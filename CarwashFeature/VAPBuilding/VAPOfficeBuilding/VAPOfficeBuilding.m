@@ -14,20 +14,13 @@ static NSUInteger const kVAPDefaultRoomCount = 1;
 @implementation VAPOfficeBuilding
 
 - (instancetype)initWithDefaultRoom {
-    return [self initWithRoomCount:kVAPDefaultRoomCount];
+    return [self initWithRoomsCount:kVAPDefaultCountRooms];
 }
 
-- (instancetype)initWithRoomCount:(NSUInteger) count {
+- (instancetype)initWithRoomsCount:(NSUInteger) count {
     self = [super init];
-    if (self) {
-        NSUInteger iterator = 0;
-        while (iterator < count) {
-            VAPRoom *room = [[[VAPRoom alloc] initWithEmployeesCount:count] autorelease];
-            [self addRooms:room];
-            iterator++;
-        }
-    }
-    return nil;
+    self.roomsCount = count;
+    return self;
 }
 
 @end

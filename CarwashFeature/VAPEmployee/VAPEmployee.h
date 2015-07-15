@@ -16,7 +16,7 @@ typedef NS_ENUM(NSUInteger, VAPEmployeeType) {
     VAPDirectorType
 };
 
-- (id)initWithEmployeeType:(VAPEmployeeType) type NS_DESIGNATED_INITIALIZER;
+- (id)initWithEmployeeType:(VAPEmployeeType) type;
 
 - (void)performEmployeeSpecificOperation;
 

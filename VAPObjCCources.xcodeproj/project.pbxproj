@@ -23,6 +23,7 @@
 		1F795FCF1B540B85002CAB5B /* VAPDirector.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F795FCE1B540B85002CAB5B /* VAPDirector.m */; };
 		1F795FD41B542249002CAB5B /* VAPOfficeBuilding.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F795FD31B542249002CAB5B /* VAPOfficeBuilding.m */; };
 		1F795FD71B54225E002CAB5B /* VAPCarwashBuilding.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F795FD61B54225E002CAB5B /* VAPCarwashBuilding.m */; };
+		1FA4E5EB1B56E29600099C08 /* VAPEnterprise.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FA4E5EA1B56E29600099C08 /* VAPEnterprise.m */; };
 		1FE597101B4EA4C500BDF0D8 /* VAPHuman.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F5474EB1B4AAF0700157DE1 /* VAPHuman.m */; };
 /* End PBXBuildFile section */
 
@@ -72,6 +73,8 @@
 		1F795FD31B542249002CAB5B /* VAPOfficeBuilding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VAPOfficeBuilding.m; sourceTree = "<group>"; };
 		1F795FD51B54225E002CAB5B /* VAPCarwashBuilding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VAPCarwashBuilding.h; sourceTree = "<group>"; };
 		1F795FD61B54225E002CAB5B /* VAPCarwashBuilding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VAPCarwashBuilding.m; sourceTree = "<group>"; };
+		1FA4E5E91B56E29600099C08 /* VAPEnterprise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VAPEnterprise.h; sourceTree = "<group>"; };
+		1FA4E5EA1B56E29600099C08 /* VAPEnterprise.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VAPEnterprise.m; sourceTree = "<group>"; };
 		1FF0BC541B4D500200E3FA9F /* VAPHumanTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VAPHumanTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -181,6 +184,7 @@
 		1F795FA41B53E9AF002CAB5B /* CarwashFeature */ = {
 			isa = PBXGroup;
 			children = (
+				1FA4E5E81B56E25600099C08 /* VAPEnterprise */,
 				1F795FBD1B5402F0002CAB5B /* VAPCar */,
 				1F795FAA1B53ED05002CAB5B /* VAPEmployee */,
 				1F795FA81B53ECD6002CAB5B /* VAPRoom */,
@@ -285,6 +289,15 @@
 			path = VAPCarwashBuilding;
 			sourceTree = "<group>";
 		};
+		1FA4E5E81B56E25600099C08 /* VAPEnterprise */ = {
+			isa = PBXGroup;
+			children = (
+				1FA4E5E91B56E29600099C08 /* VAPEnterprise.h */,
+				1FA4E5EA1B56E29600099C08 /* VAPEnterprise.m */,
+			);
+			path = VAPEnterprise;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -382,6 +395,7 @@
 				1F795FD41B542249002CAB5B /* VAPOfficeBuilding.m in Sources */,
 				1F795FB01B53EE59002CAB5B /* VAPBuilding.m in Sources */,
 				1F795FCC1B540B52002CAB5B /* VAPAccountant.m in Sources */,
+				1FA4E5EB1B56E29600099C08 /* VAPEnterprise.m in Sources */,
 				1F795FC61B540AE8002CAB5B /* VAPEmployee.m in Sources */,
 				1F795FCF1B540B85002CAB5B /* VAPDirector.m in Sources */,
 				1F795FC91B540B18002CAB5B /* VAPCarwasher.m in Sources */,

@@ -10,14 +10,16 @@
 
 #import "VAPHumanTests.h"
 #import "VAPCarwashRoom.h"
+#import "VAPCarwashBuilding.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
-        [VAPHumanTests VAPHumanBehavourTest];
-        VAPRoom *room = [[VAPRoom alloc] init];
-        NSString *str = @"dsf";
-        [room addEmployee:str];
-        [room removeEmployee:str];
+//        [VAPHumanTests VAPHumanBehavourTest];
+        VAPRoom *room = [[[VAPRoom alloc] init] autorelease];
+        VAPBuilding *house = [[[VAPBuilding alloc] initWithBuildingType:VAPBuildingTypeCarwash] autorelease];
+        [house addRoom:room];
+        NSString *key = [NSString stringWithFormat:@"%@",[house class]];
+        NSLog(@"%@",key);
         
         
     }

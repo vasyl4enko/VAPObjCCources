@@ -8,6 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
+@class VAPOfficeBuilding;
+
 @interface VAPEnterprise : NSObject
+@property (nonatomic, copy) VAPOfficeBuilding *headOffice;
+@property (nonatomic, retain, readonly) NSDictionary *departments;
 
 @end

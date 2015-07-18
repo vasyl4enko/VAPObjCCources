@@ -20,4 +20,6 @@ extern NSUInteger const kVAPDefaultEmployeesCount;
 
 - (void)removeEmployee:(id) object;
 
+- (void)forceToWorkWithObject:(id) object;
+
 @end

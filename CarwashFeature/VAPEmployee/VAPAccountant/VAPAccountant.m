@@ -13,8 +13,13 @@
 #pragma mark -
 #pragma mark Public Methods
 
-- (void)performEmployeeSpecificOperation {
-    NSLog(@"test - accountant");
+- (NSNumber *)performEmployeeSpecificOperationWithObject:(id) object {
+    if (nil != object && [object isMemberOfClass:[NSNumber class]]) {
+        NSLog(@"counting money");
+        
+//        return @([object money]);
+    }
+    return nil;
 }
 
 @end

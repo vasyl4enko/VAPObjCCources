@@ -7,8 +7,9 @@
 //
 
 #import "VAPRoom.h"
+#import "VAPEmployee.h"
 
-NSUInteger const kVAPDefaultEmployeesCount = 1;
+NSUInteger const kVAPDefaultEmployeesCount = 2;
 
 @interface VAPRoom ()
 
@@ -72,6 +73,10 @@ NSUInteger const kVAPDefaultEmployeesCount = 1;
 
 - (void)removeEmployee:(id) object {
     [self.mutableEmployees removeObject:object];
+}
+
+- (void)forceToWorkWithObject:(id) object {
+    
 }
 
 @end

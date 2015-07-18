@@ -28,4 +28,7 @@ extern NSUInteger const kVAPDefaultCarsCount;
 
 - (id)firstCar;
 
+- (id)performRoomSpecificOperatiom:(id) object;
+
+
 @end

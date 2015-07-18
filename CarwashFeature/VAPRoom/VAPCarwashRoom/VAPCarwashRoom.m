@@ -7,6 +7,7 @@
 //
 
 #import "VAPCarwashRoom.h"
+#import "VAPCarwasher.h"
 
 NSUInteger const kVAPDefaultCarsCount = 1;
 
@@ -37,6 +38,7 @@ NSUInteger const kVAPDefaultCarsCount = 1;
     self = [super initWithEmployeesCount:employeesCount];
     if (self) {
         self.carsCount = carsCount;
+#warning warning!!!
         self.mutableCars = [[NSMutableArray alloc] initWithCapacity:_carsCount];
     }
     
@@ -78,6 +80,31 @@ NSUInteger const kVAPDefaultCarsCount = 1;
     [self.mutableCars removeObject:object];
     
     return object;
+}
+
+- (id)performRoomSpecificOperatiom:(id) object {
+    NSMutableArray *result;
+    if (nil != object && [object isKindOfClass:[NSArray class]]) {
+        uint64_t iterator = 0;
+        result = [NSMutableArray array];
+        for (VAPCar *car in object) {
+            [self.mutableCars addObject:car];
+            iterator++;
+            if (iterator == kVAPDefaultCarsCount) {
+                iterator = 0;
+                VAPCarwasher *worker = [self.employees firstObject]; // at the task we have one worker but
+                //we can add cycle
+                [result addObjectsFromArray:[worker performEmployeeSpecificOperationWithObject:self.cars]];
+                [self removeCars];
+            }
+            
+            
+        }
+        
+        return result;
+    }
+    
+    return result;
 }
 
 @end

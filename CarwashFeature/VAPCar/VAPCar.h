@@ -9,5 +9,5 @@
 #import <Foundation/Foundation.h>
 
 @interface VAPCar : NSObject
-
+@property(nonatomic, assign) CGFloat money;
 @end

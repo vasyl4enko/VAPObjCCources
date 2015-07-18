@@ -50,8 +50,8 @@
 #pragma mark -
 #pragma mark Public Methods
 
-- (void)performEmployeeSpecificOperation {
-    
+- (id)performEmployeeSpecificOperationWithObject:(id) object {
+    return nil;
 }
 
 

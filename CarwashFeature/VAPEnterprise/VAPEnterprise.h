@@ -7,11 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#warning depracated
 
 @class VAPOfficeBuilding;
 
 @interface VAPEnterprise : NSObject
 @property (nonatomic, copy) VAPOfficeBuilding *headOffice;
 @property (nonatomic, retain, readonly) NSDictionary *departments;
+
+//- (id)doIt:(id)
 
 @end

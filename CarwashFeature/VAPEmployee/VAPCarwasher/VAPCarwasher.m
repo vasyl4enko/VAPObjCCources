@@ -7,14 +7,28 @@
 //
 
 #import "VAPCarwasher.h"
+#import "VAPCar.h"
+
+@interface VAPCarwasher ()
+
+@end
 
 @implementation VAPCarwasher
 
 #pragma mark -
 #pragma mark Public Methods
 
-- (void)performEmployeeSpecificOperation {
-    NSLog(@"test - carwasher");
+- (id)performEmployeeSpecificOperationWithObject:(id) object {
+    NSMutableArray *result;
+    if (nil != object && [object isKindOfClass:[NSArray class]]) {
+        result = [NSMutableArray array];
+        NSLog(@"I'm a carwasher & i'm washing car");
+        for (VAPCar *car in object) {
+            [result addObject: @(car.money)];
+        }
+       
+    }
+    return result;
 }
 
 @end

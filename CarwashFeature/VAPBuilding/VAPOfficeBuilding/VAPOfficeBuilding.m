@@ -9,8 +9,6 @@
 #import "VAPOfficeBuilding.h"
 #import "VAPRoom.h"
 
-static NSUInteger const kVAPDefaultRoomCount = 1;
-
 @implementation VAPOfficeBuilding
 
 - (instancetype)initWithDefaultRoom {

@@ -78,5 +78,9 @@ NSUInteger const kVAPDefaultEmployeesCount = 2;
 - (void)forceToWorkWithObject:(id) object {
     
 }
+#warning override
+- (id)performRoomSpecificOperatiom:(id) object {
+    return nil;
+}
 
 @end

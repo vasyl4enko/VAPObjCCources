@@ -82,5 +82,11 @@ NSUInteger const kVAPDefaultCountRooms = 1;
     [self.mutableRooms removeObject:objects];
 }
 
+- (id)performBuildingSpecificOperatiom:(id) object {
+    // rooms count
+    // NSArray         *rooms;
+    return nil;
+}
+
 
 @end

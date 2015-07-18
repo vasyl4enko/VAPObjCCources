@@ -40,7 +40,7 @@
     if (nil != object) {
         NSString *key = [NSString stringWithFormat:@"%@",[object class]];
         if (nil != [self.mutableDepartments objectForKey:key]) {
-            NSArray *array = [self.mutableDepartments objectForKey:key];
+            [self.mutableDepartments objectForKey:key];
             
             
             

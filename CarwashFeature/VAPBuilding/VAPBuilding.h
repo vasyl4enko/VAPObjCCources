@@ -27,4 +27,6 @@ typedef NS_ENUM(NSUInteger, VAPBuildingType) {
 
 - (void)removeRoom:(id)objects;
 
+- (id)performBuildingSpecificOperatiom:(id) object;
+
 @end

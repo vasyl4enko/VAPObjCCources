@@ -22,4 +22,6 @@ extern NSUInteger const kVAPDefaultEmployeesCount;
 
 - (void)forceToWorkWithObject:(id) object;
 
+- (id)performRoomSpecificOperatiom:(id) object;
+
 @end

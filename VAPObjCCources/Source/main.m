@@ -24,7 +24,8 @@ int main(int argc, const char * argv[]) {
         VAPCar *car = [[[VAPCar alloc] init] autorelease];
         VAPCar *car1 = [[[VAPCar alloc] init] autorelease];
         VAPCar *car2 = [[[VAPCar alloc] init] autorelease];
-        NSArray *array = [room performRoomSpecificOperatiom:@[car, car1, car2]];
+//        [room performRoomSpecificOperatiom:@[car, car1, car2]];
+        [house performBuildingSpecificOperatiom:@[car, car1, car2]];
         NSString *key = [NSString stringWithFormat:@"%@",[house class]];
         NSLog(@"%@",key);
         

@@ -60,7 +60,9 @@ NSUInteger const kVAPDefaultCarsCount = 1;
 #pragma mark Public Implementation
 
 - (void)addCar:(id) object {
-    
+    if (nil != object) {
+        [self.mutableCars addObject:object];
+    }
 }
 
 - (void)removeCar:(id) object {
@@ -83,28 +85,9 @@ NSUInteger const kVAPDefaultCarsCount = 1;
 }
 
 - (id)performRoomSpecificOperatiom:(id) object {
-    NSMutableArray *result;
-    if (nil != object && [object isKindOfClass:[NSArray class]]) {
-        uint64_t iterator = 0;
-        result = [NSMutableArray array];
-        for (VAPCar *car in object) {
-            [self.mutableCars addObject:car];
-            iterator++;
-            if (iterator == kVAPDefaultCarsCount) {
-                iterator = 0;
-                VAPCarwasher *worker = [self.employees firstObject]; // at the task we have one worker but
-                //we can add cycle
-                [result addObjectsFromArray:[worker performEmployeeSpecificOperationWithObject:self.cars]];
-                [self removeCars];
-            }
-            
-            
-        }
-        
-        return result;
-    }
+    VAPCarwasher *worker = [self.employees firstObject];
     
-    return result;
+    return [worker performEmployeeSpecificOperationWithObject:self.cars];
 }
 
 @end

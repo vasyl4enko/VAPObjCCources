@@ -17,7 +17,7 @@
 //4. У существа наружу должен быть немутабельный массив детей через динамическое проперти с копи+авторелиз, а внутри - еще и мутабельное свойство.
 
 #import "VAPHuman.h"
-#import "NSObject+VAPNSObjectExtension.h"
+#import "NSObject+VAPExtension.h"
 #import "VAPMan.h"
 #import "VAPWoman.h"
 
@@ -62,6 +62,21 @@ static NSString *const kGreeting            = @"What's up man, my namy is %@";
 }
 
 #pragma mark -
+#pragma mark Accessors
+
+- (NSMutableArray *)mutableChildren {
+    if (!_mutableChildren) {
+        _mutableChildren = [[NSMutableArray alloc] init];
+    }
+    
+    return _mutableChildren;
+}
+
+- (NSArray *)children {
+    return [[_mutableChildren copy] autorelease];
+}
+
+#pragma mark -
 #pragma mark Public Implementation
 
 - (void)sayHello {
@@ -85,20 +100,7 @@ static NSString *const kGreeting            = @"What's up man, my namy is %@";
     return nil;
 }
 
-#pragma mark -
-#pragma mark Accessors
 
-- (NSMutableArray *)mutableChildren {
-    if (!_mutableChildren) {
-        _mutableChildren = [[NSMutableArray alloc] init];
-    }
-
-    return _mutableChildren;
-}
-
-- (NSArray *)children {
-    return [[_mutableChildren copy] autorelease];
-}
 
 
 

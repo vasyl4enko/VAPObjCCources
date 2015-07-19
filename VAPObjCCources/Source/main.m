@@ -17,19 +17,23 @@ int main(int argc, const char * argv[]) {
     @autoreleasepool {
 //        [VAPHumanTests VAPHumanBehavourTest];
         VAPCarwashRoom *room = [[[VAPCarwashRoom alloc] init] autorelease];
+        VAPRoom *officeRoom = [[[VAPRoom alloc] init] autorelease];
+        VAPEmployee *accountant = [[VAPEmployee alloc] initWithEmployeeType:VAPAccountantType];
+        VAPEmployee *director = [[VAPEmployee alloc] initWithEmployeeType:VAPDirectorType];
         VAPEmployee *carwasher = [[VAPEmployee alloc] initWithEmployeeType:VAPCarwasherType];
         [room addEmployee:carwasher];
-        VAPBuilding *house = [[[VAPBuilding alloc] initWithBuildingType:VAPBuildingTypeCarwash] autorelease];
-        [house addRoom:room];
+        [officeRoom addEmployee:accountant];
+        [officeRoom addEmployee:director];
+        VAPBuilding *carwash = [[[VAPBuilding alloc] initWithBuildingType:VAPBuildingTypeCarwash] autorelease];
+        VAPBuilding *office = [[[VAPBuilding alloc] initWithBuildingType:VAPBuildingTypeOffice] autorelease];
+        [carwash addRoom:room];
+        [office addRoom:officeRoom];
         VAPCar *car = [[[VAPCar alloc] init] autorelease];
         VAPCar *car1 = [[[VAPCar alloc] init] autorelease];
         VAPCar *car2 = [[[VAPCar alloc] init] autorelease];
-//        [room performRoomSpecificOperatiom:@[car, car1, car2]];
-        [house performBuildingSpecificOperatiom:@[car, car1, car2]];
-        NSString *key = [NSString stringWithFormat:@"%@",[house class]];
-        NSLog(@"%@",key);
-        
-        
+        id buf = [carwash performBuildingSpecificOperatiom:@[car, car1, car2]];
+        id buf2 = [office performBuildingSpecificOperatiomWithTypeEmployee:VAPAccountantType object:buf];
+        [office performBuildingSpecificOperatiomWithTypeEmployee:VAPDirectorType object:buf2];
     }
     return 0;
 }

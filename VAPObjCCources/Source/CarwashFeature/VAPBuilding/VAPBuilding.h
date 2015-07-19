@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "VAPEmployee.h"
 
 extern NSUInteger const kVAPDefaultCountRooms;
 
@@ -28,5 +29,7 @@ typedef NS_ENUM(NSUInteger, VAPBuildingType) {
 - (void)removeRoom:(id)objects;
 
 - (id)performBuildingSpecificOperatiom:(id) object;
+
+- (id)performBuildingSpecificOperatiomWithTypeEmployee:(VAPEmployeeType) type object:(id) object;
 
 @end

@@ -44,21 +44,19 @@ static NSString *const kGreeting            = @"What's up man, my namy is %@";
 #pragma mark -
 #pragma mark Initializations and Deallocations
 
+- (void)dealloc {
+    self.name = nil;
+    self.mutableChildren = nil;
+    
+    [super dealloc];
+}
+
 - (id)initWithGender:(VAPHumanGender) gender  {
     self = [super init];
     Class genderClass = [[self class] humanClassForGender:gender];
     [self release];
     
     return [[genderClass alloc] init];
-}
-
-
-
-- (void)dealloc {
-    self.name = nil;
-    self.mutableChildren = nil;
-    
-    [super dealloc];
 }
 
 #pragma mark -

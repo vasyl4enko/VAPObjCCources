@@ -9,6 +9,7 @@
 #import "VAPBuilding.h"
 #import "VAPCarwashBuilding.h"
 #import "VAPOfficeBuilding.h"
+#import "VAPCarwashRoom.h"
 
 NSUInteger const kVAPDefaultCountRooms = 1;
 
@@ -83,10 +84,12 @@ NSUInteger const kVAPDefaultCountRooms = 1;
 }
 
 - (id)performBuildingSpecificOperatiom:(id) object {
-    // rooms count
-    // NSArray         *rooms;
+    
     return nil;
 }
 
+- (id)performBuildingSpecificOperatiomWithTypeEmployee:(VAPEmployeeType) type object:(id) object {
+    return nil;
+}
 
 @end

@@ -13,17 +13,17 @@
 		1F670BA41B4BFC04003E17DB /* VAPMan.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F670BA31B4BFC04003E17DB /* VAPMan.m */; };
 		1F670BA71B4BFC51003E17DB /* VAPWoman.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F670BA61B4BFC51003E17DB /* VAPWoman.m */; };
 		1F795F821B53DD6D002CAB5B /* NSObject+VAPExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F795F811B53DD6D002CAB5B /* NSObject+VAPExtension.m */; };
-		1F795FB01B53EE59002CAB5B /* VAPBuilding.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F795FAF1B53EE59002CAB5B /* VAPBuilding.m */; };
-		1F795FB91B53FF6F002CAB5B /* VAPRoom.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F795FB81B53FF6F002CAB5B /* VAPRoom.m */; };
-		1F795FBC1B540001002CAB5B /* VAPCarwashRoom.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F795FBB1B540001002CAB5B /* VAPCarwashRoom.m */; };
-		1F795FC31B540336002CAB5B /* VAPCar.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F795FC21B540336002CAB5B /* VAPCar.m */; };
-		1F795FC61B540AE8002CAB5B /* VAPEmployee.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F795FC51B540AE8002CAB5B /* VAPEmployee.m */; };
-		1F795FC91B540B18002CAB5B /* VAPCarwasher.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F795FC81B540B18002CAB5B /* VAPCarwasher.m */; };
-		1F795FCC1B540B52002CAB5B /* VAPAccountant.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F795FCB1B540B52002CAB5B /* VAPAccountant.m */; };
-		1F795FCF1B540B85002CAB5B /* VAPDirector.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F795FCE1B540B85002CAB5B /* VAPDirector.m */; };
-		1F795FD41B542249002CAB5B /* VAPOfficeBuilding.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F795FD31B542249002CAB5B /* VAPOfficeBuilding.m */; };
-		1F795FD71B54225E002CAB5B /* VAPCarwashBuilding.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F795FD61B54225E002CAB5B /* VAPCarwashBuilding.m */; };
-		1FA4E5EB1B56E29600099C08 /* VAPEnterprise.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FA4E5EA1B56E29600099C08 /* VAPEnterprise.m */; };
+		1FE454211B5BA494000F9DC2 /* VAPBuilding.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FE454021B5BA494000F9DC2 /* VAPBuilding.m */; };
+		1FE454221B5BA494000F9DC2 /* VAPCarwashBuilding.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FE454051B5BA494000F9DC2 /* VAPCarwashBuilding.m */; };
+		1FE454231B5BA494000F9DC2 /* VAPOfficeBuilding.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FE454081B5BA494000F9DC2 /* VAPOfficeBuilding.m */; };
+		1FE454241B5BA494000F9DC2 /* VAPCar.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FE4540B1B5BA494000F9DC2 /* VAPCar.m */; };
+		1FE454251B5BA494000F9DC2 /* VAPAccountant.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FE4540F1B5BA494000F9DC2 /* VAPAccountant.m */; };
+		1FE454261B5BA494000F9DC2 /* VAPCarwasher.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FE454121B5BA494000F9DC2 /* VAPCarwasher.m */; };
+		1FE454271B5BA494000F9DC2 /* VAPDirector.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FE454151B5BA494000F9DC2 /* VAPDirector.m */; };
+		1FE454281B5BA494000F9DC2 /* VAPEmployee.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FE454171B5BA494000F9DC2 /* VAPEmployee.m */; };
+		1FE454291B5BA494000F9DC2 /* VAPEnterprise.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FE4541A1B5BA494000F9DC2 /* VAPEnterprise.m */; };
+		1FE4542A1B5BA494000F9DC2 /* VAPCarwashRoom.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FE4541E1B5BA494000F9DC2 /* VAPCarwashRoom.m */; };
+		1FE4542B1B5BA494000F9DC2 /* VAPRoom.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FE454201B5BA494000F9DC2 /* VAPRoom.m */; };
 		1FE597101B4EA4C500BDF0D8 /* VAPHuman.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F5474EB1B4AAF0700157DE1 /* VAPHuman.m */; };
 /* End PBXBuildFile section */
 
@@ -53,28 +53,28 @@
 		1F670BA61B4BFC51003E17DB /* VAPWoman.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VAPWoman.m; sourceTree = "<group>"; };
 		1F795F801B53DD6D002CAB5B /* NSObject+VAPExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+VAPExtension.h"; sourceTree = "<group>"; };
 		1F795F811B53DD6D002CAB5B /* NSObject+VAPExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+VAPExtension.m"; sourceTree = "<group>"; };
-		1F795FAE1B53EE59002CAB5B /* VAPBuilding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VAPBuilding.h; sourceTree = "<group>"; };
-		1F795FAF1B53EE59002CAB5B /* VAPBuilding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VAPBuilding.m; sourceTree = "<group>"; };
-		1F795FB71B53FF6F002CAB5B /* VAPRoom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VAPRoom.h; sourceTree = "<group>"; };
-		1F795FB81B53FF6F002CAB5B /* VAPRoom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VAPRoom.m; sourceTree = "<group>"; };
-		1F795FBA1B540001002CAB5B /* VAPCarwashRoom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VAPCarwashRoom.h; sourceTree = "<group>"; };
-		1F795FBB1B540001002CAB5B /* VAPCarwashRoom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VAPCarwashRoom.m; sourceTree = "<group>"; };
-		1F795FC11B540336002CAB5B /* VAPCar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VAPCar.h; sourceTree = "<group>"; };
-		1F795FC21B540336002CAB5B /* VAPCar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VAPCar.m; sourceTree = "<group>"; };
-		1F795FC41B540AE8002CAB5B /* VAPEmployee.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VAPEmployee.h; sourceTree = "<group>"; };
-		1F795FC51B540AE8002CAB5B /* VAPEmployee.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VAPEmployee.m; sourceTree = "<group>"; };
-		1F795FC71B540B18002CAB5B /* VAPCarwasher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VAPCarwasher.h; sourceTree = "<group>"; };
-		1F795FC81B540B18002CAB5B /* VAPCarwasher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VAPCarwasher.m; sourceTree = "<group>"; };
-		1F795FCA1B540B52002CAB5B /* VAPAccountant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VAPAccountant.h; sourceTree = "<group>"; };
-		1F795FCB1B540B52002CAB5B /* VAPAccountant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VAPAccountant.m; sourceTree = "<group>"; };
-		1F795FCD1B540B85002CAB5B /* VAPDirector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VAPDirector.h; sourceTree = "<group>"; };
-		1F795FCE1B540B85002CAB5B /* VAPDirector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VAPDirector.m; sourceTree = "<group>"; };
-		1F795FD21B542249002CAB5B /* VAPOfficeBuilding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VAPOfficeBuilding.h; sourceTree = "<group>"; };
-		1F795FD31B542249002CAB5B /* VAPOfficeBuilding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VAPOfficeBuilding.m; sourceTree = "<group>"; };
-		1F795FD51B54225E002CAB5B /* VAPCarwashBuilding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VAPCarwashBuilding.h; sourceTree = "<group>"; };
-		1F795FD61B54225E002CAB5B /* VAPCarwashBuilding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VAPCarwashBuilding.m; sourceTree = "<group>"; };
-		1FA4E5E91B56E29600099C08 /* VAPEnterprise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VAPEnterprise.h; sourceTree = "<group>"; };
-		1FA4E5EA1B56E29600099C08 /* VAPEnterprise.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VAPEnterprise.m; sourceTree = "<group>"; };
+		1FE454011B5BA494000F9DC2 /* VAPBuilding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VAPBuilding.h; sourceTree = "<group>"; };
+		1FE454021B5BA494000F9DC2 /* VAPBuilding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VAPBuilding.m; sourceTree = "<group>"; };
+		1FE454041B5BA494000F9DC2 /* VAPCarwashBuilding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VAPCarwashBuilding.h; sourceTree = "<group>"; };
+		1FE454051B5BA494000F9DC2 /* VAPCarwashBuilding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VAPCarwashBuilding.m; sourceTree = "<group>"; };
+		1FE454071B5BA494000F9DC2 /* VAPOfficeBuilding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VAPOfficeBuilding.h; sourceTree = "<group>"; };
+		1FE454081B5BA494000F9DC2 /* VAPOfficeBuilding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VAPOfficeBuilding.m; sourceTree = "<group>"; };
+		1FE4540A1B5BA494000F9DC2 /* VAPCar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VAPCar.h; sourceTree = "<group>"; };
+		1FE4540B1B5BA494000F9DC2 /* VAPCar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VAPCar.m; sourceTree = "<group>"; };
+		1FE4540E1B5BA494000F9DC2 /* VAPAccountant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VAPAccountant.h; sourceTree = "<group>"; };
+		1FE4540F1B5BA494000F9DC2 /* VAPAccountant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VAPAccountant.m; sourceTree = "<group>"; };
+		1FE454111B5BA494000F9DC2 /* VAPCarwasher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VAPCarwasher.h; sourceTree = "<group>"; };
+		1FE454121B5BA494000F9DC2 /* VAPCarwasher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VAPCarwasher.m; sourceTree = "<group>"; };
+		1FE454141B5BA494000F9DC2 /* VAPDirector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VAPDirector.h; sourceTree = "<group>"; };
+		1FE454151B5BA494000F9DC2 /* VAPDirector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VAPDirector.m; sourceTree = "<group>"; };
+		1FE454161B5BA494000F9DC2 /* VAPEmployee.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VAPEmployee.h; sourceTree = "<group>"; };
+		1FE454171B5BA494000F9DC2 /* VAPEmployee.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VAPEmployee.m; sourceTree = "<group>"; };
+		1FE454191B5BA494000F9DC2 /* VAPEnterprise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VAPEnterprise.h; sourceTree = "<group>"; };
+		1FE4541A1B5BA494000F9DC2 /* VAPEnterprise.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VAPEnterprise.m; sourceTree = "<group>"; };
+		1FE4541D1B5BA494000F9DC2 /* VAPCarwashRoom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VAPCarwashRoom.h; sourceTree = "<group>"; };
+		1FE4541E1B5BA494000F9DC2 /* VAPCarwashRoom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VAPCarwashRoom.m; sourceTree = "<group>"; };
+		1FE4541F1B5BA494000F9DC2 /* VAPRoom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VAPRoom.h; sourceTree = "<group>"; };
+		1FE454201B5BA494000F9DC2 /* VAPRoom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VAPRoom.m; sourceTree = "<group>"; };
 		1FF0BC541B4D500200E3FA9F /* VAPHumanTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VAPHumanTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -100,7 +100,6 @@
 			isa = PBXGroup;
 			children = (
 				1F670B9F1B4BF71B003E17DB /* IDPStudyPlan */,
-				1F795FA41B53E9AF002CAB5B /* CarwashFeature */,
 				1F5474DC1B4AA5DC00157DE1 /* VAPObjCCources */,
 				1F5474DB1B4AA5DC00157DE1 /* Products */,
 			);
@@ -127,6 +126,7 @@
 		1F5474E41B4AA5F000157DE1 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				1FE453FF1B5BA494000F9DC2 /* CarwashFeature */,
 				1F795F7F1B53DD1E002CAB5B /* VAPCategories */,
 				1F5474E71B4AA76800157DE1 /* VAPHuman */,
 				1F5474E51B4AA61E00157DE1 /* main.m */,
@@ -181,121 +181,121 @@
 			path = VAPCategories;
 			sourceTree = "<group>";
 		};
-		1F795FA41B53E9AF002CAB5B /* CarwashFeature */ = {
+		1FE453FF1B5BA494000F9DC2 /* CarwashFeature */ = {
 			isa = PBXGroup;
 			children = (
-				1FA4E5E81B56E25600099C08 /* VAPEnterprise */,
-				1F795FBD1B5402F0002CAB5B /* VAPCar */,
-				1F795FAA1B53ED05002CAB5B /* VAPEmployee */,
-				1F795FA81B53ECD6002CAB5B /* VAPRoom */,
-				1F795FA51B53EC06002CAB5B /* VAPBuilding */,
+				1FE454001B5BA494000F9DC2 /* VAPBuilding */,
+				1FE454091B5BA494000F9DC2 /* VAPCar */,
+				1FE4540C1B5BA494000F9DC2 /* VAPEmployee */,
+				1FE454181B5BA494000F9DC2 /* VAPEnterprise */,
+				1FE4541B1B5BA494000F9DC2 /* VAPRoom */,
 			);
 			path = CarwashFeature;
 			sourceTree = "<group>";
 		};
-		1F795FA51B53EC06002CAB5B /* VAPBuilding */ = {
+		1FE454001B5BA494000F9DC2 /* VAPBuilding */ = {
 			isa = PBXGroup;
 			children = (
-				1F795FD11B5421E7002CAB5B /* VAPCarwashBuilding */,
-				1F795FD01B5421D5002CAB5B /* VAPOfficeBuilding */,
-				1F795FAE1B53EE59002CAB5B /* VAPBuilding.h */,
-				1F795FAF1B53EE59002CAB5B /* VAPBuilding.m */,
+				1FE454011B5BA494000F9DC2 /* VAPBuilding.h */,
+				1FE454021B5BA494000F9DC2 /* VAPBuilding.m */,
+				1FE454031B5BA494000F9DC2 /* VAPCarwashBuilding */,
+				1FE454061B5BA494000F9DC2 /* VAPOfficeBuilding */,
 			);
 			path = VAPBuilding;
 			sourceTree = "<group>";
 		};
-		1F795FA81B53ECD6002CAB5B /* VAPRoom */ = {
+		1FE454031B5BA494000F9DC2 /* VAPCarwashBuilding */ = {
 			isa = PBXGroup;
 			children = (
-				1F795FB71B53FF6F002CAB5B /* VAPRoom.h */,
-				1F795FB81B53FF6F002CAB5B /* VAPRoom.m */,
-				1F795FA91B53ECE3002CAB5B /* VAPCarwashRoom */,
-			);
-			path = VAPRoom;
-			sourceTree = "<group>";
-		};
-		1F795FA91B53ECE3002CAB5B /* VAPCarwashRoom */ = {
-			isa = PBXGroup;
-			children = (
-				1F795FBA1B540001002CAB5B /* VAPCarwashRoom.h */,
-				1F795FBB1B540001002CAB5B /* VAPCarwashRoom.m */,
-			);
-			path = VAPCarwashRoom;
-			sourceTree = "<group>";
-		};
-		1F795FAA1B53ED05002CAB5B /* VAPEmployee */ = {
-			isa = PBXGroup;
-			children = (
-				1F795FAD1B53ED37002CAB5B /* VAPCarwasher */,
-				1F795FAC1B53ED31002CAB5B /* VAPAccountant */,
-				1F795FAB1B53ED2E002CAB5B /* VAPDirector */,
-				1F795FC41B540AE8002CAB5B /* VAPEmployee.h */,
-				1F795FC51B540AE8002CAB5B /* VAPEmployee.m */,
-			);
-			path = VAPEmployee;
-			sourceTree = "<group>";
-		};
-		1F795FAB1B53ED2E002CAB5B /* VAPDirector */ = {
-			isa = PBXGroup;
-			children = (
-				1F795FCD1B540B85002CAB5B /* VAPDirector.h */,
-				1F795FCE1B540B85002CAB5B /* VAPDirector.m */,
-			);
-			path = VAPDirector;
-			sourceTree = "<group>";
-		};
-		1F795FAC1B53ED31002CAB5B /* VAPAccountant */ = {
-			isa = PBXGroup;
-			children = (
-				1F795FCA1B540B52002CAB5B /* VAPAccountant.h */,
-				1F795FCB1B540B52002CAB5B /* VAPAccountant.m */,
-			);
-			path = VAPAccountant;
-			sourceTree = "<group>";
-		};
-		1F795FAD1B53ED37002CAB5B /* VAPCarwasher */ = {
-			isa = PBXGroup;
-			children = (
-				1F795FC71B540B18002CAB5B /* VAPCarwasher.h */,
-				1F795FC81B540B18002CAB5B /* VAPCarwasher.m */,
-			);
-			path = VAPCarwasher;
-			sourceTree = "<group>";
-		};
-		1F795FBD1B5402F0002CAB5B /* VAPCar */ = {
-			isa = PBXGroup;
-			children = (
-				1F795FC11B540336002CAB5B /* VAPCar.h */,
-				1F795FC21B540336002CAB5B /* VAPCar.m */,
-			);
-			path = VAPCar;
-			sourceTree = "<group>";
-		};
-		1F795FD01B5421D5002CAB5B /* VAPOfficeBuilding */ = {
-			isa = PBXGroup;
-			children = (
-				1F795FD21B542249002CAB5B /* VAPOfficeBuilding.h */,
-				1F795FD31B542249002CAB5B /* VAPOfficeBuilding.m */,
-			);
-			path = VAPOfficeBuilding;
-			sourceTree = "<group>";
-		};
-		1F795FD11B5421E7002CAB5B /* VAPCarwashBuilding */ = {
-			isa = PBXGroup;
-			children = (
-				1F795FD51B54225E002CAB5B /* VAPCarwashBuilding.h */,
-				1F795FD61B54225E002CAB5B /* VAPCarwashBuilding.m */,
+				1FE454041B5BA494000F9DC2 /* VAPCarwashBuilding.h */,
+				1FE454051B5BA494000F9DC2 /* VAPCarwashBuilding.m */,
 			);
 			path = VAPCarwashBuilding;
 			sourceTree = "<group>";
 		};
-		1FA4E5E81B56E25600099C08 /* VAPEnterprise */ = {
+		1FE454061B5BA494000F9DC2 /* VAPOfficeBuilding */ = {
 			isa = PBXGroup;
 			children = (
-				1FA4E5E91B56E29600099C08 /* VAPEnterprise.h */,
-				1FA4E5EA1B56E29600099C08 /* VAPEnterprise.m */,
+				1FE454071B5BA494000F9DC2 /* VAPOfficeBuilding.h */,
+				1FE454081B5BA494000F9DC2 /* VAPOfficeBuilding.m */,
+			);
+			path = VAPOfficeBuilding;
+			sourceTree = "<group>";
+		};
+		1FE454091B5BA494000F9DC2 /* VAPCar */ = {
+			isa = PBXGroup;
+			children = (
+				1FE4540A1B5BA494000F9DC2 /* VAPCar.h */,
+				1FE4540B1B5BA494000F9DC2 /* VAPCar.m */,
+			);
+			path = VAPCar;
+			sourceTree = "<group>";
+		};
+		1FE4540C1B5BA494000F9DC2 /* VAPEmployee */ = {
+			isa = PBXGroup;
+			children = (
+				1FE4540D1B5BA494000F9DC2 /* VAPAccountant */,
+				1FE454101B5BA494000F9DC2 /* VAPCarwasher */,
+				1FE454131B5BA494000F9DC2 /* VAPDirector */,
+				1FE454161B5BA494000F9DC2 /* VAPEmployee.h */,
+				1FE454171B5BA494000F9DC2 /* VAPEmployee.m */,
+			);
+			path = VAPEmployee;
+			sourceTree = "<group>";
+		};
+		1FE4540D1B5BA494000F9DC2 /* VAPAccountant */ = {
+			isa = PBXGroup;
+			children = (
+				1FE4540E1B5BA494000F9DC2 /* VAPAccountant.h */,
+				1FE4540F1B5BA494000F9DC2 /* VAPAccountant.m */,
+			);
+			path = VAPAccountant;
+			sourceTree = "<group>";
+		};
+		1FE454101B5BA494000F9DC2 /* VAPCarwasher */ = {
+			isa = PBXGroup;
+			children = (
+				1FE454111B5BA494000F9DC2 /* VAPCarwasher.h */,
+				1FE454121B5BA494000F9DC2 /* VAPCarwasher.m */,
+			);
+			path = VAPCarwasher;
+			sourceTree = "<group>";
+		};
+		1FE454131B5BA494000F9DC2 /* VAPDirector */ = {
+			isa = PBXGroup;
+			children = (
+				1FE454141B5BA494000F9DC2 /* VAPDirector.h */,
+				1FE454151B5BA494000F9DC2 /* VAPDirector.m */,
+			);
+			path = VAPDirector;
+			sourceTree = "<group>";
+		};
+		1FE454181B5BA494000F9DC2 /* VAPEnterprise */ = {
+			isa = PBXGroup;
+			children = (
+				1FE454191B5BA494000F9DC2 /* VAPEnterprise.h */,
+				1FE4541A1B5BA494000F9DC2 /* VAPEnterprise.m */,
 			);
 			path = VAPEnterprise;
+			sourceTree = "<group>";
+		};
+		1FE4541B1B5BA494000F9DC2 /* VAPRoom */ = {
+			isa = PBXGroup;
+			children = (
+				1FE4541C1B5BA494000F9DC2 /* VAPCarwashRoom */,
+				1FE4541F1B5BA494000F9DC2 /* VAPRoom.h */,
+				1FE454201B5BA494000F9DC2 /* VAPRoom.m */,
+			);
+			path = VAPRoom;
+			sourceTree = "<group>";
+		};
+		1FE4541C1B5BA494000F9DC2 /* VAPCarwashRoom */ = {
+			isa = PBXGroup;
+			children = (
+				1FE4541D1B5BA494000F9DC2 /* VAPCarwashRoom.h */,
+				1FE4541E1B5BA494000F9DC2 /* VAPCarwashRoom.m */,
+			);
+			path = VAPCarwashRoom;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -385,23 +385,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1F795FC31B540336002CAB5B /* VAPCar.m in Sources */,
+				1FE454241B5BA494000F9DC2 /* VAPCar.m in Sources */,
+				1FE454271B5BA494000F9DC2 /* VAPDirector.m in Sources */,
 				1F5474E61B4AA61E00157DE1 /* main.m in Sources */,
 				1F795F821B53DD6D002CAB5B /* NSObject+VAPExtension.m in Sources */,
 				1F5474F01B4B187800157DE1 /* VAPHumanTests.m in Sources */,
+				1FE454261B5BA494000F9DC2 /* VAPCarwasher.m in Sources */,
 				1F670BA71B4BFC51003E17DB /* VAPWoman.m in Sources */,
-				1F795FB91B53FF6F002CAB5B /* VAPRoom.m in Sources */,
-				1F795FBC1B540001002CAB5B /* VAPCarwashRoom.m in Sources */,
-				1F795FD41B542249002CAB5B /* VAPOfficeBuilding.m in Sources */,
-				1F795FB01B53EE59002CAB5B /* VAPBuilding.m in Sources */,
-				1F795FCC1B540B52002CAB5B /* VAPAccountant.m in Sources */,
-				1FA4E5EB1B56E29600099C08 /* VAPEnterprise.m in Sources */,
-				1F795FC61B540AE8002CAB5B /* VAPEmployee.m in Sources */,
-				1F795FCF1B540B85002CAB5B /* VAPDirector.m in Sources */,
-				1F795FC91B540B18002CAB5B /* VAPCarwasher.m in Sources */,
-				1F795FD71B54225E002CAB5B /* VAPCarwashBuilding.m in Sources */,
+				1FE454281B5BA494000F9DC2 /* VAPEmployee.m in Sources */,
+				1FE4542B1B5BA494000F9DC2 /* VAPRoom.m in Sources */,
+				1FE4542A1B5BA494000F9DC2 /* VAPCarwashRoom.m in Sources */,
+				1FE454211B5BA494000F9DC2 /* VAPBuilding.m in Sources */,
+				1FE454221B5BA494000F9DC2 /* VAPCarwashBuilding.m in Sources */,
 				1F670BA41B4BFC04003E17DB /* VAPMan.m in Sources */,
+				1FE454231B5BA494000F9DC2 /* VAPOfficeBuilding.m in Sources */,
+				1FE454291B5BA494000F9DC2 /* VAPEnterprise.m in Sources */,
 				1F5474EC1B4AAF0700157DE1 /* VAPHuman.m in Sources */,
+				1FE454251B5BA494000F9DC2 /* VAPAccountant.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

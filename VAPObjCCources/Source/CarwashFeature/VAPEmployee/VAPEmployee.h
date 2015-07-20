@@ -8,17 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
-typedef NS_ENUM(NSUInteger, VAPEmployeeType) {
-    VAPAccountantType,
-    VAPCarwasherType,
-    VAPDirectorType
-};
-
 @interface VAPEmployee : NSObject
 @property(nonatomic, copy)      NSDate      *experience;
 @property(nonatomic, assign)    CGFloat     salary;
 
-- (id)initWithEmployeeType:(VAPEmployeeType) type;
 
 - (id)performEmployeeSpecificOperationWithObject:(id) object;
 

@@ -8,7 +8,7 @@
 
 #import "VAPCar.h"
 
-static CGFloat const kVAPDefaultMoneyValue = 235.4;
+static NSUInteger const kVAPDefaultMoneyValue = 235;
 
 @implementation VAPCar
 

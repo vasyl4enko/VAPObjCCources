@@ -10,7 +10,8 @@
 
 @interface VAPEmployee : NSObject
 @property(nonatomic, copy)      NSDate      *experience;
-@property(nonatomic, assign)    CGFloat     salary;
+@property(nonatomic, assign)    NSUInteger     salary;
+@property(nonatomic, assign, getter = isBusy) BOOL busy;
 
 
 - (id)performEmployeeSpecificOperationWithObject:(id) object;

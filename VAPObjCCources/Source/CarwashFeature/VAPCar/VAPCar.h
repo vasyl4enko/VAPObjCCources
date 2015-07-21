@@ -9,5 +9,6 @@
 #import <Foundation/Foundation.h>
 
 @interface VAPCar : NSObject
-@property(nonatomic, assign) CGFloat money;
+@property(nonatomic, assign) NSUInteger money;
+@property(nonatomic, assign, getter = isDirty) BOOL dirty;
 @end

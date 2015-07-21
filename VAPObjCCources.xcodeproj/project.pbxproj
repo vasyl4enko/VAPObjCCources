@@ -14,8 +14,6 @@
 		1F670BA71B4BFC51003E17DB /* VAPWoman.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F670BA61B4BFC51003E17DB /* VAPWoman.m */; };
 		1F795F821B53DD6D002CAB5B /* NSObject+VAPExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F795F811B53DD6D002CAB5B /* NSObject+VAPExtension.m */; };
 		1FE4544F1B5BF3D8000F9DC2 /* VAPBuilding.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FE454301B5BF3D8000F9DC2 /* VAPBuilding.m */; };
-		1FE454501B5BF3D8000F9DC2 /* VAPCarwashBuilding.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FE454331B5BF3D8000F9DC2 /* VAPCarwashBuilding.m */; };
-		1FE454511B5BF3D8000F9DC2 /* VAPOfficeBuilding.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FE454361B5BF3D8000F9DC2 /* VAPOfficeBuilding.m */; };
 		1FE454521B5BF3D8000F9DC2 /* VAPCar.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FE454391B5BF3D8000F9DC2 /* VAPCar.m */; };
 		1FE454531B5BF3D8000F9DC2 /* VAPAccountant.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FE4543D1B5BF3D8000F9DC2 /* VAPAccountant.m */; };
 		1FE454541B5BF3D8000F9DC2 /* VAPCarwasher.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FE454401B5BF3D8000F9DC2 /* VAPCarwasher.m */; };
@@ -55,10 +53,6 @@
 		1F795F811B53DD6D002CAB5B /* NSObject+VAPExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+VAPExtension.m"; sourceTree = "<group>"; };
 		1FE4542F1B5BF3D8000F9DC2 /* VAPBuilding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VAPBuilding.h; sourceTree = "<group>"; };
 		1FE454301B5BF3D8000F9DC2 /* VAPBuilding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VAPBuilding.m; sourceTree = "<group>"; };
-		1FE454321B5BF3D8000F9DC2 /* VAPCarwashBuilding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VAPCarwashBuilding.h; sourceTree = "<group>"; };
-		1FE454331B5BF3D8000F9DC2 /* VAPCarwashBuilding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VAPCarwashBuilding.m; sourceTree = "<group>"; };
-		1FE454351B5BF3D8000F9DC2 /* VAPOfficeBuilding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VAPOfficeBuilding.h; sourceTree = "<group>"; };
-		1FE454361B5BF3D8000F9DC2 /* VAPOfficeBuilding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VAPOfficeBuilding.m; sourceTree = "<group>"; };
 		1FE454381B5BF3D8000F9DC2 /* VAPCar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VAPCar.h; sourceTree = "<group>"; };
 		1FE454391B5BF3D8000F9DC2 /* VAPCar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VAPCar.m; sourceTree = "<group>"; };
 		1FE4543C1B5BF3D8000F9DC2 /* VAPAccountant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VAPAccountant.h; sourceTree = "<group>"; };
@@ -184,11 +178,11 @@
 		1FE4542D1B5BF3D8000F9DC2 /* CarwashFeature */ = {
 			isa = PBXGroup;
 			children = (
-				1FE454371B5BF3D8000F9DC2 /* VAPCar */,
+				1FE454461B5BF3D8000F9DC2 /* VAPEnterprise */,
 				1FE4542E1B5BF3D8000F9DC2 /* VAPBuilding */,
+				1FE454371B5BF3D8000F9DC2 /* VAPCar */,
 				1FE454491B5BF3D8000F9DC2 /* VAPRoom */,
 				1FE4543A1B5BF3D8000F9DC2 /* VAPEmployee */,
-				1FE454461B5BF3D8000F9DC2 /* VAPEnterprise */,
 			);
 			path = CarwashFeature;
 			sourceTree = "<group>";
@@ -198,28 +192,8 @@
 			children = (
 				1FE4542F1B5BF3D8000F9DC2 /* VAPBuilding.h */,
 				1FE454301B5BF3D8000F9DC2 /* VAPBuilding.m */,
-				1FE454311B5BF3D8000F9DC2 /* VAPCarwashBuilding */,
-				1FE454341B5BF3D8000F9DC2 /* VAPOfficeBuilding */,
 			);
 			path = VAPBuilding;
-			sourceTree = "<group>";
-		};
-		1FE454311B5BF3D8000F9DC2 /* VAPCarwashBuilding */ = {
-			isa = PBXGroup;
-			children = (
-				1FE454321B5BF3D8000F9DC2 /* VAPCarwashBuilding.h */,
-				1FE454331B5BF3D8000F9DC2 /* VAPCarwashBuilding.m */,
-			);
-			path = VAPCarwashBuilding;
-			sourceTree = "<group>";
-		};
-		1FE454341B5BF3D8000F9DC2 /* VAPOfficeBuilding */ = {
-			isa = PBXGroup;
-			children = (
-				1FE454351B5BF3D8000F9DC2 /* VAPOfficeBuilding.h */,
-				1FE454361B5BF3D8000F9DC2 /* VAPOfficeBuilding.m */,
-			);
-			path = VAPOfficeBuilding;
 			sourceTree = "<group>";
 		};
 		1FE454371B5BF3D8000F9DC2 /* VAPCar */ = {
@@ -396,9 +370,7 @@
 				1FE454591B5BF3D8000F9DC2 /* VAPRoom.m in Sources */,
 				1FE454581B5BF3D8000F9DC2 /* VAPCarwashRoom.m in Sources */,
 				1FE4544F1B5BF3D8000F9DC2 /* VAPBuilding.m in Sources */,
-				1FE454501B5BF3D8000F9DC2 /* VAPCarwashBuilding.m in Sources */,
 				1F670BA41B4BFC04003E17DB /* VAPMan.m in Sources */,
-				1FE454511B5BF3D8000F9DC2 /* VAPOfficeBuilding.m in Sources */,
 				1FE454571B5BF3D8000F9DC2 /* VAPEnterprise.m in Sources */,
 				1F5474EC1B4AAF0700157DE1 /* VAPHuman.m in Sources */,
 				1FE454531B5BF3D8000F9DC2 /* VAPAccountant.m in Sources */,

@@ -7,14 +7,21 @@
 //
 
 #import <Foundation/Foundation.h>
-#warning depracated
 
-@class VAPOfficeBuilding;
+@class VAPBuilding;
+@class VAPEmployee;
+@class VAPRoom;
+@class VAPCar;
 
 @interface VAPEnterprise : NSObject
-@property (nonatomic, copy) VAPOfficeBuilding *headOffice;
-@property (nonatomic, retain, readonly) NSDictionary *departments;
+@property (nonatomic, retain, readonly) NSArray *buildings;
 
-//- (id)doIt:(id)
+- (void)addBuilding:(VAPEmployee *)object;
+- (void)addRoom:(VAPRoom *)object;
+- (void)addEmmployye:(VAPEmployee *)object; // how to add to different room without hardcode
+- (void)washCar:(VAPCar *)object; // none
+
+
+
 
 @end

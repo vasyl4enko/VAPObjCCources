@@ -7,21 +7,22 @@
 //
 
 #import "VAPEnterprise.h"
+#import "VAPBuilding.h"
 
 @interface VAPEnterprise ()
-@property (nonatomic, retain) NSMutableDictionary *mutableDepartments;
+@property (nonatomic, retain) NSMutableArray *mutableBuildings;
 
 @end
 
 @implementation VAPEnterprise
-@dynamic departments;
+
+@dynamic buildings;
 
 #pragma mark -
 #pragma mark Initializations and Deallocations
 
 - (void)dealloc {
-    self.headOffice = nil;
-    self.mutableDepartments = nil;
+    self.mutableBuildings = nil;
     
     [super dealloc];
 }
@@ -29,21 +30,32 @@
 #pragma mark -
 #pragma mark Accessors
 
-- (NSMutableDictionary *)departments {
-    return [[self.mutableDepartments copy] autorelease];
+- (NSArray *)departments {
+    return [[self.mutableBuildings copy] autorelease];
 }
 
 #pragma mark -
 #pragma mark Public Implementation
 
-- (void)addDepartment:(id) object {
+- (void)addBuilding:(VAPEmployee *)object {
     if (nil != object) {
-        NSString *key = [NSString stringWithFormat:@"%@",[object class]];
-        if (nil != [self.mutableDepartments objectForKey:key]) {
-            [self.mutableDepartments objectForKey:key];
-            
-            
-            
+        [self.mutableBuildings addObject:object];
+    }
+}
+
+- (void)addRoom:(VAPRoom *)object {
+    if (nil != object) {
+        NSArray *localBuildings = self.buildings;
+        for (VAPBuilding *build in localBuildings) {
+            if (0 == [build.rooms count])
+            {
+                [build addRoom:object];
+            }
+            else if (build.roomsCount > [build.rooms count]
+                       && [[build.rooms firstObject] isKindOfClass:[object class]])
+            {
+                [build addRoom:object];
+            }
         }
     }
 }

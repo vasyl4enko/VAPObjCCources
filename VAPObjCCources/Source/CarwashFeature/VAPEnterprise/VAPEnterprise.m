@@ -8,10 +8,13 @@
 
 #import "VAPEnterprise.h"
 #import "VAPBuilding.h"
+#import "VAPCarwasher.h"
+#import "VAPCarwashRoom.h"
 
 @interface VAPEnterprise ()
 @property (nonatomic, retain) NSMutableArray *mutableBuildings;
 
+- (void)findFreePlaceForEmployye:(id) object rooms:(NSArray *)objects;
 @end
 
 @implementation VAPEnterprise
@@ -27,10 +30,19 @@
     [super dealloc];
 }
 
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        self.mutableBuildings = [NSMutableArray array];
+    }
+    return self;
+}
+
 #pragma mark -
 #pragma mark Accessors
 
-- (NSArray *)departments {
+- (NSArray *)buildings {
     return [[self.mutableBuildings copy] autorelease];
 }
 
@@ -51,11 +63,45 @@
             {
                 [build addRoom:object];
             }
-            else if (build.roomsCount > [build.rooms count]
+            else if (build.maxCount > [build.rooms count]
                        && [[build.rooms firstObject] isKindOfClass:[object class]])
             {
                 [build addRoom:object];
             }
+        }
+    }
+}
+
+- (void)addEmmployye:(VAPEmployee *)object {
+    if (nil != object) {
+        NSArray *buildings = self.buildings;
+        for (VAPBuilding *build in buildings) {
+            if ([build hasEmptyWorkplace]) {
+                NSArray *localRooms = build.rooms;
+                if ([object isKindOfClass: [VAPCarwasher class]]
+                    && [[build.rooms firstObject] isKindOfClass:[VAPCarwashRoom class]])
+                {
+                    [self findFreePlaceForEmployye:object rooms:localRooms];
+                    
+                    break;
+                } else
+                {
+                    [self findFreePlaceForEmployye:object rooms:localRooms];
+                    
+                    break;
+                }
+            }
+            
+        }
+    }
+}
+
+- (void)findFreePlaceForEmployye:(id) object rooms:(NSArray *)objects {
+    for (VAPRoom *room in objects) {
+        if (room.employeesCount != [room.employees count]) {
+            [room addEmployee:object];
+            
+            break;
         }
     }
 }

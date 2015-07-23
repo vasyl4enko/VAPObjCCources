@@ -18,7 +18,7 @@
 
 - (void)addBuilding:(VAPEmployee *)object;
 - (void)addRoom:(VAPRoom *)object;
-- (void)addEmmployye:(VAPEmployee *)object; // how to add to different room without hardcode
+- (void)addEmmployye:(VAPEmployee *)object; // does't work
 - (void)washCar:(VAPCar *)object; // none
 
 

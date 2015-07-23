@@ -9,27 +9,15 @@
 #import <Foundation/Foundation.h>
 #import "VAPEmployee.h"
 
-extern NSUInteger const kVAPDefaultCountRooms;
-
-typedef NS_ENUM(NSUInteger, VAPBuildingType) {
-    VAPBuildingTypeCarwash,
-    VAPBuildingTypeOffice
-};
+FOUNDATION_EXTERN NSUInteger const kVAPDefaultCountRooms;
 
 @interface VAPBuilding : NSObject
 @property (nonatomic, readonly)     NSArray         *rooms;
-@property (nonatomic, assign)       NSUInteger      roomsCount;
+@property (nonatomic, assign)       NSUInteger      maxCount;
 
-- (id)initWithBuildingType:(VAPBuildingType) type roomsCount:(NSUInteger) count NS_DESIGNATED_INITIALIZER;
-
-- (id)initWithBuildingType:(VAPBuildingType) type;
-
+- (instancetype)initWithCount:(NSUInteger)count NS_DESIGNATED_INITIALIZER;
 - (void)addRoom:(id)object;
-
 - (void)removeRoom:(id)objects;
-
-- (id)performBuildingSpecificOperatiom:(id) object;
-
-- (id)performBuildingSpecificOperatiomWithTypeEmployee:(VAPEmployeeType) type object:(id) object;
+- (BOOL)hasEmptyWorkplace;
 
 @end

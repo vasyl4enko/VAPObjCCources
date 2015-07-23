@@ -14,7 +14,7 @@ extern NSUInteger const kVAPDefaultEmployeesCount;
 @property (nonatomic, retain, readonly)     NSArray     *employees;
 @property (nonatomic, assign)               NSUInteger  employeesCount;
 
-- (instancetype)initWithEmployeesCount:(NSUInteger) employeesCount NS_DESIGNATED_INITIALIZER;
+- (instancetype)initWithCount:(NSUInteger) employeesCount NS_DESIGNATED_INITIALIZER;
 
 - (void)addEmployee:(id) object;
 
@@ -23,5 +23,7 @@ extern NSUInteger const kVAPDefaultEmployeesCount;
 - (void)forceToWorkWithObject:(id) object;
 
 - (id)performRoomSpecificOperatiom:(id) object;
+
+
 
 @end

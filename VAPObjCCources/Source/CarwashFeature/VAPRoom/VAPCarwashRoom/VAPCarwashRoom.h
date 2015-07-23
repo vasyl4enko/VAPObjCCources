@@ -22,9 +22,7 @@ extern NSUInteger const kVAPDefaultCarsCount;
 
 - (void)removeCar:(id) object;
 
-- (void)addCars:(NSArray *) objects;
-
-- (void)removeCars;
+- (void)removeAllCars;
 
 - (id)firstCar;
 

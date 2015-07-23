@@ -69,11 +69,7 @@ NSUInteger const kVAPDefaultCarsCount = 1;
     [self.mutableCars removeObject:object];
 }
 
-- (void)addCars:(NSArray *) objects {
-    [self.mutableCars addObjectsFromArray:objects];
-}
-
-- (void)removeCars {
+- (void)removeAllCars {
     [self.mutableCars removeAllObjects];
 }
 

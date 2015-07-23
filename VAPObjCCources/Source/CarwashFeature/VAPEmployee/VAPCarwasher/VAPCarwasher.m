@@ -16,6 +16,8 @@ static NSString *const kCarwasherGreeting  = @"I'm a carwasher & I'm slave. I lo
 #pragma mark -
 #pragma mark Public Methods
 
+//get money
+
 - (id)performEmployeeSpecificOperationWithObject:(id) object {
     NSMutableArray *result;
     if (nil != object && [object isKindOfClass:[NSArray class]]) {

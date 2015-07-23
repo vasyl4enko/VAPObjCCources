@@ -26,8 +26,9 @@
         [enterprise addBuilding:[VAPBuilding object]];
         i++;
     }
+    ;
     [enterprise addRoom:[VAPRoom object]];
-    [enterprise addRoom:[VAPCarwashRoom object]];
+    [enterprise addRoom:[[[VAPCarwashRoom alloc] initWithEmployeesCount:2 carsCount:2] autorelease]];
     
     [enterprise addEmmployye:[VAPDirector object]];
     [enterprise addEmmployye:[VAPCarwasher object]];

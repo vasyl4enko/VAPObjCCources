@@ -35,7 +35,7 @@ NSUInteger const kVAPDefaultCarsCount = 1;
 - (instancetype)initWithEmployeesCount:(NSUInteger) employeesCount
                              carsCount:(NSUInteger) carsCount
 {
-    self = [super initWithEmployeesCount:employeesCount];
+    self = [super initWithCount:employeesCount];
     if (self) {
         self.carsCount = carsCount;
 

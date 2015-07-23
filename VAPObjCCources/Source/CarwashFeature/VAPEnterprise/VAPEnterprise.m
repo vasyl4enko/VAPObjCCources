@@ -9,17 +9,36 @@
 #import "VAPEnterprise.h"
 #import "VAPBuilding.h"
 #import "VAPCarwasher.h"
+#import "VAPAccountant.h"
+#import "VAPDirector.h"
 #import "VAPCarwashRoom.h"
 
 @interface VAPEnterprise ()
 @property (nonatomic, retain) NSMutableArray *mutableBuildings;
 
 - (void)findFreePlaceForEmployye:(id) object rooms:(NSArray *)objects;
+
++ (Class)roomClassForObject:(VAPEmployee *)object;
+
 @end
 
 @implementation VAPEnterprise
 
 @dynamic buildings;
+
+#pragma mark -
+#pragma mark Class Methods
+
++ (Class)roomClassForObject:(VAPEmployee *)object {
+    Class class;
+    if ([object isMemberOfClass:[VAPCarwasher class]]) {
+        class = [VAPCarwashRoom class];
+    } else if ([object isMemberOfClass:[VAPAccountant class]] || [object isMemberOfClass:[VAPDirector class]]) {
+        class = [VAPRoom class];
+    }
+    
+    return class;
+}
 
 #pragma mark -
 #pragma mark Initializations and Deallocations
@@ -62,11 +81,13 @@
             if (0 == [build.rooms count])
             {
                 [build addRoom:object];
+                break;
             }
             else if (build.maxCount > [build.rooms count]
                        && [[build.rooms firstObject] isKindOfClass:[object class]])
             {
                 [build addRoom:object];
+                break;
             }
         }
     }
@@ -78,13 +99,9 @@
         for (VAPBuilding *build in buildings) {
             if ([build hasEmptyWorkplace]) {
                 NSArray *localRooms = build.rooms;
-                if ([object isKindOfClass: [VAPCarwasher class]]
-                    && [[build.rooms firstObject] isKindOfClass:[VAPCarwashRoom class]])
-                {
-                    [self findFreePlaceForEmployye:object rooms:localRooms];
-                    
-                    break;
-                } else
+                Class localRoomClass = [VAPEnterprise roomClassForObject:object];
+                
+                if ([[build.rooms firstObject] isKindOfClass:localRoomClass])
                 {
                     [self findFreePlaceForEmployye:object rooms:localRooms];
                     

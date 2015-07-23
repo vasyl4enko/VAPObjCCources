@@ -34,18 +34,18 @@ NSUInteger const kVAPDefaultEmployeesCount = 2;
     [super dealloc];
 }
 
-- (instancetype)initWithEmployeesCount:(NSUInteger) employeesCount {
+- (instancetype)initWithCount:(NSUInteger) employeesCount {
     self = [super init];
     if (self) {
         self.employeesCount = employeesCount;
-        self.mutableEmployees = [[NSMutableArray alloc] initWithCapacity:_employeesCount];
+        self.mutableEmployees = [[[NSMutableArray alloc] initWithCapacity:self.employeesCount] autorelease];
     }
     
     return self;
 }
 
 - (instancetype)init {
-    self = [self initWithEmployeesCount:kVAPDefaultEmployeesCount];
+    self = [self initWithCount:kVAPDefaultEmployeesCount];
     
     return self;
 }

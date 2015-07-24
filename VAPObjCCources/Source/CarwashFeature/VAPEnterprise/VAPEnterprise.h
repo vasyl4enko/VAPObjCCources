@@ -14,11 +14,13 @@
 @class VAPCar;
 
 @interface VAPEnterprise : NSObject
+@property (nonatomic, retain, readonly) NSArray *employees;
 @property (nonatomic, retain, readonly) NSArray *buildings;
+
 
 - (void)addBuilding:(VAPEmployee *)object;
 - (void)addRoom:(VAPRoom *)object;
-- (void)addEmmployye:(VAPEmployee *)object; // does't work
+- (void)addEmmployye:(VAPEmployee *)object;
 - (void)washCar:(VAPCar *)object; // none
 
 

@@ -12,6 +12,7 @@
 @property(nonatomic, copy)      NSDate      *experience;
 @property(nonatomic, assign)    NSUInteger     salary;
 @property(nonatomic, assign, getter = isBusy) BOOL busy;
+@property(nonatomic, retain) VAPEmployee *receiver;
 
 
 - (id)performEmployeeSpecificOperationWithObject:(id) object;

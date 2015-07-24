@@ -13,7 +13,7 @@ FOUNDATION_EXTERN NSUInteger const kVAPDefaultCountRooms;
 
 @interface VAPBuilding : NSObject
 @property (nonatomic, readonly)     NSArray         *rooms;
-@property (nonatomic, assign)       NSUInteger      maxCount;
+@property (nonatomic, assign, readonly)       NSUInteger      maxCount;
 
 - (instancetype)initWithCount:(NSUInteger)count NS_DESIGNATED_INITIALIZER;
 - (void)addRoom:(id)object;

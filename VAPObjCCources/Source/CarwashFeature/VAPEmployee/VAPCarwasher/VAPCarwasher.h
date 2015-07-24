@@ -7,7 +7,8 @@
 //
 
 #import "VAPEmployee.h"
+#import "VAPMoneyFlowing.h"
 
-@interface VAPCarwasher : VAPEmployee
+@interface VAPCarwasher : VAPEmployee<VAPMoneyFlowing>
 
 @end

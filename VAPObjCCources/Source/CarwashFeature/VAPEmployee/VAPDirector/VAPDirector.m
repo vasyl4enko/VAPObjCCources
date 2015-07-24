@@ -8,7 +8,7 @@
 
 #import "VAPDirector.h"
 
-static NSString *const kDirectorGreeting  = @"If you wanna be rich! you've got to be a bitch!";
+static NSString *const kDirectorGreeting  = @"I'm director";
 
 @implementation VAPDirector
 

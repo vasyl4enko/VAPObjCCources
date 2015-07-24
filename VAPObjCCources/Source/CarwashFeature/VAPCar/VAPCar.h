@@ -7,8 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "VAPMoneyFlowing.h"
 
-@interface VAPCar : NSObject
+@interface VAPCar : NSObject<VAPMoneyFlowing>
 @property(nonatomic, assign) NSUInteger money;
 @property(nonatomic, assign, getter = isDirty) BOOL dirty;
 @end

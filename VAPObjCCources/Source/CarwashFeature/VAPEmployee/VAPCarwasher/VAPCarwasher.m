@@ -9,7 +9,7 @@
 #import "VAPCarwasher.h"
 #import "VAPCar.h"
 
-static NSString *const kCarwasherGreeting  = @"I'm a carwasher & I'm slave. I love my master";
+static NSString *const kCarwasherGreeting  = @"I'm a carwasher";
 
 @implementation VAPCarwasher
 
@@ -20,15 +20,21 @@ static NSString *const kCarwasherGreeting  = @"I'm a carwasher & I'm slave. I lo
 
 - (id)performEmployeeSpecificOperationWithObject:(id) object {
     NSMutableArray *result;
-    if (nil != object && [object isKindOfClass:[NSArray class]]) {
+    if (nil != object && [object isKindOfClass:[VAPCar class]]) {
         result = [NSMutableArray array];
         NSLog(kCarwasherGreeting);
-        for (VAPCar *car in object) {
-            [result addObject: @(car.money)];
-        }
+        
        
     }
     return result;
+}
+
+- (BOOL)isObjectAbleToPay {
+    return NO;
+}
+
+- (void)payMoney:(id<VAPMoneyFlowing>)object {
+    
 }
 
 @end

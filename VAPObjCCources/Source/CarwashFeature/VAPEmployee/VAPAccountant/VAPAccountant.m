@@ -8,7 +8,7 @@
 
 #import "VAPAccountant.h"
 
-static NSString *const kAccuntantGreeting  = @"I'm an accountan & money money money, there no my money, i'm so sad :(";
+static NSString *const kAccuntantGreeting  = @"I'm an accountan";
 
 @implementation VAPAccountant
 

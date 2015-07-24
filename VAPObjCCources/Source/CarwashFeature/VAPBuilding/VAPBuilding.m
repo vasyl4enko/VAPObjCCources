@@ -37,7 +37,7 @@ NSUInteger const kVAPDefaultCountRooms = 1;
 - (instancetype)initWithCount:(NSUInteger)count {
     self = [super init];
     if (self) {
-        self.maxCount = count;
+        _maxCount = count;
         self.mutableRooms = [NSMutableArray array];
     }
     return self;

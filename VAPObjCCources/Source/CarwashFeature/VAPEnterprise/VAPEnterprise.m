@@ -14,24 +14,32 @@
 #import "VAPCarwashRoom.h"
 
 @interface VAPEnterprise ()
+@property (nonatomic, retain) NSMutableArray *mutableEmployees;
 @property (nonatomic, retain) NSMutableArray *mutableBuildings;
+
+
+
 
 - (void)findFreePlaceForEmployye:(id) object rooms:(NSArray *)objects;
 
-+ (Class)roomClassForObject:(VAPEmployee *)object;
+- (VAPEmployee *)findFreeEmployee;
+
++ (Class)roomClassForObject:(id)object;
 
 @end
 
 @implementation VAPEnterprise
 
 @dynamic buildings;
+@dynamic employees;
+
 
 #pragma mark -
 #pragma mark Class Methods
 
-+ (Class)roomClassForObject:(VAPEmployee *)object {
++ (Class)roomClassForObject:(id)object {
     Class class;
-    if ([object isMemberOfClass:[VAPCarwasher class]]) {
+    if ([object isMemberOfClass:[VAPCarwasher class]] || [object isMemberOfClass:[VAPCar class]] ) {
         class = [VAPCarwashRoom class];
     } else if ([object isMemberOfClass:[VAPAccountant class]] || [object isMemberOfClass:[VAPDirector class]]) {
         class = [VAPRoom class];
@@ -54,6 +62,7 @@
     self = [super init];
     if (self) {
         self.mutableBuildings = [NSMutableArray array];
+        self.mutableEmployees = [NSMutableArray array];
     }
     return self;
 }
@@ -63,6 +72,10 @@
 
 - (NSArray *)buildings {
     return [[self.mutableBuildings copy] autorelease];
+}
+
+- (NSArray *)employees {
+    return [[self.mutableEmployees copy] autorelease];
 }
 
 #pragma mark -
@@ -96,6 +109,9 @@
 - (void)addEmmployye:(VAPEmployee *)object {
     if (nil != object) {
         NSArray *buildings = self.buildings;
+        
+        object.receiver = [self.mutableEmployees firstObject];
+        [self.mutableEmployees addObject:object];
         for (VAPBuilding *build in buildings) {
             if ([build hasEmptyWorkplace]) {
                 NSArray *localRooms = build.rooms;
@@ -113,6 +129,20 @@
     }
 }
 
+- (void)washCar:(VAPCar *)object {
+    if (nil != object) {
+        VAPCarwasher *freeCarwasher = (VAPCarwasher *)[self findFreeWasher];
+        if (nil != freeCarwasher) {
+            [freeCarwasher performEmployeeSpecificOperationWithObject:object];
+        } else {
+            NSLog(@"not enough workers at the carwash");
+        }
+    }
+}
+
+#pragma mark -
+#pragma mark Extension
+
 - (void)findFreePlaceForEmployye:(id) object rooms:(NSArray *)objects {
     for (VAPRoom *room in objects) {
         if (room.employeesCount != [room.employees count]) {
@@ -122,5 +152,41 @@
         }
     }
 }
+
+- (VAPEmployee *)findFreeWasher {
+    VAPDirector *reciverDirector = nil;
+    VAPAccountant *reciverAccountant = nil;
+    VAPCarwasher *freeCarwasher = nil;
+    NSArray *employees = self.employees;
+    for (VAPEmployee *employee in employees) {
+        if ([employee isKindOfClass:[VAPDirector class]]) {
+            reciverDirector = (VAPDirector *) employee;
+        }
+        
+        if ([employee isKindOfClass:[VAPAccountant class]] && NO == employee.busy) {
+            reciverAccountant = (VAPAccountant *) employee;
+        }
+        
+        if ([employee isKindOfClass:[VAPCarwasher class]] && NO == employee.busy) {
+            freeCarwasher = (VAPCarwasher *) employee;
+            freeCarwasher.busy = YES;
+        }
+        
+        if (nil != reciverAccountant && nil != reciverDirector && nil != freeCarwasher) {
+            break;
+        }
+    }
+    
+    if (nil != reciverAccountant && nil != reciverDirector && nil != freeCarwasher) {
+        freeCarwasher.receiver = reciverAccountant;
+        reciverAccountant.receiver = reciverDirector;
+        reciverDirector.receiver = nil;
+    }
+    
+    
+    return freeCarwasher;
+}
+
+
 
 @end

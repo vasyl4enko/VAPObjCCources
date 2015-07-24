@@ -7,7 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "VAPEmployee.h"
+//#import "VAPEmployee.h"
+@class VAPRoom;
+@class VAPEmployee;
 
 FOUNDATION_EXTERN NSUInteger const kVAPDefaultCountRooms;
 
@@ -19,5 +21,6 @@ FOUNDATION_EXTERN NSUInteger const kVAPDefaultCountRooms;
 - (void)addRoom:(id)object;
 - (void)removeRoom:(id)objects;
 - (BOOL)hasEmptyWorkplace;
+- (VAPRoom *)findRoomWithEmployee:(VAPEmployee *)employee class:(Class)roomType;
 
 @end

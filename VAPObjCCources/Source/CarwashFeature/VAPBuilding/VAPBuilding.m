@@ -8,6 +8,7 @@
 
 #import "VAPBuilding.h"
 #import "VAPCarwashRoom.h"
+#import "VAPEmployee.h"
 
 NSUInteger const kVAPDefaultCountRooms = 1;
 
@@ -83,6 +84,22 @@ NSUInteger const kVAPDefaultCountRooms = 1;
         }
     }
     return NO;
+}
+
+- (VAPRoom *)findRoomWithEmployee:(VAPEmployee *)employee class:(Class)roomType {
+    NSArray *rooms = self.rooms;
+    VAPRoom *resultRoom = nil;
+    for (VAPRoom *room in rooms) {
+        if ([room isKindOfClass:roomType]) {
+            NSArray *employees = room.employees;
+            for (VAPEmployee *localEmployee in employees) {
+                if (employee == localEmployee) {
+                    return room;
+                }
+            }
+        }
+    }
+    return resultRoom;
 }
 
 @end

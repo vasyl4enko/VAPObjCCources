@@ -21,7 +21,7 @@
 - (void)addBuilding:(VAPEmployee *)object;
 - (void)addRoom:(VAPRoom *)object;
 - (void)addEmmployye:(VAPEmployee *)object;
-- (void)washCar:(VAPCar *)object; // none
+- (void)washCar:(VAPCar *)object;
 
 
 

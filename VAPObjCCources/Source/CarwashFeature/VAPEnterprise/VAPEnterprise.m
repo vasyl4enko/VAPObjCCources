@@ -132,6 +132,10 @@
 - (void)washCar:(VAPCar *)object {
     if (nil != object) {
         VAPCarwasher *freeCarwasher = (VAPCarwasher *)[self findFreeWasher];
+        VAPRoom *room = nil;
+        for (VAPBuilding *build in self.buildings) {
+            room = [build findRoomWithEmployee:freeCarwasher class:[VAPEnterprise roomClassForObject:freeCarwasher]];
+        }
         if (nil != freeCarwasher) {
             [freeCarwasher performEmployeeSpecificOperationWithObject:object];
         } else {

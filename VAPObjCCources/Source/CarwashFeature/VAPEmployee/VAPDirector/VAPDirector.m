@@ -9,16 +9,25 @@
 #import "VAPDirector.h"
 
 static NSString *const kDirectorGreeting  = @"I'm director";
+NSString *const kDirectorProffit = @"My proffit %lu";
 
 @implementation VAPDirector
 
 #pragma mark -
 #pragma mark Public Methods
 
-- (id)performEmployeeSpecificOperationWithObject:(id) object {
+- (void)performEmployeeSpecificOperationWithObject:(id) object {
     NSLog(kDirectorGreeting);
-    NSLog(@"%@",object);
-    return [super performEmployeeSpecificOperationWithObject:nil];
+    self.wallet += [object integerValue];
+    NSLog(kDirectorProffit, self.wallet);
+}
+
+
+- (BOOL)isObjectAbleToPay:(NSUInteger)money {
+    return NO;
+}
+- (void)payMoneyToReciver:(id<VAPMoneyFlowing>)object price:(NSUInteger)money {
+    
 }
 
 @end

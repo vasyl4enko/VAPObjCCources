@@ -33,7 +33,12 @@
     [enterprise addEmmployye:[VAPDirector object]];
     [enterprise addEmmployye:[VAPCarwasher object]];
     [enterprise addEmmployye:[VAPAccountant object]];
-    [enterprise washCar:[VAPCar object]];
+    i = 0;
+    while (i < 5) {
+       [enterprise washCar:[VAPCar object]];
+        i++;
+    }
+    
 }
 
 @end

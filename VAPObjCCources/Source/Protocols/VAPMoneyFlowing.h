@@ -7,14 +7,14 @@
 //
 
 
-//(1) можешь ли заплатить, 2) заплатить деньги, 3) получить деньги)
+
 
 #import <Foundation/Foundation.h>
 
 @protocol VAPMoneyFlowing <NSObject>
+@property(nonatomic, assign) NSUInteger wallet;
 
-- (BOOL)isObjectAbleToPay;
-- (void)payMoney:(id<VAPMoneyFlowing>)object;
-- (void)sendMoney;
+- (BOOL)isObjectAbleToPay:(NSUInteger)money;
+- (void)payMoneyToReciver:(id<VAPMoneyFlowing>)object price:(NSUInteger)money;
 
 @end

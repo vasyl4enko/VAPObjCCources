@@ -13,18 +13,17 @@
 #import "VAPDirector.h"
 #import "VAPCarwashRoom.h"
 
+NSString *const kErrorMessage = @"some workers aren't on his position or maybe room is nil";
+NSString *const kCarDirty = @"Car is dirty";
+NSString *const kWorkerBusy = @"Worker is still busy";
+
 @interface VAPEnterprise ()
 @property (nonatomic, retain) NSMutableArray *mutableEmployees;
 @property (nonatomic, retain) NSMutableArray *mutableBuildings;
 
-
-
++ (Class)roomClassForObject:(id)object;
 
 - (void)findFreePlaceForEmployye:(id) object rooms:(NSArray *)objects;
-
-- (VAPEmployee *)findFreeEmployee;
-
-+ (Class)roomClassForObject:(id)object;
 
 @end
 
@@ -41,7 +40,7 @@
     Class class;
     if ([object isMemberOfClass:[VAPCarwasher class]] || [object isMemberOfClass:[VAPCar class]] ) {
         class = [VAPCarwashRoom class];
-    } else if ([object isMemberOfClass:[VAPAccountant class]] || [object isMemberOfClass:[VAPDirector class]]) {
+    } else  { // if ([object isMemberOfClass:[VAPAccountant class]] || [object isMemberOfClass:[VAPDirector class]])
         class = [VAPRoom class];
     }
     
@@ -132,14 +131,28 @@
 - (void)washCar:(VAPCar *)object {
     if (nil != object) {
         VAPCarwasher *freeCarwasher = (VAPCarwasher *)[self findFreeWasher];
-        VAPRoom *room = nil;
+        VAPCarwashRoom *room = nil;
         for (VAPBuilding *build in self.buildings) {
-            room = [build findRoomWithEmployee:freeCarwasher class:[VAPEnterprise roomClassForObject:freeCarwasher]];
+            room = (VAPCarwashRoom *) [build findRoomWithEmployee:freeCarwasher
+                                                            class:[VAPEnterprise roomClassForObject:freeCarwasher]];
         }
-        if (nil != freeCarwasher) {
+        
+        if (nil != freeCarwasher && nil != room && room.carsCount > [room.cars count]) {
+            [room addCar:object];
             [freeCarwasher performEmployeeSpecificOperationWithObject:object];
         } else {
-            NSLog(@"not enough workers at the carwash");
+            NSLog(@"some workers aren't on his position or maybe room is nil");
+        }
+        if (!object.isDirty && !freeCarwasher.isBusy) {
+            [room removeCar:object];
+        } else {
+            if (object.isDirty) {
+                NSLog(@"Car is dirty");
+            }
+            if (freeCarwasher.isBusy){
+                NSLog(@"Worker is still busy");
+            }
+            
         }
     }
 }

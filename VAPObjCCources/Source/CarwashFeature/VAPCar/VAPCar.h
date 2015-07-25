@@ -9,7 +9,9 @@
 #import <Foundation/Foundation.h>
 #import "VAPMoneyFlowing.h"
 
+FOUNDATION_EXTERN NSUInteger const kVAPDefaultMoneyValue;
+
 @interface VAPCar : NSObject<VAPMoneyFlowing>
-@property(nonatomic, assign) NSUInteger money;
+@property(nonatomic, assign) NSUInteger wallet;
 @property(nonatomic, assign, getter = isDirty) BOOL dirty;
 @end

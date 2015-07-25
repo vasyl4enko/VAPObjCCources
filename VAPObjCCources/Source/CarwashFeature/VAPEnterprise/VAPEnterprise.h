@@ -13,6 +13,10 @@
 @class VAPRoom;
 @class VAPCar;
 
+FOUNDATION_EXTERN NSString *const kErrorMessage;
+FOUNDATION_EXTERN NSString *const kCarDirty;
+FOUNDATION_EXTERN NSString *const kWorkerBusy;
+
 @interface VAPEnterprise : NSObject
 @property (nonatomic, retain, readonly) NSArray *employees;
 @property (nonatomic, retain, readonly) NSArray *buildings;

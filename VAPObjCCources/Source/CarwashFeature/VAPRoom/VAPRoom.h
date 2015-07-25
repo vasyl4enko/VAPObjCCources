@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-extern NSUInteger const kVAPDefaultEmployeesCount;
+FOUNDATION_EXTERN NSUInteger const kVAPDefaultEmployeesCount;
 
 @interface VAPRoom : NSObject
 @property (nonatomic, retain, readonly)     NSArray     *employees;

@@ -7,14 +7,17 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "VAPMoneyFlowing.h"
 
-@interface VAPEmployee : NSObject
-@property(nonatomic, copy)      NSDate      *experience;
-@property(nonatomic, assign)    NSUInteger     salary;
-@property(nonatomic, assign, getter = isBusy) BOOL busy;
-@property(nonatomic, retain) VAPEmployee *receiver;
+@interface VAPEmployee : NSObject<VAPMoneyFlowing>
+@property(nonatomic, copy)                      NSDate          *experience;
+@property(nonatomic, retain)                    VAPEmployee     *receiver;
+
+@property(nonatomic, assign)                    NSUInteger      salary;
+@property(nonatomic, assign)                    NSUInteger      wallet;
+@property(nonatomic, assign, getter = isBusy)   BOOL            busy;
 
 
-- (id)performEmployeeSpecificOperationWithObject:(id) object;
+- (void)performEmployeeSpecificOperationWithObject:(id) object;
 
 @end

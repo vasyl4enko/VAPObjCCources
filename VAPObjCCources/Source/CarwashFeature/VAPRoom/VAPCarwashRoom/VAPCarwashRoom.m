@@ -39,7 +39,7 @@ NSUInteger const kVAPDefaultCarsCount = 1;
     if (self) {
         self.carsCount = carsCount;
 
-        self.mutableCars = [[NSMutableArray alloc] initWithCapacity:self.carsCount];
+        self.mutableCars = [[[NSMutableArray alloc] initWithCapacity:self.carsCount] autorelease];
     }
     
     return self;
@@ -78,12 +78,6 @@ NSUInteger const kVAPDefaultCarsCount = 1;
     [self.mutableCars removeObject:object];
     
     return object;
-}
-
-- (id)performRoomSpecificOperatiom:(id) object {
-    VAPCarwasher *worker = [self.employees firstObject];
-    
-    return [worker performEmployeeSpecificOperationWithObject:self.cars];
 }
 
 @end

@@ -22,6 +22,11 @@
     
 }
 
-
+- (BOOL)isObjectAbleToPay:(NSUInteger)money {
+    return NO;
+}
+- (void)payMoneyToReciver:(id<VAPMoneyFlowing>)object price:(NSUInteger)money {
+    
+}
 
 @end

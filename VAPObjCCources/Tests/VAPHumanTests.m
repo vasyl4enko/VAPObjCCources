@@ -10,6 +10,7 @@
 #import "VAPHuman.h"
 #import "VAPMan.h"
 #import "VAPWoman.h"
+#import "NSString+VAPRandomString.h"
 
 @implementation VAPHumanTests
 
@@ -23,6 +24,9 @@
     john.name = @"John Connor";
     termik.name = @"t1000";
     
+//    [NSString lowercaseLatinAlphabet];
+    
+    
     [sara addChild:john];
     [john addChild:termik];
     [sara sayHello];
@@ -34,9 +38,9 @@
     
     uint64_t index = 0;
     
-    while (index < 10) {
+    while (index < 1) {
         id obj = [sara performGenderSpecificOperation];
-        NSLog(@"%@",[obj class]);
+//        NSLog(@"%@",[NSString lowercaseLatinAlphabet]);
         index++;
     }
 }

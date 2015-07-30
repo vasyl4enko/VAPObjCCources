@@ -23,8 +23,6 @@ FOUNDATION_EXTERN NSUInteger const kDefualtRange;
 
 + (NSString *)randomString;
 
-+ (NSArray *)lowercaseLatinAlphabet;
-+ (NSArray *)uppercaseLatinAlphabet;
-+ (NSArray *)numericAlphabet;
++ (NSString *)randomStringWithUnicodeRange:(NSRange)range;
 
 @end

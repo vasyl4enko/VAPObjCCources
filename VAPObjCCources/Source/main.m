@@ -20,11 +20,11 @@ int main(int argc, const char * argv[]) {
     @autoreleasepool {
         [VAPHumanTests VAPHumanBehavourTest];
 
-        NSRange range = NSMakeRange('A', 'Z' - 'A');
+//        NSRange range = NSMakeRange('A', 'Z' - 'A');
         
-        unichar cha = range.location;
+//        unichar cha = range.location;
         
-         NSString *str = [NSString randomString];
+        NSString *str = [NSString randomString];
         
         
         

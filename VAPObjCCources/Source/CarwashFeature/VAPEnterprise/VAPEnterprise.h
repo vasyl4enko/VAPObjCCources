@@ -7,14 +7,27 @@
 //
 
 #import <Foundation/Foundation.h>
-#warning depracated
 
-@class VAPOfficeBuilding;
+@class VAPBuilding;
+@class VAPEmployee;
+@class VAPRoom;
+@class VAPCar;
+
+FOUNDATION_EXTERN NSString *const kErrorMessage;
+FOUNDATION_EXTERN NSString *const kCarDirty;
+FOUNDATION_EXTERN NSString *const kWorkerBusy;
 
 @interface VAPEnterprise : NSObject
-@property (nonatomic, copy) VAPOfficeBuilding *headOffice;
-@property (nonatomic, retain, readonly) NSDictionary *departments;
+@property (nonatomic, retain, readonly) NSArray *employees;
+@property (nonatomic, retain, readonly) NSArray *buildings;
 
-//- (id)doIt:(id)
+
+- (void)addBuilding:(VAPEmployee *)object;
+- (void)addRoom:(VAPRoom *)object;
+- (void)addEmmployye:(VAPEmployee *)object;
+- (void)washCar:(VAPCar *)object;
+
+
+
 
 @end

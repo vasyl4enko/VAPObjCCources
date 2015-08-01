@@ -23,57 +23,32 @@
 }
 
 - (id)performBuildingSpecificOperatiom:(id) object {
-    
-    // rooms count
-    // NSArray         *rooms;
     NSMutableArray *result;
     if (nil != object && [object isKindOfClass:[NSArray class]]) {
         result = [NSMutableArray array];
+        uint64_t index = 0;
         for (VAPCarwashRoom *carwashRoom in self.rooms) {
-            uint64_t localCountCars = carwashRoom.carsCount;
+            uint64_t countCars = [object count];
+            uint64_t roomsCount = self.roomsCount;
             uint64_t iterator = 0;
-            for (VAPCar *car in object) {
-                if (localCountCars > iterator) {
-                    [carwashRoom addCar:car];
-                    iterator++;
-                } else {
-                    break;
+            uint64_t countCarsForOneRoom = countCars / roomsCount;
+            if (0 != countCars % self.roomsCount && 0 == iterator) {
+                countCarsForOneRoom += countCars % roomsCount;
+            }
+            while (iterator < countCarsForOneRoom) {
+                [carwashRoom addCar:[object objectAtIndex:index]];
+                if (carwashRoom.carsCount == [carwashRoom.cars count]) {
+                    [result addObject:[carwashRoom performRoomSpecificOperatiom:nil]];
                 }
-            }
-            
-            for (; iterator < localCountCars; iterator++) {
-                [carwashRoom addCar:[object objectAtIndex:iterator]];
-                [result addObject:[carwashRoom performRoomSpecificOperatiom:nil]];
                 [carwashRoom removeCars];
-                localCountCars = 0;
+                iterator++;
+                index++;
             }
-            
         }
         
     }
     return result;
 }
 
-//if (nil != object && [object isKindOfClass:[NSArray class]]) {
-//    uint64_t iterator = 0;
-//    result = [NSMutableArray array];
-//    for (VAPCar *car in object) {
-//        [self.mutableCars addObject:car];
-//        iterator++;
-//        if (iterator == kVAPDefaultCarsCount) {
-//            iterator = 0;
-//            VAPCarwasher *worker = [self.employees firstObject]; // at the task we have one worker but
-//            //we can add cycle
-//            [result addObjectsFromArray:[worker performEmployeeSpecificOperationWithObject:self.cars]];
-//            [self removeCars];
-//        }
-//        
-//        
-//    }
-//    
-//    return result;
-//}
-//
-//return result;
 
 @end

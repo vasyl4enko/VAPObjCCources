@@ -8,16 +8,28 @@
 
 #import "VAPCar.h"
 
-static CGFloat const kVAPDefaultMoneyValue = 235.4;
+NSUInteger const kVAPDefaultMoneyValue = 235;
 
 @implementation VAPCar
 
 - (instancetype)init {
     self = [super init];
     if (self) {
-        self.money = kVAPDefaultMoneyValue;
+        self.wallet = kVAPDefaultMoneyValue;
+        self.dirty = YES;
     }
     return self;
+}
+
+- (BOOL)isObjectAbleToPay:(NSUInteger)money {
+    return self.wallet >= money;
+}
+
+- (void)payMoneyToReciver:(id<VAPMoneyFlowing>)object price:(NSUInteger)money {
+    if (self.wallet > money) {
+        object.wallet += money;
+        self.wallet -= money;
+    }
 }
 
 @end

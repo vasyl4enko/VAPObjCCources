@@ -7,27 +7,23 @@
 //
 
 #import "VAPBuilding.h"
-#import "VAPCarwashBuilding.h"
-#import "VAPOfficeBuilding.h"
+#import "VAPCarwashRoom.h"
+#import "VAPEmployee.h"
 
 NSUInteger const kVAPDefaultCountRooms = 1;
 
 @interface VAPBuilding ()
 @property (nonatomic, retain)     NSMutableArray    *mutableRooms;
 
-+ (Class)buildingForType:(VAPBuildingType) type;
-
 @end
 
 @implementation VAPBuilding
+
 @dynamic rooms;
 
 #pragma mark -
 #pragma mark Class Methods
 
-+ (Class)buildingForType:(VAPBuildingType) type {
-    return VAPBuildingTypeCarwash == type ? [VAPCarwashBuilding class] : [VAPOfficeBuilding class];
-}
 
 #pragma mark -
 #pragma mark Initializations and Deallocations
@@ -39,16 +35,18 @@ NSUInteger const kVAPDefaultCountRooms = 1;
     [super dealloc];
 }
 
-- (id)initWithBuildingType:(VAPBuildingType) type roomsCount:(NSUInteger) count {
+- (instancetype)initWithCount:(NSUInteger)count {
     self = [super init];
-    Class class = [[self class] buildingForType:type];
-    [self release];
-    
-    return [[class alloc] initWithRoomsCount:count];
+    if (self) {
+        _maxCount = count;
+        self.mutableRooms = [NSMutableArray array];
+    }
+    return self;
 }
 
-- (id)initWithBuildingType:(VAPBuildingType) type {
-    return [self initWithBuildingType:type roomsCount:kVAPDefaultCountRooms];
+- (instancetype)init
+{
+    return [self initWithCount:kVAPDefaultCountRooms];
 }
 
 #pragma mark -
@@ -59,10 +57,6 @@ NSUInteger const kVAPDefaultCountRooms = 1;
 }
 
 - (NSMutableArray *)mutableRooms {
-    if (!_mutableRooms) {
-        _mutableRooms = [[NSMutableArray alloc] init];
-    }
-    
     return _mutableRooms;
 }
 
@@ -72,7 +66,7 @@ NSUInteger const kVAPDefaultCountRooms = 1;
 - (void)addRoom:(id)object {
     if (nil != object
         && NO == [self.mutableRooms containsObject:object]
-        && self.roomsCount > [self.mutableRooms count])
+        && self.maxCount > [self.mutableRooms count])
     {
         [self.mutableRooms addObject:object];
     }
@@ -82,11 +76,34 @@ NSUInteger const kVAPDefaultCountRooms = 1;
     [self.mutableRooms removeObject:objects];
 }
 
-- (id)performBuildingSpecificOperatiom:(id) object {
-    // rooms count
-    // NSArray         *rooms;
-    return nil;
+- (BOOL)hasEmptyWorkplace {
+    NSArray *localRooms =self.rooms;
+    for (VAPRoom *room in localRooms) {
+        if (room.employeesCount != [room.employees count]) {
+            return YES;
+        }
+    }
+    return NO;
 }
 
+- (VAPRoom *)findRoomWithEmployee:(VAPEmployee *)employee class:(Class)roomType {
+    VAPRoom *resultRoom = nil;
+    if (nil != employee) {
+        NSArray *rooms = self.rooms;
+        for (VAPRoom *room in rooms) {
+            if ([room isKindOfClass:roomType]) {
+                NSArray *employees = room.employees;
+                for (VAPEmployee *localEmployee in employees) {
+                    if (employee == localEmployee) {
+                        
+                        return room;
+                    }
+                }
+            }
+        }
+    }
+    
+    return resultRoom;
+}
 
 @end

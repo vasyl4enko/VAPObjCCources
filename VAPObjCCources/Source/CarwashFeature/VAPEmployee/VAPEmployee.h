@@ -7,19 +7,17 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "VAPMoneyFlowing.h"
 
-typedef NS_ENUM(NSUInteger, VAPEmployeeType) {
-    VAPAccountantType,
-    VAPCarwasherType,
-    VAPDirectorType
-};
+@interface VAPEmployee : NSObject<VAPMoneyFlowing>
+@property(nonatomic, copy)                      NSDate          *experience;
+@property(nonatomic, retain)                    VAPEmployee     *receiver;
 
-@interface VAPEmployee : NSObject
-@property(nonatomic, copy)      NSDate      *experience;
-@property(nonatomic, assign)    CGFloat     salary;
+@property(nonatomic, assign)                    NSUInteger      salary;
+@property(nonatomic, assign)                    NSUInteger      wallet;
+@property(nonatomic, assign, getter = isBusy)   BOOL            busy;
 
-- (id)initWithEmployeeType:(VAPEmployeeType) type;
 
-- (id)performEmployeeSpecificOperationWithObject:(id) object;
+- (void)performEmployeeSpecificOperationWithObject:(id) object;
 
 @end

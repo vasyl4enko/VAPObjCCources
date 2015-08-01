@@ -7,52 +7,26 @@
 //
 
 #import "VAPEmployee.h"
-#import "VAPDirector.h"
-#import "VAPCarwasher.h"
-#import "VAPAccountant.h"
 
 @implementation VAPEmployee
 
 #pragma mark -
 #pragma mark Class Methods
 
-+ (Class)employeeClassForType:(VAPEmployeeType) type {
-    Class class;
-    switch (type) {
-        case VAPAccountantType:
-            class = [VAPAccountant class];
-            break;
-        case VAPCarwasherType:
-            class = [VAPCarwasher class];
-            break;
-        case VAPDirectorType:
-            class = [VAPDirector class];
-            break;
-            
-        default:
-            break;
-    }
-    
-    return class;
-}
 
-#pragma mark -
-#pragma mark Initializations and Deallocations
-
-- (id)initWithEmployeeType:(VAPEmployeeType)type {
-    self = [super init];
-    Class class = [[self class] employeeClassForType:type];
-    [self release];
-    
-    return [[class alloc] init];
-}
 
 #pragma mark -
 #pragma mark Public Methods
 
-- (id)performEmployeeSpecificOperationWithObject:(id) object {
-    return nil;
+- (void)performEmployeeSpecificOperationWithObject:(id) object {
+    
 }
 
+- (BOOL)isObjectAbleToPay:(NSUInteger)money {
+    return NO;
+}
+- (void)payMoneyToReciver:(id<VAPMoneyFlowing>)object price:(NSUInteger)money {
+    
+}
 
 @end

@@ -9,7 +9,7 @@
 #import "VAPRoom.h"
 #import "VAPCar.h"
 
-extern NSUInteger const kVAPDefaultCarsCount;
+FOUNDATION_EXTERN NSUInteger const kVAPDefaultCarsCount;
 
 @interface VAPCarwashRoom : VAPRoom
 @property (nonatomic, retain, readonly)     NSArray     *cars;
@@ -22,13 +22,8 @@ extern NSUInteger const kVAPDefaultCarsCount;
 
 - (void)removeCar:(id) object;
 
-- (void)addCars:(NSArray *) objects;
-
-- (void)removeCars;
+- (void)removeAllCars;
 
 - (id)firstCar;
-
-- (id)performRoomSpecificOperatiom:(id) object;
-
 
 @end

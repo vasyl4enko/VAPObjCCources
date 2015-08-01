@@ -8,6 +8,11 @@
 
 #import "VAPEmployee.h"
 
+
+FOUNDATION_EXTERN NSString *const kCarwasherGreeting;
+FOUNDATION_EXTERN NSUInteger const kDefualtCost;
+FOUNDATION_EXTERN NSString *const kCarWasWashed;
+
 @interface VAPCarwasher : VAPEmployee
 
 @end

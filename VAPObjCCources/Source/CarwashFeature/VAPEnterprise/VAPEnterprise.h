@@ -8,9 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
-@class VAPBuilding;
+
 @class VAPEmployee;
-@class VAPRoom;
+
 @class VAPCar;
 
 FOUNDATION_EXTERN NSString *const kErrorMessage;
@@ -19,11 +19,11 @@ FOUNDATION_EXTERN NSString *const kWorkerBusy;
 
 @interface VAPEnterprise : NSObject
 @property (nonatomic, retain, readonly) NSArray *employees;
-@property (nonatomic, retain, readonly) NSArray *buildings;
 
 
-- (void)addBuilding:(VAPEmployee *)object;
-- (void)addRoom:(VAPRoom *)object;
+
+
+
 - (void)addEmmployye:(VAPEmployee *)object;
 - (void)washCar:(VAPCar *)object;
 

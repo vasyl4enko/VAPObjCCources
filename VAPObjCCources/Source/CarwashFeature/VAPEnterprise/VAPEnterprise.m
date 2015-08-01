@@ -7,7 +7,7 @@
 //
 
 #import "VAPEnterprise.h"
-#import "VAPBuilding.h"
+
 #import "VAPCarwasher.h"
 #import "VAPAccountant.h"
 #import "VAPDirector.h"
@@ -80,30 +80,8 @@ NSString *const kWorkerBusy = @"Worker is still busy";
 #pragma mark -
 #pragma mark Public Implementation
 
-- (void)addBuilding:(VAPEmployee *)object {
-    if (nil != object) {
-        [self.mutableBuildings addObject:object];
-    }
-}
 
-- (void)addRoom:(VAPRoom *)object {
-    if (nil != object) {
-        NSArray *localBuildings = self.buildings;
-        for (VAPBuilding *build in localBuildings) {
-            if (0 == [build.rooms count])
-            {
-                [build addRoom:object];
-                break;
-            }
-            else if (build.maxCount > [build.rooms count]
-                       && [[build.rooms firstObject] isKindOfClass:[object class]])
-            {
-                [build addRoom:object];
-                break;
-            }
-        }
-    }
-}
+
 
 - (void)addEmmployye:(VAPEmployee *)object {
     if (nil != object) {

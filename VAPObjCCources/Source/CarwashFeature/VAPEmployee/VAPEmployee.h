@@ -7,13 +7,29 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "VAPMoneyFlowing.h"
+#import "VAPObservableObject.h"
 
-@interface VAPEmployee : NSObject<VAPMoneyFlowing>
-@property(nonatomic, copy)                      NSDate          *experience;
+
+
+typedef NS_ENUM(NSUInteger, VAPEmployeeState) {
+    VAPStateAddMoney,
+    VAPStateBecomeLessMoney,
+};
+
+@class VAPEmployee;
+
+@protocol VAPEmployeeObserver <NSObject>
+
+@optional
+- (void)employeeDidAddMoney:(VAPEmployee *)employee;
+- (void)employeeDidBecomeLessMoney:(VAPEmployee *)employee;
+
+@end
+
+@interface VAPEmployee : VAPObservableObject
+
 @property(nonatomic, retain)                    VAPEmployee     *receiver;
 
-@property(nonatomic, assign)                    NSUInteger      salary;
 @property(nonatomic, assign)                    NSUInteger      wallet;
 @property(nonatomic, assign, getter = isBusy)   BOOL            busy;
 

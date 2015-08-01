@@ -11,9 +11,19 @@
 @implementation VAPEmployee
 
 #pragma mark -
-#pragma mark Class Methods
+#pragma mark Accesors
 
-
+- (void)setWallet:(NSUInteger)wallet {
+    if (_wallet != wallet) {
+        if (_wallet <= wallet) {
+            _wallet = wallet;
+            self.state = VAPStateAddMoney;
+        } else {
+            _wallet = wallet;
+            self.state = VAPStateBecomeLessMoney;
+        }
+    }
+}
 
 #pragma mark -
 #pragma mark Public Methods
@@ -22,11 +32,21 @@
     
 }
 
-- (BOOL)isObjectAbleToPay:(NSUInteger)money {
-    return NO;
+- (SEL)selectorForState:(NSUInteger)state {
+    switch (state) {
+        case VAPStateAddMoney:
+            return @selector(employeeDidAddMoney:);
+            
+        case VAPStateBecomeLessMoney:
+            return @selector(employeeDidBecomeLessMoney:);
+            
+        default:
+            break;
+            
+    }
+  return  [super selectorForState:state];
 }
-- (void)payMoneyToReciver:(id<VAPMoneyFlowing>)object price:(NSUInteger)money {
-    
-}
+
+
 
 @end

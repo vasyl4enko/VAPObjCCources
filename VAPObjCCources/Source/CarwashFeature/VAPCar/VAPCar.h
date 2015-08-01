@@ -6,12 +6,23 @@
 //  Copyright (c) 2015 Aleksandr Vasylchenko. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-#import "VAPMoneyFlowing.h"
+#import "VAPObservableObject.h"
 
 FOUNDATION_EXTERN NSUInteger const kVAPDefaultMoneyValue;
 
-@interface VAPCar : NSObject<VAPMoneyFlowing>
-@property(nonatomic, assign) NSUInteger wallet;
-@property(nonatomic, assign, getter = isDirty) BOOL dirty;
+@class VAPCar;
+
+typedef NS_ENUM(NSUInteger, VAPCarState) {
+    VAPCarStateClean
+};
+
+@protocol VAPCarObserver <NSObject>
+
+- (void)carDidBecomeCleaner:(VAPCar *)car;
+
+@end
+
+@interface VAPCar : VAPObservableObject
+@property(nonatomic, assign)                    NSUInteger wallet;
+@property(nonatomic, assign, getter = isDirty)  BOOL dirty;
 @end

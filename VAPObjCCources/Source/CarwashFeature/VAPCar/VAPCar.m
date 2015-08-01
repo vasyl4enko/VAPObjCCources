@@ -12,6 +12,9 @@ NSUInteger const kVAPDefaultMoneyValue = 235;
 
 @implementation VAPCar
 
+#pragma mark -
+#pragma mark Initializations and Dealocations
+
 - (instancetype)init {
     self = [super init];
     if (self) {
@@ -21,15 +24,27 @@ NSUInteger const kVAPDefaultMoneyValue = 235;
     return self;
 }
 
-- (BOOL)isObjectAbleToPay:(NSUInteger)money {
-    return self.wallet >= money;
-}
+#pragma mark -
+#pragma mark Accessors
 
-- (void)payMoneyToReciver:(id<VAPMoneyFlowing>)object price:(NSUInteger)money {
-    if (self.wallet > money) {
-        object.wallet += money;
-        self.wallet -= money;
+- (void)setDirty:(BOOL)dirty {
+    if (_dirty != dirty) {
+        _dirty = dirty;
+        if (NO == dirty) {
+            self.state = VAPCarStateClean;
+        }
     }
 }
+
+//- (BOOL)isObjectAbleToPay:(NSUInteger)money {
+//    return self.wallet >= money;
+//}
+//
+//- (void)payMoneyToReciver:(id<VAPMoneyFlowing>)object price:(NSUInteger)money {
+//    if (self.wallet > money) {
+//        object.wallet += money;
+//        self.wallet -= money;
+//    }
+//}
 
 @end

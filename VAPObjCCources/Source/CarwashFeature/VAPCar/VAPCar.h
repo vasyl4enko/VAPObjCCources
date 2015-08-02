@@ -25,4 +25,6 @@ typedef NS_ENUM(NSUInteger, VAPCarState) {
 @interface VAPCar : VAPObservableObject
 @property(nonatomic, assign)                    NSUInteger wallet;
 @property(nonatomic, assign, getter = isDirty)  BOOL dirty;
+
+- (BOOL)isPayable:(NSUInteger)monye;
 @end

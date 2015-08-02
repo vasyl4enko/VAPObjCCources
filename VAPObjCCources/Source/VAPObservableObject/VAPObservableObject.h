@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface VAPObservableObject : NSObject
-@property(nonatomic, readonly)      NSSet       *observableObjects;
+@property(nonatomic, readonly)      NSArray     *observableObjects;
 @property(nonatomic, assign)        NSUInteger  state;
 
 - (void)addObserver:(id)observer;

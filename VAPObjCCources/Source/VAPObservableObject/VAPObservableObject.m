@@ -9,7 +9,7 @@
 #import "VAPObservableObject.h"
 
 @interface VAPObservableObject ()
-@property(nonatomic, retain)       NSMutableSet *mutableObservableObjects;
+@property(nonatomic, retain)       NSHashTable *mutableObservableObjects;
 
 - (void)notifyObserversWithSelector:(SEL)selector;
 
@@ -31,7 +31,7 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        self.mutableObservableObjects = [NSMutableSet set];
+        self.mutableObservableObjects = [[NSHashTable alloc] initWithOptions:NSHashTableWeakMemory capacity:0];
     }
     return self;
 }
@@ -39,16 +39,14 @@
 #pragma mark -
 #pragma mark Accessors
 
-- (NSSet *)observableObjects {
-    return [[self.mutableObservableObjects copy] autorelease];
+- (NSArray *)observableObjects {
+    
+    return [self.mutableObservableObjects allObjects];
 }
 
 - (void)setState:(NSUInteger)state {
-    if (_state != state) {
-        _state = state;
         
         [self notifyObserversWithSelector:[self selectorForState:state]];
-    }
     
 }
 
@@ -64,7 +62,7 @@
 }
 
 - (BOOL)cointainsObserver:(id)observer {
-    return YES;
+    return [self.mutableObservableObjects containsObject:observer];;
 }
 
 - (SEL)selectorForState:(NSUInteger)state {
@@ -76,7 +74,7 @@
 #pragma mark Private
 
 -(void)notifyObserversWithSelector:(SEL)selector {
-    NSSet *observableObjects = self.observableObjects;
+    NSArray *observableObjects = [self.mutableObservableObjects allObjects];
     for (id object in observableObjects) {
         if ([object respondsToSelector:selector]) {
             [object performSelector:selector withObject:self];

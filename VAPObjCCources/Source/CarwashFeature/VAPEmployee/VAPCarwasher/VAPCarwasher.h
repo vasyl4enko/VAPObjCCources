@@ -7,12 +7,12 @@
 //
 
 #import "VAPEmployee.h"
-
+#import "VAPCar.h"
 
 FOUNDATION_EXTERN NSString *const kCarwasherGreeting;
 FOUNDATION_EXTERN NSUInteger const kDefualtCost;
 FOUNDATION_EXTERN NSString *const kCarWasWashed;
 
-@interface VAPCarwasher : VAPEmployee
-
+@interface VAPCarwasher : VAPEmployee<VAPCarDelegate>
+@property(nonatomic, retain)    VAPCar  *delegatingCar;
 @end

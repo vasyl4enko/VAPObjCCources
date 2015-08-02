@@ -18,12 +18,25 @@ NSUInteger const kDefualtSendingToAccountant = kDefualtCost*2;
 @implementation VAPCarwasher
 
 #pragma mark -
+#pragma mark Accessors 
+
+- (void)setDelegatingCar:(VAPCar *)delegatingCar {
+    if (_delegatingCar != delegatingCar) {
+        
+        _delegatingCar = nil;
+        [_delegatingCar release];
+        _delegatingCar = [delegatingCar retain];
+        
+        _delegatingCar.delegate = self;
+    }
+}
+
+#pragma mark -
 #pragma mark Public Methods
 
 - (void)performEmployeeSpecificOperationWithObject:(id) object {
     if (nil != object && [object isKindOfClass:[VAPCar class]]) {
         if ([object isPayable:kDefualtCost]) {
-            [object addObserver:self];
             NSLog(kCarwasherGreeting);
             NSLog(kCarWasWashed);
             if ([object respondsToSelector:@selector(setDirty:)]){
@@ -34,15 +47,11 @@ NSUInteger const kDefualtSendingToAccountant = kDefualtCost*2;
 }
 
 #pragma mark -
-#pragma mark VAPCarObserver
+#pragma mark VAPCarDelegate 
 
-- (void)carDidBecomeCleaner:(VAPCar *)car {
+- (void)delegatingCarShouldBecameCleaner:(VAPCar *)car {
     car.wallet -= kDefualtCost;
     self.wallet += kDefualtCost;
-    
-    [car removeObserver:self];
 }
-
-
 
 @end

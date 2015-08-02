@@ -7,14 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "VAPObservableObject.h"
 
 
 
-typedef NS_ENUM(NSUInteger, VAPEmployeeState) {
-    VAPStateAddMoney,
-    VAPStateBecomeLessMoney,
-};
+
+
 
 @class VAPEmployee;
 
@@ -26,7 +23,7 @@ typedef NS_ENUM(NSUInteger, VAPEmployeeState) {
 
 @end
 
-@interface VAPEmployee : VAPObservableObject
+@interface VAPEmployee : NSObject
 
 @property(nonatomic, retain)                    VAPEmployee     *receiver;
 

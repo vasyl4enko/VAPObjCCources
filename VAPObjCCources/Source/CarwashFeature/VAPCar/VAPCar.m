@@ -29,34 +29,18 @@ NSUInteger const kVAPDefaultMoneyValue = 235;
 
 - (void)setDirty:(BOOL)dirty {
     if (_dirty != dirty) {
-        
         _dirty = dirty;
-        if (NO == dirty) {
-            self.state = VAPCarStateClean;
-        }
     }
-}
-
-- (SEL)selectorForState:(NSUInteger)state  {
-    switch (state) {
-        case VAPCarStateClean:
-            return @selector(carDidBecomeCleaner:);
-            
-        default:
-            break;
+    
+    if (NO == _dirty ) {
+        id<VAPCarDelegate> delegate = self.delegate;
+        [delegate delegatingCarShouldBecameCleaner:self];
     }
-    return [super selectorForState:state];
 }
 
 - (BOOL)isPayable:(NSUInteger)money {
     return self.wallet >= money;
 }
 
-//- (void)payMoneyToReciver:(id<VAPMoneyFlowing>)object price:(NSUInteger)money {
-//    if (self.wallet > money) {
-//        object.wallet += money;
-//        self.wallet -= money;
-//    }
-//}
 
 @end

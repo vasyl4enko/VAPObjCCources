@@ -10,6 +10,6 @@
 
 FOUNDATION_EXTERN NSUInteger const kDefualtSendingToDirector;
 
-@interface VAPAccountant : VAPEmployee<VAPEmployeeObserver>
+@interface VAPAccountant : VAPEmployee
 
 @end

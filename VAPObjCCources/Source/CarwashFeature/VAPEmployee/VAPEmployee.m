@@ -17,11 +17,11 @@
     if (_wallet != wallet) {
         if (_wallet <= wallet) {
             _wallet = wallet;
-            self.state = VAPStateAddMoney;
+           
             
         } else {
             _wallet = wallet;
-            self.state = VAPStateBecomeLessMoney;
+            
         }
     }
 }
@@ -33,20 +33,7 @@
     
 }
 
-- (SEL)selectorForState:(NSUInteger)state {
-    switch (state) {
-        case VAPStateAddMoney:
-            return @selector(employeeDidAddMoney:);
-            
-        case VAPStateBecomeLessMoney:
-            return @selector(employeeDidBecomeLessMoney:);
-            
-        default:
-            break;
-            
-    }
-  return  [super selectorForState:state];
-}
+
 
 
 

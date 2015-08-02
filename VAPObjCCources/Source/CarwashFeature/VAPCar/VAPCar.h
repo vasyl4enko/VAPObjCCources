@@ -6,25 +6,22 @@
 //  Copyright (c) 2015 Aleksandr Vasylchenko. All rights reserved.
 //
 
-#import "VAPObservableObject.h"
+#import <Foundation/Foundation.h>
 
 FOUNDATION_EXTERN NSUInteger const kVAPDefaultMoneyValue;
 
 @class VAPCar;
 
-typedef NS_ENUM(NSUInteger, VAPCarState) {
-    VAPCarStateClean
-};
+@protocol VAPCarDelegate <NSObject>
 
-@protocol VAPCarObserver <NSObject>
-
-- (void)carDidBecomeCleaner:(VAPCar *)car;
+- (void)delegatingCarShouldBecameCleaner:(VAPCar *)car;
 
 @end
 
-@interface VAPCar : VAPObservableObject
-@property(nonatomic, assign)                    NSUInteger wallet;
-@property(nonatomic, assign, getter = isDirty)  BOOL dirty;
+@interface VAPCar : NSObject
+@property(nonatomic, assign)                    NSUInteger          wallet;
+@property(nonatomic, assign, getter = isDirty)  BOOL                dirty;
+@property(nonatomic, assign)                    id<VAPCarDelegate>  delegate;
 
-- (BOOL)isPayable:(NSUInteger)monye;
+- (BOOL)isPayable:(NSUInteger)money;
 @end

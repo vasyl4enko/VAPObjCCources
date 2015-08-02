@@ -21,8 +21,7 @@ int main(int argc, const char * argv[]) {
         VAPAccountant *acc = [[[VAPAccountant alloc] init] autorelease];
         VAPDirector *director = [[[VAPDirector alloc] init] autorelease];
         VAPCar *car = [[[VAPCar alloc] init] autorelease];
-        [carwasher addObserver:acc];
-        [acc addObserver:director];
+        [carwasher setDelegatingCar:car];
         car.dirty = YES;
         [carwasher performEmployeeSpecificOperationWithObject:car];
         NSLog(@"%money %lu",director.wallet);

@@ -22,6 +22,5 @@ FOUNDATION_EXTERN NSString *const kCarWasWashed;
 @end
 
 @interface VAPCarwasher : VAPEmployee<VAPCarDelegate>
-@property(nonatomic, retain)    VAPCar                      *delegatingCar;
-//@property(nonatomic, assign)    id<VAPCarwasherDelegate>    delegate;
+@property(nonatomic, retain)    VAPCar                      *delegatingObject;
 @end

@@ -18,6 +18,7 @@
 
 @interface VAPEmployee : NSObject
 
+@property(nonatomic, retain)                    Class                           classType;
 @property(nonatomic, retain)                    VAPEmployee                     *receiver;
 @property(nonatomic, assign)                    NSUInteger                      wallet;
 @property(nonatomic, assign, getter = isBusy)   BOOL                            busy;

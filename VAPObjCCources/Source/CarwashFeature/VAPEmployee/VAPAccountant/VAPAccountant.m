@@ -8,6 +8,7 @@
 
 #import "VAPAccountant.h"
 #import "VAPCarwasher.h"
+#import "VAPDirector.h"
 
 NSString *const kAccuntantGreeting = @"I'm an accountan";
 NSUInteger const kDefualtSendingToDirector = 200;
@@ -15,17 +16,35 @@ NSUInteger const kDefualtSendingToDirector = 200;
 @implementation VAPAccountant
 
 #pragma mark -
+#pragma mark Initializations and Dealocations
+
+- (void)dealloc {
+    self.delegatingObject = nil;
+    
+    [super dealloc];
+}
+
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        self.classType = [VAPDirector class];
+    }
+    
+    return self;
+}
+
+#pragma mark -
 #pragma mark Accessors
 
 
-- (void)setDelegatingCarwasher:(VAPCarwasher *)delegatingCarwasher {
-    if (_delegatingCarwasher != delegatingCarwasher) {
+- (void)setDelegatingObject:(VAPCarwasher *)delegatingObject {
+    if (_delegatingObject != delegatingObject) {
         
-        _delegatingCarwasher = nil;
-        [_delegatingCarwasher release];
-        _delegatingCarwasher = [delegatingCarwasher retain];
+        _delegatingObject = nil;
+        [_delegatingObject release];
+        _delegatingObject = [delegatingObject retain];
         
-        _delegatingCarwasher.delegate = self;
+        _delegatingObject.delegate = self;
     }
 }
 

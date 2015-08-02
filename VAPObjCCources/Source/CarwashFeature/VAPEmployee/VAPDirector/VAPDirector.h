@@ -10,5 +10,5 @@
 #import "VAPAccountant.h"
 
 @interface VAPDirector : VAPEmployee<VAPMoneyFlowingDelegate>
-@property(nonatomic, retain)    VAPAccountant   *delegatingAccountant;
+@property(nonatomic, retain)    VAPAccountant   *delegatingObject;
 @end

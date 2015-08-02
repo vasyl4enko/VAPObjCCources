@@ -8,6 +8,7 @@
 
 #import "VAPCarwasher.h"
 #import "VAPCar.h"
+#import "VAPAccountant.h"
 
 
 NSString *const kCarwasherGreeting  = @"I'm a carwasher, let's wash it";
@@ -18,16 +19,34 @@ NSUInteger const kDefualtSendingToAccountant = kDefualtCost*2;
 @implementation VAPCarwasher
 
 #pragma mark -
+#pragma mark Initializations and Dealocations
+
+- (void)dealloc {
+    self.delegatingObject = nil;
+    
+    [super dealloc];
+}
+
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        self.classType = [VAPAccountant class];
+    }
+    
+    return self;
+}
+
+#pragma mark -
 #pragma mark Accessors 
 
-- (void)setDelegatingCar:(VAPCar *)delegatingCar {
-    if (_delegatingCar != delegatingCar) {
+- (void)setDelegatingObject:(VAPCar *)delegatingObject {
+    if (_delegatingObject != delegatingObject) {
         
-        _delegatingCar = nil;
-        [_delegatingCar release];
-        _delegatingCar = [delegatingCar retain];
+        _delegatingObject = nil;
+        [_delegatingObject release];
+        _delegatingObject = [delegatingObject retain];
         
-        _delegatingCar.delegate = self;
+        _delegatingObject.delegate = self;
     }
 }
 

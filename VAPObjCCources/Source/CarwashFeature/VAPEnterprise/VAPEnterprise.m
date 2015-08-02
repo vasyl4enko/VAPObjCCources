@@ -20,19 +20,13 @@ NSString *const kWorkerBusy = @"Worker is still busy";
 @property (nonatomic, retain) NSMutableArray *mutableEmployees;
 @property (nonatomic, retain) NSMutableArray *mutableBuildings;
 
-+ (Class)roomClassForObject:(id)object;
 
-- (void)findFreePlaceForEmployye:(id) object rooms:(NSArray *)objects;
 
 @end
 
 @implementation VAPEnterprise
 
 @dynamic employees;
-
-
-#pragma mark -
-#pragma mark Class Methods
 
 
 #pragma mark -
@@ -68,9 +62,6 @@ NSString *const kWorkerBusy = @"Worker is still busy";
 #pragma mark -
 #pragma mark Public Implementation
 
-
-
-
 - (void)addEmmployye:(VAPEmployee *)object {
     if (nil != object) {
         object.receiver = [self.mutableEmployees firstObject];
@@ -81,9 +72,11 @@ NSString *const kWorkerBusy = @"Worker is still busy";
 
 - (void)washCar:(VAPCar *)object {
     if (nil != object) {
-        VAPCarwasher *freeCarwasher = (VAPCarwasher *)[self findFreeWasher];
+        VAPCarwasher *freeCarwasher = (VAPCarwasher *)[self findFreeEmployee:[VAPCarwasher class] withNextEmployee:nil];
         if (nil != freeCarwasher) {
+            [freeCarwasher setDelegatingObject:object];
             [freeCarwasher performEmployeeSpecificOperationWithObject:object];
+            
         } else {
             NSLog(@"some workers aren't on his position or maybe room is nil");
         }
@@ -94,42 +87,46 @@ NSString *const kWorkerBusy = @"Worker is still busy";
 #pragma mark -
 #pragma mark Extension
 
-
-
-- (VAPEmployee *)findFreeWasher {
-    VAPDirector *reciverDirector = nil;
-    VAPAccountant *reciverAccountant = nil;
-    VAPCarwasher *freeCarwasher = nil;
+- (VAPEmployee *)findFreeEmployee:(Class)employeeType withNextEmployee:(VAPEmployee *)employee{
+    VAPEmployee *resultEmployee = nil;
+    VAPEmployee *nextEmployee = nil;
+    Class classType;
+    
     NSArray *employees = self.employees;
-    for (VAPEmployee *employee in employees) {
-        if ([employee isKindOfClass:[VAPDirector class]]) {
-            reciverDirector = (VAPDirector *) employee;
+    if (nil == employee) {
+        for (VAPEmployee *worker in employees) {
+            if ([worker isMemberOfClass:employeeType] && NO == worker.isBusy) {
+                resultEmployee = worker;
+                classType = resultEmployee.classType;
+                if (nil == classType) {
+                    break;
+                }
+                nextEmployee = [self findFreeEmployee:classType withNextEmployee:worker];
+                break;
+            }
         }
         
-        if ([employee isKindOfClass:[VAPAccountant class]] && NO == employee.busy) {
-            reciverAccountant = (VAPAccountant *) employee;
+    } else {
+        for (VAPEmployee *worker in employees) {
+            if ([worker isMemberOfClass:employeeType] && NO == worker.isBusy) {
+                resultEmployee = worker;
+                classType = resultEmployee.classType;
+                if (nil == classType) {
+                    break;
+                }
+                nextEmployee = [self findFreeEmployee:classType withNextEmployee:worker];
+                break;
+            }
         }
         
-        if ([employee isKindOfClass:[VAPCarwasher class]] && NO == employee.busy) {
-            freeCarwasher = (VAPCarwasher *) employee;
-            freeCarwasher.busy = YES;
+        if ([nextEmployee respondsToSelector:@selector(setDelegatingObject:)]) {
+            [nextEmployee performSelector:@selector(setDelegatingObject:) withObject:employee];
         }
         
-        if (nil != reciverAccountant && nil != reciverDirector && nil != freeCarwasher) {
-            break;
-        }
     }
     
-    if (nil != reciverAccountant && nil != reciverDirector && nil != freeCarwasher) {
-        freeCarwasher.receiver = reciverAccountant;
-        reciverAccountant.receiver = reciverDirector;
-        reciverDirector.receiver = nil;
-    }
     
-    
-    return freeCarwasher;
+    return resultEmployee;
 }
-
-
 
 @end

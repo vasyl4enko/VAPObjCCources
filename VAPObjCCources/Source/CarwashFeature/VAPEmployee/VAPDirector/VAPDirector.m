@@ -15,16 +15,26 @@ NSString *const kDirectorProffit = @"My proffit %lu";
 @implementation VAPDirector
 
 #pragma mark -
+#pragma mark Initializations and Dealocations
+
+- (void)dealloc {
+    self.delegatingObject = nil;
+    
+    [super dealloc];
+}
+
+
+#pragma mark -
 #pragma mark Accessors 
 
-- (void)setDelegatingAccountant:(VAPAccountant *)delegatingAccountant {
-    if (_delegatingAccountant != delegatingAccountant) {
+- (void)setDelegatingObject:(VAPAccountant *)delegatingObject {
+    if (_delegatingObject != delegatingObject) {
         
-        _delegatingAccountant = nil;
-        [_delegatingAccountant release];
-        _delegatingAccountant = [delegatingAccountant retain];
+        _delegatingObject = nil;
+        [_delegatingObject release];
+        _delegatingObject = [delegatingObject retain];
         
-        _delegatingAccountant.delegate = self;
+        _delegatingObject.delegate = self;
     }
 }
 

@@ -13,26 +13,31 @@
 #import "VAPCar.h"
 #import "VAPAccountant.h"
 #import "VAPDirector.h"
+#import "VAPEnterprise.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
 //        [VAPCarwashTest performWashingTest];
         VAPCarwasher *carwasher = [[[VAPCarwasher alloc] init] autorelease];
-        VAPAccountant *acc = [[[VAPAccountant alloc] init] autorelease];
+        carwasher.busy = NO;
+        VAPAccountant *accountant = [[[VAPAccountant alloc] init] autorelease];
         VAPDirector *director = [[[VAPDirector alloc] init] autorelease];
         VAPCar *car = [[[VAPCar alloc] init] autorelease];
         VAPCar *car2 = [[[VAPCar alloc] init] autorelease];
-        [carwasher setDelegatingCar:car];
-        [acc setDelegatingCarwasher:carwasher];
-        [director setDelegatingAccountant:acc];
+        VAPEnterprise *enterpise = [[[VAPEnterprise alloc] init] autorelease];
+        [enterpise addEmmployye:director];
+        [enterpise addEmmployye:carwasher];
+        [enterpise addEmmployye:accountant];
+        [enterpise washCar:car];
         
-        car.dirty = YES;
-        [carwasher performEmployeeSpecificOperationWithObject:car];
+        
+//        car.dirty = YES;
+//        [carwasher performEmployeeSpecificOperationWithObject:car];
         NSLog(@"%money %lu",director.wallet);
-        [carwasher setDelegatingCar:car2];
-        car2.dirty = YES;
-        [carwasher performEmployeeSpecificOperationWithObject:car2];
-        NSLog(@"%money %lu",director.wallet);
+////        [carwasher setDelegatingCar:car2];
+//        car2.dirty = YES;
+//        [carwasher performEmployeeSpecificOperationWithObject:car2];
+//        NSLog(@"%money %lu",director.wallet);
 
         
     }

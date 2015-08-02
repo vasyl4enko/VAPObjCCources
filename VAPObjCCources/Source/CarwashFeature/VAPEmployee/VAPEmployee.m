@@ -13,15 +13,26 @@
 #pragma mark -
 #pragma mark Accesors
 
+//- (void)setWallet:(NSUInteger)wallet {
+//    if (_wallet != wallet) {
+//        if (_wallet <= wallet) {
+//            _wallet = wallet;
+//           
+//            
+//        } else {
+//            _wallet = wallet;
+//            
+//        }
+//    }
+//}
+
 - (void)setWallet:(NSUInteger)wallet {
+    id<VAPMoneyFlowingDelegate> delegate = self.delegate;
     if (_wallet != wallet) {
-        if (_wallet <= wallet) {
-            _wallet = wallet;
-           
-            
-        } else {
-            _wallet = wallet;
-            
+        NSUInteger previousValue = self.wallet;
+        _wallet = wallet;
+        if (previousValue < wallet) {
+            [delegate delegatingEmployeeDidAddMoney:self];
         }
     }
 }

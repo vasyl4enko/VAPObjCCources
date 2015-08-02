@@ -8,27 +8,20 @@
 
 #import <Foundation/Foundation.h>
 
-
-
-
-
-
 @class VAPEmployee;
 
-@protocol VAPEmployeeObserver <NSObject>
+@protocol VAPMoneyFlowingDelegate <NSObject>
 
-@optional
-- (void)employeeDidAddMoney:(VAPEmployee *)employee;
-- (void)employeeDidBecomeLessMoney:(VAPEmployee *)employee;
+- (void)delegatingEmployeeDidAddMoney:(VAPEmployee *)employee;
 
 @end
 
 @interface VAPEmployee : NSObject
 
-@property(nonatomic, retain)                    VAPEmployee     *receiver;
-
-@property(nonatomic, assign)                    NSUInteger      wallet;
-@property(nonatomic, assign, getter = isBusy)   BOOL            busy;
+@property(nonatomic, retain)                    VAPEmployee                     *receiver;
+@property(nonatomic, assign)                    NSUInteger                      wallet;
+@property(nonatomic, assign, getter = isBusy)   BOOL                            busy;
+@property(nonatomic, assign)                    id<VAPMoneyFlowingDelegate>     delegate;
 
 
 - (void)performEmployeeSpecificOperationWithObject:(id) object;

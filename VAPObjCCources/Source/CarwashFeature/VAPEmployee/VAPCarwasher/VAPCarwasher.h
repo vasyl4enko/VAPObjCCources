@@ -13,6 +13,15 @@ FOUNDATION_EXTERN NSString *const kCarwasherGreeting;
 FOUNDATION_EXTERN NSUInteger const kDefualtCost;
 FOUNDATION_EXTERN NSString *const kCarWasWashed;
 
+@class VAPCarwasher;
+
+@protocol VAPCarwasherDelegate <NSObject>
+
+- (void)delegatingCarwasherDidAddMoney:(VAPCarwasher *)carwasher;
+
+@end
+
 @interface VAPCarwasher : VAPEmployee<VAPCarDelegate>
-@property(nonatomic, retain)    VAPCar  *delegatingCar;
+@property(nonatomic, retain)    VAPCar                      *delegatingCar;
+//@property(nonatomic, assign)    id<VAPCarwasherDelegate>    delegate;
 @end

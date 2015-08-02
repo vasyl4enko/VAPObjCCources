@@ -31,6 +31,8 @@ NSUInteger const kDefualtSendingToAccountant = kDefualtCost*2;
     }
 }
 
+
+
 #pragma mark -
 #pragma mark Public Methods
 
@@ -52,6 +54,12 @@ NSUInteger const kDefualtSendingToAccountant = kDefualtCost*2;
 - (void)delegatingCarShouldBecameCleaner:(VAPCar *)car {
     car.wallet -= kDefualtCost;
     self.wallet += kDefualtCost;
+}
+
+- (void)delegatingEmployeeDidAddMoney:(VAPEmployee *)employee {
+    self.wallet = employee.wallet;
+    employee.wallet = 0;
+    employee.busy = NO;
 }
 
 @end

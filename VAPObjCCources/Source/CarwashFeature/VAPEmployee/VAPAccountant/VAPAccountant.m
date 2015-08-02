@@ -15,38 +15,37 @@ NSUInteger const kDefualtSendingToDirector = 200;
 @implementation VAPAccountant
 
 #pragma mark -
+#pragma mark Accessors
+
+
+- (void)setDelegatingCarwasher:(VAPCarwasher *)delegatingCarwasher {
+    if (_delegatingCarwasher != delegatingCarwasher) {
+        
+        _delegatingCarwasher = nil;
+        [_delegatingCarwasher release];
+        _delegatingCarwasher = [delegatingCarwasher retain];
+        
+        _delegatingCarwasher.delegate = self;
+    }
+}
+
+#pragma mark -
 #pragma mark Public Methods
 
-- (void)performEmployeeSpecificOperationWithObject:(id) object {
+- (void)performEmployeeSpecificOperationWithObject:(id) object { // unusued with delegate
     NSLog(kAccuntantGreeting);
     
-    if (nil != object && [object isKindOfClass:[NSNumber class]]) {
-        self.wallet += [object integerValue];
-        if ([self isObjectAbleToPay:kDefualtSendingToDirector]) {
-            [self payMoneyToReciver:self.receiver price:self.wallet];
-            self.wallet = 0;
-            self.busy = NO;
-        }
-    }
 
 }
 
-- (BOOL)isObjectAbleToPay:(NSUInteger)money {
-    return self.wallet >= money;
-}
-//- (void)payMoneyToReciver:(id)object price:(NSUInteger)money {
-//    NSNumber *objectMoney = [[[NSNumber alloc] initWithInteger:money] autorelease];
-//    if ([object respondsToSelector:@selector(performEmployeeSpecificOperationWithObject:)]){
-//        [object performSelector:@selector(performEmployeeSpecificOperationWithObject:) withObject:objectMoney];
-//    }
-//}
-
-- (void)employeeDidAddMoney:(VAPEmployee *)employee {
+#pragma mark -
+#pragma mark VAPCarwasherDelegate
+//- (void)delegatingEmployeeDidAddMoney:(VAPEmployee *)employee;
+- (void)delegatingEmployeeDidAddMoney:(VAPEmployee *)employee {
     self.wallet = employee.wallet;
     employee.wallet = 0;
     employee.busy = NO;
 }
-
 
 
 

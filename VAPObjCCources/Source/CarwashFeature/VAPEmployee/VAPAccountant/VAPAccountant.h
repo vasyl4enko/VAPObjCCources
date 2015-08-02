@@ -8,8 +8,19 @@
 
 #import "VAPEmployee.h"
 
+#import "VAPCarwasher.h"
+
 FOUNDATION_EXTERN NSUInteger const kDefualtSendingToDirector;
 
-@interface VAPAccountant : VAPEmployee
+@class VAPAccountant;
 
+@protocol VAPAccountantDelegate <NSObject>
+
+- (void)delegatingAccountantDidAddMoney:(VAPAccountant *)accountant;
+
+@end
+
+@interface VAPAccountant : VAPEmployee<VAPMoneyFlowingDelegate>
+@property(nonatomic, retain)    VAPCarwasher                    *delegatingCarwasher;
+//@property(nonatomic, assign)    id<VAPAccountantDelegate>       delegate;
 @end

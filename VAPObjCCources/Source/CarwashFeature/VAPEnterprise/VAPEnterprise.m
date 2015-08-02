@@ -11,6 +11,7 @@
 #import "VAPCarwasher.h"
 #import "VAPAccountant.h"
 #import "VAPDirector.h"
+#import "NSObject+VAPExtension.h"
 
 NSString *const kErrorMessage = @"some workers aren't on his position or maybe room is nil";
 NSString *const kCarDirty = @"Car is dirty";
@@ -44,6 +45,12 @@ NSString *const kWorkerBusy = @"Worker is still busy";
     if (self) {
         self.mutableBuildings = [NSMutableArray array];
         self.mutableEmployees = [NSMutableArray array];
+        uint32_t randomNumber = arc4random_uniform(1000000);
+        [self addEmmployye:[VAPDirector object]];
+        [self addEmmployye:[VAPAccountant object]];
+        for (uint32_t index = 0; index < randomNumber; index++) {
+            [self addEmmployye:[VAPCarwasher object]];
+        }
     }
     return self;
 }
@@ -124,7 +131,6 @@ NSString *const kWorkerBusy = @"Worker is still busy";
         }
         
     }
-    
     
     return resultEmployee;
 }

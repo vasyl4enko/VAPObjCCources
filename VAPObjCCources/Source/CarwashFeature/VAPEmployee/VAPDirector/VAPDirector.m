@@ -61,6 +61,7 @@ NSString *const kDirectorProffit = @"My proffit %lu";
     self.wallet += employee.wallet;
     employee.wallet = 0;
     employee.busy = NO;
+    NSLog(@"I have %lu",self.wallet);
 }
 
 

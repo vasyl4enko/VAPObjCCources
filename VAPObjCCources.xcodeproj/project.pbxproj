@@ -21,6 +21,13 @@
 		1FCF2D161B6CD57A00991B97 /* VAPHumanTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FCF2D041B6CD57A00991B97 /* VAPHumanTests.m */; };
 		1FCF2D1E1B6D5B2100991B97 /* VAPCar.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FCF2D1D1B6D5B2100991B97 /* VAPCar.m */; };
 		1FCF2D201B6D5F5400991B97 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FCF2D1F1B6D5F5400991B97 /* main.m */; };
+		1FD7E1C11B6EB02700D18D28 /* VAPEnterprise.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FCF2CE51B6CD57900991B97 /* VAPEnterprise.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		1FD7E1C21B6EB03000D18D28 /* VAPEmployee.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FCF2CE21B6CD57900991B97 /* VAPEmployee.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		1FD7E1C31B6EB03300D18D28 /* VAPDirector.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FCF2CE01B6CD57900991B97 /* VAPDirector.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		1FD7E1C41B6EB03600D18D28 /* VAPCarwasher.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FCF2CDD1B6CD57900991B97 /* VAPCarwasher.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		1FD7E1C51B6EB03900D18D28 /* VAPAccountant.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FCF2CDA1B6CD57900991B97 /* VAPAccountant.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		1FD7E1C61B6EB03E00D18D28 /* VAPCar.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FCF2D1D1B6D5B2100991B97 /* VAPCar.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		1FD7E1C71B6EB2CC00D18D28 /* NSObject+VAPExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FCF2CF41B6CD57900991B97 /* NSObject+VAPExtension.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		C4426BC6DD4682EB4F22C624 /* libPods-VAPTestTarget.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E8F6050426F419E263DAA600 /* libPods-VAPTestTarget.a */; settings = {ATTRIBUTES = (Required, ); }; };
 /* End PBXBuildFile section */
 
@@ -432,7 +439,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1FD7E1C71B6EB2CC00D18D28 /* NSObject+VAPExtension.m in Sources */,
+				1FD7E1C21B6EB03000D18D28 /* VAPEmployee.m in Sources */,
+				1FD7E1C11B6EB02700D18D28 /* VAPEnterprise.m in Sources */,
+				1FD7E1C41B6EB03600D18D28 /* VAPCarwasher.m in Sources */,
+				1FD7E1C61B6EB03E00D18D28 /* VAPCar.m in Sources */,
 				1F89EE601B5FDEDF00CCF016 /* VAPTestTarget.m in Sources */,
+				1FD7E1C31B6EB03300D18D28 /* VAPDirector.m in Sources */,
+				1FD7E1C51B6EB03900D18D28 /* VAPAccountant.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

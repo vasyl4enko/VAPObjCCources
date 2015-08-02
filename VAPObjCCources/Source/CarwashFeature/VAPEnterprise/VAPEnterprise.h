@@ -8,9 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
+#import "VAPEmployee.h"
 
 @class VAPEmployee;
-
 @class VAPCar;
 
 FOUNDATION_EXTERN NSString *const kErrorMessage;

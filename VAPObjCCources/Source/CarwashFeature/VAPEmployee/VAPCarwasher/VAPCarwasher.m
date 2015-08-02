@@ -22,37 +22,27 @@ NSUInteger const kDefualtSendingToAccountant = kDefualtCost*2;
 
 - (void)performEmployeeSpecificOperationWithObject:(id) object {
     if (nil != object && [object isKindOfClass:[VAPCar class]]) {
-        if ([object isObjectAbleToPay:kDefualtCost]) {
+        if ([object isPayable:kDefualtCost]) {
+            [object addObserver:self];
             NSLog(kCarwasherGreeting);
             NSLog(kCarWasWashed);
             if ([object respondsToSelector:@selector(setDirty:)]){
                 [object performSelector:@selector(setDirty:) withObject:NO];
-            }
-            [object payMoneyToReciver:self price:kDefualtCost];
-            if ([self isObjectAbleToPay:kDefualtSendingToAccountant] && NO == self.receiver.isBusy) {
-                self.receiver.busy = YES;
-                [self payMoneyToReciver:self.receiver price:self.wallet];
-                self.wallet = 0;
-                self.busy = NO;
-            } else if (![self isObjectAbleToPay:kDefualtSendingToAccountant]) {
-                self.busy = NO;
             }
         }
     }
 }
 
 #pragma mark -
-#pragma mark Money Flowing
+#pragma mark VAPCarObserver
 
-- (BOOL)isObjectAbleToPay:(NSUInteger)money {
-    return self.wallet >= money;
+- (void)carDidBecomeCleaner:(VAPCar *)car {
+    car.wallet -= kDefualtCost;
+    self.wallet += kDefualtCost;
+    
+    [car removeObserver:self];
 }
-- (void)payMoneyToReciver:(id<VAPMoneyFlowing>)object price:(NSUInteger)money {
-    NSNumber *objectMoney = [[[NSNumber alloc] initWithInteger:money] autorelease];
-    if ([object respondsToSelector:@selector(performEmployeeSpecificOperationWithObject:)]){
-        [object performSelector:@selector(performEmployeeSpecificOperationWithObject:) withObject:objectMoney];
-    }
-     
-}
+
+
 
 @end

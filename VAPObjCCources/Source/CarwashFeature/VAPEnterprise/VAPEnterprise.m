@@ -7,11 +7,10 @@
 //
 
 #import "VAPEnterprise.h"
-
+#import "VAPCar.h"
 #import "VAPCarwasher.h"
 #import "VAPAccountant.h"
 #import "VAPDirector.h"
-#import "VAPCarwashRoom.h"
 
 NSString *const kErrorMessage = @"some workers aren't on his position or maybe room is nil";
 NSString *const kCarDirty = @"Car is dirty";
@@ -29,23 +28,12 @@ NSString *const kWorkerBusy = @"Worker is still busy";
 
 @implementation VAPEnterprise
 
-@dynamic buildings;
 @dynamic employees;
 
 
 #pragma mark -
 #pragma mark Class Methods
 
-+ (Class)roomClassForObject:(id)object {
-    Class class;
-    if ([object isMemberOfClass:[VAPCarwasher class]] || [object isMemberOfClass:[VAPCar class]] ) {
-        class = [VAPCarwashRoom class];
-    } else  { // if ([object isMemberOfClass:[VAPAccountant class]] || [object isMemberOfClass:[VAPDirector class]])
-        class = [VAPRoom class];
-    }
-    
-    return class;
-}
 
 #pragma mark -
 #pragma mark Initializations and Deallocations
@@ -85,68 +73,28 @@ NSString *const kWorkerBusy = @"Worker is still busy";
 
 - (void)addEmmployye:(VAPEmployee *)object {
     if (nil != object) {
-        NSArray *buildings = self.buildings;
-        
         object.receiver = [self.mutableEmployees firstObject];
         [self.mutableEmployees addObject:object];
-        for (VAPBuilding *build in buildings) {
-            if ([build hasEmptyWorkplace]) {
-                NSArray *localRooms = build.rooms;
-                Class localRoomClass = [VAPEnterprise roomClassForObject:object];
-                
-                if ([[build.rooms firstObject] isKindOfClass:localRoomClass])
-                {
-                    [self findFreePlaceForEmployye:object rooms:localRooms];
-                    
-                    break;
-                }
-            }
-            
-        }
+        
     }
 }
 
 - (void)washCar:(VAPCar *)object {
     if (nil != object) {
         VAPCarwasher *freeCarwasher = (VAPCarwasher *)[self findFreeWasher];
-        VAPCarwashRoom *room = nil;
-        for (VAPBuilding *build in self.buildings) {
-            room = (VAPCarwashRoom *) [build findRoomWithEmployee:freeCarwasher
-                                                            class:[VAPEnterprise roomClassForObject:freeCarwasher]];
-        }
-        
-        if (nil != freeCarwasher && nil != room && room.carsCount > [room.cars count]) {
-            [room addCar:object];
+        if (nil != freeCarwasher) {
             [freeCarwasher performEmployeeSpecificOperationWithObject:object];
         } else {
             NSLog(@"some workers aren't on his position or maybe room is nil");
         }
-        if (!object.isDirty && !freeCarwasher.isBusy) {
-            [room removeCar:object];
-        } else {
-            if (object.isDirty) {
-                NSLog(@"Car is dirty");
-            }
-            if (freeCarwasher.isBusy){
-                NSLog(@"Worker is still busy");
-            }
-            
-        }
+        
     }
 }
 
 #pragma mark -
 #pragma mark Extension
 
-- (void)findFreePlaceForEmployye:(id) object rooms:(NSArray *)objects {
-    for (VAPRoom *room in objects) {
-        if (room.employeesCount != [room.employees count]) {
-            [room addEmployee:object];
-            
-            break;
-        }
-    }
-}
+
 
 - (VAPEmployee *)findFreeWasher {
     VAPDirector *reciverDirector = nil;

@@ -7,6 +7,7 @@
 //
 
 #import "VAPAccountant.h"
+#import "VAPCarwasher.h"
 
 NSString *const kAccuntantGreeting = @"I'm an accountan";
 NSUInteger const kDefualtSendingToDirector = 200;
@@ -33,11 +34,20 @@ NSUInteger const kDefualtSendingToDirector = 200;
 - (BOOL)isObjectAbleToPay:(NSUInteger)money {
     return self.wallet >= money;
 }
-- (void)payMoneyToReciver:(id<VAPMoneyFlowing>)object price:(NSUInteger)money {
-    NSNumber *objectMoney = [[[NSNumber alloc] initWithInteger:money] autorelease];
-    if ([object respondsToSelector:@selector(performEmployeeSpecificOperationWithObject:)]){
-        [object performSelector:@selector(performEmployeeSpecificOperationWithObject:) withObject:objectMoney];
-    }
+//- (void)payMoneyToReciver:(id)object price:(NSUInteger)money {
+//    NSNumber *objectMoney = [[[NSNumber alloc] initWithInteger:money] autorelease];
+//    if ([object respondsToSelector:@selector(performEmployeeSpecificOperationWithObject:)]){
+//        [object performSelector:@selector(performEmployeeSpecificOperationWithObject:) withObject:objectMoney];
+//    }
+//}
+
+- (void)employeeDidAddMoney:(VAPEmployee *)employee {
+    self.wallet = employee.wallet;
+    employee.wallet = 0;
+    employee.busy = NO;
 }
+
+
+
 
 @end

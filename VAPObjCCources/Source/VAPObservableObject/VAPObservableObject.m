@@ -61,10 +61,6 @@
     [self.mutableObservableObjects removeObject:observer];
 }
 
-- (BOOL)cointainsObserver:(id)observer {
-    return [self.mutableObservableObjects containsObject:observer];;
-}
-
 - (SEL)selectorForState:(NSUInteger)state {
     [self doesNotRecognizeSelector:_cmd];
     return NULL;

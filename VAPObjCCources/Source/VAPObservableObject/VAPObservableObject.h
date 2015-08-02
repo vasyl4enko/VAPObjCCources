@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
+
 @interface VAPObservableObject : NSObject
 @property(nonatomic, readonly)      NSArray     *observableObjects;
 @property(nonatomic, assign)        NSUInteger  state;
@@ -15,7 +16,7 @@
 - (void)addObserver:(id)observer;
 - (void)removeObserver:(id)observer;
 
-- (BOOL)cointainsObserver:(id)observer;
+
 
 - (SEL)selectorForState:(NSUInteger)state;
 

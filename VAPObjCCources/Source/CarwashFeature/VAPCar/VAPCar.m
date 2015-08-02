@@ -48,10 +48,10 @@ NSUInteger const kVAPDefaultMoneyValue = 235;
     return [super selectorForState:state];
 }
 
-//- (BOOL)isObjectAbleToPay:(NSUInteger)money {
-//    return self.wallet >= money;
-//}
-//
+- (BOOL)isPayable:(NSUInteger)money {
+    return self.wallet >= money;
+}
+
 //- (void)payMoneyToReciver:(id<VAPMoneyFlowing>)object price:(NSUInteger)money {
 //    if (self.wallet > money) {
 //        object.wallet += money;

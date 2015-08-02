@@ -22,12 +22,10 @@ NSString *const kDirectorProffit = @"My proffit %lu";
     NSLog(kDirectorProffit, self.wallet);
 }
 
-
-- (BOOL)isObjectAbleToPay:(NSUInteger)money {
-    return NO;
-}
-- (void)payMoneyToReciver:(id<VAPMoneyFlowing>)object price:(NSUInteger)money {
-    
+- (void)employeeDidAddMoney:(VAPEmployee *)employee {
+    self.wallet = employee.wallet;
+    employee.wallet = 0;
+    employee.busy = NO;
 }
 
 @end

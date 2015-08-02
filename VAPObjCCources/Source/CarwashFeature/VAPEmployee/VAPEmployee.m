@@ -18,6 +18,7 @@
         if (_wallet <= wallet) {
             _wallet = wallet;
             self.state = VAPStateAddMoney;
+            
         } else {
             _wallet = wallet;
             self.state = VAPStateBecomeLessMoney;

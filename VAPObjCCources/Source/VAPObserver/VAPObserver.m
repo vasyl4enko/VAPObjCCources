@@ -27,7 +27,7 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        self.mutableObservers = [[NSHashTable alloc] initWithOptions:NSHashTableWeakMemory capacity:0];
+        self.mutableObservers = [[[NSHashTable alloc] initWithOptions:NSHashTableWeakMemory capacity:1] autorelease];
     }
     
     return self;

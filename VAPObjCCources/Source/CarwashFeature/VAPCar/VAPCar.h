@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+
+
 FOUNDATION_EXTERN NSUInteger const kVAPDefaultMoneyValue;
 
 @class VAPCar;
@@ -17,4 +19,5 @@ FOUNDATION_EXTERN NSUInteger const kVAPDefaultMoneyValue;
 @property(nonatomic, assign, getter = isDirty)  BOOL                dirty;
 
 - (BOOL)isPayable:(NSUInteger)money;
+- (void)substractingMoney:(NSNumber *)money;
 @end

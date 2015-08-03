@@ -16,7 +16,7 @@
 - (void)setWallet:(NSUInteger)wallet {
     if (_wallet != wallet) {
         NSUInteger localWallet = _wallet;
-        _wallet += wallet;
+        _wallet = wallet;
         if (_wallet > localWallet) {
             self.state = VAPMoneyStateAdd;
         }

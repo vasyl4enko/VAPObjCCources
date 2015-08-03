@@ -89,6 +89,7 @@ NSString *const kWorkerBusy = @"Worker is still busy";
     for (VAPEmployee *worker in employees) {
         if ([worker isMemberOfClass:employeeType] && NO == worker.busy) {
             resultEmployee = worker;
+            break;
         }
     }
     
@@ -101,7 +102,6 @@ NSString *const kWorkerBusy = @"Worker is still busy";
 
 - (void)employeeDidReceivedMoney:(VAPEmployee *)employee {
     Class delegateClassType = employee.classType;
-    
     VAPEmployee *object = [self findFreeEmployee:delegateClassType];
     if ([object respondsToSelector:@selector(setDelegatingObject:)]) {
         [object performSelector:@selector(setDelegatingObject:) withObject:employee];

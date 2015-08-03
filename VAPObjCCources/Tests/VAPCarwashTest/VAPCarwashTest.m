@@ -20,19 +20,10 @@
 
 + (void)performWashingTest {
     VAPEnterprise *enterprise = [VAPEnterprise object];
-//    VAPCar *car = [VAPCar object];
-//    VAPCar *car2 = [VAPCar object];
-//    [enterprise washCar:car];
-//    [enterprise washCar:car2];
     
-    VAPCarwasher *carwasher = [VAPCarwasher object];
-    VAPCar *car = [VAPCar object];
-    VAPAccountant *accountant = [VAPAccountant object];
-    
-    [accountant setDelegatingObject:carwasher];
-    [carwasher performEmployeeSpecificOperationWithObject:car];
-    
-    
+    for (uint index = 0; index < 16; index++) {
+        [enterprise washCar:[VAPCar object]];
+    }
     
 }
 

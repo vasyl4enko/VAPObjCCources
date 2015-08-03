@@ -54,11 +54,12 @@ NSString *const kDirectorProffit = @"My proffit %lu";
 }
 
 #pragma mark -
-#pragma mark VAPCarwasherDelegate
+#pragma mark VAPAccountantDelegate
 
 
 - (void)delegatingEmployeeDidAddMoney:(VAPEmployee *)employee {
-    self.wallet += employee.wallet;
+    NSUInteger localmoney = employee.wallet;
+    self.wallet += localmoney;
     employee.wallet = 0;
     NSLog(@"I have %lu",self.wallet);
 }

@@ -18,6 +18,8 @@ typedef NS_ENUM(NSUInteger, VAPMoneyState) {
 
 @protocol VAPMoneyFlowingDelegate <NSObject>
 
+
+
 - (void)delegatingEmployeeDidAddMoney:(VAPEmployee *)employee;
 
 @end

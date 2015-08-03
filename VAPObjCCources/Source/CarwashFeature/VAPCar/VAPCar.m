@@ -8,6 +8,7 @@
 
 #import "VAPCar.h"
 
+
 NSUInteger const kVAPDefaultMoneyValue = 235;
 
 @implementation VAPCar
@@ -26,6 +27,11 @@ NSUInteger const kVAPDefaultMoneyValue = 235;
 
 - (BOOL)isPayable:(NSUInteger)money {
     return self.wallet >= money;
+}
+
+- (void)substractingMoney:(NSNumber *)money {
+
+    self.wallet -= [money integerValue];
 }
 
 

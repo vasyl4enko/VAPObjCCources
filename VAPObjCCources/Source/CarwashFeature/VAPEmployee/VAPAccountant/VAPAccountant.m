@@ -10,7 +10,7 @@
 #import "VAPCarwasher.h"
 #import "VAPDirector.h"
 
-NSString *const kAccuntantGreeting = @"I'm an accountantant";
+NSString *const kAccuntantGreeting = @"I'm an accountant";
 NSUInteger const kDefualtSendingToDirector = 200;
 
 @implementation VAPAccountant
@@ -28,6 +28,7 @@ NSUInteger const kDefualtSendingToDirector = 200;
     self = [super init];
     if (self) {
         self.classType = [VAPDirector class];
+        self.busy = NO;
     }
     
     return self;
@@ -51,10 +52,10 @@ NSUInteger const kDefualtSendingToDirector = 200;
 #pragma mark -
 #pragma mark Public Methods
 
-- (void)performEmployeeSpecificOperationWithObject:(id) object { // unusued with delegate
+- (void)performEmployeeSpecificOperationWithObject:(id) object {
     NSLog(kAccuntantGreeting);
     id<VAPMoneyFlowingDelegate> delegate = self.delegate;
-    [delegate delegatingEmployeeDidAddMoney: self];
+    [delegate delegatingEmployeeDidAddMoney:self];
     [delegate performSelector:@selector(performEmployeeSpecificOperationWithObject:) withObject:nil];
     self.busy = NO;
 }
@@ -63,7 +64,8 @@ NSUInteger const kDefualtSendingToDirector = 200;
 #pragma mark VAPCarwasherDelegate
 
 - (void)delegatingEmployeeDidAddMoney:(VAPEmployee *)employee {
-    self.wallet += employee.wallet;
+    NSUInteger localmoney = employee.wallet;
+    self.wallet += localmoney;
     employee.wallet = 0;
 }
 

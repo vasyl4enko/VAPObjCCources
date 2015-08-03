@@ -31,6 +31,7 @@ NSUInteger const kDefualtSendingToAccountant = kDefualtCost*2;
     self = [super init];
     if (self) {
         self.classType = [VAPAccountant class];
+        self.busy = NO;
     }
     
     return self;
@@ -46,13 +47,12 @@ NSUInteger const kDefualtSendingToAccountant = kDefualtCost*2;
             if ([object respondsToSelector:@selector(setDirty:)]){
                 [object performSelector:@selector(setDirty:) withObject:NO]; //У машины деньги пока не отнимаешь!!!!!!
             }
-            
             self.wallet += kDefualtCost;
-            
+            [object performSelector:@selector(substractingMoney:) withObject:@(kDefualtCost)];
             id<VAPMoneyFlowingDelegate> delegate = self.delegate;
             [delegate delegatingEmployeeDidAddMoney: self];
-            [delegate performSelector:@selector(performEmployeeSpecificOperationWithObject:) withObject:nil];
-            
+//            [delegate performSelector:@selector(performEmployeeSpecificOperationWithObject:) withObject:nil];
+
             self.busy = NO;
         }
     }

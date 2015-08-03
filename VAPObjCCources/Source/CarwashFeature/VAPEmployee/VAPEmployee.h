@@ -31,7 +31,6 @@ typedef NS_ENUM(NSUInteger, VAPMoneyState) {
 
 @property(nonatomic, assign)                    id<VAPMoneyFlowingDelegate>     delegate;
 
-
 - (void)performEmployeeSpecificOperationWithObject:(id) object;
 
 @end

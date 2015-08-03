@@ -22,7 +22,7 @@ NSUInteger const kDefualtSendingToAccountant = kDefualtCost*2;
 #pragma mark Initializations and Dealocations
 
 - (void)dealloc {
-    self.delegatingObject = nil;
+   
     
     [super dealloc];
 }
@@ -36,21 +36,6 @@ NSUInteger const kDefualtSendingToAccountant = kDefualtCost*2;
     return self;
 }
 
-#pragma mark -
-#pragma mark Accessors 
-
-- (void)setDelegatingObject:(VAPCar *)delegatingObject {
-    if (_delegatingObject != delegatingObject) {
-        
-        _delegatingObject = nil;
-        [_delegatingObject release];
-        _delegatingObject = [delegatingObject retain];
-        
-        _delegatingObject.delegate = self;
-    }
-}
-
-
 
 #pragma mark -
 #pragma mark Public Methods
@@ -58,27 +43,28 @@ NSUInteger const kDefualtSendingToAccountant = kDefualtCost*2;
 - (void)performEmployeeSpecificOperationWithObject:(id) object {
     if (nil != object && [object isKindOfClass:[VAPCar class]]) {
         if ([object isPayable:kDefualtCost]) {
-            NSLog(kCarwasherGreeting);
-            NSLog(kCarWasWashed);
             if ([object respondsToSelector:@selector(setDirty:)]){
-                [object performSelector:@selector(setDirty:) withObject:NO];
+                [object performSelector:@selector(setDirty:) withObject:NO]; //У машины деньги пока не отнимаешь!!!!!!
             }
+            
+            self.wallet += kDefualtCost;
+            
+            id<VAPMoneyFlowingDelegate> delegate = self.delegate;
+            [delegate delegatingEmployeeDidAddMoney: self];
+            [delegate performSelector:@selector(performEmployeeSpecificOperationWithObject:) withObject:nil];
+            
+            self.busy = NO;
         }
     }
 }
 
-#pragma mark -
-#pragma mark VAPCarDelegate 
+//#pragma mark -
+//#pragma mark VAPCarDelegate
 
-- (void)delegatingCarShouldBecameCleaner:(VAPCar *)car {
-    car.wallet -= kDefualtCost;
-    self.wallet += kDefualtCost;
-}
-
-- (void)delegatingEmployeeDidAddMoney:(VAPEmployee *)employee {
-    self.wallet = employee.wallet;
-    employee.wallet = 0;
-    employee.busy = NO;
-}
+//- (void)delegatingEmployeeDidAddMoney:(VAPEmployee *)employee {
+//    self.wallet = employee.wallet;
+//    employee.wallet = 0;
+//    employee.busy = NO;
+//}
 
 @end

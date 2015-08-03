@@ -43,8 +43,8 @@ NSString *const kDirectorProffit = @"My proffit %lu";
 
 - (void)performEmployeeSpecificOperationWithObject:(id) object {
     NSLog(kDirectorGreeting);
-    self.wallet += [object integerValue];
-    NSLog(kDirectorProffit, self.wallet);
+    id<VAPMoneyFlowingDelegate> delegate = self.delegate;
+    [delegate delegatingEmployeeDidAddMoney: self];
 }
 
 - (void)employeeDidAddMoney:(VAPEmployee *)employee {
@@ -60,7 +60,6 @@ NSString *const kDirectorProffit = @"My proffit %lu";
 - (void)delegatingEmployeeDidAddMoney:(VAPEmployee *)employee {
     self.wallet += employee.wallet;
     employee.wallet = 0;
-    employee.busy = NO;
     NSLog(@"I have %lu",self.wallet);
 }
 

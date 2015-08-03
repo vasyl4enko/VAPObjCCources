@@ -11,6 +11,7 @@
 #import "NSObject+VAPExtension.h"
 #import "VAPCarwasher.h"
 #import "VAPDirector.h"
+#import "VAPCar.h"
 #import "VAPAccountant.h"
 
 
@@ -19,15 +20,18 @@
 
 + (void)performWashingTest {
     VAPEnterprise *enterprise = [VAPEnterprise object];
+//    VAPCar *car = [VAPCar object];
+//    VAPCar *car2 = [VAPCar object];
+//    [enterprise washCar:car];
+//    [enterprise washCar:car2];
     
-    uint64_t i = 0;
-   
+    VAPCarwasher *carwasher = [VAPCarwasher object];
+    VAPCar *car = [VAPCar object];
+    VAPAccountant *accountant = [VAPAccountant object];
     
+    [accountant setDelegatingObject:carwasher];
+    [carwasher performEmployeeSpecificOperationWithObject:car];
     
-    [enterprise addEmmployye:[VAPDirector object]];
-    [enterprise addEmmployye:[VAPCarwasher object]];
-    [enterprise addEmmployye:[VAPAccountant object]];
-    i = 0;
     
     
 }

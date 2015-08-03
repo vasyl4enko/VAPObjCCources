@@ -19,10 +19,6 @@ NSString *const kWorkerBusy = @"Worker is still busy";
 
 @interface VAPEnterprise ()
 @property (nonatomic, retain) NSMutableArray *mutableEmployees;
-@property (nonatomic, retain) NSMutableArray *mutableBuildings;
-
-
-
 @end
 
 @implementation VAPEnterprise
@@ -34,7 +30,6 @@ NSString *const kWorkerBusy = @"Worker is still busy";
 #pragma mark Initializations and Deallocations
 
 - (void)dealloc {
-    self.mutableBuildings = nil;
     
     [super dealloc];
 }
@@ -43,9 +38,8 @@ NSString *const kWorkerBusy = @"Worker is still busy";
 {
     self = [super init];
     if (self) {
-        self.mutableBuildings = [NSMutableArray array];
         self.mutableEmployees = [NSMutableArray array];
-        uint32_t randomNumber = arc4random_uniform(1000000);
+        uint32_t randomNumber = arc4random_uniform(20);
         [self addEmmployye:[VAPDirector object]];
         [self addEmmployye:[VAPAccountant object]];
         for (uint32_t index = 0; index < randomNumber; index++) {
@@ -70,7 +64,6 @@ NSString *const kWorkerBusy = @"Worker is still busy";
         object.receiver = [self.mutableEmployees firstObject];
         [self.mutableEmployees addObject:object];
         [object addObserver:self];
-        
     }
 }
 
@@ -105,9 +98,14 @@ NSString *const kWorkerBusy = @"Worker is still busy";
 #pragma mark -
 #pragma mark VAPEmployeeObserver
 
+
 - (void)employeeDidReceivedMoney:(VAPEmployee *)employee {
     Class delegateClassType = employee.classType;
-    [self findFreeEmployee:delegateClassType];
+    
+    VAPEmployee *object = [self findFreeEmployee:delegateClassType];
+    if ([object respondsToSelector:@selector(setDelegatingObject:)]) {
+        [object performSelector:@selector(setDelegatingObject:) withObject:employee];
+    }
     
 }
 

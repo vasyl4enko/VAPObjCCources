@@ -13,27 +13,14 @@
 #pragma mark -
 #pragma mark Accesors
 
-//- (void)setWallet:(NSUInteger)wallet {
-//    if (_wallet != wallet) {
-//        if (_wallet <= wallet) {
-//            _wallet = wallet;
-//           
-//            
-//        } else {
-//            _wallet = wallet;
-//            
-//        }
-//    }
-//}
-
 - (void)setWallet:(NSUInteger)wallet {
-    id<VAPMoneyFlowingDelegate> delegate = self.delegate;
     if (_wallet != wallet) {
-        NSUInteger previousValue = self.wallet;
-        _wallet = wallet;
-        if (previousValue < wallet) {
-            [delegate delegatingEmployeeDidAddMoney:self];
+        NSUInteger localWallet = _wallet;
+        _wallet += wallet;
+        if (_wallet > localWallet) {
+            self.state = VAPMoneyStateAdd;
         }
+        
     }
 }
 
@@ -44,7 +31,19 @@
     
 }
 
+#pragma mark -
+#pragma mark VAPEmployeeObserver
 
+- (SEL)selectorForState:(NSUInteger)state {
+    switch (state) {
+        case VAPMoneyStateAdd:
+            return @selector(employeeDidReceivedMoney:);
+            
+        default:
+            break;
+    }
+    return [super selectorForState:state];
+}
 
 
 

@@ -18,13 +18,16 @@
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
         [VAPCarwashTest performWashingTest];
-//        VAPCarwasher *carwasher = [[[VAPCarwasher alloc] init] autorelease];
-//        carwasher.busy = NO;
-//        VAPAccountant *accountant = [[[VAPAccountant alloc] init] autorelease];
+        VAPCarwasher *carwasher = [[[VAPCarwasher alloc] init] autorelease];
+        carwasher.busy = NO;
+        VAPAccountant *accountant = [[[VAPAccountant alloc] init] autorelease];
 //        VAPDirector *director = [[[VAPDirector alloc] init] autorelease];
-//        VAPCar *car = [[[VAPCar alloc] init] autorelease];
+        VAPCar *car = [[[VAPCar alloc] init] autorelease];
 //        VAPCar *car2 = [[[VAPCar alloc] init] autorelease];
-//        VAPEnterprise *enterpise = [[[VAPEnterprise alloc] init] autorelease];
+        VAPEnterprise *enterpise = [[[VAPEnterprise alloc] init] autorelease];
+        [carwasher addObserver:enterpise];
+        [accountant setDelegatingObject:carwasher];
+        [carwasher performEmployeeSpecificOperationWithObject:car];
 //        [enterpise addEmmployye:director];
 //        [enterpise addEmmployye:carwasher];
 //        [enterpise addEmmployye:accountant];

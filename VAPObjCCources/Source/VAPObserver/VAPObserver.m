@@ -37,6 +37,12 @@
 #pragma mark -
 #pragma mark Accessors 
 
+- (void)setState:(NSUInteger)state {
+        _state = state;
+        [self notifyObserversWithSelectot:[self selectorForState:state]];
+    
+}
+
 - (NSArray *)observers {
     return [self.mutableObservers allObjects];
 }

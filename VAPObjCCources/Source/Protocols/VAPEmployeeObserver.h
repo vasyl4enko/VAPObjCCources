@@ -11,5 +11,8 @@
 @class VAPEmployee;
 
 @protocol VAPEmployeeObserver <NSObject>
+
+@optional
 - (void)employeeDidReceivedMoney:(VAPEmployee *)employee;
+
 @end

@@ -58,10 +58,6 @@ NSString *const kWorkerBusy = @"Worker is still busy";
 #pragma mark -
 #pragma mark Accessors
 
-- (NSArray *)buildings {
-    return [[self.mutableBuildings copy] autorelease];
-}
-
 - (NSArray *)employees {
     return [[self.mutableEmployees copy] autorelease];
 }
@@ -73,15 +69,15 @@ NSString *const kWorkerBusy = @"Worker is still busy";
     if (nil != object) {
         object.receiver = [self.mutableEmployees firstObject];
         [self.mutableEmployees addObject:object];
+        [object addObserver:self];
         
     }
 }
 
 - (void)washCar:(VAPCar *)object {
     if (nil != object) {
-        VAPCarwasher *freeCarwasher = (VAPCarwasher *)[self findFreeEmployee:[VAPCarwasher class] withNextEmployee:nil];
+        VAPCarwasher *freeCarwasher = (VAPCarwasher *)[self findFreeEmployee:[VAPCarwasher class]];
         if (nil != freeCarwasher) {
-            [freeCarwasher setDelegatingObject:object];
             [freeCarwasher performEmployeeSpecificOperationWithObject:object];
             
         } else {
@@ -94,45 +90,25 @@ NSString *const kWorkerBusy = @"Worker is still busy";
 #pragma mark -
 #pragma mark Extension
 
-- (VAPEmployee *)findFreeEmployee:(Class)employeeType withNextEmployee:(VAPEmployee *)employee{
+- (VAPEmployee *)findFreeEmployee:(Class)employeeType {
     VAPEmployee *resultEmployee = nil;
-    VAPEmployee *nextEmployee = nil;
-    Class classType;
-    
     NSArray *employees = self.employees;
-    if (nil == employee) {
-        for (VAPEmployee *worker in employees) {
-            if ([worker isMemberOfClass:employeeType] && NO == worker.isBusy) {
-                resultEmployee = worker;
-                classType = resultEmployee.classType;
-                if (nil == classType) {
-                    break;
-                }
-                nextEmployee = [self findFreeEmployee:classType withNextEmployee:worker];
-                break;
-            }
+    for (VAPEmployee *worker in employees) {
+        if ([worker isMemberOfClass:employeeType] && NO == worker.busy) {
+            resultEmployee = worker;
         }
-        
-    } else {
-        for (VAPEmployee *worker in employees) {
-            if ([worker isMemberOfClass:employeeType] && NO == worker.isBusy) {
-                resultEmployee = worker;
-                classType = resultEmployee.classType;
-                if (nil == classType) {
-                    break;
-                }
-                nextEmployee = [self findFreeEmployee:classType withNextEmployee:worker];
-                break;
-            }
-        }
-        
-        if ([nextEmployee respondsToSelector:@selector(setDelegatingObject:)]) {
-            [nextEmployee performSelector:@selector(setDelegatingObject:) withObject:employee];
-        }
-        
     }
     
     return resultEmployee;
+}
+
+#pragma mark -
+#pragma mark VAPEmployeeObserver
+
+- (void)employeeDidReceivedMoney:(VAPEmployee *)employee {
+    Class delegateClassType = employee.classType;
+    [self findFreeEmployee:delegateClassType];
+    
 }
 
 @end

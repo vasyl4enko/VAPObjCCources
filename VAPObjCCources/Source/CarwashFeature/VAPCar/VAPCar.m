@@ -24,20 +24,6 @@ NSUInteger const kVAPDefaultMoneyValue = 235;
     return self;
 }
 
-#pragma mark -
-#pragma mark Accessors
-
-- (void)setDirty:(BOOL)dirty {
-    if (_dirty != dirty) {
-        _dirty = dirty;
-    }
-    
-    if (NO == _dirty ) {
-        id<VAPCarDelegate> delegate = self.delegate;
-        [delegate delegatingCarShouldBecameCleaner:self];
-    }
-}
-
 - (BOOL)isPayable:(NSUInteger)money {
     return self.wallet >= money;
 }

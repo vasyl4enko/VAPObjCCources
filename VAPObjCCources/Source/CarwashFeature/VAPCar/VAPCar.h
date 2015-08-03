@@ -12,16 +12,9 @@ FOUNDATION_EXTERN NSUInteger const kVAPDefaultMoneyValue;
 
 @class VAPCar;
 
-@protocol VAPCarDelegate <NSObject>
-
-- (void)delegatingCarShouldBecameCleaner:(VAPCar *)car;
-
-@end
-
 @interface VAPCar : NSObject
 @property(nonatomic, assign)                    NSUInteger          wallet;
 @property(nonatomic, assign, getter = isDirty)  BOOL                dirty;
-@property(nonatomic, assign)                    id<VAPCarDelegate>  delegate;
 
 - (BOOL)isPayable:(NSUInteger)money;
 @end

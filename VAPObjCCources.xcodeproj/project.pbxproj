@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F2229821B6FCD5E001F3CB7 /* VAPObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F2229811B6FCD5E001F3CB7 /* VAPObserver.m */; };
 		1F89EE601B5FDEDF00CCF016 /* VAPTestTarget.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F89EE5F1B5FDEDF00CCF016 /* VAPTestTarget.m */; };
 		1FCF2D091B6CD57A00991B97 /* VAPAccountant.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FCF2CDA1B6CD57900991B97 /* VAPAccountant.m */; };
 		1FCF2D0A1B6CD57A00991B97 /* VAPCarwasher.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FCF2CDD1B6CD57900991B97 /* VAPCarwasher.m */; };
@@ -44,6 +45,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1F2229801B6FCD5E001F3CB7 /* VAPObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VAPObserver.h; sourceTree = "<group>"; };
+		1F2229811B6FCD5E001F3CB7 /* VAPObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VAPObserver.m; sourceTree = "<group>"; };
 		1F5474DA1B4AA5DC00157DE1 /* VAPObjCCources */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = VAPObjCCources; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F670B9F1B4BF71B003E17DB /* IDPStudyPlan */ = {isa = PBXFileReference; lastKnownFileType = text; name = IDPStudyPlan; path = ../../Users/aleksandr/Dropbox/IDPStudyPlan; sourceTree = "<group>"; };
 		1F89EE5B1B5FDEDF00CCF016 /* VAPTestTarget.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VAPTestTarget.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -74,6 +77,7 @@
 		1FCF2D041B6CD57A00991B97 /* VAPHumanTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VAPHumanTests.m; sourceTree = "<group>"; };
 		1FCF2D1D1B6D5B2100991B97 /* VAPCar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VAPCar.m; sourceTree = "<group>"; };
 		1FCF2D1F1B6D5F5400991B97 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		1FDEEA0B1B6FDB46008AAFC7 /* VAPEmployeeObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VAPEmployeeObserver.h; sourceTree = "<group>"; };
 		559524D9DC14A69C1D03146B /* Pods-VAPTestTarget.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VAPTestTarget.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VAPTestTarget/Pods-VAPTestTarget.debug.xcconfig"; sourceTree = "<group>"; };
 		88304C86DD4B11981FF0C8DC /* Pods-VAPTestTarget.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VAPTestTarget.release.xcconfig"; path = "Pods/Target Support Files/Pods-VAPTestTarget/Pods-VAPTestTarget.release.xcconfig"; sourceTree = "<group>"; };
 		E8F6050426F419E263DAA600 /* libPods-VAPTestTarget.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-VAPTestTarget.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -98,6 +102,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1F22297E1B6FC7F1001F3CB7 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				1FDEEA0B1B6FDB46008AAFC7 /* VAPEmployeeObserver.h */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		1F22297F1B6FCD34001F3CB7 /* VAPObserver */ = {
+			isa = PBXGroup;
+			children = (
+				1F2229801B6FCD5E001F3CB7 /* VAPObserver.h */,
+				1F2229811B6FCD5E001F3CB7 /* VAPObserver.m */,
+			);
+			path = VAPObserver;
+			sourceTree = "<group>";
+		};
 		1F5474D11B4AA5DC00157DE1 = {
 			isa = PBXGroup;
 			children = (
@@ -148,6 +169,8 @@
 		1FCF2CC91B6CD57900991B97 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				1F22297F1B6FCD34001F3CB7 /* VAPObserver */,
+				1F22297E1B6FC7F1001F3CB7 /* Protocols */,
 				1FCF2D1F1B6D5F5400991B97 /* main.m */,
 				1FCF2CF21B6CD57900991B97 /* VAPCategories */,
 				1FCF2CCA1B6CD57900991B97 /* CarwashFeature */,
@@ -430,6 +453,7 @@
 				1FCF2D0B1B6CD57A00991B97 /* VAPDirector.m in Sources */,
 				1FCF2D131B6CD57A00991B97 /* VAPMan.m in Sources */,
 				1FCF2D141B6CD57A00991B97 /* VAPWoman.m in Sources */,
+				1F2229821B6FCD5E001F3CB7 /* VAPObserver.m in Sources */,
 				1FCF2D201B6D5F5400991B97 /* main.m in Sources */,
 				1FCF2D0C1B6CD57A00991B97 /* VAPEmployee.m in Sources */,
 			);

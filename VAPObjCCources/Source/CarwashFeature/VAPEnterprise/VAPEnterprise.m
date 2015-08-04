@@ -87,6 +87,8 @@ NSString *const kWorkerBusy = @"Worker is still busy";
     for (VAPEmployee *worker in employees) {
         if ([worker isMemberOfClass:employeeType] && NO == worker.busy) {
             resultEmployee = worker;
+            resultEmployee.busy = YES;
+            resultEmployee.busyState = VAPBusyStateBeginWork;
             break;
         }
     }

@@ -45,6 +45,10 @@ NSString *const kDirectorProffit = @"My proffit %lu";
     NSLog(kDirectorGreeting);
 }
 
+- (SEL)selectorBusyForState:(NSUInteger)state {
+    
+    return nil;
+}
 
 #pragma mark -
 #pragma mark VAPAccountantDelegate

@@ -48,12 +48,29 @@ NSUInteger const kDefualtSendingToAccountant = kDefualtCost*2;
                 [object performSelector:@selector(setDirty:) withObject:NO];
             }
             [object moneyTransferTo:self withCost:kDefualtCost];
+            self.busyState = VAPBusyStateEndWork;
             
-            id<VAPMoneyFlowingDelegate> delegate = self.delegate;
-            [delegate delegatingEmployeeDidAddMoney: self];
-            
+            self.busyState = VAPBusyStateFree;
             self.busy = NO;
         }
+    }
+}
+
+- (SEL)selectorBusyForState:(NSUInteger)state {
+    switch (state) {
+        case VAPBusyStateEndWork:
+           return  @selector(delegatingEmployeeDidAddMoney:);
+            
+        default:
+            break;
+    }
+    return nil;
+}
+
+- (void)delegateWithSelector:(SEL)selector {
+    id<VAPMoneyFlowingDelegate> delegate = self.delegate;
+    if ([delegate respondsToSelector:selector]) {
+        [delegate performSelector:selector withObject:self];
     }
 }
 

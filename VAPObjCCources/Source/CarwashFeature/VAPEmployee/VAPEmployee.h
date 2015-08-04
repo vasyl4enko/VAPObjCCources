@@ -15,7 +15,13 @@
 
 typedef NS_ENUM(NSUInteger, VAPMoneyState) {
     VAPMoneyStateAdd,
-    VAPMoneyStateLess,
+    VAPMoneyStateLess
+};
+
+typedef NS_ENUM(NSUInteger, VAPBusyState) {
+    VAPBusyStateFree,
+    VAPBusyStateBeginWork,
+    VAPBusyStateEndWork
 };
 
 
@@ -25,9 +31,12 @@ typedef NS_ENUM(NSUInteger, VAPMoneyState) {
 @property(nonatomic, retain)                    VAPEmployee                     *receiver;
 @property(nonatomic, assign)                    NSUInteger                      wallet;
 @property(nonatomic, assign, getter = isBusy)   BOOL                            busy;
+@property(nonatomic, assign)                    NSUInteger                      busyState;
 
 @property(nonatomic, assign)                    id<VAPMoneyFlowingDelegate>     delegate;
 
 - (void)performEmployeeSpecificOperationWithObject:(id<VAPMoneyFlowing>) object;
+- (SEL)selectorBusyForState:(NSUInteger)state;
+- (void)delegateWithSelector:(SEL)selector;
 
 @end

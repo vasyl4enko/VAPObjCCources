@@ -24,10 +24,24 @@
     }
 }
 
+- (void)setBusyState:(NSUInteger)busyState {
+    _busyState = busyState;
+    [self delegateWithSelector: [self selectorBusyForState:busyState]];
+}
+
 #pragma mark -
 #pragma mark Public Methods
 
 - (void)performEmployeeSpecificOperationWithObject:(id) object {
+    
+}
+
+- (SEL)selectorBusyForState:(NSUInteger)state {
+    [self doesNotRecognizeSelector:_cmd];
+    return nil;
+}
+
+- (void)delegateWithSelector:(SEL)selector {
     
 }
 

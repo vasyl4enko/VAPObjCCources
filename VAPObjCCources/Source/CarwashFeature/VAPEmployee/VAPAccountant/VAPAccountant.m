@@ -60,6 +60,11 @@ NSUInteger const kDefualtSendingToDirector = 200;
     self.busy = NO;
 }
 
+- (SEL)selectorBusyForState:(NSUInteger)state {
+    
+    return nil;
+}
+
 #pragma mark -
 #pragma mark VAPCarwasherDelegate
 

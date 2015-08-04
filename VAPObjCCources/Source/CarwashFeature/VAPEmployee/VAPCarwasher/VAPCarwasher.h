@@ -7,6 +7,7 @@
 //
 
 #import "VAPEmployee.h"
+#import "VAPMoneyFlowing.h"
 
 
 FOUNDATION_EXTERN NSString *const kCarwasherGreeting;

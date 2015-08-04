@@ -19,6 +19,9 @@ NSString *const kWorkerBusy = @"Worker is still busy";
 
 @interface VAPEnterprise ()
 @property (nonatomic, retain) NSMutableArray *mutableEmployees;
+
+- (void)addRandomCountWorkers:(Class) class;
+
 @end
 
 @implementation VAPEnterprise
@@ -39,12 +42,7 @@ NSString *const kWorkerBusy = @"Worker is still busy";
     self = [super init];
     if (self) {
         self.mutableEmployees = [NSMutableArray array];
-        uint32_t randomNumber = arc4random_uniform(20);
-        [self addEmmployye:[VAPDirector object]];
-        [self addEmmployye:[VAPAccountant object]];
-        for (uint32_t index = 0; index < randomNumber; index++) {
-            [self addEmmployye:[VAPCarwasher object]];
-        }
+        [self addRandomCountWorkers:[VAPCarwasher class]];
     }
     return self;
 }
@@ -94,6 +92,15 @@ NSString *const kWorkerBusy = @"Worker is still busy";
     }
     
     return resultEmployee;
+}
+
+- (void)addRandomCountWorkers:(Class) class {
+    uint32_t randomNumber = arc4random_uniform(100);
+    [self addEmmployye:[VAPDirector object]]; // delete in future version
+    [self addEmmployye:[VAPAccountant object]];  // delete in future version
+    for (uint32_t index = 0; index < randomNumber; index++) {
+        [self addEmmployye:[class object]];
+    }
 }
 
 #pragma mark -

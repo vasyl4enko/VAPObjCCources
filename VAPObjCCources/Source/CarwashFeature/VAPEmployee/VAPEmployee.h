@@ -8,6 +8,8 @@
 
 #import "VAPObserver.h"
 #import "VAPEmployeeObserver.h"
+#import "VAPMoneyFlowingDelegate.h"
+#import "VAPMoneyFlowing.h"
 
 @class VAPEmployee;
 
@@ -16,15 +18,8 @@ typedef NS_ENUM(NSUInteger, VAPMoneyState) {
     VAPMoneyStateLess,
 };
 
-@protocol VAPMoneyFlowingDelegate <NSObject>
 
-
-
-- (void)delegatingEmployeeDidAddMoney:(VAPEmployee *)employee;
-
-@end
-
-@interface VAPEmployee : VAPObserver<VAPEmployeeObserver>
+@interface VAPEmployee : VAPObserver<VAPEmployeeObserver,VAPMoneyFlowing>
 
 @property(nonatomic, retain)                    Class                           classType;
 @property(nonatomic, retain)                    VAPEmployee                     *receiver;
@@ -33,6 +28,6 @@ typedef NS_ENUM(NSUInteger, VAPMoneyState) {
 
 @property(nonatomic, assign)                    id<VAPMoneyFlowingDelegate>     delegate;
 
-- (void)performEmployeeSpecificOperationWithObject:(id) object;
+- (void)performEmployeeSpecificOperationWithObject:(id<VAPMoneyFlowing>) object;
 
 @end

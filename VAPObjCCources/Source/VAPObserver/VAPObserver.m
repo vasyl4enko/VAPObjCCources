@@ -13,7 +13,6 @@
 @end
 
 @implementation VAPObserver
-@dynamic observers;
 
 #pragma mark -
 #pragma mark Initializations and Deallocations
@@ -43,11 +42,6 @@
     
 }
 
-- (NSArray *)observers {
-    return [self.mutableObservers allObjects];
-}
-
-
 #pragma mark -
 #pragma mark Public Implementation
 
@@ -68,7 +62,7 @@
 }
 
 - (void)notifyObserversWithSelectot:(SEL)selector {
-    NSArray *observers = self.observers;
+    NSArray *observers = [self.mutableObservers allObjects];
     for (id observer in observers) {
         if ([observer respondsToSelector:selector]) {
             [observer performSelector:selector withObject:self];

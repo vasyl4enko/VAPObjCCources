@@ -46,5 +46,14 @@
 }
 
 
+- (BOOL)isAbleToPay:(NSUInteger)cost {
+    return self.wallet >= cost;
+}
+
+- (void)moneyTransferTo:(id<VAPMoneyFlowing>)object withCost:(NSUInteger)cost {
+    self.wallet -= cost;
+    object.wallet += cost;
+}
+
 
 @end

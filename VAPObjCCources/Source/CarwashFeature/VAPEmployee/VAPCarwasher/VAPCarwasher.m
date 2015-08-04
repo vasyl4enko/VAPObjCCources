@@ -43,28 +43,18 @@ NSUInteger const kDefualtSendingToAccountant = kDefualtCost*2;
 
 - (void)performEmployeeSpecificOperationWithObject:(id) object {
     if (nil != object && [object isKindOfClass:[VAPCar class]]) {
-        if ([object isPayable:kDefualtCost]) {
+        if ([object isAbleToPay:kDefualtCost]) {
             if ([object respondsToSelector:@selector(setDirty:)]){
-                [object performSelector:@selector(setDirty:) withObject:NO]; //У машины деньги пока не отнимаешь!!!!!!
+                [object performSelector:@selector(setDirty:) withObject:NO];
             }
-            self.wallet += kDefualtCost;
-            [object performSelector:@selector(substractingMoney:) withObject:@(kDefualtCost)];
+            [object moneyTransferTo:self withCost:kDefualtCost];
+            
             id<VAPMoneyFlowingDelegate> delegate = self.delegate;
             [delegate delegatingEmployeeDidAddMoney: self];
-//            [delegate performSelector:@selector(performEmployeeSpecificOperationWithObject:) withObject:nil];
-
+            
             self.busy = NO;
         }
     }
 }
-
-//#pragma mark -
-//#pragma mark VAPCarDelegate
-
-//- (void)delegatingEmployeeDidAddMoney:(VAPEmployee *)employee {
-//    self.wallet = employee.wallet;
-//    employee.wallet = 0;
-//    employee.busy = NO;
-//}
 
 @end

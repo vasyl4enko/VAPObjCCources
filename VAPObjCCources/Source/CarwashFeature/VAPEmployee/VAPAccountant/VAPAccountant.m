@@ -64,9 +64,8 @@ NSUInteger const kDefualtSendingToDirector = 200;
 #pragma mark VAPCarwasherDelegate
 
 - (void)delegatingEmployeeDidAddMoney:(VAPEmployee *)employee {
-    NSUInteger localmoney = employee.wallet;
-    self.wallet += localmoney;
-    employee.wallet = 0;
+    [employee moneyTransferTo:self withCost:employee.wallet];
+    [self performEmployeeSpecificOperationWithObject:nil];
 }
 
 

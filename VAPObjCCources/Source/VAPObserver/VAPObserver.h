@@ -10,7 +10,6 @@
 
 @interface VAPObserver : NSObject
 
-@property(nonatomic, readonly)  NSArray     *observers;
 @property(nonatomic, assign)    NSUInteger  state;
 
 - (void)addObserver:(id)object;

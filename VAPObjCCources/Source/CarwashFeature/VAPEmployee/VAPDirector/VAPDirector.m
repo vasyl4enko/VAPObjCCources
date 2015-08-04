@@ -43,24 +43,15 @@ NSString *const kDirectorProffit = @"My proffit %lu";
 
 - (void)performEmployeeSpecificOperationWithObject:(id) object {
     NSLog(kDirectorGreeting);
-    id<VAPMoneyFlowingDelegate> delegate = self.delegate;
-    [delegate delegatingEmployeeDidAddMoney: self];
 }
 
-- (void)employeeDidAddMoney:(VAPEmployee *)employee {
-    self.wallet = employee.wallet;
-    employee.wallet = 0;
-    employee.busy = NO;
-}
 
 #pragma mark -
 #pragma mark VAPAccountantDelegate
 
 
 - (void)delegatingEmployeeDidAddMoney:(VAPEmployee *)employee {
-    NSUInteger localmoney = employee.wallet;
-    self.wallet += localmoney;
-    employee.wallet = 0;
+    [employee moneyTransferTo:self withCost:employee.wallet];
     NSLog(@"I have %lu",self.wallet);
 }
 

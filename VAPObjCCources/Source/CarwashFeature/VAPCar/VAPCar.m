@@ -25,14 +25,16 @@ NSUInteger const kVAPDefaultMoneyValue = 235;
     return self;
 }
 
-- (BOOL)isPayable:(NSUInteger)money {
-    return self.wallet >= money;
+#pragma mark -
+#pragma mark VAPMoneyFlowing
+
+- (BOOL)isAbleToPay:(NSUInteger)cost {
+    return self.wallet >= cost;
 }
 
-- (void)substractingMoney:(NSNumber *)money {
-
-    self.wallet -= [money integerValue];
+- (void)moneyTransferTo:(id<VAPMoneyFlowing>)object withCost:(NSUInteger)cost {
+    self.wallet -= cost;
+    object.wallet += cost;
 }
-
 
 @end

@@ -7,17 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "VAPMoneyFlowing.h"
 
 
 FOUNDATION_EXTERN NSUInteger const kVAPDefaultMoneyValue;
 
 @class VAPCar;
 
-@interface VAPCar : NSObject
+@interface VAPCar : NSObject<VAPMoneyFlowing>
 @property(nonatomic, assign)                    NSUInteger          wallet;
 @property(nonatomic, assign, getter = isDirty)  BOOL                dirty;
 
-- (BOOL)isPayable:(NSUInteger)money;
-- (void)substractingMoney:(NSNumber *)money;
+
 @end

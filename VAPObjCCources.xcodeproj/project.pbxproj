@@ -52,6 +52,8 @@
 		1F89EE5B1B5FDEDF00CCF016 /* VAPTestTarget.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VAPTestTarget.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F89EE5E1B5FDEDF00CCF016 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1F89EE5F1B5FDEDF00CCF016 /* VAPTestTarget.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VAPTestTarget.m; sourceTree = "<group>"; };
+		1FCC6DC41B7135BA0083C1B1 /* VAPMoneyFlowingDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VAPMoneyFlowingDelegate.h; sourceTree = "<group>"; };
+		1FCC6DC51B7139C00083C1B1 /* VAPMoneyFlowing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VAPMoneyFlowing.h; sourceTree = "<group>"; };
 		1FCF2CD51B6CD57900991B97 /* VAPCar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VAPCar.h; sourceTree = "<group>"; };
 		1FCF2CD91B6CD57900991B97 /* VAPAccountant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VAPAccountant.h; sourceTree = "<group>"; };
 		1FCF2CDA1B6CD57900991B97 /* VAPAccountant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VAPAccountant.m; sourceTree = "<group>"; };
@@ -76,7 +78,7 @@
 		1FCF2D031B6CD57A00991B97 /* VAPHumanTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VAPHumanTests.h; sourceTree = "<group>"; };
 		1FCF2D041B6CD57A00991B97 /* VAPHumanTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VAPHumanTests.m; sourceTree = "<group>"; };
 		1FCF2D1D1B6D5B2100991B97 /* VAPCar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VAPCar.m; sourceTree = "<group>"; };
-		1FCF2D1F1B6D5F5400991B97 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		1FCF2D1F1B6D5F5400991B97 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Source/main.m; sourceTree = "<group>"; };
 		1FDEEA0B1B6FDB46008AAFC7 /* VAPEmployeeObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VAPEmployeeObserver.h; sourceTree = "<group>"; };
 		559524D9DC14A69C1D03146B /* Pods-VAPTestTarget.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VAPTestTarget.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VAPTestTarget/Pods-VAPTestTarget.debug.xcconfig"; sourceTree = "<group>"; };
 		88304C86DD4B11981FF0C8DC /* Pods-VAPTestTarget.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VAPTestTarget.release.xcconfig"; path = "Pods/Target Support Files/Pods-VAPTestTarget/Pods-VAPTestTarget.release.xcconfig"; sourceTree = "<group>"; };
@@ -105,7 +107,9 @@
 		1F22297E1B6FC7F1001F3CB7 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
+				1FCC6DC41B7135BA0083C1B1 /* VAPMoneyFlowingDelegate.h */,
 				1FDEEA0B1B6FDB46008AAFC7 /* VAPEmployeeObserver.h */,
+				1FCC6DC51B7139C00083C1B1 /* VAPMoneyFlowing.h */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -160,6 +164,7 @@
 		1FCF2CC81B6CD57900991B97 /* VAPObjCCources */ = {
 			isa = PBXGroup;
 			children = (
+				1FCF2D1F1B6D5F5400991B97 /* main.m */,
 				1FCF2CC91B6CD57900991B97 /* Source */,
 				1FCF2CFF1B6CD57A00991B97 /* Tests */,
 			);
@@ -171,7 +176,6 @@
 			children = (
 				1F22297F1B6FCD34001F3CB7 /* VAPObserver */,
 				1F22297E1B6FC7F1001F3CB7 /* Protocols */,
-				1FCF2D1F1B6D5F5400991B97 /* main.m */,
 				1FCF2CF21B6CD57900991B97 /* VAPCategories */,
 				1FCF2CCA1B6CD57900991B97 /* CarwashFeature */,
 				1FCF2CF51B6CD57900991B97 /* VAPHuman */,
@@ -201,8 +205,8 @@
 		1FCF2CD71B6CD57900991B97 /* VAPEmployee */ = {
 			isa = PBXGroup;
 			children = (
-				1FCF2CD81B6CD57900991B97 /* VAPAccountant */,
 				1FCF2CDB1B6CD57900991B97 /* VAPCarwasher */,
+				1FCF2CD81B6CD57900991B97 /* VAPAccountant */,
 				1FCF2CDE1B6CD57900991B97 /* VAPDirector */,
 				1FCF2CE11B6CD57900991B97 /* VAPEmployee.h */,
 				1FCF2CE21B6CD57900991B97 /* VAPEmployee.m */,

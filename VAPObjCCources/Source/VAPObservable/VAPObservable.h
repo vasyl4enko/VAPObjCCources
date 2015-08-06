@@ -1,5 +1,5 @@
 //
-//  VAPObserver.h
+//  VAPObservable.h
 //  VAPObjCCources
 //
 //  Created by Aleksandr Vasylchenko on 03.08.15.
@@ -8,16 +8,15 @@
 
 #import <Foundation/Foundation.h>
 
-@interface VAPObserver : NSObject
-
-@property(nonatomic, assign)    NSUInteger  state;
+@interface VAPObservable : NSObject
 
 - (void)addObserver:(id)object;
 - (void)removeObserver:(id)object;
 
 - (BOOL)containsObserver:(id)object;
 
-- (SEL)selectorForState:(NSUInteger)state;
-
+- (void)notifyObserversWithSelector:(SEL)selector;
+- (void)notifyObserversWithSelector:(SEL)selector withObject:(id)object;
+- (void)notifyObserversWithSelector:(SEL)selector withObject:(id)object object:(id)object2;
 
 @end

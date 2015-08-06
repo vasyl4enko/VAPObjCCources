@@ -1,18 +1,18 @@
 //
-//  VAPObserver.m
+//  VAPObservable.m
 //  VAPObjCCources
 //
 //  Created by Aleksandr Vasylchenko on 03.08.15.
 //  Copyright (c) 2015 Aleksandr Vasylchenko. All rights reserved.
 //
 
-#import "VAPObserver.h"
+#import "VAPObservable.h"
 
-@interface VAPObserver ()
+@interface VAPObservable ()
 @property(nonatomic, retain)    NSHashTable     *mutableObservers;
 @end
 
-@implementation VAPObserver
+@implementation VAPObservable
 
 #pragma mark -
 #pragma mark Initializations and Deallocations
@@ -26,21 +26,12 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        self.mutableObservers = [[[NSHashTable alloc] initWithOptions:NSHashTableWeakMemory capacity:1] autorelease];
+        self.mutableObservers = [NSHashTable weakObjectsHashTable];
     }
     
     return self;
 }
 
-
-#pragma mark -
-#pragma mark Accessors 
-
-- (void)setState:(NSUInteger)state {
-        _state = state;
-        [self notifyObserversWithSelectot:[self selectorForState:state]];
-    
-}
 
 #pragma mark -
 #pragma mark Public Implementation
@@ -56,16 +47,18 @@
     return [self.mutableObservers containsObject:object];
 }
 
-- (SEL)selectorForState:(NSUInteger)state {
-    [self doesNotRecognizeSelector:_cmd];
-    return nil;
+- (void)notifyObserversWithSelector:(SEL)selector {
+    [self notifyObserversWithSelector:selector withObject:nil];
 }
 
-- (void)notifyObserversWithSelectot:(SEL)selector {
+- (void)notifyObserversWithSelector:(SEL)selector withObject:(id)object {
+    [self notifyObserversWithSelector:selector withObject:object object:nil];
+}
+- (void)notifyObserversWithSelector:(SEL)selector withObject:(id)object object:(id)object2 {
     NSArray *observers = [self.mutableObservers allObjects];
     for (id observer in observers) {
         if ([observer respondsToSelector:selector]) {
-            [observer performSelector:selector withObject:self];
+            [observer performSelector:selector withObject:object2 withObject:object2];
         }
     }
 }

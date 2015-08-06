@@ -12,8 +12,6 @@
 
 FOUNDATION_EXTERN NSUInteger const kDefualtSendingToDirector;
 
-@interface VAPAccountant : VAPEmployee<VAPMoneyFlowingDelegate>
-
-@property(nonatomic, retain)    VAPCarwasher    *delegatingObject;
+@interface VAPAccountant : VAPEmployee
 
 @end

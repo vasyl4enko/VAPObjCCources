@@ -13,6 +13,7 @@
 @protocol VAPEmployeeObserver <NSObject>
 
 @optional
-- (void)employeeDidReceivedMoney:(VAPEmployee *)employee;
+- (void)employeeDidEndJob:(VAPEmployee *)employee;
+- (void)employeeDidBeganJob:(VAPEmployee *)employee;
 
 @end

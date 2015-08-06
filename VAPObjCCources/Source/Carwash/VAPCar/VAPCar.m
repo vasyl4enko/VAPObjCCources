@@ -9,7 +9,7 @@
 #import "VAPCar.h"
 
 
-NSUInteger const kVAPDefaultMoneyValue = 235;
+NSUInteger const kVAPDefaultMoneyValue = 300;
 
 @implementation VAPCar
 
@@ -33,8 +33,10 @@ NSUInteger const kVAPDefaultMoneyValue = 235;
 }
 
 - (void)moneyTransferTo:(id<VAPMoneyFlowing>)object withCost:(NSUInteger)cost {
-    self.wallet -= cost;
-    object.wallet += cost;
+    if ([self isAbleToPay:cost]) {
+        self.wallet -= cost;
+        object.wallet += cost;
+    }
 }
 
 @end

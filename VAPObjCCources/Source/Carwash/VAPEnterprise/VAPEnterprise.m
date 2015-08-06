@@ -20,6 +20,9 @@ NSString *const kWorkerBusy = @"Worker is still busy";
 @interface VAPEnterprise ()
 @property (nonatomic, retain) NSMutableArray *mutableEmployees;
 
+
++ (Class)observerClassWithObservableObject:(VAPEmployee *)object;
+
 - (void)addRandomCountWorkers:(Class) class;
 
 @end
@@ -27,6 +30,21 @@ NSString *const kWorkerBusy = @"Worker is still busy";
 @implementation VAPEnterprise
 
 @dynamic employees;
+
+#pragma mark -
+#pragma mark Class Methods
+
++ (Class)observerClassWithObservableObject:(VAPEmployee *)object {
+    Class class = nil;
+    if ([object isKindOfClass:[VAPCarwasher class]]) {
+        class = [VAPAccountant class];
+    }
+    if ([object isKindOfClass:[VAPAccountant class]]) {
+        class = [VAPDirector class];
+    }
+    
+    return class;
+}
 
 
 #pragma mark -
@@ -59,7 +77,6 @@ NSString *const kWorkerBusy = @"Worker is still busy";
 
 - (void)addEmmployye:(VAPEmployee *)object {
     if (nil != object) {
-        object.receiver = [self.mutableEmployees firstObject];
         [self.mutableEmployees addObject:object];
         [object addObserver:self];
     }
@@ -85,10 +102,9 @@ NSString *const kWorkerBusy = @"Worker is still busy";
     VAPEmployee *resultEmployee = nil;
     NSArray *employees = self.employees;
     for (VAPEmployee *worker in employees) {
-        if ([worker isMemberOfClass:employeeType] && NO == worker.busy) {
+        if ([worker isMemberOfClass:employeeType] && VAPStateFree == worker.state){
             resultEmployee = worker;
-            resultEmployee.busy = YES;
-            resultEmployee.busyState = VAPBusyStateBeginWork;
+            
             break;
         }
     }
@@ -109,13 +125,10 @@ NSString *const kWorkerBusy = @"Worker is still busy";
 #pragma mark VAPEmployeeObserver
 
 
-- (void)employeeDidReceivedMoney:(VAPEmployee *)employee {
-    Class delegateClassType = employee.classType;
-    VAPEmployee *object = [self findFreeEmployee:delegateClassType];
-    if ([object respondsToSelector:@selector(setDelegatingObject:)]) {
-        [object performSelector:@selector(setDelegatingObject:) withObject:employee];
-    }
-    
+- (void)employeeDidBeganJob:(VAPEmployee *)employee {
+    Class class = [VAPEnterprise observerClassWithObservableObject:employee];
+    VAPEmployee *observer = [self findFreeEmployee:class];
+    [employee addObserver:observer];
 }
 
 @end

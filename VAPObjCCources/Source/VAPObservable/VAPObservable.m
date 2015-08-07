@@ -33,6 +33,8 @@
 }
 
 
+
+
 #pragma mark -
 #pragma mark Public Implementation
 
@@ -52,13 +54,13 @@
 }
 
 - (void)notifyObserversWithSelector:(SEL)selector withObject:(id)object {
-    [self notifyObserversWithSelector:selector withObject:object object:nil];
+    [self notifyObserversWithSelector:selector withObject:object withObject:nil];
 }
-- (void)notifyObserversWithSelector:(SEL)selector withObject:(id)object object:(id)object2 {
+- (void)notifyObserversWithSelector:(SEL)selector withObject:(id)object withObject:(id)object2 {
     NSArray *observers = [self.mutableObservers allObjects];
     for (id observer in observers) {
         if ([observer respondsToSelector:selector]) {
-            [observer performSelector:selector withObject:object2 withObject:object2];
+            [observer performSelector:selector withObject:object withObject:object2];
         }
     }
 }

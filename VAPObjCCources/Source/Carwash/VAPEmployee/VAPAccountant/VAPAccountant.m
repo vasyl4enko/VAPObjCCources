@@ -11,11 +11,18 @@
 @implementation VAPAccountant
 
 #pragma mark -
+#pragma mark Public Implimentation
+
+- (void)doJobWithObject:(id<VAPMoneyFlowing>)object {
+    [object moneyTransferTo:self withCost:object.wallet];
+    [self setEndWorkState:VAPStateEndWork];
+}
+
+#pragma mark -
 #pragma mark VAPEmployeeObserver
 
 - (void)employeeDidEndJob:(VAPEmployee *)employee {
-    [employee moneyTransferTo:self withCost:employee.wallet];
-    [self performEmployeeSpecificOperationWithObject:nil];
+    [self performEmployeeSpecificOperationWithObject:employee];
 }
 
 

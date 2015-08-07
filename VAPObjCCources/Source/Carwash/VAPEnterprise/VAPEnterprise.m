@@ -61,6 +61,8 @@ NSString *const kWorkerBusy = @"Worker is still busy";
     if (self) {
         self.mutableEmployees = [NSMutableArray array];
         [self addRandomCountWorkers:[VAPCarwasher class]];
+        
+        
     }
     return self;
 }

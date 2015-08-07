@@ -8,19 +8,25 @@
 
 #import "VAPDirector.h"
 
-
-static NSString *const kDirectorGreeting  = @"I'm director";
-NSString *const kDirectorProffit = @"My proffit %lu";
+NSString *const kVAPDirectorProffit = @"My proffit %lu";
 
 @implementation VAPDirector
+
+#pragma mark -
+#pragma mark Public Implementation
+
+- (void)doJobWithObject:(id<VAPMoneyFlowing>)object {
+    [object moneyTransferTo:self withCost:object.wallet];
+    [self setEndWorkState:VAPStateEndWork];
+    NSLog(kVAPDirectorProffit,self.wallet);
+}
 
 
 #pragma mark -
 #pragma mark VAPAccountantDelegate
 
 - (void)employeeDidEndJob:(VAPEmployee *)employee {
-    [employee moneyTransferTo:self withCost:employee.wallet];
-    NSLog(@"I have %lu",self.wallet);
+    [self performEmployeeSpecificOperationWithObject:employee];
 }
 
 

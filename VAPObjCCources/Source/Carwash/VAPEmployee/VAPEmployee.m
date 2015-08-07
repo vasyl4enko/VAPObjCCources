@@ -56,11 +56,12 @@
 - (void)setBeginWorkState:(VAPState)state {
     if (VAPStateBeginWork != self.state && VAPStateEndWork != state) {
         _state = state;
-        [self notifyObserversWithSelector:[self selectorForState:state] withObject:self];
+        SEL selector = [self selectorForState:state];
+        [self notifyObserversWithSelector:selector withObject:self];
     }
 }
 - (void)setEndWorkState:(VAPState)state {
-    if (VAPStateBeginWork != self.state && VAPStateEndWork != state) {
+    if (VAPStateBeginWork == self.state) {
         _state = state;
         [self notifyObserversWithSelector:[self selectorForState:state] withObject:self];
     }

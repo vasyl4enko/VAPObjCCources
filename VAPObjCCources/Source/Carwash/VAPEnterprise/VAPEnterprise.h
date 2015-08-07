@@ -15,8 +15,8 @@
 @class VAPCar;
 
 FOUNDATION_EXTERN NSString *const kErrorMessage;
-FOUNDATION_EXTERN NSString *const kCarDirty;
-FOUNDATION_EXTERN NSString *const kWorkerBusy;
+
+
 
 @interface VAPEnterprise : NSObject<VAPEmployeeObserver>
 @property (nonatomic, retain, readonly) NSArray *employees;

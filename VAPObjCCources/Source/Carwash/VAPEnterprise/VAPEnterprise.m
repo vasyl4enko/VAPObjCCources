@@ -13,9 +13,7 @@
 #import "VAPDirector.h"
 #import "NSObject+VAPExtension.h"
 
-NSString *const kErrorMessage = @"some workers aren't on his position or maybe room is nil";
-NSString *const kCarDirty = @"Car is dirty";
-NSString *const kWorkerBusy = @"Worker is still busy";
+NSString *const kVAPErrorMessage = @"some workers aren't on his position or maybe room is nil";
 
 @interface VAPEnterprise ()
 @property (nonatomic, retain) NSMutableArray *mutableEmployees;
@@ -91,7 +89,7 @@ NSString *const kWorkerBusy = @"Worker is still busy";
             [freeCarwasher performEmployeeSpecificOperationWithObject:object];
             
         } else {
-            NSLog(@"some workers aren't on his position or maybe room is nil");
+            NSLog(kVAPErrorMessage);
         }
         
     }

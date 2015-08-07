@@ -18,12 +18,4 @@
     [self setEndWorkState:VAPStateEndWork];
 }
 
-#pragma mark -
-#pragma mark VAPEmployeeObserver
-
-- (void)employeeDidEndJob:(VAPEmployee *)employee {
-    [self performEmployeeSpecificOperationWithObject:employee];
-}
-
-
 @end

@@ -21,13 +21,4 @@ NSString *const kVAPDirectorProffit = @"My proffit %lu";
     NSLog(kVAPDirectorProffit,self.wallet);
 }
 
-
-#pragma mark -
-#pragma mark VAPAccountantDelegate
-
-- (void)employeeDidEndJob:(VAPEmployee *)employee {
-    [self performEmployeeSpecificOperationWithObject:employee];
-}
-
-
 @end

@@ -90,8 +90,18 @@
     return nil;
 }
 
+
+
 #pragma mark -
 #pragma mark VAPEmployeeObserver
+
+- (void)employeeDidEndJob:(VAPEmployee *)employee {
+    [self performEmployeeSpecificOperationWithObject:employee];
+    [employee removeObserver:self];
+}
+
+#pragma mark -
+#pragma mark VAPMoneyFlowProtocol
 
 - (BOOL)isAbleToPay:(NSUInteger)cost {
     return self.wallet >= cost;
@@ -101,6 +111,8 @@
     self.wallet -= cost;
     object.wallet += cost;
 }
+
+
 
 
 @end

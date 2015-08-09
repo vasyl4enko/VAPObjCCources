@@ -7,6 +7,7 @@
 //
 
 #import "VAPEmployee.h"
+#import "VAPAccountant.h"
 
 @interface VAPDirector : VAPEmployee
 

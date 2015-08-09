@@ -7,15 +7,23 @@
 //
 
 #import <Kiwi/Kiwi.h>
+#import "VAPEnterprise.h"
+#import "VAPCar.h"
 
-SPEC_BEGIN(VAPExample)
 
-describe(@"example", ^{
+SPEC_BEGIN(VAPCarwash)
+
+describe(@"Test carwash", ^{
     context(@"nsobject", ^{
-        NSObject *object = [NSObject new];
-        it(@"it should be kind of class", ^{
-            [[object should] beKindOfClass:[NSObject class]];
-        });
+        VAPEnterprise *enterprise = [VAPEnterprise new];
+        VAPCar *car = [VAPCar new];
+        VAPCar *car2 = [VAPCar new];
+        car.dirty = YES;
+        car2.dirty = YES;
+        
+        [enterprise washCar:car];
+        [enterprise washCar:car2];
+        
     });
 });
 

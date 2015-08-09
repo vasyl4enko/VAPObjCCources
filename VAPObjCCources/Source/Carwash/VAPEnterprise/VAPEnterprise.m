@@ -1,0 +1,134 @@
+//
+//  VAPEnterprise.m
+//  VAPObjCCources
+//
+//  Created by Aleksandr Vasylchenko on 15.07.15.
+//  Copyright (c) 2015 Aleksandr Vasylchenko. All rights reserved.
+//
+
+#import "VAPEnterprise.h"
+#import "VAPCar.h"
+#import "VAPCarwasher.h"
+#import "VAPAccountant.h"
+#import "VAPDirector.h"
+#import "NSObject+VAPExtension.h"
+
+NSString *const kVAPErrorMessage = @"some workers aren't on his position or maybe room is nil";
+
+@interface VAPEnterprise ()
+@property (nonatomic, retain) NSMutableArray *mutableEmployees;
+
+
++ (Class)observerClassWithObservableObject:(VAPEmployee *)object;
+
+- (void)addRandomCountWorkers:(Class) class;
+
+@end
+
+@implementation VAPEnterprise
+
+@dynamic employees;
+
+#pragma mark -
+#pragma mark Class Methods
+
++ (Class)observerClassWithObservableObject:(VAPEmployee *)object {
+    Class class = nil;
+    if ([object isKindOfClass:[VAPCarwasher class]]) {
+        class = [VAPAccountant class];
+    }
+    if ([object isKindOfClass:[VAPAccountant class]]) {
+        class = [VAPDirector class];
+    }
+    
+    return class;
+}
+
+
+#pragma mark -
+#pragma mark Initializations and Deallocations
+
+- (void)dealloc {
+    
+    [super dealloc];
+}
+
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        self.mutableEmployees = [NSMutableArray array];
+        [self addRandomCountWorkers:[VAPCarwasher class]];
+        
+        
+    }
+    return self;
+}
+
+#pragma mark -
+#pragma mark Accessors
+
+- (NSArray *)employees {
+    return [[self.mutableEmployees copy] autorelease];
+}
+
+#pragma mark -
+#pragma mark Public Implementation
+
+- (void)addEmmployye:(VAPEmployee *)object {
+    if (nil != object) {
+        [self.mutableEmployees addObject:object];
+        [object addObserver:self];
+    }
+}
+
+- (void)washCar:(VAPCar *)object {
+    if (nil != object) {
+        VAPCarwasher *freeCarwasher = (VAPCarwasher *)[self findFreeEmployee:[VAPCarwasher class]];
+        if (nil != freeCarwasher) {
+            [freeCarwasher performEmployeeSpecificOperationWithObject:object];
+            
+        } else {
+            NSLog(kVAPErrorMessage);
+        }
+        
+    }
+}
+
+#pragma mark -
+#pragma mark Extension
+
+- (VAPEmployee *)findFreeEmployee:(Class)employeeType {
+    VAPEmployee *resultEmployee = nil;
+    NSArray *employees = self.employees;
+    for (VAPEmployee *worker in employees) {
+        if ([worker isMemberOfClass:employeeType] && VAPStateFree == worker.state){
+            resultEmployee = worker;
+            
+            break;
+        }
+    }
+    
+    return resultEmployee;
+}
+
+- (void)addRandomCountWorkers:(Class) class {
+    uint32_t randomNumber = arc4random_uniform(100);
+    [self addEmmployye:[VAPDirector object]]; // delete in future version
+    [self addEmmployye:[VAPAccountant object]];  // delete in future version
+    for (uint32_t index = 0; index < randomNumber; index++) {
+        [self addEmmployye:[class object]];
+    }
+}
+
+#pragma mark -
+#pragma mark VAPEmployeeObserver
+
+
+- (void)employeeDidBeganJob:(VAPEmployee *)employee {
+    Class class = [VAPEnterprise observerClassWithObservableObject:employee];
+    VAPEmployee *observer = [self findFreeEmployee:class];
+    [employee addObserver:observer];
+}
+
+@end

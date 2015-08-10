@@ -14,7 +14,7 @@
 #pragma mark Public Implimentation
 
 - (void)doJobWithObject:(id<VAPMoneyFlowing>)object {
-    [object moneyTransferTo:self withCost:object.wallet];
+    [object payTo:self withCost:object.wallet];
     [self setEndWorkState:VAPStateEndWork];
 }
 

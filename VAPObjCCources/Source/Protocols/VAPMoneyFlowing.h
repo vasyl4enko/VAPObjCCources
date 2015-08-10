@@ -13,7 +13,7 @@
 @property(nonatomic, assign)    NSUInteger  wallet;
 
 - (BOOL)isAbleToPay:(NSUInteger)cost;
-- (void)moneyTransferTo:(id<VAPMoneyFlowing>)object withCost:(NSUInteger)cost;
+- (void)payTo:(id<VAPMoneyFlowing>)object withCost:(NSUInteger)cost;
 
 
 @end

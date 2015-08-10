@@ -9,6 +9,8 @@
 #import "VAPEmployee.h"
 #import "VAPAccountant.h"
 
+FOUNDATION_EXTERN NSString *const kVAPDirectorProffit;
+
 @interface VAPDirector : VAPEmployee
 
 @end

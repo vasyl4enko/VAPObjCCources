@@ -23,7 +23,7 @@ NSUInteger const kVAPDefualtCost = 200;
         VAPCar *car = (VAPCar *)object;
         if ([car isAbleToPay:kVAPDefualtCost]) {
             car.dirty = NO;
-            [object moneyTransferTo:self withCost:kVAPDefualtCost];
+            [object payTo:self withCost:kVAPDefualtCost];
         }
         [self setEndWorkState:VAPStateEndWork];
     }

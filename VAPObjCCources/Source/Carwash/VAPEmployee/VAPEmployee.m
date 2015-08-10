@@ -7,11 +7,12 @@
 //
 
 #import "VAPEmployee.h"
+#import "VAPDirector.h"
 
 @interface VAPEmployee ()
 
 - (void)beginJob;
-- (void)mayBeFree;
+- (void)finishJob;
 
 - (SEL)selectorForState:(VAPState)state;
 
@@ -40,12 +41,16 @@
     if (VAPStateFree == self.state) {
         [self beginJob];
         [self doJobWithObject:(id<VAPMoneyFlowing>)object];
-        [self mayBeFree];
+        [self finishJob];
     }
 }
 
 - (void)doJobWithObject:(id<VAPMoneyFlowing>)object {
-    
+        [object payTo:self withCost:object.wallet];
+        [self setEndWorkState:VAPStateEndWork];
+    if ([self isKindOfClass:[VAPDirector class]]) {
+        NSLog(kVAPDirectorProffit,self.wallet);
+    }
 }
 
 - (void)setFreeState:(VAPState)state {
@@ -54,14 +59,14 @@
     }
 }
 - (void)setBeginWorkState:(VAPState)state {
-    if (VAPStateBeginWork != self.state && VAPStateEndWork != state) {
+    if (VAPStateBeginWork != self.state && VAPStateBeginWork == state) {
         _state = state;
         SEL selector = [self selectorForState:state];
         [self notifyObserversWithSelector:selector withObject:self];
     }
 }
 - (void)setEndWorkState:(VAPState)state {
-    if (VAPStateBeginWork == self.state) {
+    if (VAPStateEndWork != self.state && VAPStateEndWork == state) {
         _state = state;
         [self notifyObserversWithSelector:[self selectorForState:state] withObject:self];
     }
@@ -74,7 +79,7 @@
     [self setBeginWorkState:VAPStateBeginWork];
 }
 
-- (void)mayBeFree {
+- (void)finishJob {
     [self setFreeState:VAPStateFree];
 }
 
@@ -107,7 +112,7 @@
     return self.wallet >= cost;
 }
 
-- (void)moneyTransferTo:(id<VAPMoneyFlowing>)object withCost:(NSUInteger)cost {
+- (void)payTo:(id<VAPMoneyFlowing>)object withCost:(NSUInteger)cost {
     self.wallet -= cost;
     object.wallet += cost;
 }

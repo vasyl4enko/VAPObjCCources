@@ -32,7 +32,7 @@ NSUInteger const kVAPDefaultMoneyValue = 300;
     return self.wallet >= cost;
 }
 
-- (void)moneyTransferTo:(id<VAPMoneyFlowing>)object withCost:(NSUInteger)cost {
+- (void)payTo:(id<VAPMoneyFlowing>)object withCost:(NSUInteger)cost {
     if ([self isAbleToPay:cost]) {
         self.wallet -= cost;
         object.wallet += cost;

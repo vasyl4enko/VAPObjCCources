@@ -8,10 +8,6 @@
 
 #import "VAPEmployee.h"
 
-#import "VAPCarwasher.h"
-
-FOUNDATION_EXTERN NSUInteger const kDefualtSendingToDirector;
-
 @interface VAPAccountant : VAPEmployee
 
 @end

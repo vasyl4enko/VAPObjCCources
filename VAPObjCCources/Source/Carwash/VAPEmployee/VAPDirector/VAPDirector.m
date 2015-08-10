@@ -12,13 +12,4 @@ NSString *const kVAPDirectorProffit = @"My proffit %lu";
 
 @implementation VAPDirector
 
-#pragma mark -
-#pragma mark Public Implementation
-
-- (void)doJobWithObject:(id<VAPMoneyFlowing>)object {
-    [object moneyTransferTo:self withCost:object.wallet];
-    [self setEndWorkState:VAPStateEndWork];
-    NSLog(kVAPDirectorProffit,self.wallet);
-}
-
 @end

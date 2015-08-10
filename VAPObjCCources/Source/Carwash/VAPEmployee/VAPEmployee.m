@@ -102,7 +102,6 @@
 
 - (void)employeeDidEndJob:(VAPEmployee *)employee {
     [self performEmployeeSpecificOperationWithObject:employee];
-    [employee removeObserver:self];
 }
 
 #pragma mark -

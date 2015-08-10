@@ -10,12 +10,4 @@
 
 @implementation VAPAccountant
 
-#pragma mark -
-#pragma mark Public Implimentation
-
-- (void)doJobWithObject:(id<VAPMoneyFlowing>)object {
-    [object payTo:self withCost:object.wallet];
-    [self setEndWorkState:VAPStateEndWork];
-}
-
 @end

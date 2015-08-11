@@ -55,19 +55,19 @@
 
 - (void)setFreeState:(VAPState)state {
     if (_state != state) {
-        _state = state;
+        _state = VAPStateFree;
     }
 }
 - (void)setBeginWorkState:(VAPState)state {
     if (VAPStateBeginWork != self.state && VAPStateBeginWork == state) {
-        _state = state;
+        _state = VAPStateBeginWork;
         SEL selector = [self selectorForState:state];
         [self notifyObserversWithSelector:selector withObject:self];
     }
 }
 - (void)setEndWorkState:(VAPState)state {
     if (VAPStateEndWork != self.state && VAPStateEndWork == state) {
-        _state = state;
+        _state = VAPStateEndWork;
         [self notifyObserversWithSelector:[self selectorForState:state] withObject:self];
     }
 }

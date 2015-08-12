@@ -18,31 +18,13 @@ NSString *const kVAPErrorMessage = @"some workers aren't on his position or mayb
 @interface VAPEnterprise ()
 @property (nonatomic, retain) NSMutableArray *mutableEmployees;
 
-
-+ (Class)observerClassWithObservableObject:(VAPEmployee *)object;
-
-- (void)addRandomCountWorkers:(Class) class;
+- (void)addRandomCountWorkers;
 
 @end
 
 @implementation VAPEnterprise
 
 @dynamic employees;
-
-#pragma mark -
-#pragma mark Class Methods
-
-+ (Class)observerClassWithObservableObject:(VAPEmployee *)object {
-    Class class = nil;
-    if ([object isKindOfClass:[VAPCarwasher class]]) {
-        class = [VAPAccountant class];
-    }
-    if ([object isKindOfClass:[VAPAccountant class]]) {
-        class = [VAPDirector class];
-    }
-    
-    return class;
-}
 
 
 #pragma mark -
@@ -58,7 +40,7 @@ NSString *const kVAPErrorMessage = @"some workers aren't on his position or mayb
     self = [super init];
     if (self) {
         self.mutableEmployees = [NSMutableArray array];
-        [self addRandomCountWorkers:[VAPCarwasher class]];
+        [self addRandomCountWorkers];
         
         
     }
@@ -112,23 +94,18 @@ NSString *const kVAPErrorMessage = @"some workers aren't on his position or mayb
     return resultEmployee;
 }
 
-- (void)addRandomCountWorkers:(Class) class {
+- (void)addRandomCountWorkers {
     uint32_t randomNumber = arc4random_uniform(100);
-    [self addEmmployye:[VAPDirector object]]; // delete in future version
-    [self addEmmployye:[VAPAccountant object]];  // delete in future version
+    VAPDirector *director = [VAPDirector object];
+    VAPAccountant *accountant = [VAPAccountant object];
+    [self addEmmployye:director];
+    [self addEmmployye:accountant];
+    [accountant addObserver:director];
     for (uint32_t index = 0; index < randomNumber; index++) {
-        [self addEmmployye:[class object]];
+        VAPCarwasher *carwasher = [VAPCarwasher object];
+        [self addEmmployye:carwasher];
+        [carwasher addObserver:accountant];
     }
-}
-
-#pragma mark -
-#pragma mark VAPEmployeeObserver
-
-
-- (void)employeeDidBeganJob:(VAPEmployee *)employee {
-    Class class = [VAPEnterprise observerClassWithObservableObject:employee];
-    VAPEmployee *observer = [self findFreeEmployee:class];
-    [employee addObserver:observer];
 }
 
 @end

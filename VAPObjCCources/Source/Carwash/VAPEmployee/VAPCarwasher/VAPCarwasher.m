@@ -25,7 +25,8 @@ NSUInteger const kVAPDefualtCost = 200;
             car.dirty = NO;
             [object payTo:self withCost:kVAPDefualtCost];
         }
-        [self setEndWorkState:VAPStateEndWork];
+        [self finishJob];
+       
     }
 }
 

@@ -14,7 +14,6 @@
 
 @optional
 - (void)employeeDidEndJob:(VAPEmployee *)employee;
-- (void)employeeDidBeganJob:(VAPEmployee *)employee;
 
 @end
 

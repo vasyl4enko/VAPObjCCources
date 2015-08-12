@@ -16,8 +16,6 @@
 
 FOUNDATION_EXTERN NSString *const kErrorMessage;
 
-
-
 @interface VAPEnterprise : NSObject<VAPEmployeeObserver>
 @property (nonatomic, retain, readonly) NSArray *employees;
 

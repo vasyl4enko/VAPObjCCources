@@ -26,11 +26,10 @@ typedef NS_ENUM(NSUInteger, VAPState) {
 
 - (void)performEmployeeSpecificOperationWithObject:(id<VAPMoneyFlowing>) object;
 
-- (void)doJobWithObject:(id<VAPMoneyFlowing>)object;
 
-- (void)setFreeState:(VAPState)state;
-- (void)setBeginWorkState:(VAPState)state;
-- (void)setEndWorkState:(VAPState)state;
+- (void)beginJob;
+- (void)doJobWithObject:(id<VAPMoneyFlowing>)object;
+- (void)finishJob;
 
 
 

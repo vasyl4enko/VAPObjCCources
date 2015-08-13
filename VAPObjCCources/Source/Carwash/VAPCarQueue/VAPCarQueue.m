@@ -8,6 +8,7 @@
 
 #import "VAPCarQueue.h"
 #import "VAPCar.h"
+#import "NSObject+VAPExtension.h"
 
 @interface VAPCarQueue ()
 @property(nonatomic, retain)  NSMutableArray     *mutableCars;
@@ -29,6 +30,11 @@
     self = [super init];
     if (self) {
         self.mutableCars = [[NSMutableArray alloc] init];
+        uint i = 0;
+        while (i < 10) {
+            [self.mutableCars addObject:[VAPCar object]];
+            i++;
+        }
     }
     return self;
 }
@@ -38,8 +44,9 @@
 
 - (VAPCar *)dequeue {
     VAPCar *car = [self.mutableCars firstObject];
+    NSLog(@"count %lu", self.mutableCars.count);
     [self.mutableCars removeObject:car];
-
+    
     return car;
 }
 

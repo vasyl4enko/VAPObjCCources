@@ -10,16 +10,18 @@
 
 #import "VAPEmployee.h"
 #import "VAPEmployeeObserver.h"
-#import "VAPEmployeesStorage.h"
 
 @class VAPEmployee;
 @class VAPCar;
+@class VAPCarQueue;
+@class VAPEmployeesStorage;
 
 FOUNDATION_EXTERN NSString *const kErrorMessage;
 
 @interface VAPEnterprise : NSObject<VAPEmployeeObserver>
-@property(nonatomic, retain, readonly)  NSArray *employees;
-@property(nonatomic, retain)            VAPEmployeesStorage *storage;
+//@property(nonatomic, retain, readonly)  NSArray *employees;
+@property(nonatomic, retain)            VAPCarQueue         *queue;
+@property(nonatomic, retain)            VAPEmployeesStorage *employee;
 
 - (void)addEmmployye:(VAPEmployee *)object;
 - (void)washCar:(VAPCar *)object;

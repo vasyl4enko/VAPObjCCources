@@ -10,6 +10,7 @@
 #import "VAPEmployee.h"
 #import "VAPCarwasher.h"
 #import "VAPAccountant.h"
+#import "VAPDirector.h"
 #import "NSObject+VAPExtension.h"
 
 
@@ -34,24 +35,24 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        uint64_t i = 0;
-        self.mutableEmployees = [NSMutableArray array];
-        while(i < 10) {
-            [self.mutableEmployees addObject:[VAPCarwasher object]];
-            NSLog(@"add");
-            i++;
-        }
-        i = 0;
         
-        while(i < 10) {
-            [self.mutableEmployees addObject:[VAPAccountant object]];
-            NSLog(@"acc");
-            i++;
-        }
-        NSLog(@"count %lu",self.mutableEmployees.count);
+        self.mutableEmployees = [[NSMutableArray alloc] init];
+        uint32_t randomNumber = arc4random_uniform(100) + 1;
         
-        VAPEmployee *acc = [self freeEmployeeWithClass:[VAPAccountant class]];
-//        [acc beginJob];
+        VAPDirector *director = [VAPDirector object];
+        VAPAccountant *accountant = [VAPAccountant object];
+        
+        [self addEmployee:director];
+        [self addEmployee:accountant];
+        
+        [accountant addObserver:director];
+        for (uint32_t index = 0; index < randomNumber; index++) {
+            VAPCarwasher *carwasher = [VAPCarwasher object];
+            [self addEmployee:carwasher];
+            [carwasher addObserver:accountant];
+        }
+        
+        
         
     }
     return self;

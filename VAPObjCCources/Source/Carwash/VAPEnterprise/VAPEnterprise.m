@@ -31,6 +31,8 @@ NSString *const kVAPErrorMessage = @"some workers aren't on his position or mayb
 #pragma mark Initializations and Deallocations
 
 - (void)dealloc {
+    self.mutableEmployees = nil;
+    self.storage = nil;
     
     [super dealloc];
 }
@@ -40,6 +42,7 @@ NSString *const kVAPErrorMessage = @"some workers aren't on his position or mayb
     self = [super init];
     if (self) {
         self.mutableEmployees = [NSMutableArray array];
+        self.storage = [VAPEmployeesStorage object];
         [self addRandomCountWorkers];
         
         

@@ -10,6 +10,7 @@
 
 #import "VAPEmployee.h"
 #import "VAPEmployeeObserver.h"
+#import "VAPEmployeesStorage.h"
 
 @class VAPEmployee;
 @class VAPCar;
@@ -17,7 +18,8 @@
 FOUNDATION_EXTERN NSString *const kErrorMessage;
 
 @interface VAPEnterprise : NSObject<VAPEmployeeObserver>
-@property (nonatomic, retain, readonly) NSArray *employees;
+@property(nonatomic, retain, readonly)  NSArray *employees;
+@property(nonatomic, retain)            VAPEmployeesStorage *storage;
 
 - (void)addEmmployye:(VAPEmployee *)object;
 - (void)washCar:(VAPCar *)object;

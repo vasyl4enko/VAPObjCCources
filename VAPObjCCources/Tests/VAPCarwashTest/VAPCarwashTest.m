@@ -20,10 +20,7 @@
 
 + (void)performWashingTest {
     VAPEnterprise *enterprise = [VAPEnterprise object];
-    
-    for (uint index = 0; index < 16; index++) {
-        [enterprise washCar:[VAPCar object]];
-    }
+    [enterprise washCar];
     
 }
 

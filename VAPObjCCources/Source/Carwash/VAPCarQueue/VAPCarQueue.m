@@ -31,7 +31,7 @@
     if (self) {
         self.mutableCars = [[NSMutableArray alloc] init];
         uint i = 0;
-        while (i < 10) {
+        while (i < 40) {
             [self.mutableCars addObject:[VAPCar object]];
             i++;
         }
@@ -43,10 +43,12 @@
 #pragma mark Public Implementation
 
 - (VAPCar *)dequeue {
-    VAPCar *car = [self.mutableCars firstObject];
-    NSLog(@"count %lu", self.mutableCars.count);
-    [self.mutableCars removeObject:car];
-    
+    VAPCar *car = nil;
+    @synchronized(_mutableCars) {
+        car = [self.mutableCars firstObject];
+//        NSLog(@"count %lu", self.mutableCars.count);
+        [self.mutableCars removeObject:car];
+    }
     return car;
 }
 

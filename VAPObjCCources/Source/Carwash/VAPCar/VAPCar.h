@@ -15,7 +15,7 @@ FOUNDATION_EXTERN NSUInteger const kVAPDefaultMoneyValue;
 @class VAPCar;
 
 @interface VAPCar : NSObject<VAPMoneyFlowing>
-@property(nonatomic, assign)                    NSUInteger          wallet;
+@property(atomic, assign)                       NSUInteger          wallet;
 @property(nonatomic, assign, getter = isDirty)  BOOL                dirty;
 
 

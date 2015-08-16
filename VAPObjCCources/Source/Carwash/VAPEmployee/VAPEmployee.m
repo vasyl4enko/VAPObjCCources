@@ -23,16 +23,6 @@
 #pragma mark -
 #pragma mark Accesors
 
-- (void)setWallet:(NSUInteger)wallet {
-    if (_wallet != wallet) {
-        NSUInteger localWallet = _wallet;
-        _wallet = wallet;
-        if (_wallet > localWallet) {
-            
-        }
-        
-    }
-}
 
 #pragma mark -
 #pragma mark Public Methods
@@ -41,30 +31,31 @@
     if (VAPStateFree == self.state) {
         [self beginJob];
         [self doJobWithObject:(id<VAPMoneyFlowing>)object];
-//        [self finishJob];
+        [self finishJob];
         [self mayBeFree];
     }
 }
 
 - (void)doJobWithObject:(id<VAPMoneyFlowing>)object {
+   
         [object payTo:self withCost:object.wallet];
-    
-        [self finishJob];
-    
-    if ([self isKindOfClass:[VAPDirector class]]) {
-        NSLog(kVAPDirectorProffit,self.wallet);
-    }
+        uint rand = arc4random_uniform(10) + 2;
+        usleep(rand * 1000);
+        
+        if ([self isKindOfClass:[VAPDirector class]]) {
+            NSLog(kVAPDirectorProffit,self.wallet);
+        }
 }
-
 
 - (void)beginJob {
     _state = VAPStateBeginWork;
-//    [self notifyObserversWithSelector:[self selectorForState:self.state] withObject:self];
 }
 
 - (void)finishJob {
     _state = VAPStateEndWork;
-    [self notifyObserversWithSelector:[self selectorForState:self.state] withObject:self];
+//    [self notifyObserversWithSelector:[self selectorForState:self.state] withObject:self];
+    
+    [self notifyObserversOnMainThreadWithSelector:[self selectorForState:self.state] withObject:self];
 }
 
 - (void)mayBeFree {
@@ -76,8 +67,6 @@
 
 - (SEL)selectorForState:(VAPState)state {
     switch (state) {
-        case VAPStateBeginWork:
-            return @selector(employeeDidBeganJob:);
         case VAPStateEndWork:
             return @selector(employeeDidEndJob:);
         default:
@@ -86,13 +75,17 @@
     return nil;
 }
 
-
-
 #pragma mark -
 #pragma mark VAPEmployeeObserver
 
 - (void)employeeDidEndJob:(VAPEmployee *)employee {
     [self performEmployeeSpecificOperationWithObject:employee];
+    
+//    [self performSelectorInBackground:@selector(performEmployeeSpecificOperationWithObject:) withObject:employee];
+//    [self performSelectorOnMainThread:@selector(performEmployeeSpecificOperationWithObject:)
+//                           withObject:employee
+//                        waitUntilDone:YES];
+    
 }
 
 #pragma mark -
@@ -106,8 +99,5 @@
     self.wallet -= cost;
     object.wallet += cost;
 }
-
-
-
 
 @end

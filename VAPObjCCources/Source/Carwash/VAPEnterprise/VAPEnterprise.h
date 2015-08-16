@@ -19,12 +19,11 @@
 FOUNDATION_EXTERN NSString *const kErrorMessage;
 
 @interface VAPEnterprise : NSObject<VAPEmployeeObserver>
-//@property(nonatomic, retain, readonly)  NSArray *employees;
+
 @property(nonatomic, retain)            VAPCarQueue         *queue;
 @property(nonatomic, retain)            VAPEmployeesStorage *employee;
 
-- (void)addEmmployye:(VAPEmployee *)object;
-- (void)washCar:(VAPCar *)object;
+- (void)washCar;
 
 
 @end

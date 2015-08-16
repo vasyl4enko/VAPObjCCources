@@ -10,7 +10,7 @@
 
 @protocol VAPMoneyFlowing <NSObject>
 
-@property(nonatomic, assign)    NSUInteger  wallet;
+@property(atomic, assign)    NSUInteger  wallet;
 
 - (BOOL)isAbleToPay:(NSUInteger)cost;
 - (void)payTo:(id<VAPMoneyFlowing>)object withCost:(NSUInteger)cost;

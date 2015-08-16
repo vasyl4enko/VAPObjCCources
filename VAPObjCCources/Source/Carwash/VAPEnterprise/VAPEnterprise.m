@@ -43,23 +43,25 @@ NSString *const kVAPErrorMessage = @"some workers aren't on his position or mayb
 #pragma mark -
 #pragma mark Public Implementation
 
-- (void)addEmmployye:(VAPEmployee *)object {
-    if (nil != object) {
-        [self.employee addEmployee:object];
-        [object addObserver:self];
+- (void)washCar {
+    VAPCar *car = nil;
+    while (nil != (car = [self.queue dequeue])) {
+        @autoreleasepool {
+            [self performSelectorInBackground:@selector(beginWash:)withObject:car];
+//            [self beginWash:car];
+        }
+    
     }
 }
 
-- (void)washCar:(VAPCar *)object {
-    VAPCar *car = [self.queue dequeue];
-    if (nil != car) {
-        VAPCarwasher *freeCarwasher = (VAPCarwasher *)[self.employee freeEmployeeWithClass:[VAPCarwasher class]];
-        if (nil != freeCarwasher) {
-            [freeCarwasher performEmployeeSpecificOperationWithObject:car];
-        } else {
-            NSLog(kVAPErrorMessage);
-        }
+- (void)beginWash:(VAPCar *)car {
+    VAPCarwasher *freeCarwasher;
+    while (nil == (freeCarwasher = (VAPCarwasher *)[self.employee freeEmployeeWithClass:[VAPCarwasher class]])) {}
+    
+    if (freeCarwasher == nil) {
+        NSLog(kVAPErrorMessage);
     }
+    [freeCarwasher performEmployeeSpecificOperationWithObject:car];
 }
 
 @end

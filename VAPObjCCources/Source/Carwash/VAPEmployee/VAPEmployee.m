@@ -33,6 +33,10 @@
         [self doJobWithObject:(id<VAPMoneyFlowing>)object];
         [self finishJob];
         [self mayBeFree];
+    } else {
+        while (VAPStateFree != self.state) {
+        }
+        [self performEmployeeSpecificOperationWithObject:object];
     }
 }
 

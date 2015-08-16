@@ -31,7 +31,7 @@
     if (self) {
         self.mutableCars = [[NSMutableArray alloc] init];
         uint i = 0;
-        while (i < 40) {
+        while (i < 2000) {
             [self.mutableCars addObject:[VAPCar object]];
             i++;
         }

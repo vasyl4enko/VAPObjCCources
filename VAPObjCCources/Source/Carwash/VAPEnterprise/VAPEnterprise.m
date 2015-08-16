@@ -57,7 +57,7 @@ NSString *const kVAPErrorMessage = @"some workers aren't on his position or mayb
 - (void)beginWash:(VAPCar *)car {
     VAPCarwasher *freeCarwasher;
     while (nil == (freeCarwasher = (VAPCarwasher *)[self.employee freeEmployeeWithClass:[VAPCarwasher class]])) {}
-    
+//    [freeCarwasher beginJob];
     if (freeCarwasher == nil) {
         NSLog(kVAPErrorMessage);
     }

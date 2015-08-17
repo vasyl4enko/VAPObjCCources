@@ -13,5 +13,6 @@
 @interface VAPCarQueue : NSObject
 
 - (VAPCar *)dequeue;
+- (BOOL)isFull;
 
 @end

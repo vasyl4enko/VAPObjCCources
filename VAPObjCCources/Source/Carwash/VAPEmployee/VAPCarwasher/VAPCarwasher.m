@@ -31,4 +31,14 @@ NSUInteger const kVAPDefualtCost = 100;
     }
 }
 
+- (void)mayBeFree {
+    [super mayBeFree];
+    [self notifyObserversWithSelector:[self selectorForState:self.state] withObject:self];
+}
+//- (void)finishJob {
+//    [super finishJob];
+//    [self notifyObserversOnMainThreadWithSelector:[self selectorForState:self.state] withObject:self];
+//}
+
+
 @end

@@ -30,8 +30,6 @@
 		1FCF2D161B6CD57A00991B97 /* VAPHumanTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FCF2D041B6CD57A00991B97 /* VAPHumanTests.m */; };
 		1FCF2D201B6D5F5400991B97 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FCF2D1F1B6D5F5400991B97 /* main.m */; };
 		1FD7E1C71B6EB2CC00D18D28 /* NSObject+VAPExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FCF2CF41B6CD57900991B97 /* NSObject+VAPExtension.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		1FFAAC161B7BDBBB007D62F5 /* VAPEmployeesStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FFAAC151B7BDBBB007D62F5 /* VAPEmployeesStorage.m */; };
-		1FFAAC191B7BDD9A007D62F5 /* VAPCarQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FFAAC181B7BDD9A007D62F5 /* VAPCarQueue.m */; };
 		C4426BC6DD4682EB4F22C624 /* libPods-VAPTestTarget.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E8F6050426F419E263DAA600 /* libPods-VAPTestTarget.a */; settings = {ATTRIBUTES = (Required, ); }; };
 /* End PBXBuildFile section */
 
@@ -82,10 +80,6 @@
 		1FCF2D041B6CD57A00991B97 /* VAPHumanTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VAPHumanTests.m; sourceTree = "<group>"; };
 		1FCF2D1F1B6D5F5400991B97 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Source/main.m; sourceTree = "<group>"; };
 		1FDEEA0B1B6FDB46008AAFC7 /* VAPEmployeeObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VAPEmployeeObserver.h; sourceTree = "<group>"; };
-		1FFAAC141B7BDBBB007D62F5 /* VAPEmployeesStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VAPEmployeesStorage.h; sourceTree = "<group>"; };
-		1FFAAC151B7BDBBB007D62F5 /* VAPEmployeesStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VAPEmployeesStorage.m; sourceTree = "<group>"; };
-		1FFAAC171B7BDD9A007D62F5 /* VAPCarQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VAPCarQueue.h; sourceTree = "<group>"; };
-		1FFAAC181B7BDD9A007D62F5 /* VAPCarQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VAPCarQueue.m; sourceTree = "<group>"; };
 		559524D9DC14A69C1D03146B /* Pods-VAPTestTarget.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VAPTestTarget.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VAPTestTarget/Pods-VAPTestTarget.debug.xcconfig"; sourceTree = "<group>"; };
 		88304C86DD4B11981FF0C8DC /* Pods-VAPTestTarget.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VAPTestTarget.release.xcconfig"; path = "Pods/Target Support Files/Pods-VAPTestTarget/Pods-VAPTestTarget.release.xcconfig"; sourceTree = "<group>"; };
 		E8F6050426F419E263DAA600 /* libPods-VAPTestTarget.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-VAPTestTarget.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -161,8 +155,6 @@
 			isa = PBXGroup;
 			children = (
 				1F8FF2E21B72ABCF00C91C7B /* VAPObservable */,
-				1FFAAC121B7BD815007D62F5 /* VAPEmployeesStorage */,
-				1FFAAC131B7BDB4B007D62F5 /* VAPCarQueue */,
 				1F8FF2C41B7287AD00C91C7B /* VAPCar */,
 				1F8FF2C71B7287AD00C91C7B /* VAPEmployee */,
 				1F8FF2D31B7287AD00C91C7B /* VAPEnterprise */,
@@ -315,24 +307,6 @@
 			path = VAPCarwashTest;
 			sourceTree = "<group>";
 		};
-		1FFAAC121B7BD815007D62F5 /* VAPEmployeesStorage */ = {
-			isa = PBXGroup;
-			children = (
-				1FFAAC141B7BDBBB007D62F5 /* VAPEmployeesStorage.h */,
-				1FFAAC151B7BDBBB007D62F5 /* VAPEmployeesStorage.m */,
-			);
-			path = VAPEmployeesStorage;
-			sourceTree = "<group>";
-		};
-		1FFAAC131B7BDB4B007D62F5 /* VAPCarQueue */ = {
-			isa = PBXGroup;
-			children = (
-				1FFAAC171B7BDD9A007D62F5 /* VAPCarQueue.h */,
-				1FFAAC181B7BDD9A007D62F5 /* VAPCarQueue.m */,
-			);
-			path = VAPCarQueue;
-			sourceTree = "<group>";
-		};
 		957BD7B93C00F801A9642269 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -482,12 +456,10 @@
 				1F8FF2DC1B7287AD00C91C7B /* VAPDirector.m in Sources */,
 				1FCF2D131B6CD57A00991B97 /* VAPMan.m in Sources */,
 				1F8FF2DE1B7287AD00C91C7B /* VAPEmployee.m in Sources */,
-				1FFAAC191B7BDD9A007D62F5 /* VAPCarQueue.m in Sources */,
 				1F8FF2E01B7287AD00C91C7B /* VAPEnterprise.m in Sources */,
 				1FCF2D141B6CD57A00991B97 /* VAPWoman.m in Sources */,
 				1F8FF2E51B72ABCF00C91C7B /* VAPObservable.m in Sources */,
 				1FCF2D201B6D5F5400991B97 /* main.m in Sources */,
-				1FFAAC161B7BDBBB007D62F5 /* VAPEmployeesStorage.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -52,4 +52,12 @@
     return car;
 }
 
+- (BOOL)isFull {
+    BOOL result = NO;
+    @synchronized(_mutableCars) {
+        result = self.mutableCars && self.mutableCars.count;
+    }
+    return result;
+}
+
 @end

@@ -31,6 +31,9 @@ typedef NS_ENUM(NSUInteger, VAPState) {
 - (void)doJobWithObject:(id<VAPMoneyFlowing>)object;
 - (void)finishJob;
 
+- (SEL)selectorForState:(VAPState)state;
+- (void)mayBeFree;
+
 
 
 @end

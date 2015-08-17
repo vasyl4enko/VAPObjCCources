@@ -28,15 +28,12 @@
 #pragma mark Public Methods
 
 - (void)performEmployeeSpecificOperationWithObject:(id) object {
-    if (VAPStateFree == self.state) {
+//    if (VAPStateFree == self.state) {
+    if (nil != object) {
         [self beginJob];
         [self doJobWithObject:(id<VAPMoneyFlowing>)object];
         [self finishJob];
         [self mayBeFree];
-    } else {
-        while (VAPStateFree != self.state) {
-        }
-        [self performEmployeeSpecificOperationWithObject:object];
     }
 }
 
@@ -73,6 +70,9 @@
     switch (state) {
         case VAPStateEndWork:
             return @selector(employeeDidEndJob:);
+            
+        case VAPStateFree:
+            return @selector(didEmployeeFinishJob:);
         default:
             break;
     }
@@ -84,12 +84,6 @@
 
 - (void)employeeDidEndJob:(VAPEmployee *)employee {
     [self performEmployeeSpecificOperationWithObject:employee];
-    
-//    [self performSelectorInBackground:@selector(performEmployeeSpecificOperationWithObject:) withObject:employee];
-//    [self performSelectorOnMainThread:@selector(performEmployeeSpecificOperationWithObject:)
-//                           withObject:employee
-//                        waitUntilDone:YES];
-    
 }
 
 #pragma mark -

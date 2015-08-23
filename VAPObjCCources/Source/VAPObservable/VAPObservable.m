@@ -66,7 +66,7 @@
     NSArray *observers = [self.mutableObservers allObjects];
     for (id observer in observers) {
         if ([observer respondsToSelector:selector]) {
-            [observer performSelectorOnMainThread:selector withObject:object waitUntilDone:YES];
+            [observer performSelectorOnMainThread:selector withObject:object waitUntilDone:NO];
         }
     }
 }

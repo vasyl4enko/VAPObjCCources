@@ -9,7 +9,17 @@
 #import "VAPDirector.h"
 
 NSString *const kVAPDirectorProffit = @"My proffit %lu";
-
 @implementation VAPDirector
+
+- (void)doJobWithObject:(id<VAPMoneyFlowing>)object {
+    VAPEmployee *employee = (VAPEmployee *)object;
+    [employee payTo:self withCost:employee.wallet];
+    uint rand = arc4random_uniform(10) + 2;
+    usleep(rand * 1000);
+    NSLog(kVAPDirectorProffit, self.wallet);
+    [super doJobWithObject:nil];
+    [employee mayBeFree];
+    [self mayBeFree];
+}
 
 @end

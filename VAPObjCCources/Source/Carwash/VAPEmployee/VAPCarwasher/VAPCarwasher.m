@@ -22,23 +22,13 @@ NSUInteger const kVAPDefualtCost = 100;
     if (nil != object && [object isKindOfClass:[VAPCar class]]) {
         VAPCar *car = (VAPCar *)object;
         uint rand = arc4random_uniform(10) + 2;
-        usleep(rand * 1000);
+        usleep(rand * 10000);
         if ([car isAbleToPay:kVAPDefualtCost]) {
             car.dirty = NO;
             [object payTo:self withCost:kVAPDefualtCost];
         }
-//        [self performSelectorOnMainThread:@selector(finishJob) withObject:nil waitUntilDone:YES];
+        [super doJobWithObject:nil];
     }
 }
-
-- (void)mayBeFree {
-    [super mayBeFree];
-    [self notifyObserversWithSelector:[self selectorForState:self.state] withObject:self];
-}
-//- (void)finishJob {
-//    [super finishJob];
-//    [self notifyObserversOnMainThreadWithSelector:[self selectorForState:self.state] withObject:self];
-//}
-
 
 @end

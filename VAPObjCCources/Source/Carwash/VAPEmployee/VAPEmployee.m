@@ -8,6 +8,8 @@
 
 #import "VAPEmployee.h"
 #import "VAPDirector.h"
+#import "VAPCarwasher.h"
+#import "VAPAccountant.h"
 
 @interface VAPEmployee ()
 
@@ -20,6 +22,8 @@
 
 @implementation VAPEmployee
 
+
+
 #pragma mark -
 #pragma mark Accesors
 
@@ -28,24 +32,20 @@
 #pragma mark Public Methods
 
 - (void)performEmployeeSpecificOperationWithObject:(id) object {
-//    if (VAPStateFree == self.state) {
-    if (nil != object) {
+    if (VAPStateFree == self.state) {
         [self beginJob];
-        [self doJobWithObject:(id<VAPMoneyFlowing>)object];
-        [self finishJob];
-        [self mayBeFree];
+        [self performEmployeeSpecificOperationWithObjectInBackground:object];
+    }
+}
+
+- (void)performEmployeeSpecificOperationWithObjectInBackground:(id<VAPMoneyFlowing>)object {
+    @autoreleasepool {
+        [self performSelectorInBackground:@selector(doJobWithObject:) withObject:object];
     }
 }
 
 - (void)doJobWithObject:(id<VAPMoneyFlowing>)object {
-   
-        [object payTo:self withCost:object.wallet];
-        uint rand = arc4random_uniform(10) + 2;
-        usleep(rand * 1000);
-        
-        if ([self isKindOfClass:[VAPDirector class]]) {
-            NSLog(kVAPDirectorProffit,self.wallet);
-        }
+    [self performSelectorOnMainThread:@selector(finishJob) withObject:nil waitUntilDone:YES];
 }
 
 - (void)beginJob {
@@ -54,13 +54,12 @@
 
 - (void)finishJob {
     _state = VAPStateEndWork;
-//    [self notifyObserversWithSelector:[self selectorForState:self.state] withObject:self];
-    
-    [self notifyObserversOnMainThreadWithSelector:[self selectorForState:self.state] withObject:self];
+    [self notifyObserversWithSelector:[self selectorForState:self.state] withObject:self];
 }
 
 - (void)mayBeFree {
     _state = VAPStateFree;
+    [self notifyObserversWithSelector:[self selectorForState:self.state] withObject:self];
 }
 
 #pragma mark -
@@ -73,6 +72,7 @@
             
         case VAPStateFree:
             return @selector(didEmployeeFinishJob:);
+            
         default:
             break;
     }

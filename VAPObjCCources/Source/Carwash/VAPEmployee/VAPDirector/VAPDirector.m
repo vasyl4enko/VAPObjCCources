@@ -17,9 +17,7 @@ NSString *const kVAPDirectorProffit = @"My proffit %lu";
     uint rand = arc4random_uniform(10) + 2;
     usleep(rand * 1000);
     NSLog(kVAPDirectorProffit, self.wallet);
-    [super doJobWithObject:nil];
     [employee mayBeFree];
-    [self mayBeFree];
 }
 
 @end

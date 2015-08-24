@@ -12,6 +12,7 @@
 #import "VAPAccountant.h"
 
 @interface VAPEmployee ()
+@property(nonatomic, retain) NSRecursiveLock *lock;
 
 - (void)beginJob;
 - (void)finishJob;
@@ -22,6 +23,21 @@
 
 @implementation VAPEmployee
 
+- (void)dealloc
+{
+    self.lock = nil;
+    
+    [super dealloc];
+}
+
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        self.lock = [[NSRecursiveLock alloc] init];
+    }
+    return self;
+}
 
 
 #pragma mark -
@@ -34,16 +50,21 @@
 - (void)performEmployeeSpecificOperationWithObject:(id) object {
     if (VAPStateFree == self.state) {
         [self beginJob];
-        [self performEmployeeSpecificOperationWithObjectInBackground:object];
+        [self doJobWithObject:object];
+        [self finishJob];
+        if ([self isKindOfClass:[VAPDirector class]]) {
+            [self mayBeFree];
+        }
+
     }
 }
 
 - (void)performEmployeeSpecificOperationWithObjectInBackground:(id<VAPMoneyFlowing>)object {
-    @autoreleasepool {
+    if (VAPStateFree == self.state) {
+        [self beginJob];
         [self performSelectorInBackground:@selector(doJobWithObject:) withObject:object];
     }
 }
-
 - (void)doJobWithObject:(id<VAPMoneyFlowing>)object {
     [self performSelectorOnMainThread:@selector(finishJob) withObject:nil waitUntilDone:YES];
 }
@@ -55,6 +76,7 @@
 - (void)finishJob {
     _state = VAPStateEndWork;
     [self notifyObserversWithSelector:[self selectorForState:self.state] withObject:self];
+
 }
 
 - (void)mayBeFree {
@@ -83,7 +105,8 @@
 #pragma mark VAPEmployeeObserver
 
 - (void)employeeDidEndJob:(VAPEmployee *)employee {
-    [self performEmployeeSpecificOperationWithObject:employee];
+        [self performEmployeeSpecificOperationWithObject:employee];
+
 }
 
 #pragma mark -

@@ -25,6 +25,7 @@ typedef NS_ENUM(NSUInteger, VAPState) {
 @property(nonatomic, assign, readonly)  VAPState    state;
 
 - (void)performEmployeeSpecificOperationWithObject:(id<VAPMoneyFlowing>) object;
+- (void)performEmployeeSpecificOperationWithObjectInBackground:(id<VAPMoneyFlowing>)object;
 
 
 - (void)beginJob;

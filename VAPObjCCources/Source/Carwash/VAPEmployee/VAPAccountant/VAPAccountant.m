@@ -15,7 +15,6 @@
     [employee payTo:self withCost:employee.wallet];
     uint rand = arc4random_uniform(10) + 2;
     usleep(rand * 1000);
-    [super doJobWithObject:nil];
     [employee mayBeFree];
 }
 

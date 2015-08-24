@@ -19,8 +19,7 @@ NSString *const kVAPErrorMessage = @"some workers aren't on his position or mayb
 
 @interface VAPEnterprise ()
 @property(nonatomic, retain) NSMutableArray *mutableEmployees;
-@property(nonatomic, retain) NSMutableArray *queue;
-//@property(nonatomic, assign) BOOL           
+@property(nonatomic, retain) NSMutableArray *queue;         
 
 - (VAPEmployee *)freeEmployeeWithClass:(Class)classType;
 - (void)addRandomCountWorkers;
@@ -74,7 +73,7 @@ NSString *const kVAPErrorMessage = @"some workers aren't on his position or mayb
     {
         @synchronized(freeCarwasher) {
             if (VAPStateFree == freeCarwasher.state) {
-                [freeCarwasher performEmployeeSpecificOperationWithObject:[self dequeueCar]];
+                [freeCarwasher performEmployeeSpecificOperationWithObjectInBackground:[self dequeueCar]];
             }
         }
     }
@@ -101,7 +100,6 @@ NSString *const kVAPErrorMessage = @"some workers aren't on his position or mayb
         NSArray *array = self.mutableEmployees;
         [array enumerateObjectsUsingBlock: ^(VAPEmployee *employee, NSUInteger index, BOOL *stop) {
             if ([employee isKindOfClass:classType] && VAPStateFree == employee.state) {
-                
                 freeEmployee = employee;
                 *stop = YES;
             }
@@ -113,7 +111,6 @@ NSString *const kVAPErrorMessage = @"some workers aren't on his position or mayb
 
 - (void)addRandomCountWorkers {
     uint32_t randomNumber = arc4random_uniform(100) + 1;
-    randomNumber = 10;
     VAPDirector *director = [VAPDirector object];
     VAPAccountant *accountant = [VAPAccountant object];
     
@@ -148,7 +145,7 @@ NSString *const kVAPErrorMessage = @"some workers aren't on his position or mayb
 
 - (BOOL)isEmptyQueue {
     @synchronized(self.queue) {
-        return self.queue.count > 0;
+        return self.queue.count;
     }
 }
 
@@ -156,12 +153,11 @@ NSString *const kVAPErrorMessage = @"some workers aren't on his position or mayb
 #pragma mark Employee Observer
 
 - (void)didEmployeeFinishJob:(VAPEmployee *)employee {
-        @synchronized(employee) {
-            if (VAPStateFree == employee.state) {
-                [employee performEmployeeSpecificOperationWithObject:[self dequeueCar]];
-            }
+    @synchronized(employee) {
+        if (VAPStateFree == employee.state) {
+            [employee performEmployeeSpecificOperationWithObjectInBackground:[self dequeueCar]];
         }
-
+    }
 }
 
 

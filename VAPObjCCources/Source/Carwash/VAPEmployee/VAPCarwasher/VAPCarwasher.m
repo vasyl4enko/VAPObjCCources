@@ -10,7 +10,7 @@
 #import "VAPCar.h"
 #import "VAPAccountant.h"
 
-NSUInteger const kVAPDefualtCost = 200;
+NSUInteger const kVAPDefualtCost = 100;
 
 
 @implementation VAPCarwasher
@@ -21,12 +21,13 @@ NSUInteger const kVAPDefualtCost = 200;
 - (void)doJobWithObject:(id<VAPMoneyFlowing>)object {
     if (nil != object && [object isKindOfClass:[VAPCar class]]) {
         VAPCar *car = (VAPCar *)object;
+        uint rand = arc4random_uniform(10) + 2;
+        usleep(rand * 10000);
         if ([car isAbleToPay:kVAPDefualtCost]) {
             car.dirty = NO;
             [object payTo:self withCost:kVAPDefualtCost];
         }
-        [self finishJob];
-       
+        [super doJobWithObject:nil];
     }
 }
 

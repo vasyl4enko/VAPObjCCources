@@ -41,7 +41,7 @@ int main(int argc, const char * argv[]) {
 //        [carwasher performEmployeeSpecificOperationWithObject:car2];
 //        NSLog(@"%money %lu",director.wallet);
 
-        
+        [[NSRunLoop currentRunLoop] run];
     }
     return 0;
 }

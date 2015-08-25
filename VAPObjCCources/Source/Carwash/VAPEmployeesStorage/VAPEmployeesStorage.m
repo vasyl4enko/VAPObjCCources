@@ -35,10 +35,9 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        
         self.mutableEmployees = [[NSMutableArray alloc] init];
         uint32_t randomNumber = arc4random_uniform(100) + 1;
-        
+        randomNumber = 10;
         VAPDirector *director = [VAPDirector object];
         VAPAccountant *accountant = [VAPAccountant object];
         
@@ -51,9 +50,6 @@
             [self addEmployee:carwasher];
             [carwasher addObserver:accountant];
         }
-        
-        
-        
     }
     return self;
 }
@@ -62,7 +58,9 @@
 #pragma mark Accessors
 
 - (NSArray *)employees {
-    return [[self.mutableEmployees copy] autorelease];
+    @synchronized(_mutableEmployees) {
+        return [[self.mutableEmployees copy] autorelease];
+    }
 }
 
 #pragma mark -
@@ -70,24 +68,29 @@
 
 - (VAPEmployee *)freeEmployeeWithClass:(Class)classType {
     __block VAPEmployee *freeEmployee = nil;
-    NSArray *array = self.mutableEmployees;
-    [array enumerateObjectsUsingBlock: ^(VAPEmployee *employee, NSUInteger index, BOOL *stop) {
-        if ([employee isKindOfClass:classType] && VAPStateFree == employee.state) {
-
-            freeEmployee = employee;
-            *stop = YES;
-        }
-    }];
-    
+    @synchronized(_mutableEmployees) {
+        NSArray *array = self.mutableEmployees;
+        [array enumerateObjectsUsingBlock: ^(VAPEmployee *employee, NSUInteger index, BOOL *stop) {
+            if ([employee isKindOfClass:classType] && VAPStateFree == employee.state) {
+                
+                freeEmployee = employee;
+                *stop = YES;
+            }
+        }];
+    }
     return freeEmployee;
 }
 
 - (void)addEmployee:(VAPEmployee *)employee {
-    [self.mutableEmployees addObject:employee];
+    @synchronized(_mutableEmployees) {
+        [self.mutableEmployees addObject:employee];
+    }
 }
 
 - (void)removeEmployee:(VAPEmployee *)employee {
-    [self.mutableEmployees removeObject:employee];
+    @synchronized (_mutableEmployees) {
+        [self.mutableEmployees removeObject:employee];
+    }
 }
 
 

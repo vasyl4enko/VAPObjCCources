@@ -8,8 +8,11 @@
 
 #import "VAPEmployee.h"
 #import "VAPDirector.h"
+#import "VAPCarwasher.h"
+#import "VAPAccountant.h"
 
 @interface VAPEmployee ()
+@property(nonatomic, retain) NSRecursiveLock *lock;
 
 - (void)beginJob;
 - (void)finishJob;
@@ -20,19 +23,26 @@
 
 @implementation VAPEmployee
 
+- (void)dealloc
+{
+    self.lock = nil;
+    
+    [super dealloc];
+}
+
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        self.lock = [[NSRecursiveLock alloc] init];
+    }
+    return self;
+}
+
+
 #pragma mark -
 #pragma mark Accesors
 
-- (void)setWallet:(NSUInteger)wallet {
-    if (_wallet != wallet) {
-        NSUInteger localWallet = _wallet;
-        _wallet = wallet;
-        if (_wallet > localWallet) {
-            
-        }
-        
-    }
-}
 
 #pragma mark -
 #pragma mark Public Methods
@@ -40,35 +50,38 @@
 - (void)performEmployeeSpecificOperationWithObject:(id) object {
     if (VAPStateFree == self.state) {
         [self beginJob];
-        [self doJobWithObject:(id<VAPMoneyFlowing>)object];
-//        [self finishJob];
-        [self mayBeFree];
-    }
-}
-
-- (void)doJobWithObject:(id<VAPMoneyFlowing>)object {
-        [object payTo:self withCost:object.wallet];
-    
+        [self doJobWithObject:object];
         [self finishJob];
-    
-    if ([self isKindOfClass:[VAPDirector class]]) {
-        NSLog(kVAPDirectorProffit,self.wallet);
+        if ([self isKindOfClass:[VAPDirector class]]) {
+            [self mayBeFree];
+        }
+
     }
 }
 
+- (void)performEmployeeSpecificOperationWithObjectInBackground:(id<VAPMoneyFlowing>)object {
+    if (VAPStateFree == self.state) {
+        [self beginJob];
+        [self performSelectorInBackground:@selector(doJobWithObject:) withObject:object];
+    }
+}
+- (void)doJobWithObject:(id<VAPMoneyFlowing>)object {
+    [self performSelectorOnMainThread:@selector(finishJob) withObject:nil waitUntilDone:YES];
+}
 
 - (void)beginJob {
     _state = VAPStateBeginWork;
-//    [self notifyObserversWithSelector:[self selectorForState:self.state] withObject:self];
 }
 
 - (void)finishJob {
     _state = VAPStateEndWork;
     [self notifyObserversWithSelector:[self selectorForState:self.state] withObject:self];
+
 }
 
 - (void)mayBeFree {
     _state = VAPStateFree;
+    [self notifyObserversWithSelector:[self selectorForState:self.state] withObject:self];
 }
 
 #pragma mark -
@@ -76,23 +89,24 @@
 
 - (SEL)selectorForState:(VAPState)state {
     switch (state) {
-        case VAPStateBeginWork:
-            return @selector(employeeDidBeganJob:);
         case VAPStateEndWork:
             return @selector(employeeDidEndJob:);
+            
+        case VAPStateFree:
+            return @selector(didEmployeeFinishJob:);
+            
         default:
             break;
     }
     return nil;
 }
 
-
-
 #pragma mark -
 #pragma mark VAPEmployeeObserver
 
 - (void)employeeDidEndJob:(VAPEmployee *)employee {
-    [self performEmployeeSpecificOperationWithObject:employee];
+        [self performEmployeeSpecificOperationWithObject:employee];
+
 }
 
 #pragma mark -
@@ -106,8 +120,5 @@
     self.wallet -= cost;
     object.wallet += cost;
 }
-
-
-
 
 @end

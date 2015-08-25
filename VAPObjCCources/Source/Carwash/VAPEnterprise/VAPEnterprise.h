@@ -13,18 +13,14 @@
 
 @class VAPEmployee;
 @class VAPCar;
-@class VAPCarQueue;
-@class VAPEmployeesStorage;
 
 FOUNDATION_EXTERN NSString *const kErrorMessage;
 
 @interface VAPEnterprise : NSObject<VAPEmployeeObserver>
-//@property(nonatomic, retain, readonly)  NSArray *employees;
-@property(nonatomic, retain)            VAPCarQueue         *queue;
-@property(nonatomic, retain)            VAPEmployeesStorage *employee;
+@property(nonatomic, retain, readonly)  NSArray *employees;
 
-- (void)addEmmployye:(VAPEmployee *)object;
-- (void)washCar:(VAPCar *)object;
+- (void)washCar;
+- (void)addEmployee:(VAPEmployee *)employee;
 
 
 @end

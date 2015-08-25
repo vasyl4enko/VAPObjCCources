@@ -12,15 +12,33 @@
 #import "VAPAccountant.h"
 
 @interface VAPEmployee ()
+@property(nonatomic, retain) NSMutableArray *queue;
+@property(nonatomic, retain) id processedObj;
 
 - (void)beginJob;
 - (void)finishJob;
 
 - (SEL)selectorForState:(VAPState)state;
+- (id)firstEmployee;
 
 @end
 
 @implementation VAPEmployee
+
+- (void)dealloc {
+    self.queue = nil;
+    
+    [super dealloc];
+}
+
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        self.queue = [NSMutableArray array];
+    }
+    
+    return self;
+}
 
 
 
@@ -39,9 +57,7 @@
 }
 
 - (void)performEmployeeSpecificOperationWithObjectInBackground:(id<VAPMoneyFlowing>)object {
-    @autoreleasepool {
-        [self performSelectorInBackground:@selector(doJobWithObject:) withObject:object];
-    }
+    [self performSelectorInBackground:@selector(doJobWithObject:) withObject:object];
 }
 
 - (void)doJobWithObject:(id<VAPMoneyFlowing>)object {
@@ -49,17 +65,22 @@
 }
 
 - (void)beginJob {
+    self.processedObj = self;
     _state = VAPStateBeginWork;
 }
 
 - (void)finishJob {
     _state = VAPStateEndWork;
-    [self notifyObserversWithSelector:[self selectorForState:self.state] withObject:self];
+    [self notifyObserversWithSelector:[self selectorForState:self.state]];
 }
 
 - (void)mayBeFree {
     _state = VAPStateFree;
-    [self notifyObserversWithSelector:[self selectorForState:self.state] withObject:self];
+    if (0 != self.queue.count) {
+        [self performEmployeeSpecificOperationWithObject:[self firstEmployee]];
+    }
+    self.processedObj = nil;
+    [self notifyObserversWithSelector:[self selectorForState:self.state]];
 }
 
 #pragma mark -
@@ -79,11 +100,30 @@
     return nil;
 }
 
+- (id)firstEmployee {
+    id employee = nil;
+    @synchronized(self.queue) {
+        employee = [self.queue firstObject];
+        [self.queue removeObject:employee];
+    }
+    
+    return employee;
+}
+
 #pragma mark -
 #pragma mark VAPEmployeeObserver
 
 - (void)employeeDidEndJob:(VAPEmployee *)employee {
-    [self performEmployeeSpecificOperationWithObject:employee];
+
+
+    if (VAPStateFree == self.state && 0 == self.queue.count) {
+        [self performEmployeeSpecificOperationWithObject:employee];
+    } else {
+        @synchronized(self.queue) {
+            [self.queue addObject:employee];
+        }
+    }
+
 }
 
 #pragma mark -

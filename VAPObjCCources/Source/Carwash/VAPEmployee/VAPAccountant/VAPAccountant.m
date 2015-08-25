@@ -11,12 +11,14 @@
 @implementation VAPAccountant
 
 - (void)doJobWithObject:(id<VAPMoneyFlowing>)object {
-    VAPEmployee *employee = (VAPEmployee *)object;
-    [employee payTo:self withCost:employee.wallet];
-    uint rand = arc4random_uniform(10) + 2;
-    usleep(rand * 1000);
-    [super doJobWithObject:nil];
-    [employee mayBeFree];
+    @autoreleasepool {
+        VAPEmployee *employee = (VAPEmployee *)object;
+        [employee payTo:self withCost:employee.wallet];
+        uint rand = arc4random_uniform(10) + 2;
+        usleep(rand * 1000);
+        [super doJobWithObject:nil];
+        [employee mayBeFree];
+    }
 }
 
 @end

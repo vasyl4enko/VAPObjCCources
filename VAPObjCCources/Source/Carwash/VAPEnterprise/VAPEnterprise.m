@@ -20,11 +20,11 @@ NSString *const kVAPErrorMessage = @"some workers aren't on his position or mayb
 @interface VAPEnterprise ()
 @property(nonatomic, retain) NSMutableArray *mutableEmployees;
 @property(nonatomic, retain) NSMutableArray *queue;
-//@property(nonatomic, assign) BOOL           
+//@property(nonatomic, assign) BOOL
 
 - (VAPEmployee *)freeEmployeeWithClass:(Class)classType;
 - (void)addRandomCountWorkers;
-- (void)addCarsToQueue;         
+- (void)addCarsToQueue;
 - (VAPCar *)dequeueCar;
 - (BOOL)isEmptyQueue;
 
@@ -116,15 +116,17 @@ NSString *const kVAPErrorMessage = @"some workers aren't on his position or mayb
     randomNumber = 10;
     VAPDirector *director = [VAPDirector object];
     VAPAccountant *accountant = [VAPAccountant object];
-    
+    VAPAccountant *accountant2 = [VAPAccountant object];
     [self addEmployee:director];
     [self addEmployee:accountant];
+    [self addEmployee:accountant2];
     
     [accountant addObserver:director];
     for (uint32_t index = 0; index < randomNumber; index++) {
         VAPCarwasher *carwasher = [VAPCarwasher object];
         [self addEmployee:carwasher];
         [carwasher addObserver:accountant];
+        [carwasher addObserver:accountant2];
     }
 }
 
@@ -156,12 +158,12 @@ NSString *const kVAPErrorMessage = @"some workers aren't on his position or mayb
 #pragma mark Employee Observer
 
 - (void)didEmployeeFinishJob:(VAPEmployee *)employee {
-        @synchronized(employee) {
-            if (VAPStateFree == employee.state) {
-                [employee performEmployeeSpecificOperationWithObject:[self dequeueCar]];
-            }
+    @synchronized(employee) {
+        if (VAPStateFree == employee.state) {
+            [employee performEmployeeSpecificOperationWithObject:[self dequeueCar]];
         }
-
+    }
+    
 }
 
 

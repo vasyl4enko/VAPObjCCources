@@ -47,11 +47,11 @@
 }
 
 - (void)notifyObserversWithSelector:(SEL)selector {
-    [self notifyObserversWithSelector:selector withObject:nil];
+    [self notifyObserversWithSelector:selector withObject:self];
 }
 
 - (void)notifyObserversWithSelector:(SEL)selector withObject:(id)object {
-    [self notifyObserversWithSelector:selector withObject:object withObject:nil];
+    [self notifyObserversWithSelector:selector withObject:self withObject:object];
 }
 - (void)notifyObserversWithSelector:(SEL)selector withObject:(id)object withObject:(id)object2 {
     NSArray *observers = [self.mutableObservers allObjects];

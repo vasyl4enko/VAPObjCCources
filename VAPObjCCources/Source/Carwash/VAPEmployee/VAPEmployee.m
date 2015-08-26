@@ -61,7 +61,6 @@
 }
 
 - (void)beginJob {
-
     _state = VAPStateBeginWork;
 }
 
@@ -110,7 +109,11 @@
 
 - (void)employeeDidEndJob:(VAPEmployee *)employee {
     if (VAPStateFree == self.state && 0 == self.queue.count) {
-        [self performEmployeeSpecificOperationWithObject:employee];
+        @synchronized(self) {
+            if (VAPStateFree == self.state && 0 == self.queue.count) {
+                [self performEmployeeSpecificOperationWithObject:employee];
+            }
+        }
     } else {
         @synchronized(self.queue) {
             [self.queue addObject:employee];

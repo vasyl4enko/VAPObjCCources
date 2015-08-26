@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F3542531B8E255E00F6F6F7 /* VAPDispatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F3542521B8E255E00F6F6F7 /* VAPDispatcher.m */; };
 		1F89EE601B5FDEDF00CCF016 /* VAPTestTarget.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F89EE5F1B5FDEDF00CCF016 /* VAPTestTarget.m */; };
 		1F8FF2D61B7287AD00C91C7B /* VAPCar.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F8FF2C61B7287AD00C91C7B /* VAPCar.m */; };
 		1F8FF2D71B7287AD00C91C7B /* VAPCar.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F8FF2C61B7287AD00C91C7B /* VAPCar.m */; };
@@ -46,6 +47,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1F3542511B8E255E00F6F6F7 /* VAPDispatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VAPDispatcher.h; sourceTree = "<group>"; };
+		1F3542521B8E255E00F6F6F7 /* VAPDispatcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VAPDispatcher.m; sourceTree = "<group>"; };
 		1F5474DA1B4AA5DC00157DE1 /* VAPObjCCources */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = VAPObjCCources; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F670B9F1B4BF71B003E17DB /* IDPStudyPlan */ = {isa = PBXFileReference; lastKnownFileType = text; name = IDPStudyPlan; path = ../../Users/aleksandr/Dropbox/IDPStudyPlan; sourceTree = "<group>"; };
 		1F89EE5B1B5FDEDF00CCF016 /* VAPTestTarget.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VAPTestTarget.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -113,6 +116,15 @@
 			path = Protocols;
 			sourceTree = "<group>";
 		};
+		1F3542501B8E253200F6F6F7 /* VAPDispatcher */ = {
+			isa = PBXGroup;
+			children = (
+				1F3542511B8E255E00F6F6F7 /* VAPDispatcher.h */,
+				1F3542521B8E255E00F6F6F7 /* VAPDispatcher.m */,
+			);
+			path = VAPDispatcher;
+			sourceTree = "<group>";
+		};
 		1F5474D11B4AA5DC00157DE1 = {
 			isa = PBXGroup;
 			children = (
@@ -154,6 +166,7 @@
 		1F8FF2C31B7287AD00C91C7B /* Carwash */ = {
 			isa = PBXGroup;
 			children = (
+				1F3542501B8E253200F6F6F7 /* VAPDispatcher */,
 				1F8FF2E21B72ABCF00C91C7B /* VAPObservable */,
 				1F8FF2C41B7287AD00C91C7B /* VAPCar */,
 				1F8FF2C71B7287AD00C91C7B /* VAPEmployee */,
@@ -454,6 +467,7 @@
 				1FCF2D161B6CD57A00991B97 /* VAPHumanTests.m in Sources */,
 				1FCF2D151B6CD57A00991B97 /* VAPCarwashTest.m in Sources */,
 				1F8FF2DC1B7287AD00C91C7B /* VAPDirector.m in Sources */,
+				1F3542531B8E255E00F6F6F7 /* VAPDispatcher.m in Sources */,
 				1FCF2D131B6CD57A00991B97 /* VAPMan.m in Sources */,
 				1F8FF2DE1B7287AD00C91C7B /* VAPEmployee.m in Sources */,
 				1F8FF2E01B7287AD00C91C7B /* VAPEnterprise.m in Sources */,

@@ -20,7 +20,7 @@ FOUNDATION_EXTERN NSString *const kErrorMessage;
 @property(nonatomic, retain, readonly)  NSArray *employees;
 
 - (void)washCar;
-- (void)addEmployee:(VAPEmployee *)employee;
+//- (void)addEmployee:(VAPEmployee *)employee;
 
 
 @end

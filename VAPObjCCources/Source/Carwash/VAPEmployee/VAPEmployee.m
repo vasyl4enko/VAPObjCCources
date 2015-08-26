@@ -12,32 +12,14 @@
 #import "VAPAccountant.h"
 
 @interface VAPEmployee ()
-@property(nonatomic, retain) NSMutableArray *queue;
 
 - (SEL)selectorForState:(VAPState)state;
-- (id)firstEmployee;
 
 @end
 
 @implementation VAPEmployee
 
-#pragma mark -
-#pragma mark Initializations and Deallocations
 
-- (void)dealloc {
-    self.queue = nil;
-    
-    [super dealloc];
-}
-
-- (instancetype)init {
-    self = [super init];
-    if (self) {
-        self.queue = [NSMutableArray array];
-    }
-    
-    return self;
-}
 
 #pragma mark -
 #pragma mark Public Methods
@@ -68,9 +50,6 @@
 
 - (void)mayBeFree {
     _state = VAPStateFree;
-    if (0 != self.queue.count) {
-        [self performEmployeeSpecificOperationWithObject:[self firstEmployee]];
-    }
     [self notifyObserversWithSelector:[self selectorForState:self.state]];
 }
 
@@ -91,32 +70,7 @@
     return nil;
 }
 
-- (id)firstEmployee {
-    id employee = nil;
-    @synchronized(self.queue) {
-        employee = [self.queue firstObject];
-        [self.queue removeObject:employee];
-    }
-    
-    return employee;
-}
 
-#pragma mark -
-#pragma mark VAPEmployeeObserver
-
-- (void)employeeDidEndJob:(VAPEmployee *)employee {
-    if (VAPStateFree == self.state && 0 == self.queue.count) {
-        @synchronized(self) {
-            if (VAPStateFree == self.state && 0 == self.queue.count) {
-                [self performEmployeeSpecificOperationWithObject:employee];
-            }
-        }
-    } else {
-        @synchronized(self.queue) {
-            [self.queue addObject:employee];
-        }
-    }
-}
 
 #pragma mark -
 #pragma mark VAPMoneyFlowProtocol

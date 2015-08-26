@@ -21,6 +21,9 @@
 
 @implementation VAPEmployee
 
+#pragma mark -
+#pragma mark Initializations and Deallocations
+
 - (void)dealloc {
     self.queue = nil;
     
@@ -35,12 +38,6 @@
     
     return self;
 }
-
-
-
-#pragma mark -
-#pragma mark Accesors
-
 
 #pragma mark -
 #pragma mark Public Methods

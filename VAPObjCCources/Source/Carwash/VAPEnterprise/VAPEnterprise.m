@@ -116,17 +116,17 @@ NSString *const kVAPErrorMessage = @"some workers aren't on his position or mayb
     randomNumber = 10;
     VAPDirector *director = [VAPDirector object];
     VAPAccountant *accountant = [VAPAccountant object];
-    VAPAccountant *accountant2 = [VAPAccountant object];
+//    VAPAccountant *accountant2 = [VAPAccountant object];
     [self addEmployee:director];
     [self addEmployee:accountant];
-    [self addEmployee:accountant2];
+//    [self addEmployee:accountant2];
     
     [accountant addObserver:director];
     for (uint32_t index = 0; index < randomNumber; index++) {
         VAPCarwasher *carwasher = [VAPCarwasher object];
         [self addEmployee:carwasher];
         [carwasher addObserver:accountant];
-        [carwasher addObserver:accountant2];
+//        [carwasher addObserver:accountant2];
     }
 }
 

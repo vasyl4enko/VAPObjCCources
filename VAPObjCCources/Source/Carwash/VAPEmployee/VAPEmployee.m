@@ -13,10 +13,6 @@
 
 @interface VAPEmployee ()
 @property(nonatomic, retain) NSMutableArray *queue;
-@property(nonatomic, retain) id processedObj;
-
-- (void)beginJob;
-- (void)finishJob;
 
 - (SEL)selectorForState:(VAPState)state;
 - (id)firstEmployee;
@@ -65,7 +61,7 @@
 }
 
 - (void)beginJob {
-    self.processedObj = self;
+
     _state = VAPStateBeginWork;
 }
 
@@ -79,7 +75,6 @@
     if (0 != self.queue.count) {
         [self performEmployeeSpecificOperationWithObject:[self firstEmployee]];
     }
-    self.processedObj = nil;
     [self notifyObserversWithSelector:[self selectorForState:self.state]];
 }
 
@@ -114,8 +109,6 @@
 #pragma mark VAPEmployeeObserver
 
 - (void)employeeDidEndJob:(VAPEmployee *)employee {
-
-
     if (VAPStateFree == self.state && 0 == self.queue.count) {
         [self performEmployeeSpecificOperationWithObject:employee];
     } else {
@@ -123,7 +116,6 @@
             [self.queue addObject:employee];
         }
     }
-
 }
 
 #pragma mark -

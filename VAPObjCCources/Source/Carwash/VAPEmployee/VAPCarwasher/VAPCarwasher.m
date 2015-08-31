@@ -20,17 +20,16 @@ NSUInteger const kVAPDefualtCost = 100;
 
 - (void)doJobWithObject:(id<VAPMoneyFlowing>)object {
     @autoreleasepool {
-        if (nil != object && [object isKindOfClass:[VAPCar class]]) {
-            VAPCar *car = (VAPCar *)object;
-            uint rand = arc4random_uniform(10) + 2;
-            usleep(rand * 10000);
-            if ([car isAbleToPay:kVAPDefualtCost]) {
-                car.dirty = NO;
-                [object payTo:self withCost:kVAPDefualtCost];
-            }
-            [super doJobWithObject:nil];
+        VAPCar *car = (VAPCar *)object;
+        uint rand = arc4random_uniform(10) + 2;
+        usleep(rand * 10000);
+        if ([car isAbleToPay:kVAPDefualtCost]) {
+            car.dirty = NO;
+            [object payTo:self withCost:kVAPDefualtCost];
         }
+        [super doJobWithObject:nil];
     }
 }
+
 
 @end

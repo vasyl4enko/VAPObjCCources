@@ -18,6 +18,6 @@
 - (VAPEmployee *)freeHandler;
 - (void)addHandler:(id)handler;
 
-- (BOOL)isNotEmptyQueue;
+- (BOOL)isEmptyQueue;
 
 @end

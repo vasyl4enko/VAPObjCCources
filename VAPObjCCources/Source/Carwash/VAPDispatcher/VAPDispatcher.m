@@ -8,19 +8,11 @@
 
 #import "VAPDispatcher.h"
 #import "VAPEmployee.h"
+#import "VAPCar.h"
 
 @interface VAPDispatcher ()
 @property(nonatomic, retain) NSMutableArray *handlers;
 @property(nonatomic, retain) NSMutableArray *queue;
-
-
-//
-//- (void)enqueue:(id)object;
-//- (id)dequeue;
-//
-//- (VAPEmployee *)freeHandler;
-//- (void)addHandler:(id)handler;
-
 @end
 
 @implementation VAPDispatcher
@@ -59,7 +51,7 @@
 }
 
 - (id)dequeue {
-   id object = nil;
+    id object = nil;
     @synchronized(self.queue) {
         object = [self.queue firstObject];
         [self.queue removeObject:object];
@@ -75,7 +67,6 @@
         NSArray *array = self.handlers;
         [array enumerateObjectsUsingBlock: ^(VAPEmployee *employee, NSUInteger index, BOOL *stop) {
             if (VAPStateFree == employee.state) {
-                
                 freeHandler = employee;
                 *stop = YES;
             }
@@ -88,12 +79,25 @@
 - (void)addHandler:(id)handler {
     @synchronized(self.handlers) {
         [self.handlers addObject:handler];
+        [handler addObserver:self];
     }
 }
 
-- (BOOL)isNotEmptyQueue {
+- (BOOL)isEmptyQueue {
     @synchronized(self.queue) {
-        return self.queue.count > 0;
+        return self.queue.count == 0;
+    }
+}
+
+#pragma mark -
+#pragma mark
+
+- (void)didEmployeeFinishJob:(VAPEmployee *)employee {
+    if (![self isEmptyQueue]) {
+        id object = [self dequeue];
+        if (object) {
+            [employee performEmployeeSpecificOperationWithObject:object];
+        }
     }
 }
 

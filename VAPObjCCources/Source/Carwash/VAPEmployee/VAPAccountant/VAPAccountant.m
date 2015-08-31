@@ -7,17 +7,18 @@
 //
 
 #import "VAPAccountant.h"
+#import "VAPCarwasher.h"
 
 @implementation VAPAccountant
 
 - (void)doJobWithObject:(id<VAPMoneyFlowing>)object {
     @autoreleasepool {
-        VAPEmployee *employee = (VAPEmployee *)object;
+        VAPCarwasher *employee = (VAPCarwasher *)object;      
         [employee payTo:self withCost:employee.wallet];
         uint rand = arc4random_uniform(10) + 2;
         usleep(rand * 1000);
-        [super doJobWithObject:nil];
         [employee mayBeFree];
+        [super doJobWithObject:nil];
     }
 }
 

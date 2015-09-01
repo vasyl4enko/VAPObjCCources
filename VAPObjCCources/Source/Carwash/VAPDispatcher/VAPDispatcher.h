@@ -16,7 +16,9 @@
 - (id)dequeue;
 
 - (VAPEmployee *)freeHandler;
+
 - (void)addHandler:(id)handler;
+- (void)removeHandler:(id)handler;
 
 - (BOOL)isEmptyQueue;
 

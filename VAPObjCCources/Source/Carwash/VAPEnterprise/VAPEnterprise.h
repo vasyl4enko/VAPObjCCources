@@ -16,11 +16,10 @@
 
 FOUNDATION_EXTERN NSString *const kErrorMessage;
 
-@interface VAPEnterprise : NSObject<VAPEmployeeObserver>
-@property(nonatomic, retain, readonly)  NSArray *employees;
+@interface VAPEnterprise : NSObject <VAPEmployeeObserver>
 
 - (void)washCar;
-//- (void)addEmployee:(VAPEmployee *)employee;
+
 
 
 @end

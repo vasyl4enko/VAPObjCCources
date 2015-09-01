@@ -51,10 +51,10 @@
 - (SEL)selectorForState:(VAPState)state {
     switch (state) {
         case VAPStateEndWork:
-            return @selector(employeeDidEndJob:);
+            return @selector(employeeDidFinishJob:);
             
         case VAPStateFree:
-            return @selector(didEmployeeFinishJob:);
+            return @selector(employeeBecameFree:);
             
         default:
             break;

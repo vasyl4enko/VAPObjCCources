@@ -12,7 +12,6 @@
 
 NSUInteger const kVAPDefualtCost = 100;
 
-
 @implementation VAPCarwasher
 
 #pragma mark -
@@ -30,6 +29,5 @@ NSUInteger const kVAPDefualtCost = 100;
         [super doJobWithObject:nil];
     }
 }
-
 
 @end

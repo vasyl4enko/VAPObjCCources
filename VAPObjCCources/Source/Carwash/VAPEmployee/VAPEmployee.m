@@ -12,7 +12,6 @@
 #import "VAPAccountant.h"
 
 @interface VAPEmployee ()
-@property(nonatomic, retain) NSRecursiveLock *lock;
 
 - (SEL)selectorForState:(VAPState)state;
 
@@ -20,31 +19,12 @@
 
 @implementation VAPEmployee
 
-
-- (void)dealloc {
-    self.lock = nil;
-    
-    [super dealloc];
-}
-
-- (instancetype)init {
-    self = [super init];
-    if (self) {
-        self.lock = [[NSRecursiveLock alloc] init];
-    }
-    return self;
-}
-
-
-
 #pragma mark -
 #pragma mark Public Methods
 
 - (void)performEmployeeSpecificOperationWithObject:(id) object {
-    if (VAPStateFree == self.state) {
         [self beginJob];
         [self performSelectorInBackground:@selector(doJobWithObject:) withObject:object];
-    }
 }
 
 - (void)doJobWithObject:(id<VAPMoneyFlowing>)object {
@@ -90,13 +70,15 @@
 }
 
 - (void)payTo:(id<VAPMoneyFlowing>)object withCost:(NSUInteger)cost {
-//    NSRecursiveLock *lock = self.lock;
-//    [lock lock];
     
-    self.wallet -= cost;
-    object.wallet += cost;
+    @synchronized(self) {
+        self.wallet = self.wallet - cost;
+    }
     
-//    [lock unlock];
+    @synchronized(object) {
+        object.wallet = object.wallet + cost;
+    }
+
 }
 
 @end

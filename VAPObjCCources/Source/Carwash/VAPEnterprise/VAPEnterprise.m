@@ -120,7 +120,7 @@ NSString *const kVAPErrorMessage = @"some workers aren't on his position or mayb
 
 - (void)addCarsToQueue {
     uint index = 0;
-    while (index < 400) {
+    while (index < 4000) {
         [self.queue addObject:[VAPCar object]];
         index++;
     }

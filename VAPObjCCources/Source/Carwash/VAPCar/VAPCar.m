@@ -26,7 +26,7 @@ NSUInteger const kVAPDefaultMoneyValue = 300;
 }
 
 #pragma mark -
-#pragma mark VAPMoneyFlowing
+#pragma mark <VAPMoneyFlowing>
 
 - (BOOL)isAbleToPay:(NSUInteger)cost {
     return self.wallet >= cost;
@@ -34,8 +34,13 @@ NSUInteger const kVAPDefaultMoneyValue = 300;
 
 - (void)payTo:(id<VAPMoneyFlowing>)object withCost:(NSUInteger)cost {
     if ([self isAbleToPay:cost]) {
-        self.wallet -= cost;
-        object.wallet += cost;
+        @synchronized(self) {
+            self.wallet = self.wallet - cost;
+        }
+        
+        @synchronized(object) {
+            object.wallet = object.wallet + cost;
+        }
     }
 }
 

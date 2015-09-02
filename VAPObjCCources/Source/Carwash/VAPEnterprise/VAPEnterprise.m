@@ -71,7 +71,7 @@ NSString *const kVAPErrorMessage = @"some workers aren't on his position or mayb
 
 - (void)addRandomCountWorkers {
     uint32_t randomNumber = arc4random_uniform(100) + 2;
-        randomNumber = 10;
+    randomNumber = 10;
     
     VAPDirector *director = [VAPDirector object];
     [director addObserver:self];

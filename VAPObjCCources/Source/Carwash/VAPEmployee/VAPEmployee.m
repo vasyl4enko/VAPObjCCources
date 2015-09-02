@@ -63,7 +63,7 @@
 }
 
 #pragma mark -
-#pragma mark VAPMoneyFlowProtocol
+#pragma mark <VAPMoneyFlowing>
 
 - (BOOL)isAbleToPay:(NSUInteger)cost {
     return self.wallet >= cost;

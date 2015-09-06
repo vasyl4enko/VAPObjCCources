@@ -19,6 +19,7 @@ FOUNDATION_EXTERN NSString *const kErrorMessage;
 @interface VAPEnterprise : NSObject <VAPEmployeeObserver>
 
 - (void)washCar;
+- (void)washCar:(VAPCar *)car;
 
 
 

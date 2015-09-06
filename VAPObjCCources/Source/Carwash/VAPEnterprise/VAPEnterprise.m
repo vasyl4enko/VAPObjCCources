@@ -59,11 +59,15 @@ NSString *const kVAPErrorMessage = @"some workers aren't on his position or mayb
     {
         @synchronized(freeCarwasher) {
             if (VAPStateFree == freeCarwasher.state) {
-                [freeCarwasher performEmployeeSpecificOperationWithObject:[self.carwashers dequeue]];
+                [freeCarwasher processObject:[self.carwashers dequeue]];
             }
         }
         
     }
+}
+
+- (void)washCar:(VAPCar *)car {
+    
 }
 
 #pragma mark -
@@ -71,7 +75,7 @@ NSString *const kVAPErrorMessage = @"some workers aren't on his position or mayb
 
 - (void)addRandomCountWorkers {
     uint32_t randomNumber = arc4random_uniform(100) + 2;
-    randomNumber = 10;
+    randomNumber = 40;
     
     VAPDirector *director = [VAPDirector object];
     [director addObserver:self];
@@ -103,21 +107,23 @@ NSString *const kVAPErrorMessage = @"some workers aren't on his position or mayb
 #pragma mark <Employee Observer>
 
 - (void)employeeDidFinishJob:(VAPEmployee *)employee {
-    if ([employee isKindOfClass:[VAPCarwasher class]]) {
-        VAPAccountant *freeAccountant = (VAPAccountant *)[self.accountants freeHandler];
-        if (nil != freeAccountant && NO == [self.accountants isEmptyQueue]) {
-            [freeAccountant performEmployeeSpecificOperationWithObject:employee];
-        } else {
-            [self.accountants enqueue:employee];
+//    @synchronized(employee) {
+        if ([employee isKindOfClass:[VAPCarwasher class]]) {
+            VAPAccountant *freeAccountant = (VAPAccountant *)[self.accountants freeHandler];
+            if (nil != freeAccountant && NO == [self.accountants isEmptyQueue]) {
+                [freeAccountant processObject:employee];
+            } else {
+                [self.accountants enqueue:employee];
+            }
+        } else if ([employee isKindOfClass:[VAPAccountant class]]) {
+            VAPDirector *freeDirector = (VAPDirector *)[self.directors freeHandler];
+            if (nil != freeDirector && NO == [self.accountants isEmptyQueue]) {
+                [freeDirector processObject:employee];
+            } else {
+                [self.directors enqueue:employee];
+            }
         }
-    } else if ([employee isKindOfClass:[VAPAccountant class]]) {
-        VAPDirector *freeDirector = (VAPDirector *)[self.directors freeHandler];
-        if (nil != freeDirector && NO == [self.accountants isEmptyQueue]) {
-            [freeDirector performEmployeeSpecificOperationWithObject:employee];
-        } else {
-            [self.directors enqueue:employee];
-        }
-    }
+//    }
 }
 
 

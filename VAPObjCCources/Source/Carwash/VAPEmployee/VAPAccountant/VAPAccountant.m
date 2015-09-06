@@ -13,11 +13,11 @@
 
 - (void)doJobWithObject:(id<VAPMoneyFlowing>)object {
     @autoreleasepool {
-        VAPCarwasher *employee = (VAPCarwasher *)object;      
+        VAPCarwasher *employee = (VAPCarwasher *)object;
         [employee payTo:self withCost:employee.wallet];
         uint rand = arc4random_uniform(10) + 2;
         usleep(rand * 1000);
-        [employee mayBeFree];
+        employee.state = VAPStateFree;
         [super doJobWithObject:nil];
     }
 }

@@ -10,6 +10,9 @@
 #import "VAPEmployee.h"
 #import "VAPCar.h"
 
+#import "VAPCarwasher.h"
+#import "VAPAccountant.h"
+
 @interface VAPDispatcher ()
 @property (nonatomic, retain)    NSMutableArray  *handlers;
 @property (nonatomic, retain)    NSMutableArray  *queue;
@@ -61,16 +64,21 @@
 }
 
 - (VAPEmployee *)freeHandler {
-    __block VAPEmployee *freeHandler = nil;
-    NSArray *handlers = self.handlers;
-    @synchronized(handlers) {
-        [handlers enumerateObjectsUsingBlock: ^(VAPEmployee *employee, NSUInteger index, BOOL *stop) {
+    VAPEmployee *freeHandler = nil;
+//    NSArray *handlers = self.handlers;
+    @synchronized(self.handlers) {
+        for (VAPEmployee *employee in self.handlers) {
             if (VAPStateFree == employee.state) {
                 freeHandler = employee;
-                *stop = YES;
             }
-        }];
+        }
     }
+    
+//    for (VAPEmployee *employee in self.handlers) {
+//        if (VAPStateFree == employee.state) {
+//            freeHandler = employee;
+//        }
+//    }
     
     return freeHandler;
 }
@@ -103,7 +111,13 @@
     if (![self isEmptyQueue]) {
         id object = [self dequeue];
         if (object) {
-            [employee performEmployeeSpecificOperationWithObject:object];
+            [employee processObject:object];
+//            if ([object isKindOfClass:[VAPCarwasher class]]) {
+//                VAPEmployee *worker = (VAPCarwasher *)object;
+//                if (0 == worker.wallet) {
+//                    NSLog(@"YA LOH VAPCarwasher IN DISPETSHer");
+//                }
+//            }
         }
     }
 }

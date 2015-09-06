@@ -26,7 +26,8 @@ NSUInteger const kVAPDefualtCost = 100;
             car.dirty = NO;
             [object payTo:self withCost:kVAPDefualtCost];
         }
-        [super doJobWithObject:nil];
+        
+        [super doJobWithObject:nil];// тут объекты с 0 приходят
     }
 }
 

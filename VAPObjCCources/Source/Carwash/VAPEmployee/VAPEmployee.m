@@ -12,37 +12,52 @@
 #import "VAPAccountant.h"
 
 @interface VAPEmployee ()
-
 - (SEL)selectorForState:(VAPState)state;
 
 @end
 
 @implementation VAPEmployee
 
+@synthesize state = _state;
+#pragma mark -
+#pragma mark Accessors
+
+- (void)setState:(VAPState)state {
+    @synchronized(self) {
+        if (VAPStateBeginWork == state) {
+            _state = VAPStateBeginWork;
+        } else if (VAPStateEndWork == state) {
+            
+            _state = VAPStateEndWork;
+            [self notifyObserversWithSelector:[self selectorForState:self.state]];
+        } else if (VAPStateFree == state) {
+            
+            _state = VAPStateFree;
+            [self notifyObserversWithSelector:[self selectorForState:self.state]];
+        }
+    }
+}
+
+- (VAPState)state {
+    @synchronized(self) {
+        return _state;
+    }
+}
+
 #pragma mark -
 #pragma mark Public Methods
 
-- (void)performEmployeeSpecificOperationWithObject:(id) object {
-        [self beginJob];
-        [self performSelectorInBackground:@selector(doJobWithObject:) withObject:object];
+- (void)processObject:(id) object {
+    self.state = VAPStateBeginWork;
+    [self performSelectorInBackground:@selector(doJobWithObject:) withObject:object];
 }
 
 - (void)doJobWithObject:(id<VAPMoneyFlowing>)object {
-    [self performSelectorOnMainThread:@selector(finishJob) withObject:nil waitUntilDone:YES];
-}
-
-- (void)beginJob {
-    _state = VAPStateBeginWork;
-}
-
-- (void)finishJob {
-    _state = VAPStateEndWork;
-    [self notifyObserversWithSelector:[self selectorForState:self.state]];
-}
-
-- (void)mayBeFree {
-    _state = VAPStateFree;
-    [self notifyObserversWithSelector:[self selectorForState:self.state]];
+    self.state = VAPStateEndWork;
+//    if (0 == self.wallet) {
+//        NSLog(@"HUINYA HUINYA HUINYA HUINYA");
+//    }
+    [self notifyObserversOnMainThreadWithSelector:[self selectorForState:self.state] withObject:self];
 }
 
 #pragma mark -

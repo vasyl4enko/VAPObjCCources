@@ -36,14 +36,20 @@
 #pragma mark Public Implementation
 
 - (void)addObserver:(id)object {
-    [self.mutableObservers addObject:object];
+    @synchronized(self.mutableObservers) {
+        [self.mutableObservers addObject:object];
+    }
 }
 - (void)removeObserver:(id)object {
-    [self.mutableObservers removeObject:object];
+    @synchronized(self.mutableObservers) {
+        [self.mutableObservers removeObject:object];
+    }
 }
 
 - (BOOL)containsObserver:(id)object {
-    return [self.mutableObservers containsObject:object];
+    @synchronized(self.mutableObservers) {
+        return [self.mutableObservers containsObject:object];
+    }
 }
 
 - (void)notifyObserversWithSelector:(SEL)selector {
@@ -54,12 +60,24 @@
     [self notifyObserversWithSelector:selector withObject:self withObject:object];
 }
 - (void)notifyObserversWithSelector:(SEL)selector withObject:(id)object withObject:(id)object2 {
-    NSArray *observers = [self.mutableObservers allObjects];
-    for (id observer in observers) {
-        if ([observer respondsToSelector:selector]) {
-            [observer performSelector:selector withObject:object withObject:object2];
+    @synchronized(self.mutableObservers) {
+        NSArray *observers = [self.mutableObservers allObjects];
+        for (id observer in observers) {
+            if ([observer respondsToSelector:selector]) {
+                [observer performSelector:selector withObject:object withObject:object2];
+            }
         }
     }
 }
 
+- (void)notifyObserversOnMainThreadWithSelector:(SEL)selector withObject:(id)object {
+    @synchronized(self.mutableObservers) {
+        NSArray *observers = [self.mutableObservers allObjects];
+        for (id observer in observers) {
+            if ([observer respondsToSelector:selector]) {
+                [observer performSelectorOnMainThread:selector withObject:object waitUntilDone:YES];
+            }
+        }
+    }
+}
 @end

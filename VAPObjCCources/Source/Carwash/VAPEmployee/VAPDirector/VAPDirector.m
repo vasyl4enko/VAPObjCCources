@@ -8,14 +8,11 @@
 
 #import "VAPDirector.h"
 
-
-
-
 NSString * const kVAPDirectorProffit = @"My proffit %lu";
 
 @implementation VAPDirector
 
-- (void)doJobWithObject:(id<VAPMoneyFlowing>)object {
+- (void)doJobWithObject:(id <VAPMoneyFlowing>)object {
     @autoreleasepool {
         VAPEmployee *employee = (VAPEmployee *)object;
         [employee payTo:self withCost:employee.wallet];
@@ -23,6 +20,7 @@ NSString * const kVAPDirectorProffit = @"My proffit %lu";
         usleep(rand * 1000);
         NSLog(kVAPDirectorProffit, self.wallet);
         employee.state = VAPStateFree;
+        self.state = VAPStateEndWork;
         [super doJobWithObject:nil];
         self.state = VAPStateFree;
     }

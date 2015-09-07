@@ -48,7 +48,7 @@
 #pragma mark Extension
 
 - (void)enqueue:(id)object {
-    @synchronized(self.queue) {
+    @synchronized (self.queue) {
         [self.queue addObject:object];
     }
 }
@@ -65,20 +65,15 @@
 
 - (VAPEmployee *)freeHandler {
     VAPEmployee *freeHandler = nil;
-//    NSArray *handlers = self.handlers;
-    @synchronized(self.handlers) {
-        for (VAPEmployee *employee in self.handlers) {
+    NSArray *handlers = self.handlers;
+    @synchronized(handlers) {
+        for (VAPEmployee *employee in handlers) {
             if (VAPStateFree == employee.state) {
                 freeHandler = employee;
+                freeHandler.state = VAPStateBeginWork;
             }
         }
     }
-    
-//    for (VAPEmployee *employee in self.handlers) {
-//        if (VAPStateFree == employee.state) {
-//            freeHandler = employee;
-//        }
-//    }
     
     return freeHandler;
 }
@@ -110,15 +105,7 @@
 - (void)employeeBecameFree:(VAPEmployee *)employee {
     if (![self isEmptyQueue]) {
         id object = [self dequeue];
-        if (object) {
-            [employee processObject:object];
-//            if ([object isKindOfClass:[VAPCarwasher class]]) {
-//                VAPEmployee *worker = (VAPCarwasher *)object;
-//                if (0 == worker.wallet) {
-//                    NSLog(@"YA LOH VAPCarwasher IN DISPETSHer");
-//                }
-//            }
-        }
+        [employee processObject:object];
     }
 }
 

@@ -10,8 +10,10 @@
 #import "VAPDirector.h"
 #import "VAPCarwasher.h"
 #import "VAPAccountant.h"
+#import "NSObject+VAPExtension.h"
 
 @interface VAPEmployee ()
+
 - (SEL)selectorForState:(VAPState)state;
 
 @end
@@ -19,6 +21,7 @@
 @implementation VAPEmployee
 
 @synthesize state = _state;
+
 #pragma mark -
 #pragma mark Accessors
 
@@ -27,11 +30,9 @@
         if (VAPStateBeginWork == state) {
             _state = VAPStateBeginWork;
         } else if (VAPStateEndWork == state) {
-            
             _state = VAPStateEndWork;
-            [self notifyObserversWithSelector:[self selectorForState:self.state]];
+            [self notifyObserversOnMainThreadWithSelector:[self selectorForState:self.state] withObject:self];
         } else if (VAPStateFree == state) {
-            
             _state = VAPStateFree;
             [self notifyObserversWithSelector:[self selectorForState:self.state]];
         }
@@ -52,12 +53,7 @@
     [self performSelectorInBackground:@selector(doJobWithObject:) withObject:object];
 }
 
-- (void)doJobWithObject:(id<VAPMoneyFlowing>)object {
-    self.state = VAPStateEndWork;
-//    if (0 == self.wallet) {
-//        NSLog(@"HUINYA HUINYA HUINYA HUINYA");
-//    }
-    [self notifyObserversOnMainThreadWithSelector:[self selectorForState:self.state] withObject:self];
+- (void)doJobWithObject:(id <VAPMoneyFlowing>)object {
 }
 
 #pragma mark -
@@ -84,7 +80,7 @@
     return self.wallet >= cost;
 }
 
-- (void)payTo:(id<VAPMoneyFlowing>)object withCost:(NSUInteger)cost {
+- (void)payTo:(id <VAPMoneyFlowing>)object withCost:(NSUInteger)cost {
     
     @synchronized(self) {
         self.wallet = self.wallet - cost;

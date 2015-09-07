@@ -20,11 +20,11 @@ typedef NS_ENUM(NSUInteger, VAPState) {
 
 @interface VAPEmployee : VAPObservable <VAPEmployeeObserver, VAPMoneyFlowing>
 
-@property (atomic, assign)              NSUInteger  wallet;
-@property (atomic, assign)              VAPState    state;
+@property (atomic, assign)  NSUInteger  wallet;
+@property (atomic, assign)  VAPState    state;
 
-- (void)processObject:(id<VAPMoneyFlowing>) object;
-- (void)doJobWithObject:(id<VAPMoneyFlowing>)object;
+- (void)processObject:(id <VAPMoneyFlowing>)object;
+- (void)doJobWithObject:(id <VAPMoneyFlowing>)object;
 
 - (SEL)selectorForState:(VAPState)state;
 

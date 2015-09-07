@@ -38,6 +38,7 @@
 - (void)addObserver:(id)object {
     @synchronized(self.mutableObservers) {
         [self.mutableObservers addObject:object];
+        
     }
 }
 - (void)removeObserver:(id)object {
@@ -71,8 +72,8 @@
 }
 
 - (void)notifyObserversOnMainThreadWithSelector:(SEL)selector withObject:(id)object {
-    @synchronized(self.mutableObservers) {
-        NSArray *observers = [self.mutableObservers allObjects];
+    NSArray *observers = [self.mutableObservers allObjects];
+    @synchronized(observers) {
         for (id observer in observers) {
             if ([observer respondsToSelector:selector]) {
                 [observer performSelectorOnMainThread:selector withObject:object waitUntilDone:YES];

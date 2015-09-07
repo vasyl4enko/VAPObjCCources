@@ -18,6 +18,7 @@
         uint rand = arc4random_uniform(10) + 2;
         usleep(rand * 1000);
         employee.state = VAPStateFree;
+        self.state = VAPStateEndWork;
         [super doJobWithObject:nil];
     }
 }

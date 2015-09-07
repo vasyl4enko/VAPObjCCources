@@ -16,7 +16,7 @@
 #import "VAPDirector.h"
 #import "NSObject+VAPExtension.h"
 
-NSString *const kVAPErrorMessage = @"some workers aren't on his position or maybe room is nil";
+NSString * const kVAPErrorMessage = @"some workers aren't on his position or maybe room is nil";
 
 @interface VAPEnterprise ()
 
@@ -53,21 +53,21 @@ NSString *const kVAPErrorMessage = @"some workers aren't on his position or mayb
 
 
 - (void)washCar {
-    VAPCarwasher *freeCarwasher = nil;
+    VAPEmployee *freeCarwasher = nil;
     while (NO == [self.carwashers isEmptyQueue]
-           && nil != (freeCarwasher = (VAPCarwasher *)[self.carwashers freeHandler]))
+           && nil != (freeCarwasher = [self.carwashers freeHandler]))
     {
-        @synchronized(freeCarwasher) {
-            if (VAPStateFree == freeCarwasher.state) {
-                [freeCarwasher processObject:[self.carwashers dequeue]];
-            }
-        }
-        
+        [freeCarwasher processObject:[self.carwashers dequeue]];
     }
 }
 
 - (void)washCar:(VAPCar *)car {
-    
+    VAPEmployee *freeCarwasher = nil;
+    if (YES == [self.carwashers isEmptyQueue] && nil != (freeCarwasher = [self.carwashers freeHandler])) {
+        [freeCarwasher processObject:car];
+    } else {
+        [self.carwashers enqueue:car];
+    }
 }
 
 #pragma mark -
@@ -78,13 +78,13 @@ NSString *const kVAPErrorMessage = @"some workers aren't on his position or mayb
     randomNumber = 40;
     
     VAPDirector *director = [VAPDirector object];
-    [director addObserver:self];
     [self.directors addHandler:director];
+    [director addObserver:self];
     
     for (uint32_t index = 0; index < randomNumber / 2; index++) {
         VAPAccountant *acountant = [VAPAccountant object];
-        [acountant addObserver:self];
         [self.accountants addHandler:acountant];
+        [acountant addObserver:self];
         
     }
     
@@ -92,6 +92,7 @@ NSString *const kVAPErrorMessage = @"some workers aren't on his position or mayb
         VAPCarwasher *carwasher = [VAPCarwasher object];
         [carwasher addObserver:self];
         [self.carwashers addHandler:carwasher];
+        
     }
 }
 
@@ -107,24 +108,23 @@ NSString *const kVAPErrorMessage = @"some workers aren't on his position or mayb
 #pragma mark <Employee Observer>
 
 - (void)employeeDidFinishJob:(VAPEmployee *)employee {
-//    @synchronized(employee) {
-        if ([employee isKindOfClass:[VAPCarwasher class]]) {
-            VAPAccountant *freeAccountant = (VAPAccountant *)[self.accountants freeHandler];
-            if (nil != freeAccountant && NO == [self.accountants isEmptyQueue]) {
-                [freeAccountant processObject:employee];
-            } else {
-                [self.accountants enqueue:employee];
-            }
-        } else if ([employee isKindOfClass:[VAPAccountant class]]) {
-            VAPDirector *freeDirector = (VAPDirector *)[self.directors freeHandler];
-            if (nil != freeDirector && NO == [self.accountants isEmptyQueue]) {
-                [freeDirector processObject:employee];
-            } else {
-                [self.directors enqueue:employee];
-            }
+    if ([employee isKindOfClass:[VAPCarwasher class]]) {
+        VAPEmployee *freeEmployee = [self.accountants freeHandler];
+        if (nil != freeEmployee && YES == [self.accountants isEmptyQueue]) {
+            [freeEmployee processObject:employee];
+        } else {
+            [self.accountants enqueue:employee];
         }
-//    }
-}
+    }
 
+    if ([employee isKindOfClass:[VAPAccountant class]]) {
+        VAPEmployee *freeEmployee = [self.directors freeHandler];
+        if (nil != freeEmployee && YES == [self.directors isEmptyQueue]) {
+            [freeEmployee processObject:employee];
+        } else {
+            [self.directors enqueue:employee];
+        }
+    }
+}
 
 @end

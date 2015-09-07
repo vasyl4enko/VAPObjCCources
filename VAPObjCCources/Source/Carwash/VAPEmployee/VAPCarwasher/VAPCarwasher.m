@@ -21,14 +21,17 @@ NSUInteger const kVAPDefualtCost = 100;
     @autoreleasepool {
         VAPCar *car = (VAPCar *)object;
         uint rand = arc4random_uniform(10) + 2;
-        usleep(rand * 10000);
+        usleep(rand * 1000);
         if ([car isAbleToPay:kVAPDefualtCost]) {
             car.dirty = NO;
             [object payTo:self withCost:kVAPDefualtCost];
         }
         
-        [super doJobWithObject:nil];// тут объекты с 0 приходят
+        self.state = VAPStateEndWork;
+        [super doJobWithObject:nil];
     }
 }
+
+
 
 @end

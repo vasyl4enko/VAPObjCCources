@@ -19,9 +19,14 @@
 @implementation VAPCarwashTest
 
 + (void)performWashingTest {
+    
+
     VAPEnterprise *enterprise = [VAPEnterprise object];
+//    [enterprise washCar:[VAPCar object]];
     [enterprise washCar];
     
 }
+
+
 
 @end

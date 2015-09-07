@@ -14,7 +14,7 @@
 @class VAPEmployee;
 @class VAPCar;
 
-FOUNDATION_EXTERN NSString *const kErrorMessage;
+FOUNDATION_EXTERN NSString * const kErrorMessage;
 
 @interface VAPEnterprise : NSObject <VAPEmployeeObserver>
 

@@ -32,7 +32,7 @@
 }
 
 - (IBAction)onMoveSquareView:(id)sender {
-    self.squareView.viewMove = !self.squareView.isViewMove;
+    self.squareView.move = !self.squareView.isMove;
 }
 
 

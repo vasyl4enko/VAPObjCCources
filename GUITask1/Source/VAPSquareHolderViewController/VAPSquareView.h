@@ -18,8 +18,8 @@ typedef NS_ENUM(NSUInteger, VAPSquarePosition) {
 
 @interface VAPSquareView : UIView
 @property (nonatomic, strong) IBOutlet              UIView              *square;
-@property (nonatomic, strong) IBOutlet              UIButton            *move;
-@property (nonatomic, assign, getter = isViewMove)  BOOL                viewMove;
+@property (nonatomic, strong) IBOutlet              UIButton            *action;
+@property (nonatomic, assign, getter = isMove)      BOOL                move;
 @property (nonatomic, unsafe_unretained)            VAPSquarePosition   squarePosition;
 
 - (void)setSquarePosition:(VAPSquarePosition)squarePosition animated:(BOOL)isAnimated;
@@ -28,6 +28,5 @@ typedef NS_ENUM(NSUInteger, VAPSquarePosition) {
         completionHandler:(void (^)())completion;
 
 - (void)moveToNextPosition;
-
 
 @end

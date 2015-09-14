@@ -31,13 +31,10 @@
     
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:YES];
-    
-    
-    
-    
+- (IBAction)onMoveSquareView:(id)sender {
+    self.squareView.viewMove = !self.squareView.isViewMove;
 }
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

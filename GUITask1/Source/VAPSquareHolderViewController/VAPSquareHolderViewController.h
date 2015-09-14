@@ -10,4 +10,6 @@
 
 @interface VAPSquareHolderViewController : UIViewController
 
+- (IBAction)onMoveSquareView:(id)sender;
+
 @end

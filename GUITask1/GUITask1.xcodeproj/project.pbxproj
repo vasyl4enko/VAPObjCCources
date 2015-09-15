@@ -11,6 +11,7 @@
 		1F2B2F8D1BA881190075398D /* VAPSquareHolderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F2B2F891BA881190075398D /* VAPSquareHolderViewController.m */; };
 		1F2B2F8E1BA881190075398D /* VAPSquareHolderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F2B2F8A1BA881190075398D /* VAPSquareHolderViewController.xib */; };
 		1F2B2F8F1BA881190075398D /* VAPSquareView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F2B2F8C1BA881190075398D /* VAPSquareView.m */; };
+		1F2B2F991BA8BD9F0075398D /* UIWindow+VAPExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F2B2F981BA8BD9F0075398D /* UIWindow+VAPExtensions.m */; };
 		1FF607221B9F253000614176 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FF607211B9F253000614176 /* main.m */; };
 		1FF607251B9F253000614176 /* VAPAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FF607241B9F253000614176 /* VAPAppDelegate.m */; };
 		1FF6073C1B9F253100614176 /* GUITask1Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FF6073B1B9F253100614176 /* GUITask1Tests.m */; };
@@ -35,6 +36,8 @@
 		1F2B2F8A1BA881190075398D /* VAPSquareHolderViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VAPSquareHolderViewController.xib; sourceTree = "<group>"; };
 		1F2B2F8B1BA881190075398D /* VAPSquareView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VAPSquareView.h; sourceTree = "<group>"; };
 		1F2B2F8C1BA881190075398D /* VAPSquareView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VAPSquareView.m; sourceTree = "<group>"; };
+		1F2B2F971BA8BD9F0075398D /* UIWindow+VAPExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWindow+VAPExtensions.h"; sourceTree = "<group>"; };
+		1F2B2F981BA8BD9F0075398D /* UIWindow+VAPExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWindow+VAPExtensions.m"; sourceTree = "<group>"; };
 		1FF6071C1B9F253000614176 /* GUITask1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GUITask1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FF607201B9F253000614176 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1FF607211B9F253000614176 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -68,16 +71,9 @@
 		1F2B2F841BA881190075398D /* Library */ = {
 			isa = PBXGroup;
 			children = (
-				1F2B2F851BA881190075398D /* Categories */,
+				1F2B2F961BA8BD9F0075398D /* Categories */,
 			);
 			path = Library;
-			sourceTree = "<group>";
-		};
-		1F2B2F851BA881190075398D /* Categories */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Categories;
 			sourceTree = "<group>";
 		};
 		1F2B2F861BA881190075398D /* UI */ = {
@@ -98,6 +94,15 @@
 				1F2B2F8C1BA881190075398D /* VAPSquareView.m */,
 			);
 			path = VAPSquareHolderViewController;
+			sourceTree = "<group>";
+		};
+		1F2B2F961BA8BD9F0075398D /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				1F2B2F971BA8BD9F0075398D /* UIWindow+VAPExtensions.h */,
+				1F2B2F981BA8BD9F0075398D /* UIWindow+VAPExtensions.m */,
+			);
+			path = Categories;
 			sourceTree = "<group>";
 		};
 		1FF607131B9F253000614176 = {
@@ -269,6 +274,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F2B2F991BA8BD9F0075398D /* UIWindow+VAPExtensions.m in Sources */,
 				1FF607251B9F253000614176 /* VAPAppDelegate.m in Sources */,
 				1F2B2F8F1BA881190075398D /* VAPSquareView.m in Sources */,
 				1F2B2F8D1BA881190075398D /* VAPSquareHolderViewController.m in Sources */,

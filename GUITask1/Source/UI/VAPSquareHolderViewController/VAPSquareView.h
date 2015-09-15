@@ -17,16 +17,16 @@ typedef NS_ENUM(NSUInteger, VAPSquarePosition) {
 };
 
 @interface VAPSquareView : UIView
-@property (nonatomic, strong) IBOutlet              UIView              *square;
-@property (nonatomic, strong) IBOutlet              UIButton            *action;
-@property (nonatomic, assign, getter = isMove)      BOOL                move;
-@property (nonatomic, unsafe_unretained)            VAPSquarePosition   squarePosition;
+@property (nonatomic, strong) IBOutlet              UIView              *squareView;
+@property (nonatomic, strong) IBOutlet              UIButton            *animatingButton;
+@property (nonatomic, assign, getter = isMoving)    BOOL                moving;
+@property (nonatomic, assign)                       VAPSquarePosition   squarePosition;
 
 - (void)setSquarePosition:(VAPSquarePosition)squarePosition animated:(BOOL)isAnimated;
 - (void)setSquarePosition:(VAPSquarePosition)squarePosition
                  animated:(BOOL)isAnimated
         completionHandler:(void (^)())completion;
 
-- (void)moveToNextPosition;
+
 
 @end

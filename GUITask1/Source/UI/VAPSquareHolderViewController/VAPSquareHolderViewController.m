@@ -32,9 +32,8 @@
 }
 
 - (IBAction)onMoveSquareView:(id)sender {
-    self.squareView.move = !self.squareView.isMove;
+    self.squareView.moving = !self.squareView.isMoving;
 }
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

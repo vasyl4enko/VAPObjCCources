@@ -14,27 +14,27 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" id="cEA-PW-hSS" userLabel="square">
+                <view contentMode="scaleToFill" id="cEA-PW-hSS">
                     <rect key="frame" x="0.0" y="0.0" width="75" height="75"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" red="1" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Rpf-DD-5dI">
-                    <rect key="frame" x="129" y="269" width="63" height="30"/>
+                    <rect key="frame" x="138" y="269" width="46" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                    <state key="normal" title="press me">
+                    <state key="normal" title="Button">
                         <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
-                        <action selector="onMoveSquareView:" destination="-1" eventType="touchUpInside" id="Vk4-G4-kDu"/>
+                        <action selector="onMoveSquareView:" destination="-1" eventType="touchUpInside" id="4gR-eC-UB4"/>
                     </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
             <connections>
-                <outlet property="action" destination="Rpf-DD-5dI" id="Znc-lq-BSb"/>
-                <outlet property="square" destination="cEA-PW-hSS" id="3qg-BX-9Fv"/>
+                <outlet property="animatingButton" destination="Rpf-DD-5dI" id="eLX-5O-K7n"/>
+                <outlet property="squareView" destination="cEA-PW-hSS" id="ovF-4A-tGu"/>
             </connections>
             <point key="canvasLocation" x="301" y="380"/>
         </view>

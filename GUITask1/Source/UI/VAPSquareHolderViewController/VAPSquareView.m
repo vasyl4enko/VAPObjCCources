@@ -15,6 +15,8 @@ NSUInteger const kVAPDelay = 0;
 
 - (CGRect)frameWithPosition:(VAPSquarePosition)position;
 
+- (void)animateSquareView;
+
 @end
 
 @implementation VAPSquareView
@@ -35,32 +37,33 @@ NSUInteger const kVAPDelay = 0;
     [UIView animateWithDuration:animationDuration
                           delay:kVAPDelay
                         options:UIViewAnimationOptionCurveLinear animations:^{
-                         self.square.frame = [self frameWithPosition:squarePosition];
+                         self.squareView.frame = [self frameWithPosition:squarePosition];
                          }
                      completion:^(BOOL finished) {
-                         _squarePosition = (_squarePosition + 1) % VAPSquarePositionCount;
+                         _squarePosition = squarePosition;
                              if (completion) {
                                  completion();
                              }
                          }];
 }
 
-- (void)setMove:(BOOL)move {
-    if (_move != move) {
-        _move = move;
-        [self moveToNextPosition];
+- (void)setMoving:(BOOL)moving {
+    if (_moving != moving) {
+        _moving = moving;
+        [self animateSquareView];
     }
 }
 
 #pragma mark -
 #pragma mark Public Methods
 
-- (void)moveToNextPosition{
-    if (self.isMove) {
+- (void)animateSquareView {
+    VAPSquarePosition squarePosition = (self.squarePosition + 1) % VAPSquarePositionCount;
+    if (self.isMoving) {
         id __weak weakSelf = self;
-        [self setSquarePosition:self.squarePosition animated:YES completionHandler:^{
+        [self setSquarePosition:squarePosition animated:YES completionHandler:^{
             id __strong strongSelf = weakSelf;
-            [strongSelf moveToNextPosition];
+            [strongSelf animateSquareView];
         }];
     }
 }
@@ -70,33 +73,32 @@ NSUInteger const kVAPDelay = 0;
 
 - (CGRect)frameWithPosition:(VAPSquarePosition)position {
     CGRect superBounds = self.bounds;
-    CGRect squareFrame = self.square.frame;
-    CGFloat pointX = superBounds.origin.x;
-    CGFloat pointY = superBounds.origin.y;
-    CGRect result = CGRectNull;
+    CGRect squareFrame = self.squareView.frame;
+    CGFloat pointX = CGRectGetMinX(superBounds);
+    CGFloat pointY = CGRectGetMinY(superBounds);
+    CGFloat deltaX = CGRectGetWidth(superBounds) - CGRectGetWidth(squareFrame);
+    CGFloat deltaY = CGRectGetHeight(superBounds) - CGRectGetHeight(squareFrame);
     
     switch (position) {
-        case VAPSquarePositionBottomLeft:{
-            pointY = superBounds.size.height - squareFrame.size.height;
-        }
+        case VAPSquarePositionBottomLeft:
+            pointY = deltaY;
+            
             break;
-        case VAPSquarePositionBottomRight:{
-            pointX = superBounds.size.width - squareFrame.size.width;;
-            pointY = superBounds.size.height - squareFrame.size.height;
-        }
+        case VAPSquarePositionBottomRight:
+            pointX = deltaX;
+            pointY = deltaY;
+            
             break;
-        case VAPSquarePositionTopRight:{
-            pointX = superBounds.size.width - squareFrame.size.width;;
-        }
+        case VAPSquarePositionTopRight:
+            pointX = deltaX;
+            
             break;
 
         default:
             break;
     }
-    
-    result = CGRectMake(pointX, pointY, squareFrame.size.width, squareFrame.size.height);
-
-    return result;
+   
+    return CGRectMake(pointX, pointY, CGRectGetWidth(squareFrame), CGRectGetHeight(squareFrame));
 }
 
 @end

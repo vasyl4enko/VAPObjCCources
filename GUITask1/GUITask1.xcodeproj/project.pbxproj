@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1F15717E1BA08F5A00BC88DD /* IDPStudyPlan in Resources */ = {isa = PBXBuildFile; fileRef = 1F15717D1BA08F5A00BC88DD /* IDPStudyPlan */; };
-		1F625AEF1BA324F500AE6B41 /* VAPSquareHolderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F625AED1BA324F500AE6B41 /* VAPSquareHolderViewController.m */; };
-		1F625AF01BA324F500AE6B41 /* VAPSquareHolderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F625AEE1BA324F500AE6B41 /* VAPSquareHolderViewController.xib */; };
-		1F625AF31BA3369100AE6B41 /* VAPSquareView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F625AF21BA3369100AE6B41 /* VAPSquareView.m */; };
+		1F2B2F831BA872000075398D /* IDPStudyPlan in Resources */ = {isa = PBXBuildFile; fileRef = 1F2B2F821BA872000075398D /* IDPStudyPlan */; };
+		1F2B2F8D1BA881190075398D /* VAPSquareHolderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F2B2F891BA881190075398D /* VAPSquareHolderViewController.m */; };
+		1F2B2F8E1BA881190075398D /* VAPSquareHolderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F2B2F8A1BA881190075398D /* VAPSquareHolderViewController.xib */; };
+		1F2B2F8F1BA881190075398D /* VAPSquareView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F2B2F8C1BA881190075398D /* VAPSquareView.m */; };
 		1FF607221B9F253000614176 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FF607211B9F253000614176 /* main.m */; };
 		1FF607251B9F253000614176 /* VAPAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FF607241B9F253000614176 /* VAPAppDelegate.m */; };
 		1FF6073C1B9F253100614176 /* GUITask1Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FF6073B1B9F253100614176 /* GUITask1Tests.m */; };
@@ -29,12 +29,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1F15717D1BA08F5A00BC88DD /* IDPStudyPlan */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = IDPStudyPlan; path = ../IDPStudyPlan; sourceTree = "<group>"; };
-		1F625AEC1BA324F500AE6B41 /* VAPSquareHolderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VAPSquareHolderViewController.h; sourceTree = "<group>"; };
-		1F625AED1BA324F500AE6B41 /* VAPSquareHolderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VAPSquareHolderViewController.m; sourceTree = "<group>"; };
-		1F625AEE1BA324F500AE6B41 /* VAPSquareHolderViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VAPSquareHolderViewController.xib; sourceTree = "<group>"; };
-		1F625AF11BA3369100AE6B41 /* VAPSquareView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VAPSquareView.h; sourceTree = "<group>"; };
-		1F625AF21BA3369100AE6B41 /* VAPSquareView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VAPSquareView.m; sourceTree = "<group>"; };
+		1F2B2F821BA872000075398D /* IDPStudyPlan */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = IDPStudyPlan; sourceTree = "<group>"; };
+		1F2B2F881BA881190075398D /* VAPSquareHolderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VAPSquareHolderViewController.h; sourceTree = "<group>"; };
+		1F2B2F891BA881190075398D /* VAPSquareHolderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VAPSquareHolderViewController.m; sourceTree = "<group>"; };
+		1F2B2F8A1BA881190075398D /* VAPSquareHolderViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VAPSquareHolderViewController.xib; sourceTree = "<group>"; };
+		1F2B2F8B1BA881190075398D /* VAPSquareView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VAPSquareView.h; sourceTree = "<group>"; };
+		1F2B2F8C1BA881190075398D /* VAPSquareView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VAPSquareView.m; sourceTree = "<group>"; };
 		1FF6071C1B9F253000614176 /* GUITask1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GUITask1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FF607201B9F253000614176 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1FF607211B9F253000614176 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -65,14 +65,37 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1F625AEB1BA324CC00AE6B41 /* VAPSquareHolderViewController */ = {
+		1F2B2F841BA881190075398D /* Library */ = {
 			isa = PBXGroup;
 			children = (
-				1F625AEC1BA324F500AE6B41 /* VAPSquareHolderViewController.h */,
-				1F625AED1BA324F500AE6B41 /* VAPSquareHolderViewController.m */,
-				1F625AEE1BA324F500AE6B41 /* VAPSquareHolderViewController.xib */,
-				1F625AF11BA3369100AE6B41 /* VAPSquareView.h */,
-				1F625AF21BA3369100AE6B41 /* VAPSquareView.m */,
+				1F2B2F851BA881190075398D /* Categories */,
+			);
+			path = Library;
+			sourceTree = "<group>";
+		};
+		1F2B2F851BA881190075398D /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
+		1F2B2F861BA881190075398D /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				1F2B2F871BA881190075398D /* VAPSquareHolderViewController */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		1F2B2F871BA881190075398D /* VAPSquareHolderViewController */ = {
+			isa = PBXGroup;
+			children = (
+				1F2B2F881BA881190075398D /* VAPSquareHolderViewController.h */,
+				1F2B2F891BA881190075398D /* VAPSquareHolderViewController.m */,
+				1F2B2F8A1BA881190075398D /* VAPSquareHolderViewController.xib */,
+				1F2B2F8B1BA881190075398D /* VAPSquareView.h */,
+				1F2B2F8C1BA881190075398D /* VAPSquareView.m */,
 			);
 			path = VAPSquareHolderViewController;
 			sourceTree = "<group>";
@@ -128,7 +151,8 @@
 		1FF607451B9F37A300614176 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				1F625AEB1BA324CC00AE6B41 /* VAPSquareHolderViewController */,
+				1F2B2F841BA881190075398D /* Library */,
+				1F2B2F861BA881190075398D /* UI */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -136,7 +160,7 @@
 		1FF607461B9F380100614176 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				1F15717D1BA08F5A00BC88DD /* IDPStudyPlan */,
+				1F2B2F821BA872000075398D /* IDPStudyPlan */,
 				1FF607501B9F416A00614176 /* LaunchScreen.xib */,
 				1FF6074C1B9F414F00614176 /* Images.xcassets */,
 			);
@@ -224,9 +248,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1F625AF01BA324F500AE6B41 /* VAPSquareHolderViewController.xib in Resources */,
 				1FF607521B9F416A00614176 /* LaunchScreen.xib in Resources */,
-				1F15717E1BA08F5A00BC88DD /* IDPStudyPlan in Resources */,
+				1F2B2F8E1BA881190075398D /* VAPSquareHolderViewController.xib in Resources */,
+				1F2B2F831BA872000075398D /* IDPStudyPlan in Resources */,
 				1FF6074F1B9F414F00614176 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -246,9 +270,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				1FF607251B9F253000614176 /* VAPAppDelegate.m in Sources */,
-				1F625AEF1BA324F500AE6B41 /* VAPSquareHolderViewController.m in Sources */,
+				1F2B2F8F1BA881190075398D /* VAPSquareView.m in Sources */,
+				1F2B2F8D1BA881190075398D /* VAPSquareHolderViewController.m in Sources */,
 				1FF607221B9F253000614176 /* main.m in Sources */,
-				1F625AF31BA3369100AE6B41 /* VAPSquareView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

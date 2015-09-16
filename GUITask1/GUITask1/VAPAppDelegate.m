@@ -10,6 +10,7 @@
 
 #import "VAPSquareHolderViewController.h"
 #import "UIWindow+VAPExtensions.h"
+#import "UIViewController+VAPExtensions.h"
 
 @interface VAPAppDelegate ()
 
@@ -21,7 +22,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     UIWindow *window = [UIWindow window];
     self.window = window;
-    window.rootViewController = [[VAPSquareHolderViewController alloc] initWithNibName:nil bundle:nil];
+    window.rootViewController = [VAPSquareHolderViewController controller];
     [window makeKeyAndVisible];
     
     return YES;

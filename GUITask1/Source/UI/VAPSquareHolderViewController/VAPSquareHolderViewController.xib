@@ -33,7 +33,7 @@
             </subviews>
             <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
             <connections>
-                <outlet property="animatingButton" destination="Rpf-DD-5dI" id="eLX-5O-K7n"/>
+                <outlet property="animateButton" destination="Rpf-DD-5dI" id="7MK-aH-L1k"/>
                 <outlet property="squareView" destination="cEA-PW-hSS" id="ovF-4A-tGu"/>
             </connections>
             <point key="canvasLocation" x="301" y="380"/>

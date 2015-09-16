@@ -8,6 +8,8 @@
 
 #import "VAPSquareView.h"
 
+#import "VAPMacros.h"
+
 NSUInteger const kVAPAnimatedDuration = 2;
 NSUInteger const kVAPDelay = 0;
 
@@ -15,6 +17,7 @@ NSUInteger const kVAPDelay = 0;
 
 - (CGRect)frameWithPosition:(VAPSquarePosition)position;
 
+- (VAPSquarePosition)nextPosition;
 - (void)animateSquareView;
 
 @end
@@ -32,44 +35,54 @@ NSUInteger const kVAPDelay = 0;
     [self setSquarePosition:squarePosition animated:isAnimated completionHandler:NULL];
 }
 
-- (void)setSquarePosition:(VAPSquarePosition)squarePosition animated:(BOOL)isAnimated completionHandler:(void (^)())completion {
-    NSUInteger animationDuration = isAnimated == 0 ? 0 : kVAPAnimatedDuration;
+
+
+- (void)setSquarePosition:(VAPSquarePosition)squarePosition
+                 animated:(BOOL)isAnimated
+        completionHandler:(void (^)())completion
+{
+    NSUInteger animationDuration = isAnimated ? kVAPAnimatedDuration : 0;
+    
     [UIView animateWithDuration:animationDuration
                           delay:kVAPDelay
                         options:UIViewAnimationOptionCurveLinear animations:^{
-                         self.squareView.frame = [self frameWithPosition:squarePosition];
-                         }
+                            self.squareView.frame = [self frameWithPosition:squarePosition];
+                        }
                      completion:^(BOOL finished) {
                          _squarePosition = squarePosition;
-                             if (completion) {
-                                 completion();
-                             }
-                         }];
+                         self.animating = NO;
+                         if (completion) {
+                             completion();
+                         }
+                     }];
 }
 
 - (void)setMoving:(BOOL)moving {
     if (_moving != moving) {
         _moving = moving;
+        
         [self animateSquareView];
     }
 }
 
 #pragma mark -
-#pragma mark Public Methods
+#pragma mark Private Implementation
+
+- (VAPSquarePosition)nextPosition {
+    return (self.squarePosition + 1) % VAPSquarePositionCount;
+}
 
 - (void)animateSquareView {
-    VAPSquarePosition squarePosition = (self.squarePosition + 1) % VAPSquarePositionCount;
-    if (self.isMoving) {
-        id __weak weakSelf = self;
+    VAPSquarePosition squarePosition = [self nextPosition];
+    if (self.isMoving && !self.isAnimating) {
+        self.animating = YES;
+        VAPWeakify(self);
         [self setSquarePosition:squarePosition animated:YES completionHandler:^{
-            id __strong strongSelf = weakSelf;
+            VAPStrongify(weakSelf);
             [strongSelf animateSquareView];
         }];
     }
 }
-
-#pragma mark -
-#pragma mark Private Implementation
 
 - (CGRect)frameWithPosition:(VAPSquarePosition)position {
     CGRect superBounds = self.bounds;
@@ -82,22 +95,21 @@ NSUInteger const kVAPDelay = 0;
     switch (position) {
         case VAPSquarePositionBottomLeft:
             pointY = deltaY;
-            
             break;
+            
         case VAPSquarePositionBottomRight:
             pointX = deltaX;
             pointY = deltaY;
-            
             break;
+            
         case VAPSquarePositionTopRight:
             pointX = deltaX;
-            
             break;
-
+            
         default:
             break;
     }
-   
+    
     return CGRectMake(pointX, pointY, CGRectGetWidth(squareFrame), CGRectGetHeight(squareFrame));
 }
 

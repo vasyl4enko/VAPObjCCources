@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+
+
 typedef NS_ENUM(NSUInteger, VAPSquarePosition) {
     VAPSquarePositionTopLeft,
     VAPSquarePositionBottomLeft,
@@ -17,16 +19,15 @@ typedef NS_ENUM(NSUInteger, VAPSquarePosition) {
 };
 
 @interface VAPSquareView : UIView
-@property (nonatomic, strong) IBOutlet              UIView              *squareView;
-@property (nonatomic, strong) IBOutlet              UIButton            *animatingButton;
-@property (nonatomic, assign, getter = isMoving)    BOOL                moving;
-@property (nonatomic, assign)                       VAPSquarePosition   squarePosition;
+@property (nonatomic, strong) IBOutlet                  UIView              *squareView;
+@property (nonatomic, strong) IBOutlet                  UIButton            *animateButton;
+@property (nonatomic, assign, getter = isMoving)        BOOL                moving;
+@property (nonatomic, assign, getter = isAnimating)     BOOL                animating;
+@property (nonatomic, assign)                           VAPSquarePosition   squarePosition;
 
 - (void)setSquarePosition:(VAPSquarePosition)squarePosition animated:(BOOL)isAnimated;
 - (void)setSquarePosition:(VAPSquarePosition)squarePosition
                  animated:(BOOL)isAnimated
         completionHandler:(void (^)())completion;
-
-
 
 @end

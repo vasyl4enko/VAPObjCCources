@@ -41,6 +41,7 @@
 		1F2B2F981BA8BD9F0075398D /* UIWindow+VAPExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWindow+VAPExtensions.m"; sourceTree = "<group>"; };
 		1F5E61581BA9DB560092BF98 /* UIViewController+VAPExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+VAPExtensions.h"; sourceTree = "<group>"; };
 		1F5E61591BA9DB560092BF98 /* UIViewController+VAPExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+VAPExtensions.m"; sourceTree = "<group>"; };
+		1F5E615C1BA9E2B80092BF98 /* VAPMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VAPMacros.h; sourceTree = "<group>"; };
 		1FF6071C1B9F253000614176 /* GUITask1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GUITask1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FF607201B9F253000614176 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1FF607211B9F253000614176 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -74,6 +75,7 @@
 		1F2B2F841BA881190075398D /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				1F5E615B1BA9DE450092BF98 /* Makros */,
 				1F2B2F961BA8BD9F0075398D /* Categories */,
 			);
 			path = Library;
@@ -108,6 +110,14 @@
 				1F5E61591BA9DB560092BF98 /* UIViewController+VAPExtensions.m */,
 			);
 			path = Categories;
+			sourceTree = "<group>";
+		};
+		1F5E615B1BA9DE450092BF98 /* Makros */ = {
+			isa = PBXGroup;
+			children = (
+				1F5E615C1BA9E2B80092BF98 /* VAPMacros.h */,
+			);
+			name = Makros;
 			sourceTree = "<group>";
 		};
 		1FF607131B9F253000614176 = {

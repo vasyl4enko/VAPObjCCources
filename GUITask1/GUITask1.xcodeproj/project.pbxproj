@@ -11,13 +11,13 @@
 		1F2B2F8D1BA881190075398D /* VAPSquareHolderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F2B2F891BA881190075398D /* VAPSquareHolderViewController.m */; };
 		1F2B2F8E1BA881190075398D /* VAPSquareHolderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F2B2F8A1BA881190075398D /* VAPSquareHolderViewController.xib */; };
 		1F2B2F8F1BA881190075398D /* VAPSquareView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F2B2F8C1BA881190075398D /* VAPSquareView.m */; };
-		1F2B2F991BA8BD9F0075398D /* UIWindow+VAPExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F2B2F981BA8BD9F0075398D /* UIWindow+VAPExtensions.m */; };
-		1F5E615A1BA9DB560092BF98 /* UIViewController+VAPExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F5E61591BA9DB560092BF98 /* UIViewController+VAPExtensions.m */; };
 		1FF607221B9F253000614176 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FF607211B9F253000614176 /* main.m */; };
 		1FF607251B9F253000614176 /* VAPAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FF607241B9F253000614176 /* VAPAppDelegate.m */; };
 		1FF6073C1B9F253100614176 /* GUITask1Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FF6073B1B9F253100614176 /* GUITask1Tests.m */; };
 		1FF6074F1B9F414F00614176 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1FF6074C1B9F414F00614176 /* Images.xcassets */; };
 		1FF607521B9F416A00614176 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1FF607501B9F416A00614176 /* LaunchScreen.xib */; };
+		7E92628E1BAABED500F89223 /* UIViewController+VAPExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E92628A1BAABED500F89223 /* UIViewController+VAPExtensions.m */; };
+		7E92628F1BAABED500F89223 /* UIWindow+VAPExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E92628D1BAABED500F89223 /* UIWindow+VAPExtensions.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,11 +37,6 @@
 		1F2B2F8A1BA881190075398D /* VAPSquareHolderViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VAPSquareHolderViewController.xib; sourceTree = "<group>"; };
 		1F2B2F8B1BA881190075398D /* VAPSquareView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VAPSquareView.h; sourceTree = "<group>"; };
 		1F2B2F8C1BA881190075398D /* VAPSquareView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VAPSquareView.m; sourceTree = "<group>"; };
-		1F2B2F971BA8BD9F0075398D /* UIWindow+VAPExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWindow+VAPExtensions.h"; sourceTree = "<group>"; };
-		1F2B2F981BA8BD9F0075398D /* UIWindow+VAPExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWindow+VAPExtensions.m"; sourceTree = "<group>"; };
-		1F5E61581BA9DB560092BF98 /* UIViewController+VAPExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+VAPExtensions.h"; sourceTree = "<group>"; };
-		1F5E61591BA9DB560092BF98 /* UIViewController+VAPExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+VAPExtensions.m"; sourceTree = "<group>"; };
-		1F5E615C1BA9E2B80092BF98 /* VAPMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VAPMacros.h; sourceTree = "<group>"; };
 		1FF6071C1B9F253000614176 /* GUITask1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GUITask1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FF607201B9F253000614176 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1FF607211B9F253000614176 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -52,6 +47,11 @@
 		1FF6073B1B9F253100614176 /* GUITask1Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GUITask1Tests.m; sourceTree = "<group>"; };
 		1FF6074C1B9F414F00614176 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		1FF607511B9F416A00614176 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		7E9262851BAABE6F00F89223 /* VAPMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VAPMacros.h; sourceTree = "<group>"; };
+		7E9262891BAABED500F89223 /* UIViewController+VAPExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+VAPExtensions.h"; sourceTree = "<group>"; };
+		7E92628A1BAABED500F89223 /* UIViewController+VAPExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+VAPExtensions.m"; sourceTree = "<group>"; };
+		7E92628C1BAABED500F89223 /* UIWindow+VAPExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWindow+VAPExtensions.h"; sourceTree = "<group>"; };
+		7E92628D1BAABED500F89223 /* UIWindow+VAPExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWindow+VAPExtensions.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,8 +75,8 @@
 		1F2B2F841BA881190075398D /* Library */ = {
 			isa = PBXGroup;
 			children = (
-				1F5E615B1BA9DE450092BF98 /* Makros */,
-				1F2B2F961BA8BD9F0075398D /* Categories */,
+				7E9262871BAABED500F89223 /* Categories */,
+				7E9262841BAABE6F00F89223 /* Macros */,
 			);
 			path = Library;
 			sourceTree = "<group>";
@@ -99,25 +99,6 @@
 				1F2B2F8C1BA881190075398D /* VAPSquareView.m */,
 			);
 			path = VAPSquareHolderViewController;
-			sourceTree = "<group>";
-		};
-		1F2B2F961BA8BD9F0075398D /* Categories */ = {
-			isa = PBXGroup;
-			children = (
-				1F2B2F971BA8BD9F0075398D /* UIWindow+VAPExtensions.h */,
-				1F2B2F981BA8BD9F0075398D /* UIWindow+VAPExtensions.m */,
-				1F5E61581BA9DB560092BF98 /* UIViewController+VAPExtensions.h */,
-				1F5E61591BA9DB560092BF98 /* UIViewController+VAPExtensions.m */,
-			);
-			path = Categories;
-			sourceTree = "<group>";
-		};
-		1F5E615B1BA9DE450092BF98 /* Makros */ = {
-			isa = PBXGroup;
-			children = (
-				1F5E615C1BA9E2B80092BF98 /* VAPMacros.h */,
-			);
-			name = Makros;
 			sourceTree = "<group>";
 		};
 		1FF607131B9F253000614176 = {
@@ -185,6 +166,41 @@
 				1FF6074C1B9F414F00614176 /* Images.xcassets */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		7E9262841BAABE6F00F89223 /* Macros */ = {
+			isa = PBXGroup;
+			children = (
+				7E9262851BAABE6F00F89223 /* VAPMacros.h */,
+			);
+			path = Macros;
+			sourceTree = "<group>";
+		};
+		7E9262871BAABED500F89223 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				7E9262881BAABED500F89223 /* UIViewController+VAPExtensions */,
+				7E92628B1BAABED500F89223 /* UIWindow+VAPExtensions */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
+		7E9262881BAABED500F89223 /* UIViewController+VAPExtensions */ = {
+			isa = PBXGroup;
+			children = (
+				7E9262891BAABED500F89223 /* UIViewController+VAPExtensions.h */,
+				7E92628A1BAABED500F89223 /* UIViewController+VAPExtensions.m */,
+			);
+			path = "UIViewController+VAPExtensions";
+			sourceTree = "<group>";
+		};
+		7E92628B1BAABED500F89223 /* UIWindow+VAPExtensions */ = {
+			isa = PBXGroup;
+			children = (
+				7E92628C1BAABED500F89223 /* UIWindow+VAPExtensions.h */,
+				7E92628D1BAABED500F89223 /* UIWindow+VAPExtensions.m */,
+			);
+			path = "UIWindow+VAPExtensions";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -289,9 +305,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1F2B2F991BA8BD9F0075398D /* UIWindow+VAPExtensions.m in Sources */,
 				1FF607251B9F253000614176 /* VAPAppDelegate.m in Sources */,
-				1F5E615A1BA9DB560092BF98 /* UIViewController+VAPExtensions.m in Sources */,
+				7E92628F1BAABED500F89223 /* UIWindow+VAPExtensions.m in Sources */,
+				7E92628E1BAABED500F89223 /* UIViewController+VAPExtensions.m in Sources */,
 				1F2B2F8F1BA881190075398D /* VAPSquareView.m in Sources */,
 				1F2B2F8D1BA881190075398D /* VAPSquareHolderViewController.m in Sources */,
 				1FF607221B9F253000614176 /* main.m in Sources */,

@@ -14,6 +14,7 @@ NSUInteger const kVAPAnimatedDuration = 2;
 NSUInteger const kVAPDelay = 0;
 
 @interface VAPSquareView ()
+@property (nonatomic, assign, getter = isAnimating) BOOL animating;
 
 - (CGRect)frameWithPosition:(VAPSquarePosition)position;
 

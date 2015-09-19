@@ -12,6 +12,12 @@
 		1F3935C91BAA118600D5D95E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F3935C81BAA118600D5D95E /* Images.xcassets */; };
 		1F3935CC1BAA118600D5D95E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F3935CA1BAA118600D5D95E /* LaunchScreen.xib */; };
 		1F3935D81BAA118600D5D95E /* Task2Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F3935D71BAA118600D5D95E /* Task2Tests.m */; };
+		1FE38ECC1BADCE9E00CC5B57 /* NSString+VAPRandomString.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FE38EBC1BADCE9E00CC5B57 /* NSString+VAPRandomString.m */; };
+		1FE38ECD1BADCE9E00CC5B57 /* UIViewController+VAPExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FE38EBF1BADCE9E00CC5B57 /* UIViewController+VAPExtensions.m */; };
+		1FE38ECE1BADCE9E00CC5B57 /* UIWindow+VAPExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FE38EC21BADCE9E00CC5B57 /* UIWindow+VAPExtensions.m */; };
+		1FE38ED71BADCEA500CC5B57 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1FE38ED31BADCEA500CC5B57 /* LaunchScreen.xib */; };
+		1FE38ED81BADCEA500CC5B57 /* IDPStudyPlan in Resources */ = {isa = PBXBuildFile; fileRef = 1FE38ED51BADCEA500CC5B57 /* IDPStudyPlan */; };
+		1FE38ED91BADCEA500CC5B57 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1FE38ED61BADCEA500CC5B57 /* Images.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +41,16 @@
 		1F3935D11BAA118600D5D95E /* Task2Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Task2Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F3935D61BAA118600D5D95E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1F3935D71BAA118600D5D95E /* Task2Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Task2Tests.m; sourceTree = "<group>"; };
+		1FE38EBB1BADCE9E00CC5B57 /* NSString+VAPRandomString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+VAPRandomString.h"; sourceTree = "<group>"; };
+		1FE38EBC1BADCE9E00CC5B57 /* NSString+VAPRandomString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+VAPRandomString.m"; sourceTree = "<group>"; };
+		1FE38EBE1BADCE9E00CC5B57 /* UIViewController+VAPExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+VAPExtensions.h"; sourceTree = "<group>"; };
+		1FE38EBF1BADCE9E00CC5B57 /* UIViewController+VAPExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+VAPExtensions.m"; sourceTree = "<group>"; };
+		1FE38EC11BADCE9E00CC5B57 /* UIWindow+VAPExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWindow+VAPExtensions.h"; sourceTree = "<group>"; };
+		1FE38EC21BADCE9E00CC5B57 /* UIWindow+VAPExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWindow+VAPExtensions.m"; sourceTree = "<group>"; };
+		1FE38EC41BADCE9E00CC5B57 /* VAPMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VAPMacros.h; sourceTree = "<group>"; };
+		1FE38ED41BADCEA500CC5B57 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		1FE38ED51BADCEA500CC5B57 /* IDPStudyPlan */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = IDPStudyPlan; sourceTree = "<group>"; };
+		1FE38ED61BADCEA500CC5B57 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +74,8 @@
 		1F3935AF1BAA118600D5D95E = {
 			isa = PBXGroup;
 			children = (
+				1FE38ED21BADCEA500CC5B57 /* Resources */,
+				1FE38EB71BADCE9E00CC5B57 /* Source */,
 				1F3935BA1BAA118600D5D95E /* Task2 */,
 				1F3935D41BAA118600D5D95E /* Task2Tests */,
 				1F3935B91BAA118600D5D95E /* Products */,
@@ -109,6 +127,86 @@
 				1F3935D61BAA118600D5D95E /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		1FE38EB71BADCE9E00CC5B57 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				1FE38EB81BADCE9E00CC5B57 /* Library */,
+				1FE38EC51BADCE9E00CC5B57 /* UI */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		1FE38EB81BADCE9E00CC5B57 /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				1FE38EB91BADCE9E00CC5B57 /* Categories */,
+				1FE38EC31BADCE9E00CC5B57 /* VAPMacros */,
+			);
+			path = Library;
+			sourceTree = "<group>";
+		};
+		1FE38EB91BADCE9E00CC5B57 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				1FE38EBA1BADCE9E00CC5B57 /* NSString+VAPRandomString */,
+				1FE38EBD1BADCE9E00CC5B57 /* UIViewController+VAPExtensions */,
+				1FE38EC01BADCE9E00CC5B57 /* UIWindow+VAPExtensions */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
+		1FE38EBA1BADCE9E00CC5B57 /* NSString+VAPRandomString */ = {
+			isa = PBXGroup;
+			children = (
+				1FE38EBB1BADCE9E00CC5B57 /* NSString+VAPRandomString.h */,
+				1FE38EBC1BADCE9E00CC5B57 /* NSString+VAPRandomString.m */,
+			);
+			path = "NSString+VAPRandomString";
+			sourceTree = "<group>";
+		};
+		1FE38EBD1BADCE9E00CC5B57 /* UIViewController+VAPExtensions */ = {
+			isa = PBXGroup;
+			children = (
+				1FE38EBE1BADCE9E00CC5B57 /* UIViewController+VAPExtensions.h */,
+				1FE38EBF1BADCE9E00CC5B57 /* UIViewController+VAPExtensions.m */,
+			);
+			path = "UIViewController+VAPExtensions";
+			sourceTree = "<group>";
+		};
+		1FE38EC01BADCE9E00CC5B57 /* UIWindow+VAPExtensions */ = {
+			isa = PBXGroup;
+			children = (
+				1FE38EC11BADCE9E00CC5B57 /* UIWindow+VAPExtensions.h */,
+				1FE38EC21BADCE9E00CC5B57 /* UIWindow+VAPExtensions.m */,
+			);
+			path = "UIWindow+VAPExtensions";
+			sourceTree = "<group>";
+		};
+		1FE38EC31BADCE9E00CC5B57 /* VAPMacros */ = {
+			isa = PBXGroup;
+			children = (
+				1FE38EC41BADCE9E00CC5B57 /* VAPMacros.h */,
+			);
+			path = VAPMacros;
+			sourceTree = "<group>";
+		};
+		1FE38EC51BADCE9E00CC5B57 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		1FE38ED21BADCEA500CC5B57 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				1FE38ED31BADCEA500CC5B57 /* LaunchScreen.xib */,
+				1FE38ED51BADCEA500CC5B57 /* IDPStudyPlan */,
+				1FE38ED61BADCEA500CC5B57 /* Images.xcassets */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -191,7 +289,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1FE38ED71BADCEA500CC5B57 /* LaunchScreen.xib in Resources */,
 				1F3935CC1BAA118600D5D95E /* LaunchScreen.xib in Resources */,
+				1FE38ED81BADCEA500CC5B57 /* IDPStudyPlan in Resources */,
+				1FE38ED91BADCEA500CC5B57 /* Images.xcassets in Resources */,
 				1F3935C91BAA118600D5D95E /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -210,6 +311,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1FE38ECE1BADCE9E00CC5B57 /* UIWindow+VAPExtensions.m in Sources */,
+				1FE38ECD1BADCE9E00CC5B57 /* UIViewController+VAPExtensions.m in Sources */,
+				1FE38ECC1BADCE9E00CC5B57 /* NSString+VAPRandomString.m in Sources */,
 				1F3935C11BAA118600D5D95E /* VAPAppDelegate.m in Sources */,
 				1F3935BE1BAA118600D5D95E /* main.m in Sources */,
 			);
@@ -238,6 +342,14 @@
 			isa = PBXVariantGroup;
 			children = (
 				1F3935CB1BAA118600D5D95E /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+		1FE38ED31BADCEA500CC5B57 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1FE38ED41BADCEA500CC5B57 /* Base */,
 			);
 			name = LaunchScreen.xib;
 			sourceTree = "<group>";
@@ -398,6 +510,7 @@
 				1F3935DD1BAA118600D5D95E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1F3935DE1BAA118600D5D95E /* Build configuration list for PBXNativeTarget "Task2Tests" */ = {
 			isa = XCConfigurationList;
@@ -406,6 +519,7 @@
 				1F3935E01BAA118600D5D95E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

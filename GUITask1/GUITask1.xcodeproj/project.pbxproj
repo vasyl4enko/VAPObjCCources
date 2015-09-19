@@ -1,0 +1,514 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1F2B2F831BA872000075398D /* IDPStudyPlan in Resources */ = {isa = PBXBuildFile; fileRef = 1F2B2F821BA872000075398D /* IDPStudyPlan */; };
+		1F2B2F8D1BA881190075398D /* VAPSquareHolderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F2B2F891BA881190075398D /* VAPSquareHolderViewController.m */; };
+		1F2B2F8E1BA881190075398D /* VAPSquareHolderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F2B2F8A1BA881190075398D /* VAPSquareHolderViewController.xib */; };
+		1F2B2F8F1BA881190075398D /* VAPSquareView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F2B2F8C1BA881190075398D /* VAPSquareView.m */; };
+		1FF607221B9F253000614176 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FF607211B9F253000614176 /* main.m */; };
+		1FF607251B9F253000614176 /* VAPAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FF607241B9F253000614176 /* VAPAppDelegate.m */; };
+		1FF6073C1B9F253100614176 /* GUITask1Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FF6073B1B9F253100614176 /* GUITask1Tests.m */; };
+		1FF6074F1B9F414F00614176 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1FF6074C1B9F414F00614176 /* Images.xcassets */; };
+		1FF607521B9F416A00614176 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1FF607501B9F416A00614176 /* LaunchScreen.xib */; };
+		7E92628E1BAABED500F89223 /* UIViewController+VAPExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E92628A1BAABED500F89223 /* UIViewController+VAPExtensions.m */; };
+		7E92628F1BAABED500F89223 /* UIWindow+VAPExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E92628D1BAABED500F89223 /* UIWindow+VAPExtensions.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		1FF607361B9F253100614176 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1FF607141B9F253000614176 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1FF6071B1B9F253000614176;
+			remoteInfo = GUITask1;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		1F2B2F821BA872000075398D /* IDPStudyPlan */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = IDPStudyPlan; sourceTree = "<group>"; };
+		1F2B2F881BA881190075398D /* VAPSquareHolderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VAPSquareHolderViewController.h; sourceTree = "<group>"; };
+		1F2B2F891BA881190075398D /* VAPSquareHolderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VAPSquareHolderViewController.m; sourceTree = "<group>"; };
+		1F2B2F8A1BA881190075398D /* VAPSquareHolderViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VAPSquareHolderViewController.xib; sourceTree = "<group>"; };
+		1F2B2F8B1BA881190075398D /* VAPSquareView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VAPSquareView.h; sourceTree = "<group>"; };
+		1F2B2F8C1BA881190075398D /* VAPSquareView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VAPSquareView.m; sourceTree = "<group>"; };
+		1FF6071C1B9F253000614176 /* GUITask1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GUITask1.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1FF607201B9F253000614176 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1FF607211B9F253000614176 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		1FF607231B9F253000614176 /* VAPAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VAPAppDelegate.h; sourceTree = "<group>"; };
+		1FF607241B9F253000614176 /* VAPAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VAPAppDelegate.m; sourceTree = "<group>"; };
+		1FF607351B9F253100614176 /* GUITask1Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GUITask1Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1FF6073A1B9F253100614176 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1FF6073B1B9F253100614176 /* GUITask1Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GUITask1Tests.m; sourceTree = "<group>"; };
+		1FF6074C1B9F414F00614176 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		1FF607511B9F416A00614176 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		7E9262851BAABE6F00F89223 /* VAPMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VAPMacros.h; sourceTree = "<group>"; };
+		7E9262891BAABED500F89223 /* UIViewController+VAPExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+VAPExtensions.h"; sourceTree = "<group>"; };
+		7E92628A1BAABED500F89223 /* UIViewController+VAPExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+VAPExtensions.m"; sourceTree = "<group>"; };
+		7E92628C1BAABED500F89223 /* UIWindow+VAPExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWindow+VAPExtensions.h"; sourceTree = "<group>"; };
+		7E92628D1BAABED500F89223 /* UIWindow+VAPExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWindow+VAPExtensions.m"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1FF607191B9F253000614176 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1FF607321B9F253100614176 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1F2B2F841BA881190075398D /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				7E9262871BAABED500F89223 /* Categories */,
+				7E9262841BAABE6F00F89223 /* Macros */,
+			);
+			path = Library;
+			sourceTree = "<group>";
+		};
+		1F2B2F861BA881190075398D /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				1F2B2F871BA881190075398D /* VAPSquareHolderViewController */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		1F2B2F871BA881190075398D /* VAPSquareHolderViewController */ = {
+			isa = PBXGroup;
+			children = (
+				1F2B2F881BA881190075398D /* VAPSquareHolderViewController.h */,
+				1F2B2F891BA881190075398D /* VAPSquareHolderViewController.m */,
+				1F2B2F8A1BA881190075398D /* VAPSquareHolderViewController.xib */,
+				1F2B2F8B1BA881190075398D /* VAPSquareView.h */,
+				1F2B2F8C1BA881190075398D /* VAPSquareView.m */,
+			);
+			path = VAPSquareHolderViewController;
+			sourceTree = "<group>";
+		};
+		1FF607131B9F253000614176 = {
+			isa = PBXGroup;
+			children = (
+				1FF607451B9F37A300614176 /* Source */,
+				1FF607461B9F380100614176 /* Resources */,
+				1FF6071E1B9F253000614176 /* GUITask1 */,
+				1FF607381B9F253100614176 /* GUITask1Tests */,
+				1FF6071D1B9F253000614176 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		1FF6071D1B9F253000614176 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1FF6071C1B9F253000614176 /* GUITask1.app */,
+				1FF607351B9F253100614176 /* GUITask1Tests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1FF6071E1B9F253000614176 /* GUITask1 */ = {
+			isa = PBXGroup;
+			children = (
+				1FF607231B9F253000614176 /* VAPAppDelegate.h */,
+				1FF607241B9F253000614176 /* VAPAppDelegate.m */,
+				1FF607211B9F253000614176 /* main.m */,
+				1FF607201B9F253000614176 /* Info.plist */,
+			);
+			path = GUITask1;
+			sourceTree = "<group>";
+		};
+		1FF607381B9F253100614176 /* GUITask1Tests */ = {
+			isa = PBXGroup;
+			children = (
+				1FF6073B1B9F253100614176 /* GUITask1Tests.m */,
+				1FF607391B9F253100614176 /* Supporting Files */,
+			);
+			path = GUITask1Tests;
+			sourceTree = "<group>";
+		};
+		1FF607391B9F253100614176 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				1FF6073A1B9F253100614176 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		1FF607451B9F37A300614176 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				1F2B2F841BA881190075398D /* Library */,
+				1F2B2F861BA881190075398D /* UI */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		1FF607461B9F380100614176 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				1F2B2F821BA872000075398D /* IDPStudyPlan */,
+				1FF607501B9F416A00614176 /* LaunchScreen.xib */,
+				1FF6074C1B9F414F00614176 /* Images.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		7E9262841BAABE6F00F89223 /* Macros */ = {
+			isa = PBXGroup;
+			children = (
+				7E9262851BAABE6F00F89223 /* VAPMacros.h */,
+			);
+			path = Macros;
+			sourceTree = "<group>";
+		};
+		7E9262871BAABED500F89223 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				7E9262881BAABED500F89223 /* UIViewController+VAPExtensions */,
+				7E92628B1BAABED500F89223 /* UIWindow+VAPExtensions */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
+		7E9262881BAABED500F89223 /* UIViewController+VAPExtensions */ = {
+			isa = PBXGroup;
+			children = (
+				7E9262891BAABED500F89223 /* UIViewController+VAPExtensions.h */,
+				7E92628A1BAABED500F89223 /* UIViewController+VAPExtensions.m */,
+			);
+			path = "UIViewController+VAPExtensions";
+			sourceTree = "<group>";
+		};
+		7E92628B1BAABED500F89223 /* UIWindow+VAPExtensions */ = {
+			isa = PBXGroup;
+			children = (
+				7E92628C1BAABED500F89223 /* UIWindow+VAPExtensions.h */,
+				7E92628D1BAABED500F89223 /* UIWindow+VAPExtensions.m */,
+			);
+			path = "UIWindow+VAPExtensions";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1FF6071B1B9F253000614176 /* GUITask1 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1FF6073F1B9F253100614176 /* Build configuration list for PBXNativeTarget "GUITask1" */;
+			buildPhases = (
+				1FF607181B9F253000614176 /* Sources */,
+				1FF607191B9F253000614176 /* Frameworks */,
+				1FF6071A1B9F253000614176 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GUITask1;
+			productName = GUITask1;
+			productReference = 1FF6071C1B9F253000614176 /* GUITask1.app */;
+			productType = "com.apple.product-type.application";
+		};
+		1FF607341B9F253100614176 /* GUITask1Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1FF607421B9F253100614176 /* Build configuration list for PBXNativeTarget "GUITask1Tests" */;
+			buildPhases = (
+				1FF607311B9F253100614176 /* Sources */,
+				1FF607321B9F253100614176 /* Frameworks */,
+				1FF607331B9F253100614176 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1FF607371B9F253100614176 /* PBXTargetDependency */,
+			);
+			name = GUITask1Tests;
+			productName = GUITask1Tests;
+			productReference = 1FF607351B9F253100614176 /* GUITask1Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1FF607141B9F253000614176 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = VAP;
+				LastUpgradeCheck = 0640;
+				ORGANIZATIONNAME = "Aleksandr Vasylchenko";
+				TargetAttributes = {
+					1FF6071B1B9F253000614176 = {
+						CreatedOnToolsVersion = 6.4;
+					};
+					1FF607341B9F253100614176 = {
+						CreatedOnToolsVersion = 6.4;
+						TestTargetID = 1FF6071B1B9F253000614176;
+					};
+				};
+			};
+			buildConfigurationList = 1FF607171B9F253000614176 /* Build configuration list for PBXProject "GUITask1" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 1FF607131B9F253000614176;
+			productRefGroup = 1FF6071D1B9F253000614176 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1FF6071B1B9F253000614176 /* GUITask1 */,
+				1FF607341B9F253100614176 /* GUITask1Tests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1FF6071A1B9F253000614176 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1FF607521B9F416A00614176 /* LaunchScreen.xib in Resources */,
+				1F2B2F8E1BA881190075398D /* VAPSquareHolderViewController.xib in Resources */,
+				1F2B2F831BA872000075398D /* IDPStudyPlan in Resources */,
+				1FF6074F1B9F414F00614176 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1FF607331B9F253100614176 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1FF607181B9F253000614176 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1FF607251B9F253000614176 /* VAPAppDelegate.m in Sources */,
+				7E92628F1BAABED500F89223 /* UIWindow+VAPExtensions.m in Sources */,
+				7E92628E1BAABED500F89223 /* UIViewController+VAPExtensions.m in Sources */,
+				1F2B2F8F1BA881190075398D /* VAPSquareView.m in Sources */,
+				1F2B2F8D1BA881190075398D /* VAPSquareHolderViewController.m in Sources */,
+				1FF607221B9F253000614176 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1FF607311B9F253100614176 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1FF6073C1B9F253100614176 /* GUITask1Tests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		1FF607371B9F253100614176 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1FF6071B1B9F253000614176 /* GUITask1 */;
+			targetProxy = 1FF607361B9F253100614176 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		1FF607501B9F416A00614176 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1FF607511B9F416A00614176 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		1FF6073D1B9F253100614176 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		1FF6073E1B9F253100614176 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		1FF607401B9F253100614176 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = GUITask1/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		1FF607411B9F253100614176 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = GUITask1/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		1FF607431B9F253100614176 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = GUITask1Tests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GUITask1.app/GUITask1";
+			};
+			name = Debug;
+		};
+		1FF607441B9F253100614176 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = GUITask1Tests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GUITask1.app/GUITask1";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1FF607171B9F253000614176 /* Build configuration list for PBXProject "GUITask1" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1FF6073D1B9F253100614176 /* Debug */,
+				1FF6073E1B9F253100614176 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1FF6073F1B9F253100614176 /* Build configuration list for PBXNativeTarget "GUITask1" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1FF607401B9F253100614176 /* Debug */,
+				1FF607411B9F253100614176 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1FF607421B9F253100614176 /* Build configuration list for PBXNativeTarget "GUITask1Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1FF607431B9F253100614176 /* Debug */,
+				1FF607441B9F253100614176 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 1FF607141B9F253000614176 /* Project object */;
+}

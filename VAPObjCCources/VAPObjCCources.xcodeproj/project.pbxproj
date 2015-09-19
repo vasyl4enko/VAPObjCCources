@@ -47,7 +47,6 @@
 
 /* Begin PBXFileReference section */
 		1F5474DA1B4AA5DC00157DE1 /* VAPObjCCources */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = VAPObjCCources; sourceTree = BUILT_PRODUCTS_DIR; };
-		1F670B9F1B4BF71B003E17DB /* IDPStudyPlan */ = {isa = PBXFileReference; lastKnownFileType = text; name = IDPStudyPlan; path = ../../Users/aleksandr/Dropbox/IDPStudyPlan; sourceTree = "<group>"; };
 		1F89EE5B1B5FDEDF00CCF016 /* VAPTestTarget.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VAPTestTarget.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F89EE5E1B5FDEDF00CCF016 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1F89EE5F1B5FDEDF00CCF016 /* VAPTestTarget.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VAPTestTarget.m; sourceTree = "<group>"; };
@@ -116,7 +115,6 @@
 		1F5474D11B4AA5DC00157DE1 = {
 			isa = PBXGroup;
 			children = (
-				1F670B9F1B4BF71B003E17DB /* IDPStudyPlan */,
 				1FCF2CC81B6CD57900991B97 /* VAPObjCCources */,
 				1F89EE5C1B5FDEDF00CCF016 /* VAPTestTarget */,
 				1F5474DB1B4AA5DC00157DE1 /* Products */,

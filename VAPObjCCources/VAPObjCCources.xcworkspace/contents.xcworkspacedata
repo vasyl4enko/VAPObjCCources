@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:GUITask1/GUITask1.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:VAPObjCCources.xcodeproj">
    </FileRef>
    <FileRef

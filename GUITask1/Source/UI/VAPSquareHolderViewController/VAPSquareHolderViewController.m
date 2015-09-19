@@ -32,7 +32,8 @@
 }
 
 - (IBAction)onMoveSquareView:(id)sender {
-    self.squareView.moving = !self.squareView.isMoving;
+    VAPSquareView *localView= self.squareView;
+    localView.moving = !localView.isMoving;
 }
 
 - (void)didReceiveMemoryWarning {

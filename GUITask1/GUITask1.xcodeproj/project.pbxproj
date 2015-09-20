@@ -75,6 +75,7 @@
 		1F2B2F841BA881190075398D /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				1FE38EEA1BADDB3C00CC5B57 /* Classes */,
 				7E9262871BAABED500F89223 /* Categories */,
 				7E9262841BAABE6F00F89223 /* Macros */,
 			);
@@ -99,6 +100,14 @@
 				1F2B2F8C1BA881190075398D /* VAPSquareView.m */,
 			);
 			path = VAPSquareHolderViewController;
+			sourceTree = "<group>";
+		};
+		1FE38EEA1BADDB3C00CC5B57 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Classes;
+			path = ../../../Task2/Source/Library/Classes;
 			sourceTree = "<group>";
 		};
 		1FF607131B9F253000614176 = {

@@ -8,6 +8,11 @@
 
 #import "VAPAppDelegate.h"
 
+#import "VAPRandomStringViewController.h"
+#import "UIWindow+VAPExtensions.h"
+#import "UIViewController+VAPExtensions.h"
+
+
 @interface VAPAppDelegate ()
 
 @end
@@ -16,6 +21,11 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    UIWindow *window = [UIWindow window];
+    self.window = window;
+    window.rootViewController = [VAPRandomStringViewController controller];
+    [window makeKeyAndVisible];
+    
     return YES;
 }
 

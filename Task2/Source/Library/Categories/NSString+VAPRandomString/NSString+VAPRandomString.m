@@ -37,7 +37,7 @@ NSUInteger const kVAPDefualtLength = 10;
         [randomString appendFormat:@"%C",charecter];
     }
     
-    return [self stringWithString:randomString];
+    return [[self stringWithString:randomString] copy];
 }
 
 + (id)uppercaseLatinAlphabet {

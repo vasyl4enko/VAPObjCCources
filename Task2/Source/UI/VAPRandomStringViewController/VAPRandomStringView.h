@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface VAPRandomStringView : UIView
-@property(nonatomic, strong)    IBOutlet UITableView    *tableView;
+@property(nonatomic, strong)    IBOutlet UITableView        *tableView;
+@property(nonatomic, strong)    IBOutlet UINavigationBar    *navigationBar;
 
 @end

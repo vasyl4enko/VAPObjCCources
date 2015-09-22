@@ -7,6 +7,9 @@
 //
 
 #import "VAPDataArray.h"
+#import "VAPData.h"
+
+static const NSUInteger kVAPCountRows = 10;
 
 @interface VAPDataArray ()
 @property (nonatomic, strong, readwrite)   NSMutableArray     *mutableData;
@@ -23,7 +26,13 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
+        
+        NSMutableArray *localData = [NSMutableArray new];
+        for (NSUInteger index = 0; index < kVAPCountRows; index++) {
+            [localData addObject:[VAPData new]];
+        }
         self.mutableData = [NSMutableArray new];
+        self.mutableData = localData;
     }
     
     return self;

@@ -15,8 +15,6 @@
 #import "VAPRandomStringCell.h"
 #import "VAPData.h"
 
-static const NSUInteger kVAPCountRows = 10;
-
 VAPViewControllerMainViewProperty(VAPRandomStringViewController, randomStringView, VAPRandomStringView);
 
 @implementation VAPRandomStringViewController
@@ -38,9 +36,7 @@ VAPViewControllerMainViewProperty(VAPRandomStringViewController, randomStringVie
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.dataArray = [VAPDataArray new];
-    for (NSUInteger index = 0; index < kVAPCountRows; index++) {
-        [self.dataArray addDataObject:[VAPData new]];
-    }
+
 }
 
 - (void)didReceiveMemoryWarning {

@@ -78,8 +78,8 @@ static const NSUInteger kVAPDelay = 0;
         self.animating = YES;
         VAPWeakify(self);
         [self setSquarePosition:squarePosition animated:YES completionHandler:^{
-            VAPStrongify(weakSelf);
-            [strongSelf animateSquareView];
+            VAPStrongifyAndReturnIfNil(self);
+            [self animateSquareView];
         }];
     }
 }

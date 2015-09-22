@@ -29,7 +29,6 @@
     return self;
 }
 
-
 #pragma mark -
 #pragma mark Accessors
 
@@ -68,6 +67,18 @@
     }
     
     return result;
+}
+
+- (void)removeObjectAtIndex:(NSUInteger)index {
+    [self.mutableData removeObjectAtIndex:index];
+}
+
+- (void)insertObject:(id)object atIndex:(NSUInteger)index {
+    [self.mutableData insertObject:object atIndex:index];
+}
+
+- (void)replaceObjectAtIndex:(NSUInteger)index withObject:(id)object {
+    [self.mutableData replaceObjectAtIndex:index withObject:object];
 }
 
 - (NSUInteger)count {

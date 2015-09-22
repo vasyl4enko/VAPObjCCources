@@ -6,11 +6,8 @@
 //  Copyright (c) 2015 Aleksandr Vasylchenko. All rights reserved.
 //
 
-#ifndef GUITask1_VAPMacros_h
-#define GUITask1_VAPMacros_h
-
-#ifndef GUITask1_VAPMacros_h
-#define GUITask1_VAPMacros_h
+#ifndef Task2_VAPMacros_h
+#define Task2_VAPMacros_h
 
 #define VAPWeakify(variable) \
     __weak typeof(variable) weak##variable = variable
@@ -29,6 +26,7 @@
 #define VAPMainViewProperty(propertyName, viewClass) \
     @property (nonatomic, readonly) viewClass   *propertyName;
 
+
 #define VAPViewGetterSynthesize(selector, viewClass) \
     - (viewClass *)selector { \
         if ([self isViewLoaded] && [self.view isKindOfClass:[viewClass class]]) { \
@@ -39,19 +37,17 @@
     }
 
 #define VAPViewControllerMainViewProperty(viewControllerClass, propertyName, viewClass) \
-    @interface viewControllerClass (viewClass##propertyName) \
+    @interface viewControllerClass (__##viewClass__##propertyName) \
     VAPMainViewProperty(propertyName, viewClass) \
     \
     @end \
     \
-    @implementation viewControllerClass (viewClass##propertyName) \
+    @implementation viewControllerClass (__##viewClass__##propertyName) \
     \
     @dynamic propertyName; \
     \
     VAPViewGetterSynthesize(propertyName, viewClass) \
     \
     @end
-
-#endif
 
 #endif

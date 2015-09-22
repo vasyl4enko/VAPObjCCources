@@ -18,6 +18,6 @@
 - (id)objectAtIndex:(NSUInteger)index;
 - (id)objectAtIndexedSubscript:(NSUInteger)index;
 
-- (NSUInteger)countOfData;
+- (NSUInteger)count;
 
 @end

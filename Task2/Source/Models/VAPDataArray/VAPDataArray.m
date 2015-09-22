@@ -47,9 +47,7 @@
 }
 
 - (void)removeObject:(id)object {
-    if ([self containsObject:object]) {
-        [self.mutableData removeObject:object];
-    }
+    [self.mutableData removeObject:object];
 }
 - (BOOL)containsObject:(id)object {
     return [self.mutableData containsObject:object];
@@ -57,15 +55,22 @@
 
 - (id)objectAtIndex:(NSUInteger)index {
     id result = nil;
-    if (self.countOfData > index) {
+    if (self.count > index) {
        result = [self.data objectAtIndex:index];
     }
     
     return result;
 }
-//- (id)objectAtIndexedSubscript:(NSUInteger)index;
+- (id)objectAtIndexedSubscript:(NSUInteger)index {
+    id result = nil;
+    if (self.count > index) {
+        result = [self.data objectAtIndex:index];
+    }
+    
+    return result;
+}
 
-- (NSUInteger)countOfData {
+- (NSUInteger)count {
     return self.mutableData.count;
 }
 

@@ -8,22 +8,18 @@
 
 #import "VAPRandomStringViewController.h"
 
-#import "VAPRandomStringView.h"
 #import "NSString+VAPRandomString.h"
+#import "VAPMacros.h"
+
+#import "VAPRandomStringView.h"
 #import "VAPRandomStringCell.h"
 #import "VAPData.h"
 
 static const NSUInteger kVAPCountRows = 30;
 
-@interface VAPRandomStringViewController ()
-@property (nonatomic, readonly)     VAPRandomStringView     *randomStringView;
-
-@end
+VAPViewControllerMainViewProperty(VAPRandomStringViewController, randomStringView, VAPRandomStringView);
 
 @implementation VAPRandomStringViewController
-
-@dynamic randomStringView;
-
 
 #pragma mark -
 #pragma mark Accessors
@@ -41,6 +37,7 @@ static const NSUInteger kVAPCountRows = 30;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    // в модели
     self.dataArray = [VAPDataArray new];
     for (NSUInteger index = 0; index < kVAPCountRows; index++) {
         [self.dataArray addDataObject:[VAPData new]];
@@ -60,8 +57,6 @@ static const NSUInteger kVAPCountRows = 30;
     return kVAPCountRows;
 }
 
-
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     NSString *string = @"VAPRandomStringCell";
     VAPRandomStringCell *cell = [tableView dequeueReusableCellWithIdentifier:string];
@@ -72,7 +67,7 @@ static const NSUInteger kVAPCountRows = 30;
         cell = [cells firstObject];
     }
     cell.sloupokLabel.text = [[dataArray objectAtIndex:indexPath.row] name];
-    cell.sloupokImage.image = [[dataArray objectAtIndex:indexPath.row] image];
+    cell.sloupokImage.image = [dataArray[indexPath.row] image];
 
     return cell;
 }

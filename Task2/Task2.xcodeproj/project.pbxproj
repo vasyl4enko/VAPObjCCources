@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F1FBBA81BB2148A005A3211 /* VAPDataArrayObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F1FBBA71BB2148A005A3211 /* VAPDataArrayObserver.m */; };
 		1F3935BE1BAA118600D5D95E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F3935BD1BAA118600D5D95E /* main.m */; };
 		1F3935C11BAA118600D5D95E /* VAPAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F3935C01BAA118600D5D95E /* VAPAppDelegate.m */; };
 		1F3935D81BAA118600D5D95E /* Task2Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F3935D71BAA118600D5D95E /* Task2Tests.m */; };
@@ -38,6 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1F1FBBA71BB2148A005A3211 /* VAPDataArrayObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VAPDataArrayObserver.m; sourceTree = "<group>"; };
 		1F3935B81BAA118600D5D95E /* Task2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Task2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F3935BC1BAA118600D5D95E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1F3935BD1BAA118600D5D95E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -304,6 +306,7 @@
 				1FE38F111BAF1BCA00CC5B57 /* VAPDataArray.h */,
 				1FE38F121BAF1BCA00CC5B57 /* VAPDataArray.m */,
 				1F5922511BB2029500DBFA4E /* VAPDataArrayObserver.h */,
+				1F1FBBA71BB2148A005A3211 /* VAPDataArrayObserver.m */,
 			);
 			path = VAPDataArray;
 			sourceTree = "<group>";
@@ -421,6 +424,7 @@
 				1F3935C11BAA118600D5D95E /* VAPAppDelegate.m in Sources */,
 				1FE38EF41BADE9A600CC5B57 /* VAPObservable.m in Sources */,
 				1FE38F051BAEC18D00CC5B57 /* VAPRandomStringCell.m in Sources */,
+				1F1FBBA81BB2148A005A3211 /* VAPDataArrayObserver.m in Sources */,
 				1F3935BE1BAA118600D5D95E /* main.m in Sources */,
 				1FE38F131BAF1BCA00CC5B57 /* VAPDataArray.m in Sources */,
 			);

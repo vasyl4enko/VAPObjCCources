@@ -8,6 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
+@class VAPDataArray;
+
 @protocol VAPDataArrayObserver <NSObject>
+
+- (void)dataArrayRemoveObject:(VAPDataArray *)dataArray atIndex:(NSUInteger)index;
 
 @end

@@ -15,7 +15,7 @@
 #import "VAPRandomStringCell.h"
 #import "VAPData.h"
 
-static const NSUInteger kVAPCountRows = 30;
+static const NSUInteger kVAPCountRows = 10;
 
 VAPViewControllerMainViewProperty(VAPRandomStringViewController, randomStringView, VAPRandomStringView);
 
@@ -37,12 +37,10 @@ VAPViewControllerMainViewProperty(VAPRandomStringViewController, randomStringVie
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // в модели
     self.dataArray = [VAPDataArray new];
     for (NSUInteger index = 0; index < kVAPCountRows; index++) {
         [self.dataArray addDataObject:[VAPData new]];
     }
-    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -53,8 +51,10 @@ VAPViewControllerMainViewProperty(VAPRandomStringViewController, randomStringVie
 #pragma mark -
 #pragma mark UITableViewDataSource
 
+
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return kVAPCountRows;
+    return self.dataArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -71,5 +71,18 @@ VAPViewControllerMainViewProperty(VAPRandomStringViewController, randomStringVie
 
     return cell;
 }
+
+
+- (void)    tableView:(UITableView *)tableView
+   commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
+    forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        [self.dataArray removeObjectAtIndex:indexPath.row];
+        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+    }
+}
+
+
 
 @end

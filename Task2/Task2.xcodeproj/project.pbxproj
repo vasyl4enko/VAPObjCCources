@@ -22,7 +22,7 @@
 		1FE38EFE1BADF75900CC5B57 /* VAPRandomStringView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FE38EFD1BADF75900CC5B57 /* VAPRandomStringView.m */; };
 		1FE38F051BAEC18D00CC5B57 /* VAPRandomStringCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FE38F031BAEC18D00CC5B57 /* VAPRandomStringCell.m */; };
 		1FE38F061BAEC18D00CC5B57 /* VAPRandomStringCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1FE38F041BAEC18D00CC5B57 /* VAPRandomStringCell.xib */; };
-		1FE38F091BAEE79100CC5B57 /* sloupok.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FE38F081BAEE79100CC5B57 /* sloupok.png */; };
+		1FE38F091BAEE79100CC5B57 /* Slowpoke.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FE38F081BAEE79100CC5B57 /* Slowpoke.png */; };
 		1FE38F101BAF13B300CC5B57 /* VAPData.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FE38F0F1BAF13B300CC5B57 /* VAPData.m */; };
 		1FE38F131BAF1BCA00CC5B57 /* VAPDataArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FE38F121BAF1BCA00CC5B57 /* VAPDataArray.m */; };
 		1FE38F161BAF1C1900CC5B57 /* VAPImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FE38F151BAF1C1900CC5B57 /* VAPImage.m */; };
@@ -67,7 +67,7 @@
 		1FE38F021BAEC18D00CC5B57 /* VAPRandomStringCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VAPRandomStringCell.h; sourceTree = "<group>"; };
 		1FE38F031BAEC18D00CC5B57 /* VAPRandomStringCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VAPRandomStringCell.m; sourceTree = "<group>"; };
 		1FE38F041BAEC18D00CC5B57 /* VAPRandomStringCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VAPRandomStringCell.xib; sourceTree = "<group>"; };
-		1FE38F081BAEE79100CC5B57 /* sloupok.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sloupok.png; sourceTree = "<group>"; };
+		1FE38F081BAEE79100CC5B57 /* Slowpoke.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Slowpoke.png; sourceTree = "<group>"; };
 		1FE38F0E1BAF13B300CC5B57 /* VAPData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VAPData.h; sourceTree = "<group>"; };
 		1FE38F0F1BAF13B300CC5B57 /* VAPData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VAPData.m; sourceTree = "<group>"; };
 		1FE38F111BAF1BCA00CC5B57 /* VAPDataArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VAPDataArray.h; sourceTree = "<group>"; };
@@ -287,7 +287,7 @@
 		1FE38F071BAEE76B00CC5B57 /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				1FE38F081BAEE79100CC5B57 /* sloupok.png */,
+				1FE38F081BAEE79100CC5B57 /* Slowpoke.png */,
 			);
 			path = Images;
 			sourceTree = "<group>";
@@ -401,7 +401,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1FE38ED71BADCEA500CC5B57 /* LaunchScreen.xib in Resources */,
-				1FE38F091BAEE79100CC5B57 /* sloupok.png in Resources */,
+				1FE38F091BAEE79100CC5B57 /* Slowpoke.png in Resources */,
 				1FE38ED81BADCEA500CC5B57 /* IDPStudyPlan in Resources */,
 				1FE38ED91BADCEA500CC5B57 /* Images.xcassets in Resources */,
 				1FE38F061BAEC18D00CC5B57 /* VAPRandomStringCell.xib in Resources */,

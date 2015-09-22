@@ -58,7 +58,7 @@
 - (id)objectAtIndex:(NSUInteger)index {
     id result = nil;
     if (self.countOfData > index) {
-        [self.data objectAtIndex:index];
+       result = [self.data objectAtIndex:index];
     }
     
     return result;
@@ -66,7 +66,7 @@
 //- (id)objectAtIndexedSubscript:(NSUInteger)index;
 
 - (NSUInteger)countOfData {
-    return self.data.count;
+    return self.mutableData.count;
 }
 
 @end

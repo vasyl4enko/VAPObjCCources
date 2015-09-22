@@ -11,6 +11,10 @@
 #import "NSString+VAPRandomString.h"
 #import "VAPImage.h"
 
+NSString * const kSlowpokeName = @"Slowpoke";
+NSString * const kPNGExtension = @"png";
+
+
 @interface VAPData ()
 @property (nonatomic, strong)     NSString    *name;
 @property (nonatomic, strong)     NSURL       *url;
@@ -27,7 +31,7 @@
     self = [super init];
     if (self) {
         self.name = [NSString randomString];
-        self.url = [[NSBundle mainBundle] URLForResource:@"sloupok" withExtension:@"png"];
+        self.url = [[NSBundle mainBundle] URLForResource:kSlowpokeName withExtension:kPNGExtension];
     }
     
     return self;

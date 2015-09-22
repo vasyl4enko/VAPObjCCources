@@ -9,15 +9,11 @@
 #import "VAPData.h"
 
 #import "NSString+VAPRandomString.h"
-#import "VAPImage.h"
 
 NSString * const kSlowpokeName = @"Slowpoke";
-NSString * const kPNGExtension = @"png";
-
 
 @interface VAPData ()
 @property (nonatomic, strong)     NSString    *name;
-@property (nonatomic, strong)     NSURL       *url;
 @property (nonatomic, strong)     UIImage     *image;
 
 @end
@@ -31,21 +27,10 @@ NSString * const kPNGExtension = @"png";
     self = [super init];
     if (self) {
         self.name = [NSString randomString];
-        self.url = [[NSBundle mainBundle] URLForResource:kSlowpokeName withExtension:kPNGExtension];
+        self.image = [UIImage imageNamed:kSlowpokeName];
     }
     
     return self;
-}
-
-#pragma mark -
-#pragma mark Accessors
-
-- (UIImage *)image {
-    if (!_image) {
-        _image = [VAPImage loadImageWithURL:self.url];
-    }
-    
-    return _image;
 }
 
 @end

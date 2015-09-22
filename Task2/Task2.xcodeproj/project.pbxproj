@@ -25,7 +25,6 @@
 		1FE38F091BAEE79100CC5B57 /* Slowpoke.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FE38F081BAEE79100CC5B57 /* Slowpoke.png */; };
 		1FE38F101BAF13B300CC5B57 /* VAPData.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FE38F0F1BAF13B300CC5B57 /* VAPData.m */; };
 		1FE38F131BAF1BCA00CC5B57 /* VAPDataArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FE38F121BAF1BCA00CC5B57 /* VAPDataArray.m */; };
-		1FE38F161BAF1C1900CC5B57 /* VAPImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FE38F151BAF1C1900CC5B57 /* VAPImage.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,8 +71,6 @@
 		1FE38F0F1BAF13B300CC5B57 /* VAPData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VAPData.m; sourceTree = "<group>"; };
 		1FE38F111BAF1BCA00CC5B57 /* VAPDataArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VAPDataArray.h; sourceTree = "<group>"; };
 		1FE38F121BAF1BCA00CC5B57 /* VAPDataArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VAPDataArray.m; sourceTree = "<group>"; };
-		1FE38F141BAF1C1900CC5B57 /* VAPImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VAPImage.h; sourceTree = "<group>"; };
-		1FE38F151BAF1C1900CC5B57 /* VAPImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VAPImage.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -267,7 +264,6 @@
 		1FE38F001BAEB5A100CC5B57 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				1FE38F0D1BAF09AE00CC5B57 /* VAPImage */,
 				1FE38F0C1BAF08D800CC5B57 /* VAPDataArray */,
 				1FE38F0A1BAF08CD00CC5B57 /* VAPData */,
 			);
@@ -308,15 +304,6 @@
 				1FE38F121BAF1BCA00CC5B57 /* VAPDataArray.m */,
 			);
 			path = VAPDataArray;
-			sourceTree = "<group>";
-		};
-		1FE38F0D1BAF09AE00CC5B57 /* VAPImage */ = {
-			isa = PBXGroup;
-			children = (
-				1FE38F141BAF1C1900CC5B57 /* VAPImage.h */,
-				1FE38F151BAF1C1900CC5B57 /* VAPImage.m */,
-			);
-			path = VAPImage;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -434,7 +421,6 @@
 				1FE38F051BAEC18D00CC5B57 /* VAPRandomStringCell.m in Sources */,
 				1F3935BE1BAA118600D5D95E /* main.m in Sources */,
 				1FE38F131BAF1BCA00CC5B57 /* VAPDataArray.m in Sources */,
-				1FE38F161BAF1C1900CC5B57 /* VAPImage.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,8 +10,8 @@
 
 #import "VAPMacros.h"
 
-NSUInteger const kVAPAnimatedDuration = 2;
-NSUInteger const kVAPDelay = 0;
+static const NSUInteger kVAPAnimatedDuration = 2;
+static const NSUInteger kVAPDelay = 0;
 
 @interface VAPSquareView ()
 @property (nonatomic, assign, getter = isAnimating) BOOL animating;

@@ -8,12 +8,9 @@
 
 #import "NSString+VAPRandomString.h"
 
-
-NSUInteger const kVAPDefualtLength = 10;
-
+static const NSUInteger kVAPDefualtLength = 10;
 
 @implementation NSString (VAPRandomString)
-
 
 + (id)randomString {
     NSString *result = [self randomStringWithLength:kVAPDefualtLength];

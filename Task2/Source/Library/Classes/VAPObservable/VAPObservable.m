@@ -7,7 +7,6 @@
 //
 
 #import "VAPObservable.h"
-#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
 
 @interface VAPObservable ()
 @property(nonatomic, strong)    NSHashTable     *mutableObservers;
@@ -48,6 +47,9 @@
 - (void)notifyObserversWithSelector:(SEL)selector withObject:(id)object {
     [self notifyObserversWithSelector:selector withObject:object withObject:nil];
 }
+
+#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
+
 - (void)notifyObserversWithSelector:(SEL)selector withObject:(id)object withObject:(id)object2 {
     NSArray *observers = [self.mutableObservers allObjects];
     for (id observer in observers) {

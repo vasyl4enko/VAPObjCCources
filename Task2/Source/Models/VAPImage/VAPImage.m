@@ -7,10 +7,8 @@
 //
 
 #import "VAPImage.h"
-@import UIKit;
 
 @implementation VAPImage
-
 
 #pragma mark -
 #pragma mark Class methods

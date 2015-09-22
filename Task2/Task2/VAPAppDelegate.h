@@ -9,7 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface VAPAppDelegate : UIResponder <UIApplicationDelegate>
-
 @property (nonatomic, strong) UIWindow *window;
 
 @end

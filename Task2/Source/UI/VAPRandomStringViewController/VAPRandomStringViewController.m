@@ -13,7 +13,7 @@
 #import "VAPRandomStringCell.h"
 #import "VAPData.h"
 
-NSUInteger const kVAPCountRows = 30;
+static const NSUInteger kVAPCountRows = 30;
 
 @interface VAPRandomStringViewController ()
 @property (nonatomic, readonly)     VAPRandomStringView     *randomStringView;
@@ -76,9 +76,5 @@ NSUInteger const kVAPCountRows = 30;
 
     return cell;
 }
-
-
-
-
 
 @end

@@ -11,6 +11,7 @@
 #import "NSString+VAPRandomString.h"
 #import "VAPMacros.h"
 
+#import "VAPModelChanges.h"
 #import "VAPRandomStringView.h"
 #import "VAPRandomStringCell.h"
 #import "VAPData.h"
@@ -39,6 +40,7 @@ VAPViewControllerMainViewProperty(VAPRandomStringViewController, randomStringVie
     
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
                                                                                target:self action:@selector(addItem:)];
+    [self.dataArray addObserver:self];
     [self.navigationItem setRightBarButtonItem:addButton];
     [self.randomStringView.tableView reloadData];
 }
@@ -90,15 +92,32 @@ VAPViewControllerMainViewProperty(VAPRandomStringViewController, randomStringVie
    commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
     forRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    [self deleteRowAtIndexPath:editingStyle];
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         [self.dataArray removeObjectAtIndex:indexPath.row];
         [NSIndexPath indexPathWithIndex:1];
 //        [self.randomStringView.tableView deleteRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:1 inSection:0]]
 //                                               withRowAnimation:UITableViewRowAnimationFade];
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        
     }
 }
 
+#pragma mark -
+#pragma mark
 
+- (void)deleteRowAtIndexPath:(UITableViewCellEditingStyle)editingStyle  {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        self.styleDelete = UITableViewCellEditingStyleDelete;
+    }
+}
+
+- (void)dataArrayChanged:(VAPDataArray *)dataArray modelChanges:(id)model {
+//    self.randomStringView.tableView.
+    if (self.styleDelete) {
+        VAPModelChanges *object = (VAPModelChanges *)model;
+        [self.randomStringView.tableView deleteRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:object.fromVar inSection:0]]
+                                               withRowAnimation:UITableViewRowAnimationFade];
+    }
+}
 
 @end

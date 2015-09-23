@@ -7,6 +7,8 @@
 //
 
 #import "VAPDataArray.h"
+
+#import "VAPModelChanges.h"
 #import "VAPData.h"
 
 static const NSUInteger kVAPCountRows = 10;
@@ -26,12 +28,11 @@ static const NSUInteger kVAPCountRows = 10;
 - (instancetype)init {
     self = [super init];
     if (self) {
-        
         NSMutableArray *localData = [NSMutableArray new];
         for (NSUInteger index = 0; index < kVAPCountRows; index++) {
             [localData addObject:[VAPData new]];
         }
-        self.mutableData = [NSMutableArray new];
+        
         self.mutableData = localData;
     }
     
@@ -80,6 +81,10 @@ static const NSUInteger kVAPCountRows = 10;
 
 - (void)removeObjectAtIndex:(NSUInteger)index {
     [self.mutableData removeObjectAtIndex:index];
+    VAPModelChanges *model = [VAPModelChanges setupModelWithFromVar:index toVar:0];
+    [self notifyObserversWithSelector:@selector(dataArrayChanged:modelChanges:)
+                           withObject:self.mutableData
+                           withObject:model];
 }
 
 - (void)insertObject:(id)object atIndex:(NSUInteger)index {

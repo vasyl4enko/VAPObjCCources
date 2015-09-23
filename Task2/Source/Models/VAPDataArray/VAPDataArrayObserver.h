@@ -12,6 +12,6 @@
 
 @protocol VAPDataArrayObserver <NSObject>
 
-- (void)dataArrayRemoveObject:(VAPDataArray *)dataArray atIndex:(NSUInteger)index;
+- (void)dataArrayChanged:(VAPDataArray *)dataArray modelChanges:(id)model;
 
 @end

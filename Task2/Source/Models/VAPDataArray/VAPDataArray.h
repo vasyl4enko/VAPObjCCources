@@ -11,6 +11,7 @@
 @interface VAPDataArray : VAPObservable
 @property (nonatomic, readonly)     NSArray     *data;
 
+
 - (void)addDataObject:(id)object;
 - (void)removeObject:(id)object;
 - (BOOL)containsObject:(id)object;

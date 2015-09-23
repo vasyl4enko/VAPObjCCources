@@ -27,10 +27,21 @@ NSString * const kSlowpokeName = @"Slowpoke";
     self = [super init];
     if (self) {
         self.name = [NSString randomString];
-        self.image = [UIImage imageNamed:kSlowpokeName];
     }
     
     return self;
 }
+
+#pragma mark -
+#pragma mark Accessors
+
+- (UIImage *)image {
+    if (!_image) {
+        _image = [UIImage imageNamed:kSlowpokeName];
+    }
+    
+    return _image;
+}
+
 
 @end

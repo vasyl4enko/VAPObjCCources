@@ -36,7 +36,11 @@ VAPViewControllerMainViewProperty(VAPRandomStringViewController, randomStringVie
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.dataArray = [VAPDataArray new];
-
+    
+    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
+                                                                               target:self action:@selector(addItem:)];
+    [self.navigationItem setRightBarButtonItem:addButton];
+    [self.randomStringView.tableView reloadData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -45,9 +49,21 @@ VAPViewControllerMainViewProperty(VAPRandomStringViewController, randomStringVie
 }
 
 #pragma mark -
+#pragma mark Private Methods
+
+- (void)addItem:(id)sender {
+    VAPDataArray *dataArray  = self.dataArray;
+    NSIndexPath *localIndexPath = [NSIndexPath indexPathForRow:dataArray.count inSection:0];
+    VAPData *data = [VAPData new];
+    [self.dataArray insertObject:data atIndex:dataArray.count - 1];
+    //need cell[dataArray.count - 1]
+    [self.randomStringView.tableView insertRowsAtIndexPaths:@[localIndexPath]
+                                           withRowAnimation:UITableViewRowAnimationFade];
+    
+}
+
+#pragma mark -
 #pragma mark UITableViewDataSource
-
-
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.dataArray.count;
@@ -62,12 +78,13 @@ VAPViewControllerMainViewProperty(VAPRandomStringViewController, randomStringVie
         NSArray *cells = [nib instantiateWithOwner:nil options:nil];
         cell = [cells firstObject];
     }
+    
+    
     cell.sloupokLabel.text = [[dataArray objectAtIndex:indexPath.row] name];
     cell.sloupokImage.image = [dataArray[indexPath.row] image];
 
     return cell;
 }
-
 
 - (void)    tableView:(UITableView *)tableView
    commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
@@ -75,6 +92,9 @@ VAPViewControllerMainViewProperty(VAPRandomStringViewController, randomStringVie
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         [self.dataArray removeObjectAtIndex:indexPath.row];
+        [NSIndexPath indexPathWithIndex:1];
+//        [self.randomStringView.tableView deleteRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:1 inSection:0]]
+//                                               withRowAnimation:UITableViewRowAnimationFade];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     }
 }

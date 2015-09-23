@@ -10,11 +10,11 @@
 #define Task2_VAPMacros_h
 
 #define VAPWeakify(variable) \
-    __weak typeof(variable) weak##variable = variable
+    __weak typeof(variable) __VAPWeak__##__##variable = variable
 
 
 #define VAPStrongify(variable) \
-    __strong typeof(variable) variable = weak##variable
+    __strong typeof(variable) variable = __VAPWeak__##__##variable
 
 #define VAPStrongifyAndReturnIfNil(variable) \
     VAPStrongify(variable); \

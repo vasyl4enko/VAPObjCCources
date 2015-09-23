@@ -11,7 +11,11 @@
 @implementation UIViewController (VAPExtensions)
 
 + (id)controller {
-    return [[self alloc] initWithNibName:nil bundle:nil];
+    return [[self alloc] initWithNibName:[self nibName] bundle:nil];
+}
+
++ (id)nibName {
+    return nil;
 }
 
 @end

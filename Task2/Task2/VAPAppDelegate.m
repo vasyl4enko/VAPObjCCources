@@ -23,7 +23,9 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     UIWindow *window = [UIWindow window];
     self.window = window;
-    window.rootViewController = [VAPRandomStringViewController controller];
+    VAPRandomStringViewController *randomStringViewController = [VAPRandomStringViewController controller];
+    
+    window.rootViewController = [[UINavigationController alloc] initWithRootViewController:randomStringViewController];
     [window makeKeyAndVisible];
     
     return YES;

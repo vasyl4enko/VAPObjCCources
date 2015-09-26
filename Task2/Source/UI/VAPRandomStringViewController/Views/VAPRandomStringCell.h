@@ -8,8 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
+@class VAPData;
+
 @interface VAPRandomStringCell : UITableViewCell
-@property (nonatomic, strong)   IBOutlet UILabel         *sloupokLabel;
-@property (nonatomic, strong)   IBOutlet UIImageView     *sloupokImage;
+@property (nonatomic, strong)   IBOutlet UILabel        *sloupokLabel;
+@property (nonatomic, strong)   IBOutlet UIImageView    *sloupokImage;
+
+@property (nonatomic, strong)   VAPData                 *slowpokeData;
+
+- (void)fillWithData:(VAPData *)data;
 
 @end

@@ -15,7 +15,7 @@
 #import "VAPRandomStringView.h"
 #import "VAPRandomStringCell.h"
 #import "VAPData.h"
-
+#import "UITableView+VAPExtensions.h"
 VAPViewControllerMainViewProperty(VAPRandomStringViewController, randomStringView, VAPRandomStringView);
 
 @implementation VAPRandomStringViewController
@@ -90,19 +90,9 @@ VAPViewControllerMainViewProperty(VAPRandomStringViewController, randomStringVie
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSString *string = @"VAPRandomStringCell";
-    VAPRandomStringCell *cell = [tableView dequeueReusableCellWithIdentifier:string];
-    VAPDataArray *dataArray = self.dataArray;
-    if (!cell) {
-        UINib *nib = [UINib nibWithNibName:string bundle:nil];
-        NSArray *cells = [nib instantiateWithOwner:nil options:nil];
-        cell = [cells firstObject];
-    }
+    VAPRandomStringCell *cell = [tableView dequeueCellWithClass:[VAPRandomStringCell class]];
+    cell.slowpokeData = self.dataArray[indexPath.row];
     
-    
-    cell.sloupokLabel.text = [[dataArray objectAtIndex:indexPath.row] name];
-    cell.sloupokImage.image = [dataArray[indexPath.row] image];
-
     return cell;
 }
 

@@ -7,12 +7,27 @@
 //
 
 #import "VAPRandomStringCell.h"
+#import "VAPData.h"
 
 @implementation VAPRandomStringCell
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
+#pragma mark -
+#pragma mark Accessors
 
+- (void)setSlowpokeData:(VAPData *)slowpokeData {
+    if (_slowpokeData != slowpokeData) {
+        _slowpokeData = slowpokeData;
+        
+        [self fillWithData:_slowpokeData];
+    }
+}
+
+#pragma mark -
+#pragma mark Public Methods
+
+- (void)fillWithData:(VAPData *)data {
+    self.sloupokImage.image = data.image;
+    self.sloupokLabel.text = data.name;
 }
 
 @end

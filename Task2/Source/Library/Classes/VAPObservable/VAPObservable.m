@@ -48,6 +48,7 @@
     [self notifyObserversWithSelector:selector withObject:object withObject:nil];
 }
 
+#pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Warc-performSelector-leaks"
 
 - (void)notifyObserversWithSelector:(SEL)selector withObject:(id)object withObject:(id)object2 {
@@ -67,5 +68,7 @@
         }
     }
 }
+
+#pragma clang diagnostic pop
 
 @end

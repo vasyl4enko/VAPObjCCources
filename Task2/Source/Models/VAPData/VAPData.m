@@ -10,15 +10,19 @@
 
 #import "NSString+VAPRandomString.h"
 
-NSString * const kSlowpokeName = @"Slowpoke";
+static NSString * const kSlowpokeName = @"Slowpoke";
+static NSString * const kPNGExtension = @"png";
+static UIImage * slowPokeImage;
 
 @interface VAPData ()
 @property (nonatomic, strong)     NSString    *name;
-@property (nonatomic, strong)     UIImage     *image;
+@property (nonatomic, strong)     NSURL       *url;
 
 @end
 
 @implementation VAPData
+
+@dynamic image;
 
 #pragma mark -
 #pragma mark Initializations and Deallocations
@@ -27,6 +31,7 @@ NSString * const kSlowpokeName = @"Slowpoke";
     self = [super init];
     if (self) {
         self.name = [NSString randomString];
+        self.url = [[NSBundle mainBundle] URLForResource:kSlowpokeName withExtension:kPNGExtension];
     }
     
     return self;
@@ -36,11 +41,13 @@ NSString * const kSlowpokeName = @"Slowpoke";
 #pragma mark Accessors
 
 - (UIImage *)image {
-    if (!_image) {
-        _image = [UIImage imageNamed:kSlowpokeName];
-    }
-    
-    return _image;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+            NSData *fileFromUrl = [NSData dataWithContentsOfURL:self.url];
+            slowPokeImage = [UIImage imageWithData:fileFromUrl];
+    });
+
+    return slowPokeImage;
 }
 
 

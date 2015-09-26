@@ -8,12 +8,12 @@
 
 #import "NSIndexPath+VAPExtensions.h"
 
-static const NSUInteger VAPMagicNumber = 0;
+static const NSUInteger kVAPMagicNumber = 0;
 
 @implementation NSIndexPath (VAPExtensions)
 
 + (id)indexPathForRow:(NSUInteger)index {
-   return [self indexPathForRow:index inSection:VAPMagicNumber];
+   return [self indexPathForRow:index inSection:kVAPMagicNumber];
 }
 
 @end

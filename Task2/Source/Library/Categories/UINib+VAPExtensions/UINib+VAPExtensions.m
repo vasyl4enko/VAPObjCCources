@@ -25,12 +25,12 @@
     return [nib instantiateWithOwner:ownerOrNil options:nil];
 }
 
-- (id)instantiateViewWithClass:(Class)cls {
-    return [self instantiateViewWithClass:cls owner:nil];
+- (id)instantiateCellWithClass:(Class)cls {
+    return [self instantiateCellWithClass:cls owner:nil];
 
 }
 
-- (id)instantiateViewWithClass:(Class)cls owner:(id)ownerOrNil {
+- (id)instantiateCellWithClass:(Class)cls owner:(id)ownerOrNil {
     NSArray *objects = [self instantiateWithClass:cls owner:ownerOrNil];
     for (id object in objects) {
         if ([object isMemberOfClass:cls]) {

@@ -15,6 +15,7 @@
 		1F4898951BB5E42300D7BAAF /* NSIndexPath+VAPExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F4898941BB5E42300D7BAAF /* NSIndexPath+VAPExtensions.m */; };
 		1F748A5F1BB6FCBA0008A6FF /* VAPTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F748A5E1BB6FCBA0008A6FF /* VAPTableViewCell.m */; };
 		1F748A661BB727770008A6FF /* UINib+VAPExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F748A651BB727770008A6FF /* UINib+VAPExtensions.m */; };
+		1F748A6A1BB735F50008A6FF /* UITableView+VAPExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F748A691BB735F50008A6FF /* UITableView+VAPExtensions.m */; };
 		1F74DF1B1BB33AFE003DCE79 /* VAPModelChanges.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F74DF1A1BB33AFE003DCE79 /* VAPModelChanges.m */; };
 		1FE38ECC1BADCE9E00CC5B57 /* NSString+VAPRandomString.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FE38EBC1BADCE9E00CC5B57 /* NSString+VAPRandomString.m */; };
 		1FE38ECD1BADCE9E00CC5B57 /* UIViewController+VAPExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FE38EBF1BADCE9E00CC5B57 /* UIViewController+VAPExtensions.m */; };
@@ -63,6 +64,8 @@
 		1F748A5E1BB6FCBA0008A6FF /* VAPTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VAPTableViewCell.m; sourceTree = "<group>"; };
 		1F748A641BB727770008A6FF /* UINib+VAPExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINib+VAPExtensions.h"; sourceTree = "<group>"; };
 		1F748A651BB727770008A6FF /* UINib+VAPExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINib+VAPExtensions.m"; sourceTree = "<group>"; };
+		1F748A681BB735F50008A6FF /* UITableView+VAPExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+VAPExtensions.h"; sourceTree = "<group>"; };
+		1F748A691BB735F50008A6FF /* UITableView+VAPExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+VAPExtensions.m"; sourceTree = "<group>"; };
 		1F74DF191BB33AFE003DCE79 /* VAPModelChanges.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VAPModelChanges.h; sourceTree = "<group>"; };
 		1F74DF1A1BB33AFE003DCE79 /* VAPModelChanges.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VAPModelChanges.m; sourceTree = "<group>"; };
 		1FE38EBB1BADCE9E00CC5B57 /* NSString+VAPRandomString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+VAPRandomString.h"; sourceTree = "<group>"; };
@@ -204,6 +207,15 @@
 			path = "UINib+VAPExtensions";
 			sourceTree = "<group>";
 		};
+		1F748A671BB735BF0008A6FF /* UITableView+VAPExtensions */ = {
+			isa = PBXGroup;
+			children = (
+				1F748A681BB735F50008A6FF /* UITableView+VAPExtensions.h */,
+				1F748A691BB735F50008A6FF /* UITableView+VAPExtensions.m */,
+			);
+			path = "UITableView+VAPExtensions";
+			sourceTree = "<group>";
+		};
 		1F74DF181BB337FF003DCE79 /* VAPModelChanges */ = {
 			isa = PBXGroup;
 			children = (
@@ -236,6 +248,7 @@
 		1FE38EB91BADCE9E00CC5B57 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				1F748A671BB735BF0008A6FF /* UITableView+VAPExtensions */,
 				1F748A601BB726A10008A6FF /* UINib+VAPExtensions */,
 				1F4898921BB5E3DE00D7BAAF /* NSIndexPath+VAPExtensions */,
 				1FE38EBA1BADCE9E00CC5B57 /* NSString+VAPRandomString */,
@@ -500,6 +513,7 @@
 				1FE38EFE1BADF75900CC5B57 /* VAPRandomStringView.m in Sources */,
 				1FE38F101BAF13B300CC5B57 /* VAPData.m in Sources */,
 				1FE38ECD1BADCE9E00CC5B57 /* UIViewController+VAPExtensions.m in Sources */,
+				1F748A6A1BB735F50008A6FF /* UITableView+VAPExtensions.m in Sources */,
 				1FE38ECC1BADCE9E00CC5B57 /* NSString+VAPRandomString.m in Sources */,
 				1F3935C11BAA118600D5D95E /* VAPAppDelegate.m in Sources */,
 				1FE38EF41BADE9A600CC5B57 /* VAPObservable.m in Sources */,

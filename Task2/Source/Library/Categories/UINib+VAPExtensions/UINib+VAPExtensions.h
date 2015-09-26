@@ -15,7 +15,7 @@
 - (NSArray *)instantiateWithClass:(Class)cls;
 - (NSArray *)instantiateWithClass:(Class)cls owner:(id)ownerOrNil;
 
-- (id)instantiateViewWithClass:(Class)cls;
-- (id)instantiateViewWithClass:(Class)cls owner:(id)ownerOrNil;
+- (id)instantiateCellWithClass:(Class)cls;
+- (id)instantiateCellWithClass:(Class)cls owner:(id)ownerOrNil;
 
 @end

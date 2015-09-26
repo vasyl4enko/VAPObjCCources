@@ -24,6 +24,7 @@
     UIWindow *window = [UIWindow window];
     self.window = window;
     VAPRandomStringViewController *randomStringViewController = [VAPRandomStringViewController controller];
+    randomStringViewController.dataArray = [VAPDataArray new];
     
     window.rootViewController = [[UINavigationController alloc] initWithRootViewController:randomStringViewController];
     [window makeKeyAndVisible];

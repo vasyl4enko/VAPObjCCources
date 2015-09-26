@@ -21,6 +21,14 @@ VAPViewControllerMainViewProperty(VAPRandomStringViewController, randomStringVie
 @implementation VAPRandomStringViewController
 
 #pragma mark -
+#pragma mark Initializations and Deallocatons
+
+- (void)dealloc
+{
+    self.dataArray = nil;
+}
+
+#pragma mark -
 #pragma mark Accessors
 
 - (VAPRandomStringView *)randomStringView {
@@ -31,16 +39,26 @@ VAPViewControllerMainViewProperty(VAPRandomStringViewController, randomStringVie
     return nil;
 }
 
+- (void)setDataArray:(VAPDataArray *)dataArray {
+    if ([_dataArray containsObserver:self]) {
+        [_dataArray removeObserver:self];
+    }
+    
+    if (_dataArray != dataArray) {
+        _dataArray = dataArray;
+        [_dataArray addObserver:self];
+    }
+}
+
 #pragma mark -
 #pragma mark View Lifecycle
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.dataArray = [VAPDataArray new];
     
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
                                                                                target:self action:@selector(addItem:)];
-    [self.dataArray addObserver:self];
+    
     [self.navigationItem setRightBarButtonItem:addButton];
     [self.randomStringView.tableView reloadData];
 }

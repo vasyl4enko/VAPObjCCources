@@ -22,6 +22,7 @@
         return; \
     }
 
+//#define VAPStrongifyAndReturnIfNilIfNil(variable) 
 
 #define VAPMainViewProperty(propertyName, viewClass) \
     @property (nonatomic, readonly) viewClass   *propertyName;

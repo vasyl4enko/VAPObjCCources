@@ -8,14 +8,15 @@
 
 #import "VAPArray.h"
 
+#import "VAPChangesModel.h"
+#import "VAPArrayObserver.h"
+
 @interface VAPArray ()
 @property (nonatomic, strong)     NSMutableArray     *mutableData;
 
 @end
 
 @implementation VAPArray
-
-@dynamic data;
 
 #pragma mark -
 #pragma mark Initializations and Deallocations
@@ -73,19 +74,39 @@
 
 - (void)removeObjectAtIndex:(NSUInteger)index {
     [self.mutableData removeObjectAtIndex:index];
+    
+    VAPChangesModel *model = [VAPChangesModel modelChangesFromIndex:index arrayState:VAPArrayStatesDelete];
+    [self notifyObserversWithSelector:@selector(dataArrayDidChanged:modelChanges:)
+                           withObject:self.mutableData
+                           withObject:model];
 }
 
 - (void)insertObject:(id)object atIndex:(NSUInteger)index {
     [self.mutableData insertObject:object atIndex:index];
+    
+    VAPChangesModel *model = [VAPChangesModel modelChangesFromIndex:index arrayState:VAPArrayStatesInsert];
+    [self notifyObserversWithSelector:@selector(dataArrayDidChanged:modelChanges:)
+                           withObject:self.mutableData
+                           withObject:model];
+    
 }
 
 - (void)replaceObjectAtIndex:(NSUInteger)index withObject:(id)object {
     [self.mutableData replaceObjectAtIndex:index withObject:object];
 }
 
-- (void)moveObjectFromIndex:(NSUInteger)index toIndex:(NSUInteger)toIndex withObject:(id)object {
+- (void)moveObjectFromIndex:(NSUInteger)index toIndex:(NSUInteger)toIndex {
+    id object = [self.mutableData objectAtIndex:index];
     [self.mutableData removeObjectAtIndex:index];
-    [self.mutableData insertObject:object atIndex:index];
+    [self.mutableData insertObject:object atIndex:toIndex];
+    
+    
+    VAPChangesModel *model = [VAPChangesModel modelChangesFromIndex:index
+                                                            toIndex:toIndex
+                                                         arrayState:VAPArrayStatesMove];
+    [self notifyObserversWithSelector:@selector(dataArrayDidChanged:modelChanges:)
+                           withObject:self.mutableData
+                           withObject:model];
 }
 
 - (NSUInteger)count {

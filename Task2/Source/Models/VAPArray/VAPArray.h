@@ -9,7 +9,6 @@
 #import "VAPObservable.h"
 
 @interface VAPArray : VAPObservable
-@property (nonatomic, readonly)     NSArray     *data;
 
 - (void)addDataObject:(id)object;
 - (void)removeObject:(id)object;
@@ -20,7 +19,7 @@
 - (void)removeObjectAtIndex:(NSUInteger)index;
 - (void)insertObject:(id)object atIndex:(NSUInteger)index;
 - (void)replaceObjectAtIndex:(NSUInteger)index withObject:(id)object;
-- (void)moveObjectFromIndex:(NSUInteger)index toIndex:(NSUInteger)toIndex withObject:(id)object;
+- (void)moveObjectFromIndex:(NSUInteger)index toIndex:(NSUInteger)toIndex;
 
 - (NSUInteger)count;
 

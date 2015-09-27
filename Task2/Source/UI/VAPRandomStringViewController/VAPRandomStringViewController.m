@@ -73,13 +73,14 @@ VAPViewControllerMainViewProperty(VAPRandomStringViewController, randomStringVie
 
 - (void)addItem:(id)sender {
     VAPDataArray *dataArray  = self.dataArray;
-    NSIndexPath *localIndexPath = [NSIndexPath indexPathForRow:dataArray.count inSection:0];
+    NSIndexPath *localIndexPath = [NSIndexPath indexPathForRow:dataArray.count - 1 inSection:0];
     VAPData *data = [VAPData new];
-    [self.dataArray insertObject:data atIndex:dataArray.count - 1];
-    //need cell[dataArray.count - 1]
-    [self.randomStringView.tableView insertRowsAtIndexPaths:@[localIndexPath]
-                                           withRowAnimation:UITableViewRowAnimationFade];
+    UITableView *tableView = self.randomStringView.tableView;
+    VAPRandomStringCell *cell = [tableView dequeueCellWithClass:[VAPRandomStringCell class]];
     
+    [self.dataArray insertObject:data atIndex:localIndexPath.row];
+    cell.slowpokeData = self.dataArray[localIndexPath.row];
+    [tableView insertRowsAtIndexPaths:@[localIndexPath] withRowAnimation:UITableViewRowAnimationFade];
 }
 
 #pragma mark -
@@ -123,7 +124,8 @@ VAPViewControllerMainViewProperty(VAPRandomStringViewController, randomStringVie
 //    self.randomStringView.tableView.
     if (self.styleDelete) {
         VAPModelChanges *object = (VAPModelChanges *)model;
-        [self.randomStringView.tableView deleteRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:object.fromVar inSection:0]]
+        [self.randomStringView.tableView deleteRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:object.fromVar
+                                                                                     inSection:0]]
                                                withRowAnimation:UITableViewRowAnimationFade];
     }
 }

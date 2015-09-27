@@ -18,6 +18,8 @@
 
 @implementation VAPArray
 
+@dynamic data;
+
 #pragma mark -
 #pragma mark Initializations and Deallocations
 

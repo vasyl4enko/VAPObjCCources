@@ -9,6 +9,7 @@
 #import "VAPObservable.h"
 
 @interface VAPArray : VAPObservable
+@property (nonatomic, readonly)     NSArray     *data;
 
 - (void)addDataObject:(id)object;
 - (void)removeObject:(id)object;

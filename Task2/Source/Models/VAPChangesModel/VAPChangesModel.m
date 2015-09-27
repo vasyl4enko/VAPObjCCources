@@ -17,6 +17,9 @@
 @dynamic toIndex;
 @dynamic arrayState;
 
+#pragma mark -
+#pragma mark Class Methods
+
 + (id)modelChangesFromIndex:(NSUInteger)fromIndex arrayState:(VAPArrayStates)state {
     return [[VAPChangesModelOneIndex alloc] initWithFromIndex:fromIndex state:state];
 }

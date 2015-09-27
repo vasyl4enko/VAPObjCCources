@@ -79,14 +79,13 @@ VAPViewControllerMainViewProperty(VAPRandomStringViewController, randomStringVie
 
 - (void)addItem:(id)sender {
     VAPDataArray *dataArray  = self.dataArray;
-//    NSIndexPath *localIndexPath = [NSIndexPath indexPathForRow:[dataArray count] - 1 inSection:0];
+
     VAPData *data = [VAPData new];
     UITableView *tableView = self.randomStringView.tableView;
     VAPRandomStringCell *cell = [tableView dequeueCellWithClass:[VAPRandomStringCell class]];
 
     [self.dataArray insertObject:data atIndex:[dataArray count] - 1];
     cell.slowpokeData = self.dataArray[[dataArray count] - 1];
-//    [tableView insertRowsAtIndexPaths:@[localIndexPath] withRowAnimation:UITableViewRowAnimationFade];
 }
 
 - (void)setEditing:(BOOL)editing animated:(BOOL)animated {
@@ -125,15 +124,19 @@ VAPViewControllerMainViewProperty(VAPRandomStringViewController, randomStringVie
    moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath
           toIndexPath:(NSIndexPath *)destinationIndexPath
 {
+//    [self.dataArray 
     [self.dataArray moveObjectFromIndex:sourceIndexPath.row toIndex:destinationIndexPath.row];
 }
 
 #pragma mark -
-#pragma mark
+#pragma mark VAPArrayObserver
 
 - (void)dataArrayDidChanged:(VAPDataArray *)dataArray modelChanges:(id)model {
     VAPChangesModel *object = (VAPChangesModel *)model;
     if (object.arrayState == VAPArrayStatesDelete) {
+        
+#warning bug
+        
         [self.randomStringView.tableView deleteRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:object.fromIndex.row]]
                                                withRowAnimation:UITableViewRowAnimationFade];
     } else if(object.arrayState == VAPArrayStatesInsert) {

@@ -8,13 +8,12 @@
 
 #import "VAPDataArray.h"
 
-#import "VAPModelChanges.h"
 #import "VAPData.h"
 
 static const NSUInteger kVAPCountRows = 10;
 
 @interface VAPDataArray ()
-@property (nonatomic, strong, readwrite)   NSMutableArray     *mutableData;
+@property (nonatomic, strong)   NSMutableArray     *mutableData;
 
 @end
 
@@ -44,59 +43,6 @@ static const NSUInteger kVAPCountRows = 10;
 
 - (NSArray *)data {
     return [self.mutableData copy];
-}
-
-#pragma mark -
-#pragma mark Public methods
-
-- (void)addDataObject:(id)object {
-    if (object) {
-        [self.mutableData addObject:object];
-    }
-}
-
-- (void)removeObject:(id)object {
-    [self.mutableData removeObject:object];
-}
-- (BOOL)containsObject:(id)object {
-    return [self.mutableData containsObject:object];
-}
-
-- (id)objectAtIndex:(NSUInteger)index {
-    id result = nil;
-    if (self.count > index) {
-       result = [self.data objectAtIndex:index];
-    }
-    
-    return result;
-}
-- (id)objectAtIndexedSubscript:(NSUInteger)index {
-    id result = nil;
-    if (self.count > index) {
-        result = [self.data objectAtIndex:index];
-    }
-    
-    return result;
-}
-
-- (void)removeObjectAtIndex:(NSUInteger)index {
-    [self.mutableData removeObjectAtIndex:index];
-    VAPModelChanges *model = [VAPModelChanges setupModelWithFromVar:index toVar:0];
-    [self notifyObserversWithSelector:@selector(dataArrayChanged:modelChanges:)
-                           withObject:self.mutableData
-                           withObject:model];
-}
-
-- (void)insertObject:(id)object atIndex:(NSUInteger)index {
-    [self.mutableData insertObject:object atIndex:index];
-}
-
-- (void)replaceObjectAtIndex:(NSUInteger)index withObject:(id)object {
-    [self.mutableData replaceObjectAtIndex:index withObject:object];
-}
-
-- (NSUInteger)count {
-    return self.mutableData.count;
 }
 
 @end

@@ -9,11 +9,11 @@
 #import <UIKit/UIKit.h>
 
 #import "VAPDataArray.h"
-#import "VAPDataArrayObserver.h"
+#import "VAPArrayObserver.h"
 
 @interface VAPRandomStringViewController : UIViewController <UITableViewDataSource,
                                                                 UITableViewDelegate,
-                                                                    VAPDataArrayObserver>
+                                                                    VAPArrayObserver>
 
 @property (nonatomic, strong)   VAPDataArray                            *dataArray;
 @property (nonatomic, assign)   UITableViewCellEditingStyle             styleDelete;

@@ -16,6 +16,9 @@
 
 @implementation VAPChangesModelOneIndex
 
+#pragma mark -
+#pragma mark Initializations and Deallocations
+
 - (instancetype)initWithFromIndex:(NSUInteger)index state:(VAPArrayStates)state {
     self = [super init];
     if (self) {
@@ -25,6 +28,9 @@
     
     return self;
 }
+
+#pragma mark -
+#pragma mark Accessors
 
 - (VAPArrayStates)arrayState {
     return self.state;

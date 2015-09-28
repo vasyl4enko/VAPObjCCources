@@ -8,10 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
-@class VAPDataArray;
+@class VAPArray;
+@class VAPChangesModel;
 
 @protocol VAPArrayObserver <NSObject>
 @optional
-- (void)dataArrayDidChanged:(VAPDataArray *)object modelChanges:(id)model;
+- (void)dataArray:(VAPArray *)object didChangeWithChangesModel:(VAPChangesModel *)model;
 
 @end

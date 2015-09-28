@@ -37,11 +37,11 @@
 }
 
 - (NSIndexPath *)toIndex {
-    return self.index;
+    return nil;
 }
 
 - (NSIndexPath *)fromIndex {
-    return nil;
+    return self.index;
 }
 
 @end

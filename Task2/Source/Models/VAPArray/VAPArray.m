@@ -12,13 +12,14 @@
 #import "VAPArrayObserver.h"
 
 @interface VAPArray ()
-@property (nonatomic, strong)     NSMutableArray     *mutableData;
+@property (nonatomic, strong)     NSMutableArray        *mutableData;
 
 @end
 
 @implementation VAPArray
 
 @dynamic data;
+@dynamic count;
 
 #pragma mark -
 #pragma mark Initializations and Deallocations
@@ -39,10 +40,14 @@
     return [self.mutableData copy];
 }
 
+- (NSUInteger)count {
+    return self.mutableData.count;
+}
+
 #pragma mark -
 #pragma mark Public methods
 
-- (void)addDataObject:(id)object {
+- (void)addObject:(id)object {
     if (object) {
         [self.mutableData addObject:object];
     }
@@ -76,9 +81,8 @@
 
 - (void)removeObjectAtIndex:(NSUInteger)index {
     [self.mutableData removeObjectAtIndex:index];
-    
     VAPChangesModel *model = [VAPChangesModel modelChangesFromIndex:index arrayState:VAPArrayStatesDelete];
-    [self notifyObserversWithSelector:@selector(dataArrayDidChanged:modelChanges:)
+    [self notifyObserversWithSelector:@selector(dataArray:didChangeWithChangesModel:)
                            withObject:self.mutableData
                            withObject:model];
 }
@@ -87,7 +91,7 @@
     [self.mutableData insertObject:object atIndex:index];
     
     VAPChangesModel *model = [VAPChangesModel modelChangesFromIndex:index arrayState:VAPArrayStatesInsert];
-    [self notifyObserversWithSelector:@selector(dataArrayDidChanged:modelChanges:)
+    [self notifyObserversWithSelector:@selector(dataArray:didChangeWithChangesModel:)
                            withObject:self.mutableData
                            withObject:model];
     
@@ -106,13 +110,9 @@
     VAPChangesModel *model = [VAPChangesModel modelChangesFromIndex:index
                                                             toIndex:toIndex
                                                          arrayState:VAPArrayStatesMove];
-    [self notifyObserversWithSelector:@selector(dataArrayDidChanged:modelChanges:)
+    [self notifyObserversWithSelector:@selector(dataArray:didChangeWithChangesModel:)
                            withObject:self.mutableData
                            withObject:model];
-}
-
-- (NSUInteger)count {
-    return self.mutableData.count;
 }
 
 @end

@@ -12,7 +12,6 @@
 
 static NSString * const kSlowpokeName = @"Slowpoke";
 static NSString * const kPNGExtension = @"png";
-static UIImage * slowPokeImage;
 
 @interface VAPData ()
 @property (nonatomic, strong)     NSString    *name;
@@ -41,6 +40,7 @@ static UIImage * slowPokeImage;
 #pragma mark Accessors
 
 - (UIImage *)image {
+    static UIImage * slowPokeImage = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
             NSData *fileFromUrl = [NSData dataWithContentsOfURL:self.url];

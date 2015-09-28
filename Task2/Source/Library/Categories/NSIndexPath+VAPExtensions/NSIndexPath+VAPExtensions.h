@@ -10,6 +10,6 @@
 
 @interface NSIndexPath (VAPExtensions)
 
-+ (id)indexPathForRow:(NSUInteger)index;
++ (instancetype)indexPathForRow:(NSUInteger)index;
 
 @end

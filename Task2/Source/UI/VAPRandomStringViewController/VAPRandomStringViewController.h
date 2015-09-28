@@ -14,8 +14,6 @@
 @interface VAPRandomStringViewController : UIViewController <UITableViewDataSource,
                                                                 UITableViewDelegate,
                                                                     VAPArrayObserver>
-
 @property (nonatomic, strong)   VAPDataArray                            *dataArray;
-@property (nonatomic, assign)   UITableViewCellEditingStyle             styleDelete;
 
 @end

@@ -9,9 +9,10 @@
 #import "VAPObservable.h"
 
 @interface VAPArray : VAPObservable
-@property (nonatomic, readonly)     NSArray     *data;
+@property (nonatomic, readonly)     NSArray         *data;
+@property (nonatomic, readonly)     NSUInteger      count;
 
-- (void)addDataObject:(id)object;
+- (void)addObject:(id)object;
 - (void)removeObject:(id)object;
 - (BOOL)containsObject:(id)object;
 
@@ -21,7 +22,5 @@
 - (void)insertObject:(id)object atIndex:(NSUInteger)index;
 - (void)replaceObjectAtIndex:(NSUInteger)index withObject:(id)object;
 - (void)moveObjectFromIndex:(NSUInteger)index toIndex:(NSUInteger)toIndex;
-
-- (NSUInteger)count;
 
 @end

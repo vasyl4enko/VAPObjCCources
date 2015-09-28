@@ -12,7 +12,7 @@ static const NSUInteger kVAPMagicNumber = 0;
 
 @implementation NSIndexPath (VAPExtensions)
 
-+ (id)indexPathForRow:(NSUInteger)index {
++ (instancetype)indexPathForRow:(NSUInteger)index {
    return [self indexPathForRow:index inSection:kVAPMagicNumber];
 }
 

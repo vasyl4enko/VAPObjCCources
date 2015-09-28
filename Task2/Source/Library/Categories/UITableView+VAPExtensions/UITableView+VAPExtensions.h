@@ -8,8 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+@class VAPChangesModel;
+
 @interface UITableView (VAPExtensions)
 
 - (id)dequeueCellWithClass:(Class)cls;
+
+- (void)changeModelWithChangesModel:(VAPChangesModel *)model;
 
 @end

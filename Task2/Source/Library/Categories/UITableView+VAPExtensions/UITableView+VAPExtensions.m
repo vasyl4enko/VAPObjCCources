@@ -7,7 +7,11 @@
 //
 
 #import "UITableView+VAPExtensions.h"
+
 #import "UINib+VAPExtensions.h"
+#import "NSIndexPath+VAPExtensions.h"
+
+#import "VAPChangesModel.h"
 
 @implementation UITableView (VAPExtensions)
 
@@ -15,6 +19,28 @@
     UINib *nib = [UINib nibWithNibName:NSStringFromClass(cls)];
     
     return [nib instantiateCellWithClass:cls];
+}
+
+- (void)changeModelWithChangesModel:(VAPChangesModel *)model {
+    UITableView *tableView = self;
+    switch (model.arrayState) {
+        case VAPArrayStatesDelete:
+            [tableView deleteRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:model.fromIndex.row]]
+                             withRowAnimation:UITableViewRowAnimationFade];
+            break;
+            
+        case VAPArrayStatesInsert:
+            [tableView insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:model.fromIndex.row]]
+                             withRowAnimation:UITableViewRowAnimationFade];
+            break;
+            
+        case VAPArrayStatesMove:
+            [tableView moveRowAtIndexPath:model.fromIndex toIndexPath:model.toIndex];
+            break;
+            
+        default:
+            break;
+    }
 }
 
 @end

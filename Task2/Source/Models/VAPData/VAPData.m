@@ -40,14 +40,14 @@ static NSString * const kPNGExtension = @"png";
 #pragma mark Accessors
 
 - (UIImage *)image {
-    static UIImage * slowPokeImage = nil;
+    static UIImage * slowpokeImage = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
             NSData *fileFromUrl = [NSData dataWithContentsOfURL:self.url];
-            slowPokeImage = [UIImage imageWithData:fileFromUrl];
+            slowpokeImage = [UIImage imageWithData:fileFromUrl];
     });
 
-    return slowPokeImage;
+    return slowpokeImage;
 }
 
 

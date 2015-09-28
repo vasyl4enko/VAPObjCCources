@@ -63,7 +63,7 @@
 
 - (id)objectAtIndex:(NSUInteger)index {
     id result = nil;
-    if ([self count] > index) {
+    if (self.count > index) {
         result = [self.data objectAtIndex:index];
     }
     
@@ -72,7 +72,7 @@
 
 - (id)objectAtIndexedSubscript:(NSUInteger)index {
     id result = nil;
-    if ([self count] > index) {
+    if (self.count > index) {
         result = [self.data objectAtIndex:index];
     }
     
@@ -81,6 +81,7 @@
 
 - (void)removeObjectAtIndex:(NSUInteger)index {
     [self.mutableData removeObjectAtIndex:index];
+    
     VAPChangesModel *model = [VAPChangesModel modelChangesFromIndex:index arrayState:VAPArrayStatesDelete];
     [self notifyObserversWithSelector:@selector(dataArray:didChangeWithChangesModel:)
                            withObject:self.mutableData
@@ -105,7 +106,6 @@
     id object = [self.mutableData objectAtIndex:index];
     [self.mutableData removeObjectAtIndex:index];
     [self.mutableData insertObject:object atIndex:toIndex];
-    
     
     VAPChangesModel *model = [VAPChangesModel modelChangesFromIndex:index
                                                             toIndex:toIndex

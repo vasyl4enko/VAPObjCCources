@@ -11,8 +11,8 @@
 @class VAPData;
 
 @interface VAPRandomStringCell : UITableViewCell
-@property (nonatomic, strong)   IBOutlet UILabel        *sloupokLabel;
-@property (nonatomic, strong)   IBOutlet UIImageView    *sloupokImage;
+@property (nonatomic, strong)   IBOutlet UILabel        *slowpokeLabel;
+@property (nonatomic, strong)   IBOutlet UIImageView    *slowpokeImage;
 
 @property (nonatomic, strong)   VAPData                 *slowpokeData;
 

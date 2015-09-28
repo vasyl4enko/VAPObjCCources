@@ -27,8 +27,8 @@
                 </subviews>
             </tableViewCellContentView>
             <connections>
-                <outlet property="sloupokImage" destination="Ih8-Mk-5x0" id="kZG-7w-2TC"/>
-                <outlet property="sloupokLabel" destination="vM7-ep-PPc" id="mmr-d5-a5E"/>
+                <outlet property="slowpokeImage" destination="Ih8-Mk-5x0" id="zlA-02-xRu"/>
+                <outlet property="slowpokeLabel" destination="vM7-ep-PPc" id="Yca-cA-PvD"/>
             </connections>
             <point key="canvasLocation" x="190" y="48"/>
         </tableViewCell>

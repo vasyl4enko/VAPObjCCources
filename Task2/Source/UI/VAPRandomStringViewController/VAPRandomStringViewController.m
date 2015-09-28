@@ -77,7 +77,8 @@ VAPViewControllerMainViewProperty(VAPRandomStringViewController, randomStringVie
 
 - (void)addItem:(id)sender {
     VAPDataArray *dataArray  = self.dataArray;
-    [dataArray insertObject:[VAPData new] atIndex:[dataArray count] - 1];
+    NSUInteger index = dataArray.count != 0 ? dataArray.count - 1 : 0;
+    [dataArray insertObject:[VAPData new] atIndex:index];
 }
 
 - (void)setEditing:(BOOL)editing animated:(BOOL)animated {

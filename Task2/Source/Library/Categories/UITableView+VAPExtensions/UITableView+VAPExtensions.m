@@ -16,22 +16,21 @@
 @implementation UITableView (VAPExtensions)
 
 - (id)dequeueCellWithClass:(Class)cls {
-    UINib *nib = [UINib nibWithNibName:NSStringFromClass(cls)];
+    UINib *nib = [UINib nibWithClass:cls];
     
-    return [nib instantiateCellWithClass:cls];
+    return [nib objectWithClass:cls];
 }
 
 - (void)changeModelWithChangesModel:(VAPChangesModel *)model {
     UITableView *tableView = self;
+    NSArray *indexPaths = @[[NSIndexPath indexPathForRow:model.fromIndex.row]];
     switch (model.arrayState) {
         case VAPArrayStatesDelete:
-            [tableView deleteRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:model.fromIndex.row]]
-                             withRowAnimation:UITableViewRowAnimationFade];
+            [tableView deleteRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationFade];
             break;
             
         case VAPArrayStatesInsert:
-            [tableView insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:model.fromIndex.row]]
-                             withRowAnimation:UITableViewRowAnimationFade];
+            [tableView insertRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationFade];
             break;
             
         case VAPArrayStatesMove:

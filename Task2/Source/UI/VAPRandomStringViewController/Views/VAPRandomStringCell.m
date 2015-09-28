@@ -26,8 +26,8 @@
 #pragma mark Public Methods
 
 - (void)fillWithData:(VAPData *)data {
-    self.sloupokImage.image = data.image;
-    self.sloupokLabel.text = data.name;
+    self.slowpokeImage.image = data.image;
+    self.slowpokeLabel.text = data.name;
 }
 
 @end

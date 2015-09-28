@@ -12,14 +12,7 @@
 
 static const NSUInteger kVAPCountRows = 10;
 
-@interface VAPDataArray ()
-@property (nonatomic, strong)   NSMutableArray     *mutableData;
-
-@end
-
 @implementation VAPDataArray
-
-@dynamic data;
 
 #pragma mark -
 #pragma mark Initializations and Deallocations
@@ -27,22 +20,12 @@ static const NSUInteger kVAPCountRows = 10;
 - (instancetype)init {
     self = [super init];
     if (self) {
-        NSMutableArray *localData = [NSMutableArray new];
         for (NSUInteger index = 0; index < kVAPCountRows; index++) {
-            [localData addObject:[VAPData new]];
+            [self addObject:[VAPData new]];
         }
-        
-        self.mutableData = localData;
     }
     
     return self;
-}
-
-#pragma mark -
-#pragma mark Accessors
-
-- (NSArray *)data {
-    return [self.mutableData copy];
 }
 
 @end

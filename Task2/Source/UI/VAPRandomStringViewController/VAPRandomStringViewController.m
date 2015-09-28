@@ -27,9 +27,17 @@ VAPViewControllerMainViewProperty(VAPRandomStringViewController, randomStringVie
 #pragma mark -
 #pragma mark Initializations and Deallocatons
 
-- (void)dealloc
-{
+- (void)dealloc {
     self.dataArray = nil;
+}
+
+- (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        [self settingAddButton];
+    }
+    
+    return self;
 }
 
 #pragma mark -
@@ -44,11 +52,8 @@ VAPViewControllerMainViewProperty(VAPRandomStringViewController, randomStringVie
 }
 
 - (void)setDataArray:(VAPDataArray *)dataArray {
-    if ([_dataArray containsObserver:self]) {
-        [_dataArray removeObserver:self];
-    }
-    
     if (_dataArray != dataArray) {
+        [_dataArray removeObserver:self];
         _dataArray = dataArray;
         [_dataArray addObserver:self];
     }
@@ -60,18 +65,11 @@ VAPViewControllerMainViewProperty(VAPRandomStringViewController, randomStringVie
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
-                                                                               target:self action:@selector(addItem:)];
-    [self.navigationItem setRightBarButtonItem:addButton];
-     self.navigationItem.leftBarButtonItem = self.editButtonItem;
-    
     [self.randomStringView.tableView reloadData];
-   
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    
 }
 
 #pragma mark -
@@ -79,18 +77,19 @@ VAPViewControllerMainViewProperty(VAPRandomStringViewController, randomStringVie
 
 - (void)addItem:(id)sender {
     VAPDataArray *dataArray  = self.dataArray;
-
-    VAPData *data = [VAPData new];
-    UITableView *tableView = self.randomStringView.tableView;
-    VAPRandomStringCell *cell = [tableView dequeueCellWithClass:[VAPRandomStringCell class]];
-
-    [self.dataArray insertObject:data atIndex:[dataArray count] - 1];
-    cell.slowpokeData = self.dataArray[[dataArray count] - 1];
+    [dataArray insertObject:[VAPData new] atIndex:[dataArray count] - 1];
 }
 
 - (void)setEditing:(BOOL)editing animated:(BOOL)animated {
     [super setEditing:editing animated:animated];
     [self.randomStringView.tableView setEditing:editing animated:YES];
+}
+
+- (void)settingAddButton {
+    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
+                                                                               target:self action:@selector(addItem:)];
+    self.navigationItem.rightBarButtonItem = addButton;
+    self.navigationItem.leftBarButtonItem = self.editButtonItem;
 }
 
 #pragma mark -
@@ -124,28 +123,14 @@ VAPViewControllerMainViewProperty(VAPRandomStringViewController, randomStringVie
    moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath
           toIndexPath:(NSIndexPath *)destinationIndexPath
 {
-//    [self.dataArray 
     [self.dataArray moveObjectFromIndex:sourceIndexPath.row toIndex:destinationIndexPath.row];
 }
 
 #pragma mark -
 #pragma mark VAPArrayObserver
 
-- (void)dataArrayDidChanged:(VAPDataArray *)dataArray modelChanges:(id)model {
-    VAPChangesModel *object = (VAPChangesModel *)model;
-    if (object.arrayState == VAPArrayStatesDelete) {
-        
-#warning bug
-        
-        [self.randomStringView.tableView deleteRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:object.fromIndex.row]]
-                                               withRowAnimation:UITableViewRowAnimationFade];
-    } else if(object.arrayState == VAPArrayStatesInsert) {
-        NSUInteger count = [self.dataArray count] - 2;
-        [self.randomStringView.tableView insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:count]]
-                                               withRowAnimation:UITableViewRowAnimationFade];
-    } else {
-        [self.randomStringView.tableView moveRowAtIndexPath:object.fromIndex toIndexPath:object.toIndex];
-    }
+- (void)dataArray:(VAPArray *)object didChangeWithChangesModel:(VAPChangesModel *)model{
+    [self.randomStringView.tableView changeModelWithChangesModel:model];
 }
 
 @end

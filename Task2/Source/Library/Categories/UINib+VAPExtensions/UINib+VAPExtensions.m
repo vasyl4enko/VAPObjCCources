@@ -10,28 +10,34 @@
 
 @implementation UINib (VAPExtensions)
 
-
-+ (UINib *)nibWithNibName:(NSString *)name {
-    return [self nibWithNibName:name bundle:nil];
++ (UINib *)nibWithClass:(Class)cls {
+    return [self nibWithClass:cls bundle:nil];
 }
 
-- (NSArray *)instantiateWithClass:(Class)cls {
-    return [self instantiateWithClass:cls owner:nil];
++ (UINib *)nibWithClass:(Class)cls bundle:(NSBundle *)bundleOrNil {
+    return [self nibWithNibName:NSStringFromClass(cls) bundle:bundleOrNil];;
 }
 
-- (NSArray *)instantiateWithClass:(Class)cls owner:(id)ownerOrNil {
-    UINib *nib = [[self class] nibWithNibName:NSStringFromClass(cls)];
++ (id)objectWithClass:(Class)cls {
+    return nil;
+}
+
++ (id)objectWithClass:(Class)cls owner:(id)ownerOrNil {
+    return nil;
+}
+
++ (id)objectWithClass:(Class)cls owner:(id)ownerOrNil bundle:(NSBundle *)bundleOrNil {
+    UINib *nib = [UINib nibWithClass:cls];
     
-    return [nib instantiateWithOwner:ownerOrNil options:nil];
+    return nil;
 }
 
-- (id)instantiateCellWithClass:(Class)cls {
-    return [self instantiateCellWithClass:cls owner:nil];
-
+- (id)objectWithClass:(Class)cls {
+    return [self objectWithClass:cls owner:nil];;
 }
 
-- (id)instantiateCellWithClass:(Class)cls owner:(id)ownerOrNil {
-    NSArray *objects = [self instantiateWithClass:cls owner:ownerOrNil];
+- (id)objectWithClass:(Class)cls owner:(id)ownerOrNil {
+    NSArray *objects = [self instantiateWithOwner:ownerOrNil options:nil];
     for (id object in objects) {
         if ([object isMemberOfClass:cls]) {
             return object;
@@ -40,5 +46,6 @@
     
     return nil;
 }
+
 
 @end

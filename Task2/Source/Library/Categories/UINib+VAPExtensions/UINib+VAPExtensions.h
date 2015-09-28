@@ -10,12 +10,14 @@
 
 @interface UINib (VAPExtensions)
 
-+ (UINib *)nibWithNibName:(NSString *)name;
++ (UINib *)nibWithClass:(Class)cls;
++ (UINib *)nibWithClass:(Class)cls bundle:(NSBundle *)bundleOrNil;
 
-- (NSArray *)instantiateWithClass:(Class)cls;
-- (NSArray *)instantiateWithClass:(Class)cls owner:(id)ownerOrNil;
++ (id)objectWithClass:(Class)cls;
++ (id)objectWithClass:(Class)cls owner:(id)ownerOrNil;
++ (id)objectWithClass:(Class)cls owner:(id)ownerOrNil bundle:(NSBundle *)bundleOrNil;
 
-- (id)instantiateCellWithClass:(Class)cls;
-- (id)instantiateCellWithClass:(Class)cls owner:(id)ownerOrNil;
+- (id)objectWithClass:(Class)cls;
+- (id)objectWithClass:(Class)cls owner:(id)ownerOrNil;
 
 @end

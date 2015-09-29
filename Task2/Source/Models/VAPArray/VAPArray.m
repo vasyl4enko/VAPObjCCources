@@ -82,7 +82,7 @@
 - (void)removeObjectAtIndex:(NSUInteger)index {
     [self.mutableData removeObjectAtIndex:index];
     
-    VAPChangesModel *model = [VAPChangesModel modelChangesFromIndex:index arrayState:VAPArrayStatesDelete];
+    VAPChangesModelOneIndex *model = [VAPChangesModel deleteModelWithIndex:index];
     [self notifyObserversWithSelector:@selector(dataArray:didChangeWithChangesModel:)
                            withObject:self.mutableData
                            withObject:model];
@@ -91,7 +91,7 @@
 - (void)insertObject:(id)object atIndex:(NSUInteger)index {
     [self.mutableData insertObject:object atIndex:index];
     
-    VAPChangesModel *model = [VAPChangesModel modelChangesFromIndex:index arrayState:VAPArrayStatesInsert];
+    VAPChangesModelOneIndex *model = [VAPChangesModel insertModelWithIndex:index];
     [self notifyObserversWithSelector:@selector(dataArray:didChangeWithChangesModel:)
                            withObject:self.mutableData
                            withObject:model];
@@ -102,17 +102,17 @@
     [self.mutableData replaceObjectAtIndex:index withObject:object];
 }
 
-- (void)moveObjectFromIndex:(NSUInteger)index toIndex:(NSUInteger)toIndex {
-    id object = [self.mutableData objectAtIndex:index];
-    [self.mutableData removeObjectAtIndex:index];
+- (void)moveObjectFromIndex:(NSUInteger)fromIndex toIndex:(NSUInteger)toIndex {
+    id object = [self.mutableData objectAtIndex:fromIndex];
+    [self.mutableData removeObjectAtIndex:fromIndex];
     [self.mutableData insertObject:object atIndex:toIndex];
     
-    VAPChangesModel *model = [VAPChangesModel modelChangesFromIndex:index
-                                                            toIndex:toIndex
-                                                         arrayState:VAPArrayStatesMove];
+    VAPChangesModelTwoIndexes *model = [VAPChangesModel moveModelFromIndex:fromIndex toIndex:toIndex];
     [self notifyObserversWithSelector:@selector(dataArray:didChangeWithChangesModel:)
                            withObject:self.mutableData
                            withObject:model];
 }
+
+
 
 @end

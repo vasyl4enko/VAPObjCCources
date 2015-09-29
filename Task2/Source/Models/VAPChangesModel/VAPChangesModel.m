@@ -11,21 +11,35 @@
 #import "VAPChangesModelOneIndex.h"
 #import "VAPChangesModelTwoIndexes.h"
 
-@implementation VAPChangesModel
+@interface VAPChangesModel ()
+@property (nonatomic, assign)     VAPArrayStates  state;
 
-@dynamic fromIndex;
-@dynamic toIndex;
-@dynamic arrayState;
+@end
+
+@implementation VAPChangesModel
 
 #pragma mark -
 #pragma mark Class Methods
 
-+ (id)modelChangesFromIndex:(NSUInteger)fromIndex arrayState:(VAPArrayStates)state {
-    return [[VAPChangesModelOneIndex alloc] initWithFromIndex:fromIndex state:state];
++ (instancetype)modelWithState:(VAPArrayStates)state {
+    VAPChangesModel *model = [self new];
+    model.state = state;
+    
+    return model;
 }
 
-+ (id)modelChangesFromIndex:(NSUInteger)fromIndex toIndex:(NSUInteger)toIndex arrayState:(VAPArrayStates)state {
-    return [[VAPChangesModelTwoIndexes alloc] initWithFromIndex:fromIndex toIndex:toIndex state:state];
+@end
+
+@implementation VAPChangesModel (VAPInitializationModels)
+
++ (instancetype)insertModelWithIndex:(NSUInteger)index {
+    return [VAPChangesModelOneIndex modelWithIndex:index state:VAPArrayStatesInsert];
+}
++ (instancetype)deleteModelWithIndex:(NSUInteger)index {
+    return [VAPChangesModelOneIndex modelWithIndex:index state:VAPArrayStatesDelete];
+}
++ (instancetype)moveModelFromIndex:(NSUInteger)fromIndex toIndex:(NSUInteger)toIndex {
+    return [VAPChangesModelTwoIndexes modelFromIndex:fromIndex toIndex:toIndex state:VAPArrayStatesMove];
 }
 
 @end

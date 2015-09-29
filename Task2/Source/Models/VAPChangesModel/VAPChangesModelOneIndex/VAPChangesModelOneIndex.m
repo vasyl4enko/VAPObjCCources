@@ -9,39 +9,17 @@
 #import "VAPChangesModelOneIndex.h"
 
 @interface VAPChangesModelOneIndex ()
-@property (nonatomic, strong)   NSIndexPath     *index;
-@property (nonatomic, assign)   VAPArrayStates  state;
+@property (nonatomic, assign)   NSUInteger  index;
 
 @end
 
 @implementation VAPChangesModelOneIndex
 
-#pragma mark -
-#pragma mark Initializations and Deallocations
-
-- (instancetype)initWithFromIndex:(NSUInteger)index state:(VAPArrayStates)state {
-    self = [super init];
-    if (self) {
-        self.state = state;
-        self.index = [NSIndexPath indexPathForRow:index inSection:0];
-    }
++ (instancetype)modelWithIndex:(NSUInteger)index state:(VAPArrayStates)state {
+    VAPChangesModelOneIndex *model = [self modelWithState:state];
+    model.index = index;
     
-    return self;
-}
-
-#pragma mark -
-#pragma mark Accessors
-
-- (VAPArrayStates)arrayState {
-    return self.state;
-}
-
-- (NSIndexPath *)toIndex {
-    return nil;
-}
-
-- (NSIndexPath *)fromIndex {
-    return self.index;
+    return model;
 }
 
 @end

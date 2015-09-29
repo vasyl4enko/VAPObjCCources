@@ -9,7 +9,9 @@
 #import "VAPChangesModel.h"
 
 @interface VAPChangesModelTwoIndexes : VAPChangesModel
+@property (nonatomic, readonly)     NSUInteger  fromIndex;
+@property (nonatomic, readonly)     NSUInteger  toIndex;
 
-- (instancetype)initWithFromIndex:(NSUInteger)fromIndex toIndex:(NSUInteger)toIndex state:(VAPArrayStates)state;
++ (instancetype)modelFromIndex:(NSUInteger)fromIndex toIndex:(NSUInteger)toIndex state:(VAPArrayStates)state;
 
 @end

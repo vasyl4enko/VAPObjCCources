@@ -9,7 +9,7 @@
 #import "VAPObservable.h"
 
 @interface VAPObservable ()
-@property(nonatomic, strong)    NSHashTable     *mutableObservers;
+@property (nonatomic, strong)    NSHashTable     *mutableObservers;
 @end
 
 @implementation VAPObservable

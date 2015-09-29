@@ -21,6 +21,6 @@
 - (void)removeObjectAtIndex:(NSUInteger)index;
 - (void)insertObject:(id)object atIndex:(NSUInteger)index;
 - (void)replaceObjectAtIndex:(NSUInteger)index withObject:(id)object;
-- (void)moveObjectFromIndex:(NSUInteger)index toIndex:(NSUInteger)toIndex;
+- (void)moveObjectFromIndex:(NSUInteger)fromIndex toIndex:(NSUInteger)toIndex;
 
 @end

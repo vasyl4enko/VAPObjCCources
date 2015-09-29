@@ -12,4 +12,6 @@
 
 + (id)controller;
 
++ (id)nibName;
+
 @end

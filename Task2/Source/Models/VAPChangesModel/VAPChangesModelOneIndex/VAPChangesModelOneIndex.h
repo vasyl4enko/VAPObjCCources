@@ -9,7 +9,8 @@
 #import "VAPChangesModel.h"
 
 @interface VAPChangesModelOneIndex : VAPChangesModel
+@property (nonatomic, readonly) NSUInteger index;
 
-- (instancetype)initWithFromIndex:(NSUInteger)index state:(VAPArrayStates)state;
++ (instancetype)modelWithIndex:(NSUInteger)index state:(VAPArrayStates)state;
 
 @end

@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+@class VAPChangesModelOneIndex;
+@class VAPChangesModelTwoIndexes;
+
 typedef NS_ENUM(NSUInteger, VAPArrayStates) {
     VAPArrayStatesInsert,
     VAPArrayStatesDelete,
@@ -15,11 +18,16 @@ typedef NS_ENUM(NSUInteger, VAPArrayStates) {
 };
 
 @interface VAPChangesModel : NSObject
-@property (nonatomic, readonly)   NSIndexPath     *fromIndex;
-@property (nonatomic, readonly)   NSIndexPath     *toIndex;
-@property (nonatomic, readonly)   VAPArrayStates  arrayState;
+@property (nonatomic, readonly)     VAPArrayStates  state;
 
-+ (id)modelChangesFromIndex:(NSUInteger)fromIndex arrayState:(VAPArrayStates)state;
-+ (id)modelChangesFromIndex:(NSUInteger)fromIndex toIndex:(NSUInteger)toIndex arrayState:(VAPArrayStates)state;
++ (instancetype)modelWithState:(VAPArrayStates)state;
+
+@end
+
+@interface VAPChangesModel (VAPInitializationModels)
+
++ (VAPChangesModelOneIndex *)insertModelWithIndex:(NSUInteger)index;
++ (VAPChangesModelOneIndex *)deleteModelWithIndex:(NSUInteger)index;
++ (VAPChangesModelTwoIndexes *)moveModelFromIndex:(NSUInteger)fromIndex toIndex:(NSUInteger)toIndex;
 
 @end

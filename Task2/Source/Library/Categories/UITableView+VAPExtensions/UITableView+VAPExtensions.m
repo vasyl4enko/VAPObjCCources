@@ -12,31 +12,39 @@
 #import "NSIndexPath+VAPExtensions.h"
 
 #import "VAPChangesModel.h"
+#import "VAPChangesModelOneIndex.h"
+#import "VAPChangesModelTwoIndexes.h"
 
 @implementation UITableView (VAPExtensions)
 
 - (id)dequeueCellWithClass:(Class)cls {
-    UINib *nib = [UINib nibWithClass:cls];
-    
-    return [nib objectWithClass:cls];
+    return [UINib objectWithClass:cls];
 }
 
 - (void)changeModelWithChangesModel:(VAPChangesModel *)model {
     UITableView *tableView = self;
-    NSArray *indexPaths = @[[NSIndexPath indexPathForRow:model.fromIndex.row]];
-    switch (model.arrayState) {
+    VAPChangesModelOneIndex *modelOneIndex = nil;
+    VAPChangesModelTwoIndexes *modelTwoIndexes = nil;
+    
+    switch (model.state) {
         case VAPArrayStatesDelete:
-            [tableView deleteRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationFade];
+            modelOneIndex = (VAPChangesModelOneIndex *)model;
+            [tableView deleteRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:modelOneIndex.index]]
+                             withRowAnimation:UITableViewRowAnimationFade];
             break;
             
         case VAPArrayStatesInsert:
-            [tableView insertRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationFade];
+            modelOneIndex = (VAPChangesModelOneIndex *)model;
+            [tableView insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:modelOneIndex.index]]
+                             withRowAnimation:UITableViewRowAnimationFade];
             break;
             
         case VAPArrayStatesMove:
-            [tableView moveRowAtIndexPath:model.fromIndex toIndexPath:model.toIndex];
+            modelTwoIndexes = (VAPChangesModelTwoIndexes *)model;
+            [tableView moveRowAtIndexPath:[NSIndexPath indexPathForRow:modelTwoIndexes.fromIndex]
+                              toIndexPath:[NSIndexPath indexPathForRow:modelTwoIndexes.toIndex]];
             break;
-            
+
         default:
             break;
     }

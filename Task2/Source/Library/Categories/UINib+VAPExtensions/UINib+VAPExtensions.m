@@ -19,17 +19,17 @@
 }
 
 + (id)objectWithClass:(Class)cls {
-    return nil;
+    return [self objectWithClass:cls owner:nil];
 }
 
 + (id)objectWithClass:(Class)cls owner:(id)ownerOrNil {
-    return nil;
+    return [self objectWithClass:cls owner:ownerOrNil bundle:nil];
 }
 
 + (id)objectWithClass:(Class)cls owner:(id)ownerOrNil bundle:(NSBundle *)bundleOrNil {
-    UINib *nib = [UINib nibWithClass:cls];
+    UINib *nib = [UINib nibWithClass:cls bundle:bundleOrNil];
     
-    return nil;
+    return [nib objectWithClass:cls owner:ownerOrNil];
 }
 
 - (id)objectWithClass:(Class)cls {

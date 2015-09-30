@@ -21,26 +21,26 @@
     return [UINib objectWithClass:cls];
 }
 
-- (void)changeModelWithChangesModel:(VAPChangesModel *)model {
+- (void)changeModelWithChangesModel:(id)model {
     UITableView *tableView = self;
     VAPChangesModelOneIndex *modelOneIndex = nil;
     VAPChangesModelTwoIndexes *modelTwoIndexes = nil;
     
-    switch (model.state) {
+    switch ([model state]) {
         case VAPArrayStatesDelete:
-            modelOneIndex = (VAPChangesModelOneIndex *)model;
+            modelOneIndex = model;
             [tableView deleteRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:modelOneIndex.index]]
                              withRowAnimation:UITableViewRowAnimationFade];
             break;
             
         case VAPArrayStatesInsert:
-            modelOneIndex = (VAPChangesModelOneIndex *)model;
+            modelOneIndex = model;
             [tableView insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:modelOneIndex.index]]
                              withRowAnimation:UITableViewRowAnimationFade];
             break;
             
         case VAPArrayStatesMove:
-            modelTwoIndexes = (VAPChangesModelTwoIndexes *)model;
+            modelTwoIndexes = model;
             [tableView moveRowAtIndexPath:[NSIndexPath indexPathForRow:modelTwoIndexes.fromIndex]
                               toIndexPath:[NSIndexPath indexPathForRow:modelTwoIndexes.toIndex]];
             break;

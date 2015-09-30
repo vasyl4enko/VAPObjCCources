@@ -14,6 +14,6 @@
 
 - (id)dequeueCellWithClass:(Class)cls;
 
-- (void)changeModelWithChangesModel:(VAPChangesModel *)model;
+- (void)changeModelWithChangesModel:(id)model;
 
 @end

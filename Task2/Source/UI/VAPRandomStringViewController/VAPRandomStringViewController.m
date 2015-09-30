@@ -13,7 +13,7 @@
 #import "NSIndexPath+VAPExtensions.h"
 
 #import "VAPRandomStringView.h"
-#import "VAPRandomStringCell.h"
+#import "VAPDataCell.h"
 #import "VAPData.h"
 #import "UITableView+VAPExtensions.h"
 
@@ -34,7 +34,7 @@ VAPViewControllerMainViewProperty(VAPRandomStringViewController, randomStringVie
 - (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        [self settingAddButton];
+        [self setupNavigationItem];
     }
     
     return self;
@@ -86,9 +86,10 @@ VAPViewControllerMainViewProperty(VAPRandomStringViewController, randomStringVie
     [self.randomStringView.tableView setEditing:editing animated:YES];
 }
 
-- (void)settingAddButton {
+- (void)setupNavigationItem {
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
-                                                                               target:self action:@selector(addItem:)];
+                                                                               target:self
+                                                                               action:@selector(addItem:)];
     self.navigationItem.rightBarButtonItem = addButton;
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
 }
@@ -101,8 +102,8 @@ VAPViewControllerMainViewProperty(VAPRandomStringViewController, randomStringVie
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    VAPRandomStringCell *cell = [tableView dequeueCellWithClass:[VAPRandomStringCell class]];
-    cell.slowpokeData = self.dataArray[indexPath.row];
+    VAPDataCell *cell = [tableView dequeueCellWithClass:[VAPDataCell class]];
+    cell.content = self.dataArray[indexPath.row];
     
     return cell;
 }

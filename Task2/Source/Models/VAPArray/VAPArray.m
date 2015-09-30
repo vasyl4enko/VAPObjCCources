@@ -11,8 +11,12 @@
 #import "VAPChangesModel.h"
 #import "VAPArrayObserver.h"
 
+#import "NSMutableArray+VAPExtensions.h"
+
 @interface VAPArray ()
 @property (nonatomic, strong)     NSMutableArray        *mutableData;
+
+- (void)notifyWithChangesModel:(id)model;
 
 @end
 
@@ -82,20 +86,13 @@
 - (void)removeObjectAtIndex:(NSUInteger)index {
     [self.mutableData removeObjectAtIndex:index];
     
-    VAPChangesModelOneIndex *model = [VAPChangesModel deleteModelWithIndex:index];
-    [self notifyObserversWithSelector:@selector(dataArray:didChangeWithChangesModel:)
-                           withObject:self.mutableData
-                           withObject:model];
+    [self notifyWithChangesModel:[VAPChangesModel deleteModelWithIndex:index]];
 }
 
 - (void)insertObject:(id)object atIndex:(NSUInteger)index {
     [self.mutableData insertObject:object atIndex:index];
     
-    VAPChangesModelOneIndex *model = [VAPChangesModel insertModelWithIndex:index];
-    [self notifyObserversWithSelector:@selector(dataArray:didChangeWithChangesModel:)
-                           withObject:self.mutableData
-                           withObject:model];
-    
+    [self notifyWithChangesModel:[VAPChangesModel insertModelWithIndex:index]];
 }
 
 - (void)replaceObjectAtIndex:(NSUInteger)index withObject:(id)object {
@@ -103,16 +100,15 @@
 }
 
 - (void)moveObjectFromIndex:(NSUInteger)fromIndex toIndex:(NSUInteger)toIndex {
-    id object = [self.mutableData objectAtIndex:fromIndex];
-    [self.mutableData removeObjectAtIndex:fromIndex];
-    [self.mutableData insertObject:object atIndex:toIndex];
+    [self.mutableData moveObjectFromIndex:fromIndex toIndex:toIndex];
     
-    VAPChangesModelTwoIndexes *model = [VAPChangesModel moveModelFromIndex:fromIndex toIndex:toIndex];
+    [self notifyWithChangesModel:[VAPChangesModel moveModelFromIndex:fromIndex toIndex:toIndex]];
+}
+
+- (void)notifyWithChangesModel:(id)model {
     [self notifyObserversWithSelector:@selector(dataArray:didChangeWithChangesModel:)
                            withObject:self.mutableData
                            withObject:model];
 }
-
-
 
 @end

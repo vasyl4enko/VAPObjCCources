@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F15D64F1BBC4EC30038C31F /* NSMutableArray+VAPExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F15D64E1BBC4EC30038C31F /* NSMutableArray+VAPExtensions.m */; };
 		1F3935BE1BAA118600D5D95E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F3935BD1BAA118600D5D95E /* main.m */; };
 		1F3935C11BAA118600D5D95E /* VAPAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F3935C01BAA118600D5D95E /* VAPAppDelegate.m */; };
 		1F3935D81BAA118600D5D95E /* Task2Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F3935D71BAA118600D5D95E /* Task2Tests.m */; };
@@ -28,8 +29,8 @@
 		1FE38EFA1BADF73A00CC5B57 /* VAPRandomStringViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FE38EF81BADF73A00CC5B57 /* VAPRandomStringViewController.m */; };
 		1FE38EFB1BADF73A00CC5B57 /* VAPRandomStringViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1FE38EF91BADF73A00CC5B57 /* VAPRandomStringViewController.xib */; };
 		1FE38EFE1BADF75900CC5B57 /* VAPRandomStringView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FE38EFD1BADF75900CC5B57 /* VAPRandomStringView.m */; };
-		1FE38F051BAEC18D00CC5B57 /* VAPRandomStringCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FE38F031BAEC18D00CC5B57 /* VAPRandomStringCell.m */; };
-		1FE38F061BAEC18D00CC5B57 /* VAPRandomStringCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1FE38F041BAEC18D00CC5B57 /* VAPRandomStringCell.xib */; };
+		1FE38F051BAEC18D00CC5B57 /* VAPDataCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FE38F031BAEC18D00CC5B57 /* VAPDataCell.m */; };
+		1FE38F061BAEC18D00CC5B57 /* VAPDataCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1FE38F041BAEC18D00CC5B57 /* VAPDataCell.xib */; };
 		1FE38F091BAEE79100CC5B57 /* Slowpoke.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FE38F081BAEE79100CC5B57 /* Slowpoke.png */; };
 		1FE38F101BAF13B300CC5B57 /* VAPData.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FE38F0F1BAF13B300CC5B57 /* VAPData.m */; };
 		1FE38F131BAF1BCA00CC5B57 /* VAPDataArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FE38F121BAF1BCA00CC5B57 /* VAPDataArray.m */; };
@@ -47,6 +48,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1F15D64D1BBC4EC30038C31F /* NSMutableArray+VAPExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+VAPExtensions.h"; sourceTree = "<group>"; };
+		1F15D64E1BBC4EC30038C31F /* NSMutableArray+VAPExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+VAPExtensions.m"; sourceTree = "<group>"; };
 		1F3935B81BAA118600D5D95E /* Task2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Task2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F3935BC1BAA118600D5D95E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1F3935BD1BAA118600D5D95E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -88,9 +91,9 @@
 		1FE38EF91BADF73A00CC5B57 /* VAPRandomStringViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VAPRandomStringViewController.xib; sourceTree = "<group>"; };
 		1FE38EFC1BADF75900CC5B57 /* VAPRandomStringView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VAPRandomStringView.h; sourceTree = "<group>"; };
 		1FE38EFD1BADF75900CC5B57 /* VAPRandomStringView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VAPRandomStringView.m; sourceTree = "<group>"; };
-		1FE38F021BAEC18D00CC5B57 /* VAPRandomStringCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VAPRandomStringCell.h; sourceTree = "<group>"; };
-		1FE38F031BAEC18D00CC5B57 /* VAPRandomStringCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VAPRandomStringCell.m; sourceTree = "<group>"; };
-		1FE38F041BAEC18D00CC5B57 /* VAPRandomStringCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VAPRandomStringCell.xib; sourceTree = "<group>"; };
+		1FE38F021BAEC18D00CC5B57 /* VAPDataCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VAPDataCell.h; sourceTree = "<group>"; };
+		1FE38F031BAEC18D00CC5B57 /* VAPDataCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VAPDataCell.m; sourceTree = "<group>"; };
+		1FE38F041BAEC18D00CC5B57 /* VAPDataCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VAPDataCell.xib; sourceTree = "<group>"; };
 		1FE38F081BAEE79100CC5B57 /* Slowpoke.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Slowpoke.png; sourceTree = "<group>"; };
 		1FE38F0E1BAF13B300CC5B57 /* VAPData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VAPData.h; sourceTree = "<group>"; };
 		1FE38F0F1BAF13B300CC5B57 /* VAPData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VAPData.m; sourceTree = "<group>"; };
@@ -118,6 +121,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1F15D64C1BBC4E7B0038C31F /* NSMutableArray+VAPExtensions */ = {
+			isa = PBXGroup;
+			children = (
+				1F15D64D1BBC4EC30038C31F /* NSMutableArray+VAPExtensions.h */,
+				1F15D64E1BBC4EC30038C31F /* NSMutableArray+VAPExtensions.m */,
+			);
+			path = "NSMutableArray+VAPExtensions";
+			sourceTree = "<group>";
+		};
 		1F3935AF1BAA118600D5D95E = {
 			isa = PBXGroup;
 			children = (
@@ -262,6 +274,7 @@
 		1FE38EB91BADCE9E00CC5B57 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				1F15D64C1BBC4E7B0038C31F /* NSMutableArray+VAPExtensions */,
 				1F748A671BB735BF0008A6FF /* UITableView+VAPExtensions */,
 				1F748A601BB726A10008A6FF /* UINib+VAPExtensions */,
 				1F4898921BB5E3DE00D7BAAF /* NSIndexPath+VAPExtensions */,
@@ -371,9 +384,9 @@
 		1FE38F011BAEBCF700CC5B57 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				1FE38F021BAEC18D00CC5B57 /* VAPRandomStringCell.h */,
-				1FE38F031BAEC18D00CC5B57 /* VAPRandomStringCell.m */,
-				1FE38F041BAEC18D00CC5B57 /* VAPRandomStringCell.xib */,
+				1FE38F021BAEC18D00CC5B57 /* VAPDataCell.h */,
+				1FE38F031BAEC18D00CC5B57 /* VAPDataCell.m */,
+				1FE38F041BAEC18D00CC5B57 /* VAPDataCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -500,7 +513,7 @@
 				1FE38F091BAEE79100CC5B57 /* Slowpoke.png in Resources */,
 				1FE38ED81BADCEA500CC5B57 /* IDPStudyPlan in Resources */,
 				1FE38ED91BADCEA500CC5B57 /* Images.xcassets in Resources */,
-				1FE38F061BAEC18D00CC5B57 /* VAPRandomStringCell.xib in Resources */,
+				1FE38F061BAEC18D00CC5B57 /* VAPDataCell.xib in Resources */,
 				1FE38EFB1BADF73A00CC5B57 /* VAPRandomStringViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -531,7 +544,8 @@
 				1FE38EF41BADE9A600CC5B57 /* VAPObservable.m in Sources */,
 				1F748A781BB879150008A6FF /* VAPArrayObserver.m in Sources */,
 				1F748A721BB86D110008A6FF /* VAPChangesModelOneIndex.m in Sources */,
-				1FE38F051BAEC18D00CC5B57 /* VAPRandomStringCell.m in Sources */,
+				1F15D64F1BBC4EC30038C31F /* NSMutableArray+VAPExtensions.m in Sources */,
+				1FE38F051BAEC18D00CC5B57 /* VAPDataCell.m in Sources */,
 				1F4898951BB5E42300D7BAAF /* NSIndexPath+VAPExtensions.m in Sources */,
 				1FEDCA781BB6B58100A5EADC /* VAPArray.m in Sources */,
 				1F748A661BB727770008A6FF /* UINib+VAPExtensions.m in Sources */,

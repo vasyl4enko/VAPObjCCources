@@ -6,7 +6,6 @@
 //  Copyright (c) 2015 Aleksandr Vasylchenko. All rights reserved.
 //
 
-
 #import <Foundation/Foundation.h>
 
 @interface NSString (VAPRandomString)

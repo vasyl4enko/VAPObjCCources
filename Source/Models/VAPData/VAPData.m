@@ -50,5 +50,23 @@ static NSString * const kPNGExtension = @"png";
     return __slowpokeImage;
 }
 
+#pragma mark -
+#pragma mark
+
+- (instancetype)initWithCoder:(NSCoder *)coder
+{
+    self = [super init];
+    if (self) {
+        self.name = [coder decodeObjectForKey:@"name"];
+        self.url = [coder decodeObjectForKey:@"url"];
+    }
+    return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)coder {
+    [coder encodeObject:self.name forKey:@"name"];
+    [coder encodeObject:self.url forKey:@"url"];
+}
+
 
 @end

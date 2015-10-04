@@ -8,7 +8,7 @@
 
 #import "VAPObservable.h"
 
-@interface VAPArray : VAPObservable
+@interface VAPArray : VAPObservable <NSCoding>
 @property (nonatomic, readonly)     NSArray         *data;
 @property (nonatomic, readonly)     NSUInteger      count;
 

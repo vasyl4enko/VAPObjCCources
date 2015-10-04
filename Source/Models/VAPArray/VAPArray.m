@@ -107,8 +107,27 @@
 
 - (void)notifyWithChangesModel:(id)model {
     [self notifyObserversWithSelector:@selector(dataArray:didChangeWithChangesModel:)
-                           withObject:self.mutableData
+                           withObject:self
                            withObject:model];
 }
+
+
+#pragma mark -
+#pragma mark
+
+- (instancetype)initWithCoder:(NSCoder *)coder
+{
+    self = [super init];
+    if (self) {
+        self.mutableData = [coder decodeObjectForKey:@"mutableData"];
+        
+    }
+    return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)coder {
+    [coder encodeObject:self.mutableData forKey:@"mutableData"];
+}
+
 
 @end

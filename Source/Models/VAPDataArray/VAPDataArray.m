@@ -10,7 +10,13 @@
 
 #import "VAPData.h"
 
-static const NSUInteger kVAPCountRows = 10;
+static NSUInteger const kVAPCountRows = 10;
+
+@interface VAPDataArray ()
+
+- (void)fillDataArray;
+
+@end
 
 @implementation VAPDataArray
 
@@ -18,15 +24,26 @@ static const NSUInteger kVAPCountRows = 10;
 #pragma mark Initializations and Deallocations
 
 - (instancetype)init {
+   
+    return [self initWithCount:kVAPCountRows];
+}
+
+- (instancetype)initWithCount:(NSUInteger)count {
     self = [super init];
     if (self) {
-        for (NSUInteger index = 0; index < kVAPCountRows; index++) {
-            [self addObject:[VAPData new]];
-        }
+        [self fillDataArray];
     }
     
     return self;
 }
 
+#pragma mark -
+#pragma mark Private Methods
+
+- (void)fillDataArray {
+    for (NSUInteger index = 0; index < kVAPCountRows; index++) {
+        [self addObject:[VAPData new]];
+    }
+}
 
 @end

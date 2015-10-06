@@ -8,7 +8,7 @@
 
 #import "NSString+VAPRandomString.h"
 
-static const NSUInteger kVAPDefualtLength = 10;
+static NSUInteger const kVAPDefualtLength = 10;
 
 @implementation NSString (VAPRandomString)
 

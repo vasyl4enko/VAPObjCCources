@@ -29,20 +29,17 @@
     switch ([model state]) {
         case VAPArrayStatesDelete:
             modelOneIndex = model;
-            [tableView deleteRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:modelOneIndex.index]]
-                             withRowAnimation:UITableViewRowAnimationFade];
+            [tableView deleteRowsAtIndexPaths:@[[model targetIndexPath]] withRowAnimation:UITableViewRowAnimationFade];
             break;
             
         case VAPArrayStatesInsert:
             modelOneIndex = model;
-            [tableView insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:modelOneIndex.index]]
-                             withRowAnimation:UITableViewRowAnimationFade];
+            [tableView insertRowsAtIndexPaths:@[[model targetIndexPath]] withRowAnimation:UITableViewRowAnimationFade];
             break;
             
         case VAPArrayStatesMove:
             modelTwoIndexes = model;
-            [tableView moveRowAtIndexPath:[NSIndexPath indexPathForRow:modelTwoIndexes.fromIndex]
-                              toIndexPath:[NSIndexPath indexPathForRow:modelTwoIndexes.toIndex]];
+            [tableView moveRowAtIndexPath:[model sourceIndexPath] toIndexPath:[model targetIndexPath]];
             break;
 
         default:

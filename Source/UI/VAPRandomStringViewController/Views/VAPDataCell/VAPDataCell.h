@@ -6,11 +6,11 @@
 //  Copyright (c) 2015 Aleksandr Vasylchenko. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "VAPTableViewCell.h"
 
 @class VAPData;
 
-@interface VAPDataCell : UITableViewCell
+@interface VAPDataCell : VAPTableViewCell
 @property (nonatomic, strong)   IBOutlet UILabel        *cellLabel;
 @property (nonatomic, strong)   IBOutlet UIImageView    *contentImage;
 

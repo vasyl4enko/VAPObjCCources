@@ -13,6 +13,8 @@
 
 #import "NSMutableArray+VAPExtensions.h"
 
+static NSString * const kVAPMutableDataKey = @"mutableData";
+
 @interface VAPArray ()
 @property (nonatomic, strong)     NSMutableArray        *mutableData;
 
@@ -119,14 +121,14 @@
 {
     self = [super init];
     if (self) {
-        self.mutableData = [coder decodeObjectForKey:@"mutableData"];
+        self.mutableData = [coder decodeObjectForKey:kVAPMutableDataKey];
         
     }
     return self;
 }
 
 - (void)encodeWithCoder:(NSCoder *)coder {
-    [coder encodeObject:self.mutableData forKey:@"mutableData"];
+    [coder encodeObject:self.mutableData forKey:kVAPMutableDataKey];
 }
 
 

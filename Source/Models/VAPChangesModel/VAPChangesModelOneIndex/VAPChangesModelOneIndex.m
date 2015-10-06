@@ -8,18 +8,28 @@
 
 #import "VAPChangesModelOneIndex.h"
 
+#import "NSIndexPath+VAPExtensions.h"
+
 @interface VAPChangesModelOneIndex ()
-@property (nonatomic, assign)   NSUInteger  index;
+@property (nonatomic, assign)   NSUInteger  targetIndex;
 
 @end
 
 @implementation VAPChangesModelOneIndex
 
-+ (instancetype)modelWithIndex:(NSUInteger)index state:(VAPArrayStates)state {
++ (instancetype)modelWithIndex:(NSUInteger)targetIndex state:(VAPArrayStates)state {
     VAPChangesModelOneIndex *model = [self modelWithState:state];
-    model.index = index;
+    model.targetIndex = targetIndex;
     
     return model;
+}
+
+@end
+
+@implementation VAPChangesModelOneIndex (VAPIndexPath)
+
+- (NSIndexPath *)targetIndexPath {
+   return [NSIndexPath indexPathForRow:self.targetIndex];
 }
 
 @end

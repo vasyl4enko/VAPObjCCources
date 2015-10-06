@@ -43,14 +43,6 @@ VAPViewControllerMainViewProperty(VAPRandomStringViewController, randomStringVie
 #pragma mark -
 #pragma mark Accessors
 
-- (VAPRandomStringView *)randomStringView {
-    if ([self isViewLoaded] && [self.view isKindOfClass:[VAPRandomStringView class]]) {
-        return (VAPRandomStringView *)self.view;
-    }
-    
-    return nil;
-}
-
 - (void)setDataArray:(VAPDataArray *)dataArray {
     if (_dataArray != dataArray) {
         [_dataArray removeObserver:self];

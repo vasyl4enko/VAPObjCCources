@@ -10,4 +10,6 @@
 
 @interface VAPDataArray : VAPArray
 
+- (instancetype)initWithCount:(NSUInteger)count;
+
 @end

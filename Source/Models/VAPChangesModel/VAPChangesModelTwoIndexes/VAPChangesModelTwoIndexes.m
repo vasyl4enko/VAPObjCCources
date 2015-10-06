@@ -8,20 +8,34 @@
 
 #import "VAPChangesModelTwoIndexes.h"
 
+#import "NSIndexPath+VAPExtensions.h"
+
 @interface VAPChangesModelTwoIndexes ()
-@property (nonatomic, assign)     NSUInteger  fromIndex;
-@property (nonatomic, assign)     NSUInteger  toIndex;
+@property (nonatomic, assign)     NSUInteger  sourceIndex;
+@property (nonatomic, assign)     NSUInteger  targetIndex;
 
 @end
 
 @implementation VAPChangesModelTwoIndexes
 
-+ (instancetype)modelFromIndex:(NSUInteger)fromIndex toIndex:(NSUInteger)toIndex state:(VAPArrayStates)state {
++ (instancetype)modelFromIndex:(NSUInteger)sourceIndex toIndex:(NSUInteger)targetIndex state:(VAPArrayStates)state {
     VAPChangesModelTwoIndexes *model = [self modelWithState:state];
-    model.fromIndex = fromIndex;
-    model.toIndex = toIndex;
+    model.sourceIndex = sourceIndex;
+    model.targetIndex = targetIndex;
     
     return model;
+}
+
+@end
+
+@implementation VAPChangesModelTwoIndexes (VAPIndexPaths)
+
+- (NSIndexPath *)targetIndexPath {
+    return [NSIndexPath indexPathForRow:self.targetIndex];
+}
+
+- (NSIndexPath *)sourceIndexPath {
+    return [NSIndexPath indexPathForRow:self.sourceIndex];
 }
 
 @end

@@ -9,8 +9,14 @@
 #import "VAPChangesModel.h"
 
 @interface VAPChangesModelOneIndex : VAPChangesModel
-@property (nonatomic, readonly) NSUInteger index;
+@property (nonatomic, readonly) NSUInteger targetIndex;
 
-+ (instancetype)modelWithIndex:(NSUInteger)index state:(VAPArrayStates)state;
++ (instancetype)modelWithIndex:(NSUInteger)targetIndex state:(VAPArrayStates)state;
+
+@end
+
+@interface VAPChangesModelOneIndex (VAPIndexPath)
+
+- (NSIndexPath *)targetIndexPath;
 
 @end

@@ -9,31 +9,28 @@
 #import "VAPAppDelegate.h"
 
 #import "VAPRandomStringViewController.h"
+
 #import "UIWindow+VAPExtensions.h"
 #import "UIViewController+VAPExtensions.h"
+#import "NSFileManager+VAPExtensions.h"
+
+static NSString * const kVAPArchiveFileName = @"data.plist";
 
 @interface VAPAppDelegate ()
+@property (nonatomic, readonly) NSString *path;
 @property (nonatomic, strong) VAPDataArray *dataArray;
 
 @end
 
 @implementation VAPAppDelegate
-
+@dynamic path;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     UIWindow *window = [UIWindow window];
     self.window = window;
     VAPRandomStringViewController *randomStringViewController = [VAPRandomStringViewController controller];
-    
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES);
-    NSString *path = [[paths firstObject] stringByAppendingPathComponent:@"data.plist"];
-    VAPDataArray *dataArray = [NSKeyedUnarchiver unarchiveObjectWithFile:path];
-    if (!dataArray) {
-        dataArray = [VAPDataArray new];
-    }
-    
-    self.dataArray = dataArray;
-    randomStringViewController.dataArray = dataArray;
+    self.dataArray = [VAPDataArray new];
+    randomStringViewController.dataArray = self.dataArray;
     window.rootViewController = [[UINavigationController alloc] initWithRootViewController:randomStringViewController];
     [window makeKeyAndVisible];
     
@@ -41,9 +38,7 @@
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES);
-    NSString *path = [[paths firstObject] stringByAppendingPathComponent:@"data.plist"];
-    [NSKeyedArchiver archiveRootObject:self.dataArray toFile:path];
+    [NSKeyedArchiver archiveRootObject:self.dataArray toFile:self.path];
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
@@ -56,6 +51,22 @@
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
+}
+
+#pragma mark -
+#pragma mark Accessors 
+
+- (NSString *)path {
+    return [NSFileManager pathWithFileName:kVAPArchiveFileName];
+}
+
+- (void)setDataArray:(VAPDataArray *)dataArray {
+    VAPDataArray *array = [NSKeyedUnarchiver unarchiveObjectWithFile:self.path];
+    if (!array) {
+        array = dataArray;
+    }
+    
+    _dataArray = array;
 }
 
 @end

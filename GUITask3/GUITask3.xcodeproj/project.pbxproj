@@ -320,6 +320,7 @@
 		1F01CB9F1BC1D43400D28033 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				1F482E711BCAB6FD00165C2F /* VAPModel */,
 				1F01CBA01BC1D43400D28033 /* VAPArray */,
 				1F01CBA51BC1D43400D28033 /* VAPChangesModel */,
 				1F01CBAE1BC1D43400D28033 /* VAPData */,
@@ -432,6 +433,13 @@
 				1F01CBD71BC1D43D00D28033 /* Slowpoke.png */,
 			);
 			path = Images;
+			sourceTree = "<group>";
+		};
+		1F482E711BCAB6FD00165C2F /* VAPModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = VAPModel;
 			sourceTree = "<group>";
 		};
 		1FB7D46B1BC44B0100441AED /* NSFileManager+VAPExtensions */ = {

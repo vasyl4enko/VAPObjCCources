@@ -17,7 +17,6 @@
 - (void)setContent:(VAPData *)content {
     if (_content != content) {
         _content = content;
-        
         [self fillWithContent:_content];
     }
 }

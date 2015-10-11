@@ -12,6 +12,8 @@
 
 static NSString * const kSlowpokeName = @"Slowpoke";
 static NSString * const kPNGExtension = @"png";
+static NSString * const kNameDataKey =  @"name";
+static NSString * const kUrlDataKey =   @"url";
 
 @interface VAPData ()
 @property (nonatomic, strong)     NSString    *name;
@@ -57,15 +59,15 @@ static NSString * const kPNGExtension = @"png";
 {
     self = [super init];
     if (self) {
-        self.name = [coder decodeObjectForKey:@"name"];
-        self.url = [coder decodeObjectForKey:@"url"];
+        self.name = [coder decodeObjectForKey:kNameDataKey];
+        self.url = [coder decodeObjectForKey:kUrlDataKey];
     }
     return self;
 }
 
 - (void)encodeWithCoder:(NSCoder *)coder {
-    [coder encodeObject:self.name forKey:@"name"];
-    [coder encodeObject:self.url forKey:@"url"];
+    [coder encodeObject:self.name forKey:kNameDataKey];
+    [coder encodeObject:self.url forKey:kUrlDataKey];
 }
 
 

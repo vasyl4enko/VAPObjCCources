@@ -14,7 +14,8 @@
 typedef NS_ENUM(NSUInteger, VAPArrayStates) {
     VAPArrayStatesInsert,
     VAPArrayStatesDelete,
-    VAPArrayStatesMove
+    VAPArrayStatesMove,
+    VAPArrayStatesAdd
 };
 
 @interface VAPChangesModel : NSObject

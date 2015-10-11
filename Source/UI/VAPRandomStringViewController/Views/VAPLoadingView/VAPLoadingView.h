@@ -9,5 +9,11 @@
 #import <UIKit/UIKit.h>
 
 @interface VAPLoadingView : UIView
+@property (nonatomic, readonly, getter = isVisible) BOOL visible;
+
++ (id)loadingView:(UIView *)superView;
+
+- (void)setVisible:(BOOL)visible withAnimated:(BOOL)animated;
+- (void)setVisible:(BOOL)visible withAnimated:(BOOL)animated completion:(void (^)())completion;
 
 @end

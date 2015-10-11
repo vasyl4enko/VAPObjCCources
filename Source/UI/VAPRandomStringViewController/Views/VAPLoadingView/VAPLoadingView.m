@@ -8,6 +8,45 @@
 
 #import "VAPLoadingView.h"
 
+#import "UINib+VAPExtensions.h"
+
+static NSUInteger const kVAPAnimatedDuration = 3;
+static NSUInteger const kVAPDelay = 0;
+
 @implementation VAPLoadingView
+
++ (id)loadingView:(UIView *)superView {
+    UIView *view =nil;
+    view = [UINib objectWithClass:[VAPLoadingView class]];
+    UIViewController *controller = [[[UIApplication sharedApplication] keyWindow] rootViewController];
+    [controller.view.window addSubview:view];
+    view.frame = superView.bounds;
+    
+    return view;
+}
+
+- (void)setVisible:(BOOL)visible {
+    [self setVisible:visible withAnimated:NO];
+}
+
+- (void)setVisible:(BOOL)visible withAnimated:(BOOL)animated {
+    [self setVisible:visible withAnimated:animated completion:nil];
+}
+
+- (void)setVisible:(BOOL)visible withAnimated:(BOOL)animated completion:(void (^)())completion {
+    NSUInteger animationDuration = animated ? kVAPAnimatedDuration : 0;
+    [UIView animateWithDuration:animationDuration
+                          delay:kVAPDelay
+                        options:UIViewAnimationOptionCurveLinear
+                     animations:^{
+                         self.alpha = 0;
+                     }
+                     completion:^(BOOL finished) {
+                         self.visible = NO;
+                         if (completion) {
+                             completion();
+                         }
+                     }];
+}
 
 @end

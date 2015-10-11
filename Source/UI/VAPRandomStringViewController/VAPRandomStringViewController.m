@@ -33,6 +33,7 @@ VAPViewControllerMainViewProperty(VAPRandomStringViewController, randomStringVie
 
 - (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    
     if (self) {
         [self setupNavigationItem];
     }
@@ -82,8 +83,9 @@ VAPViewControllerMainViewProperty(VAPRandomStringViewController, randomStringVie
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
                                                                                target:self
                                                                                action:@selector(addItem:)];
-    self.navigationItem.rightBarButtonItem = addButton;
-    self.navigationItem.leftBarButtonItem = self.editButtonItem;
+    UINavigationItem *navigationItem = self.navigationItem;
+    navigationItem.rightBarButtonItem = addButton;
+    navigationItem.leftBarButtonItem = self.editButtonItem;
 }
 
 #pragma mark -

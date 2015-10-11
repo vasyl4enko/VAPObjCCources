@@ -8,6 +8,21 @@
 
 #import "VAPRandomStringView.h"
 
+#import "VAPLoadingView.h"
+
+
+@interface VAPRandomStringView ()
+@property (nonatomic, strong) VAPLoadingView *loadingView;
+
+@end
+
 @implementation VAPRandomStringView
+
+- (void)awakeFromNib {
+    [super awakeFromNib];
+    
+    self.loadingView = [VAPLoadingView loadingView:self];
+    [self.loadingView setVisible:YES withAnimated:YES];
+}
 
 @end

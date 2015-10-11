@@ -32,6 +32,7 @@
 		1F01CBD91BC1D43D00D28033 /* Slowpoke.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F01CBD71BC1D43D00D28033 /* Slowpoke.png */; };
 		1F01CBDF1BC1D47A00D28033 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F01CBDD1BC1D47A00D28033 /* Images.xcassets */; };
 		1F01CBE21BC1D49700D28033 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F01CBE01BC1D49700D28033 /* LaunchScreen.xib */; };
+		1F482E741BCAC2FF00165C2F /* VAPModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F482E731BCAC2FF00165C2F /* VAPModel.m */; };
 		1FEE91FF1BC44C3E00E1F18D /* NSFileManager+VAPExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FEE91FE1BC44C3E00E1F18D /* NSFileManager+VAPExtensions.m */; };
 		1FEE92041BC4730600E1F18D /* VAPDataCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FEE92021BC4730600E1F18D /* VAPDataCell.m */; };
 		1FEE92051BC4730600E1F18D /* VAPDataCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1FEE92031BC4730600E1F18D /* VAPDataCell.xib */; };
@@ -99,6 +100,9 @@
 		1F01CBD71BC1D43D00D28033 /* Slowpoke.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Slowpoke.png; sourceTree = "<group>"; };
 		1F01CBDD1BC1D47A00D28033 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		1F01CBE11BC1D49700D28033 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		1F482E721BCAC2FF00165C2F /* VAPModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VAPModel.h; sourceTree = "<group>"; };
+		1F482E731BCAC2FF00165C2F /* VAPModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VAPModel.m; sourceTree = "<group>"; };
+		1F482E751BCADF9F00165C2F /* VAPModelObserver.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VAPModelObserver.h; sourceTree = "<group>"; };
 		1FEE91FD1BC44C3E00E1F18D /* NSFileManager+VAPExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSFileManager+VAPExtensions.h"; path = "GUITask3.xcodeproj/../../Source/Library/Categories/NSIndexPath+VAPExtensions/NSFileManager+VAPExtensions.h"; sourceTree = SOURCE_ROOT; };
 		1FEE91FE1BC44C3E00E1F18D /* NSFileManager+VAPExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSFileManager+VAPExtensions.m"; path = "GUITask3.xcodeproj/../../Source/Library/Categories/NSIndexPath+VAPExtensions/NSFileManager+VAPExtensions.m"; sourceTree = SOURCE_ROOT; };
 		1FEE92011BC4730600E1F18D /* VAPDataCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VAPDataCell.h; sourceTree = "<group>"; };
@@ -438,8 +442,11 @@
 		1F482E711BCAB6FD00165C2F /* VAPModel */ = {
 			isa = PBXGroup;
 			children = (
+				1F482E721BCAC2FF00165C2F /* VAPModel.h */,
+				1F482E731BCAC2FF00165C2F /* VAPModel.m */,
+				1F482E751BCADF9F00165C2F /* VAPModelObserver.h */,
 			);
-			name = VAPModel;
+			path = VAPModel;
 			sourceTree = "<group>";
 		};
 		1FB7D46B1BC44B0100441AED /* NSFileManager+VAPExtensions */ = {
@@ -596,6 +603,7 @@
 				1F01CB051BC1D2A400D28033 /* main.m in Sources */,
 				1F01CBCA1BC1D43400D28033 /* VAPChangesModel.m in Sources */,
 				1FEE91FF1BC44C3E00E1F18D /* NSFileManager+VAPExtensions.m in Sources */,
+				1F482E741BCAC2FF00165C2F /* VAPModel.m in Sources */,
 				1F01CBCE1BC1D43400D28033 /* VAPDataArray.m in Sources */,
 				1FEE92041BC4730600E1F18D /* VAPDataCell.m in Sources */,
 			);

@@ -19,16 +19,20 @@ static NSString * const kVAPArchiveFileName = @"data.plist";
 @interface VAPAppDelegate ()
 @property (nonatomic, readonly) NSString *path;
 @property (nonatomic, strong) VAPDataArray *dataArray;
+@property (nonatomic, readonly) VAPDataArray *dynamycDataArray;
 
 @end
 
 @implementation VAPAppDelegate
 @dynamic path;
+@dynamic dynamycDataArray;
+@synthesize dataArray = _dataArray;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     UIWindow *window = [UIWindow window];
     self.window = window;
     VAPRandomStringViewController *randomStringViewController = [VAPRandomStringViewController controller];
+
     self.dataArray = [VAPDataArray new];
     randomStringViewController.dataArray = self.dataArray;
     window.rootViewController = [[UINavigationController alloc] initWithRootViewController:randomStringViewController];
@@ -38,7 +42,7 @@ static NSString * const kVAPArchiveFileName = @"data.plist";
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
-    [NSKeyedArchiver archiveRootObject:self.dataArray toFile:self.path];
+    [self.dataArray saveTo:self.path];
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
@@ -61,12 +65,9 @@ static NSString * const kVAPArchiveFileName = @"data.plist";
 }
 
 - (void)setDataArray:(VAPDataArray *)dataArray {
-    VAPDataArray *array = [NSKeyedUnarchiver unarchiveObjectWithFile:self.path];
-    if (!array) {
-        array = dataArray;
+    if (_dataArray != dataArray) {
+       _dataArray = [dataArray loadWithPath:self.path];
     }
-    
-    _dataArray = array;
 }
 
 @end

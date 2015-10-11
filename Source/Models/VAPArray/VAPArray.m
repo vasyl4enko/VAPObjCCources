@@ -57,6 +57,8 @@ static NSString * const kVAPMutableDataKey = @"mutableData";
     if (object) {
         [self.mutableData addObject:object];
     }
+    
+    [self notifyWithChangesModel:[VAPChangesModel insertModelWithIndex:self.count]];
 }
 
 - (void)removeObject:(id)object {
@@ -114,8 +116,22 @@ static NSString * const kVAPMutableDataKey = @"mutableData";
 }
 
 
+- (void)saveTo:(NSString *)path {
+    [NSKeyedArchiver archiveRootObject:self toFile:path];
+}
+
+- (id)loadWithPath:(NSString *)path {
+    id array = nil;
+    array = [NSKeyedUnarchiver unarchiveObjectWithFile:path];
+    if (!array) {
+        array = self;
+    }
+
+    return array;
+}
+
 #pragma mark -
-#pragma mark
+#pragma mark NSCoding
 
 - (instancetype)initWithCoder:(NSCoder *)coder
 {

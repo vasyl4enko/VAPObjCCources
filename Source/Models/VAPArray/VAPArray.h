@@ -23,4 +23,7 @@
 - (void)replaceObjectAtIndex:(NSUInteger)index withObject:(id)object;
 - (void)moveObjectFromIndex:(NSUInteger)fromIndex toIndex:(NSUInteger)toIndex;
 
+- (void)saveTo:(NSString *)path;
+- (id)loadWithPath:(NSString *)path;
+
 @end

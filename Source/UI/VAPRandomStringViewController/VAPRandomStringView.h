@@ -11,4 +11,7 @@
 @interface VAPRandomStringView : UIView
 @property (nonatomic, strong)    IBOutlet UITableView        *tableView;
 
+- (void)show;
+- (void)hide;
+
 @end

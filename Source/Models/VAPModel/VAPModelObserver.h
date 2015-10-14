@@ -12,6 +12,7 @@
 
 - (void)modelWillLoad:(id)self;
 - (void)modelDidLoad:(id)self;
-- (void)modelLoading:(id)self;
+- (void)modelDidFailed:(id)self;
+- (void)modelDidUnload:(id)self;
 
 @end

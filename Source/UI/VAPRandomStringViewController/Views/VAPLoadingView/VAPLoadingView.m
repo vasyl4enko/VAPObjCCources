@@ -16,11 +16,9 @@ static NSUInteger const kVAPDelay = 0;
 @implementation VAPLoadingView
 
 + (id)loadingView:(UIView *)superView {
-    UIView *view =nil;
-    view = [UINib objectWithClass:[VAPLoadingView class]];
-    UIWindow *window = [[UIApplication sharedApplication] keyWindow]; // replace this shit to parrent view or don't cover navi-bar
-    [window addSubview:view];
-    view.frame = window.bounds;
+    UIView *view =[UINib objectWithClass:[VAPLoadingView class]];
+    [superView addSubview:view];
+    view.frame = superView.bounds;
     
     return view;
 }

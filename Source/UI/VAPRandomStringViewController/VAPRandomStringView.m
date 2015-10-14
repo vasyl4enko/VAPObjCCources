@@ -21,8 +21,8 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     
-    self.loadingView = [VAPLoadingView loadingView:self]; // zames
-    [self.loadingView setVisible:YES withAnimated:YES];
+    self.loadingView = [VAPLoadingView loadingView:[[UIApplication sharedApplication] keyWindow]]; 
+//    [self.loadingView setVisible:YES withAnimated:YES];
 }
 
 @end

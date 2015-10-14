@@ -13,7 +13,8 @@
 
 #import "NSMutableArray+VAPExtensions.h"
 
-static NSString * const kVAPMutableDataKey = @"mutableData";
+static NSString * const kVAPMutableDataKey  = @"mutableData";
+static NSString * const kVAPArchiveFileName = @"data.plist";
 
 @interface VAPArray ()
 @property (nonatomic, strong)     NSMutableArray        *mutableData;
@@ -116,13 +117,12 @@ static NSString * const kVAPMutableDataKey = @"mutableData";
 }
 
 
-- (void)saveTo:(NSString *)path {
-    [NSKeyedArchiver archiveRootObject:self toFile:path];
+- (void)save {
+    [NSKeyedArchiver archiveRootObject:self toFile:kVAPMutableDataKey];
 }
 
 - (id)loadWithPath:(NSString *)path {
-    id array = nil;
-    array = [NSKeyedUnarchiver unarchiveObjectWithFile:path];
+    id array = [NSKeyedUnarchiver unarchiveObjectWithFile:path];;
     if (!array) {
         array = self;
     }
@@ -138,8 +138,8 @@ static NSString * const kVAPMutableDataKey = @"mutableData";
     self = [super init];
     if (self) {
         self.mutableData = [coder decodeObjectForKey:kVAPMutableDataKey];
-        
     }
+    
     return self;
 }
 

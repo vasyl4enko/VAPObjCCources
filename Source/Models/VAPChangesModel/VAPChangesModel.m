@@ -35,9 +35,11 @@
 + (instancetype)insertModelWithIndex:(NSUInteger)index {
     return [VAPChangesModelOneIndex modelWithIndex:index state:VAPArrayStatesInsert];
 }
+
 + (instancetype)deleteModelWithIndex:(NSUInteger)index {
     return [VAPChangesModelOneIndex modelWithIndex:index state:VAPArrayStatesDelete];
 }
+
 + (instancetype)moveModelFromIndex:(NSUInteger)fromIndex toIndex:(NSUInteger)toIndex {
     return [VAPChangesModelTwoIndexes modelFromIndex:fromIndex toIndex:toIndex state:VAPArrayStatesMove];
 }

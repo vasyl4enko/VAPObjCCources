@@ -21,7 +21,7 @@
     return [UINib objectWithClass:cls];
 }
 
-- (void)changeModelWithChangesModel:(id)model {
+- (void)updateModelWithChangesModel:(id)model {
     UITableView *tableView = self;
     VAPChangesModelOneIndex *modelOneIndex = nil;
     VAPChangesModelTwoIndexes *modelTwoIndexes = nil;

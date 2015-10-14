@@ -42,7 +42,7 @@ static NSString * const kVAPArchiveFileName = @"data.plist";
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
-    [self.dataArray saveTo:self.path];
+    [self.dataArray save];
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
@@ -55,19 +55,6 @@ static NSString * const kVAPArchiveFileName = @"data.plist";
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
-}
-
-#pragma mark -
-#pragma mark Accessors 
-
-- (NSString *)path {
-    return [NSFileManager pathWithFileName:kVAPArchiveFileName];
-}
-
-- (void)setDataArray:(VAPDataArray *)dataArray {
-    if (_dataArray != dataArray) {
-       _dataArray = [dataArray loadWithPath:self.path];
-    }
 }
 
 @end

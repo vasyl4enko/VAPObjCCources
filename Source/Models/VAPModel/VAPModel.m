@@ -9,6 +9,7 @@
 #import "VAPModel.h"
 
 @interface VAPModel ()
+@property (nonatomic, readwrite) VAPLoadingStates state;
 
 @end
 
@@ -17,10 +18,8 @@
 #pragma mark -
 #pragma mark Public
 
-- (void)processLoadingWithState:(VAPLoadingStates)state {
-    if (VAPLoadingStatesLoading == state || VAPLoadingStatesWillLoad == state) {
-        
-    }
+- (void)loadModel {
+
 }
 
 #pragma mark -

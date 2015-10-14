@@ -21,7 +21,7 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     
-    self.loadingView = [VAPLoadingView loadingView:self];
+    self.loadingView = [VAPLoadingView loadingView:self]; // zames
     [self.loadingView setVisible:YES withAnimated:YES];
 }
 

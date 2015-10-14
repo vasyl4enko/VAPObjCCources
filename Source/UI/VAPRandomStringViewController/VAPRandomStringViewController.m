@@ -126,7 +126,7 @@ VAPViewControllerMainViewProperty(VAPRandomStringViewController, randomStringVie
 #pragma mark VAPArrayObserver
 
 - (void)dataArray:(VAPArray *)object didChangeWithChangesModel:(VAPChangesModel *)model{
-    [self.randomStringView.tableView changeModelWithChangesModel:model];
+    [self.randomStringView.tableView updateModelWithChangesModel:model];
 }
 
 @end

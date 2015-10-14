@@ -11,11 +11,13 @@
 typedef NS_ENUM(NSUInteger, VAPLoadingStates) {
     VAPLoadingStatesWillLoad,
     VAPLoadingStatesDidLoad,
-    VAPLoadingStatesLoading
+    VAPLoadingStatesDidUnload,
+    VAPLoadingStatesDidFailed
 };
 
 @interface VAPModel : VAPObservable
+@property (nonatomic, readonly) VAPLoadingStates state;
 
-- (void)processLoadingWithState:(VAPLoadingStates)state;
+- (void)loadModel;
 
 @end

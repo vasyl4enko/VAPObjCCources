@@ -15,36 +15,25 @@
 #import "VAPChangesModelOneIndex.h"
 #import "VAPChangesModelTwoIndexes.h"
 
+#import "VAPChangesModel+UITableView.h"
+
 @implementation UITableView (VAPExtensions)
 
 - (id)dequeueCellWithClass:(Class)cls {
     return [UINib objectWithClass:cls];
 }
 
-- (void)updateModelWithChangesModel:(id)model {
-    UITableView *tableView = self;
-    VAPChangesModelOneIndex *modelOneIndex = nil;
-    VAPChangesModelTwoIndexes *modelTwoIndexes = nil;
-    
-    switch ([model state]) {
-        case VAPArrayStatesDelete:
-            modelOneIndex = model;
-            [tableView deleteRowsAtIndexPaths:@[[model targetIndexPath]] withRowAnimation:UITableViewRowAnimationFade];
-            break;
-            
-        case VAPArrayStatesInsert:
-            modelOneIndex = model;
-            [tableView insertRowsAtIndexPaths:@[[model targetIndexPath]] withRowAnimation:UITableViewRowAnimationFade];
-            break;
-            
-        case VAPArrayStatesMove:
-            modelTwoIndexes = model;
-            [tableView moveRowAtIndexPath:[model sourceIndexPath] toIndexPath:[model targetIndexPath]];
-            break;
+- (void)updateModelWithChangesModel:(VAPChangesModel *)changesModel {
+    [self updateModelWithChangesModel:changesModel withRowAnimation:UITableViewRowAnimationAutomatic];
+}
 
-        default:
-            break;
-    }
+- (void)updateModelWithChangesModel:(VAPChangesModel *)changesModel
+                   withRowAnimation:(UITableViewRowAnimation)rowAnimation
+{
+    UITableView *tableView = self;
+    [tableView beginUpdates];
+    [changesModel applyToTableView:tableView rowAnimation:rowAnimation];
+    [tableView endUpdates];
 }
 
 @end

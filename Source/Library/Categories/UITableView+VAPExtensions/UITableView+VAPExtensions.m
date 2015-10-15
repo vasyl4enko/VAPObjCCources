@@ -32,7 +32,7 @@
 {
     UITableView *tableView = self;
     [tableView beginUpdates];
-    [changesModel applyToTableView:tableView rowAnimation:rowAnimation];
+    [changesModel applyToTableView:tableView];
     [tableView endUpdates];
 }
 

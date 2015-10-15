@@ -32,11 +32,11 @@
 - (void)applyToTableView:(UITableView *)tableView rowAnimation:(UITableViewRowAnimation)rowAnimation {
     switch (self.state) {
         case VAPArrayStatesDelete:
-            [tableView deleteRowsAtIndexPaths:@[self.targetIndexPath] withRowAnimation:UITableViewRowAnimationFade];
+            [tableView deleteRowsAtIndexPaths:@[self.targetIndexPath] withRowAnimation:rowAnimation];
             break;
             
         case VAPArrayStatesInsert:
-            [tableView insertRowsAtIndexPaths:@[self.targetIndexPath] withRowAnimation:UITableViewRowAnimationFade];
+            [tableView insertRowsAtIndexPaths:@[self.targetIndexPath] withRowAnimation:rowAnimation];
             break;
             
         default:

@@ -74,5 +74,4 @@ static NSUInteger const kVAPDefualtLength = 10;
     return [self stringWithString:result];
 }
 
-
 @end

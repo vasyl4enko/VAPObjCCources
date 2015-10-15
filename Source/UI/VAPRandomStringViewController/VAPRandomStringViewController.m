@@ -8,17 +8,16 @@
 
 #import "VAPRandomStringViewController.h"
 
-#import "NSString+VAPRandomString.h"
-#import "VAPMacros.h"
-#import "NSIndexPath+VAPExtensions.h"
-
 #import "VAPRandomStringView.h"
 #import "VAPDataCell.h"
 #import "VAPData.h"
-#import "UITableView+VAPExtensions.h"
-
 #import "VAPChangesModel.h"
 
+#import "NSString+VAPRandomString.h"
+#import "NSIndexPath+VAPExtensions.h"
+#import "UITableView+VAPExtensions.h"
+
+#import "VAPMacros.h"
 
 VAPViewControllerMainViewProperty(VAPRandomStringViewController, randomStringView, VAPRandomStringView);
 
@@ -45,11 +44,7 @@ VAPViewControllerMainViewProperty(VAPRandomStringViewController, randomStringVie
 #pragma mark Accessors
 
 - (void)setDataArray:(VAPDataArray *)dataArray {
-    if (_dataArray != dataArray) {
-        [_dataArray removeObserver:self];
-        _dataArray = dataArray;
-        [_dataArray addObserver:self];
-    }
+    VAPObserverSetter(dataArray);
 }
 
 #pragma mark -

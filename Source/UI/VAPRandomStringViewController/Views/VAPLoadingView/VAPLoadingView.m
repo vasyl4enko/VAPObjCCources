@@ -10,8 +10,8 @@
 
 #import "UINib+VAPExtensions.h"
 
-static NSUInteger const kVAPAnimatedDuration = 3;
-static NSUInteger const kVAPDelay = 0;
+static NSTimeInterval const kVAPAnimatedDuration    = 3;
+static NSTimeInterval const kVAPDelay               = 0;
 
 @implementation VAPLoadingView
 

@@ -12,7 +12,7 @@
 
 
 @interface VAPRandomStringView ()
-@property (nonatomic, strong) VAPLoadingView *loadingView;
+@property (nonatomic, readwrite)    VAPLoadingView  *loadingView;
 
 @end
 
@@ -22,7 +22,20 @@
     [super awakeFromNib];
     
     self.loadingView = [VAPLoadingView loadingView:[[UIApplication sharedApplication] keyWindow]]; 
-//    [self.loadingView setVisible:YES withAnimated:YES];
+    [self.loadingView setVisible:YES withAnimated:YES];
+}
+
+#pragma mark -
+#pragma mark Public Methods
+
+- (void)show {
+    [self.loadingView setVisible:YES withAnimated:YES];
+}
+- (void)hide {
+    [self.loadingView setVisible:NO withAnimated:NO];
+}
+- (BOOL)isHidden {
+    return self.loadingView.hidden;
 }
 
 @end

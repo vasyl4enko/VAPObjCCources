@@ -8,10 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
+@class VAPLoadingView;
+
 @interface VAPRandomStringView : UIView
-@property (nonatomic, strong)    IBOutlet UITableView        *tableView;
+@property (nonatomic, strong)       IBOutlet UITableView        *tableView;
 
 - (void)show;
 - (void)hide;
+- (BOOL)isHidden;
 
 @end

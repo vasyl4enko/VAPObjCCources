@@ -9,6 +9,16 @@
 #ifndef Task2_VAPMacros_h
 #define Task2_VAPMacros_h
 
+#define VAPSetterWithExpressions(var, preExpression, postExpression) \
+if (_##var != var ) { \
+    preExpression; \
+    _##var = var; \
+    postExpression; \
+}
+
+#define VAPObserverSetter(var) \
+VAPSetterWithExpressions(var, [_##var removeObserver:self], [_##var addObserver:self])
+
 #define VAPWeakify(variable) \
     __weak typeof(variable) __VAPWeak__##__##variable = variable
 

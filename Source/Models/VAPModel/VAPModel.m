@@ -26,7 +26,7 @@
 - (void)setState:(VAPLoadingStates)state {
     if (_state != state) {
         _state = state;
-        [self notifyLoadedModelWithSelector:[self selectorWithState:_state]];
+        [self notifyLoadedModelWithSelector:[self selectorWithState:state]];
     }
 }
 
@@ -36,10 +36,17 @@
 - (void)loadModel {
     VAPLoadingStates state = self.state;
     if (VAPLoadingStatesDidLoad == state || VAPLoadingStatesWillLoad == state) {
-        [self notifyLoadedModelWithSelector:[self selectorWithState:_state]];
+        [self notifyLoadedModelWithSelector:[self selectorWithState:self.state]];
         
         return;
     }
+    
+    dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void){
+        
+        dispatch_sync(dispatch_get_main_queue(), ^(void){
+            self.state = VAPLoadingStatesDidLoad;
+        });
+    });
 }
 
 #pragma mark -

@@ -22,21 +22,22 @@ VAPSetterWithExpressions(var, [_##var removeObserver:self], [_##var addObserver:
 #define VAPWeakify(variable) \
     __weak typeof(variable) __VAPWeak__##__##variable = variable
 
-
 #define VAPStrongify(variable) \
     __strong typeof(variable) variable = __VAPWeak__##__##variable
 
-#define VAPStrongifyAndReturnIfNil(variable) \
-    VAPStrongify(variable); \
-    if (!variable) { \
-        return; \
+#define VAPEntety
+
+#define VAPStrongifyAndReturnEntety(variable, entety) \
+    VAPStrongify(varible); \
+    if(!variable) { \
+        return entety; \
     }
 
+#define VAPStrongifyAndReturnIfNil(variable) \
+    VAPStrongifyAndReturnEntety(variable, VAPEntety);
+
 #define VAPStrongifyAndReturnNilIfNil(variable) \
-    VAPStrongify(variable); \
-    if (!variable) { \
-        return nil; \
-    }
+    VAPStrongifyAndReturnEntety(variable, nil);
 
 #define VAPMainViewProperty(propertyName, viewClass) \
     @property (nonatomic, readonly) viewClass   *propertyName;

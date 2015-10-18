@@ -22,7 +22,7 @@
     [super awakeFromNib];
     
     self.loadingView = [VAPLoadingView loadingView:[[UIApplication sharedApplication] keyWindow]]; 
-    [self.loadingView setVisible:YES withAnimated:YES];
+    [self.loadingView setVisible:NO withAnimated:YES];
 }
 
 #pragma mark -
@@ -31,9 +31,11 @@
 - (void)show {
     [self.loadingView setVisible:YES withAnimated:YES];
 }
+
 - (void)hide {
     [self.loadingView setVisible:NO withAnimated:NO];
 }
+
 - (BOOL)isHidden {
     return self.loadingView.hidden;
 }

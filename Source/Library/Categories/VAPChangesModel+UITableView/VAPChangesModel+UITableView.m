@@ -25,10 +25,6 @@
 
 @implementation VAPChangesModelOneIndex (UITableView)
 
-- (void)applyToTableView:(UITableView *)tableView{
-    [self applyToTableView:tableView rowAnimation:UITableViewRowAnimationAutomatic];
-}
-
 - (void)applyToTableView:(UITableView *)tableView rowAnimation:(UITableViewRowAnimation)rowAnimation {
     switch (self.state) {
         case VAPArrayStatesDelete:
@@ -47,10 +43,6 @@
 @end
 
 @implementation VAPChangesModelTwoIndexes (UITableView)
-
-- (void)applyToTableView:(UITableView *)tableView{
-    [self applyToTableView:tableView rowAnimation:UITableViewRowAnimationAutomatic];
-}
 
 - (void)applyToTableView:(UITableView *)tableView rowAnimation:(UITableViewRowAnimation)rowAnimation {
     [tableView moveRowAtIndexPath:self.sourceIndexPath toIndexPath:self.targetIndexPath];

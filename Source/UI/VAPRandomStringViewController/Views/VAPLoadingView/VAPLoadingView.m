@@ -16,7 +16,7 @@ static NSTimeInterval const kVAPDelay               = 0;
 @implementation VAPLoadingView
 
 + (id)loadingView:(UIView *)superView {
-    UIView *view =[UINib objectWithClass:[VAPLoadingView class]];
+    UIView *view =[UINib objectWithClass:self];
     [superView addSubview:view];
     view.frame = superView.bounds;
     
@@ -36,11 +36,9 @@ static NSTimeInterval const kVAPDelay               = 0;
     [UIView animateWithDuration:animationDuration
                           delay:kVAPDelay
                         options:UIViewAnimationOptionCurveLinear
-                     animations:^{
-                         self.alpha = 0;
-                     }
+                     animations:^{self.alpha = visible ? 1.0 : 0.0;}
                      completion:^(BOOL finished) {
-                         self.visible = NO;
+                         _visible = NO;
                          if (completion) {
                              completion();
                          }

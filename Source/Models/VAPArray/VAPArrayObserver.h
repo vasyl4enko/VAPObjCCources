@@ -13,6 +13,6 @@
 
 @protocol VAPArrayObserver <NSObject>
 @optional
-- (void)dataArray:(VAPArray *)object didChangeWithChangesModel:(VAPChangesModel *)model;
+- (void)dataArray:(id)object didChangeWithChangesModel:(id)model;
 
 @end

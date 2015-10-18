@@ -10,15 +10,7 @@
 
 #import "VAPModelObserver.h"
 
-@interface VAPModel ()
-@property (nonatomic, readwrite) VAPLoadingStates state;
-
-- (SEL)selectorWithState:(VAPLoadingStates)state;
-
-@end
-
 @implementation VAPModel
-
 
 #pragma mark -
 #pragma mark Accessors

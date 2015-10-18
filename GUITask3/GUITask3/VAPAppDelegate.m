@@ -12,21 +12,14 @@
 
 #import "UIWindow+VAPExtensions.h"
 #import "UIViewController+VAPExtensions.h"
-#import "NSFileManager+VAPExtensions.h"
 
-static NSString * const kVAPArchiveFileName = @"data.plist";
 
 @interface VAPAppDelegate ()
-@property (nonatomic, readonly) NSString *path;
 @property (nonatomic, strong) VAPDataArray *dataArray;
-@property (nonatomic, readonly) VAPDataArray *dynamycDataArray;
 
 @end
 
 @implementation VAPAppDelegate
-@dynamic path;
-@dynamic dynamycDataArray;
-@synthesize dataArray = _dataArray;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     UIWindow *window = [UIWindow window];

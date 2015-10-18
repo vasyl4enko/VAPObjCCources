@@ -16,8 +16,10 @@ typedef NS_ENUM(NSUInteger, VAPLoadingStates) {
 };
 
 @interface VAPModel : VAPObservable
-@property (nonatomic, readonly)     VAPLoadingStates    state;
+@property (nonatomic, assign)     VAPLoadingStates    state;
 
 - (void)loadModel;
+
+- (SEL)selectorWithState:(VAPLoadingStates)state;
 
 @end

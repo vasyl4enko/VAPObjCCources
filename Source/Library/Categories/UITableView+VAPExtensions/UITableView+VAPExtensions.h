@@ -14,8 +14,8 @@
 
 - (id)dequeueCellWithClass:(Class)cls;
 
-- (void)updateModelWithChangesModel:(VAPChangesModel *)changesModel;
-- (void)updateModelWithChangesModel:(VAPChangesModel *)changesModel
+- (void)updateWithChangesModel:(VAPChangesModel *)changesModel;
+- (void)updateWithChangesModel:(VAPChangesModel *)changesModel
                    withRowAnimation:(UITableViewRowAnimation)rowAnimation;
 
 @end

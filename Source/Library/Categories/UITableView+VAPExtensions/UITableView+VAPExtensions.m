@@ -23,12 +23,12 @@
     return [UINib objectWithClass:cls];
 }
 
-- (void)updateModelWithChangesModel:(VAPChangesModel *)changesModel {
-    [self updateModelWithChangesModel:changesModel withRowAnimation:UITableViewRowAnimationAutomatic];
+- (void)updateWithChangesModel:(VAPChangesModel *)changesModel {
+    [self updateWithChangesModel:changesModel withRowAnimation:UITableViewRowAnimationAutomatic];
 }
 
-- (void)updateModelWithChangesModel:(VAPChangesModel *)changesModel
-                   withRowAnimation:(UITableViewRowAnimation)rowAnimation
+- (void)updateWithChangesModel:(VAPChangesModel *)changesModel
+              withRowAnimation:(UITableViewRowAnimation)rowAnimation
 {
     UITableView *tableView = self;
     [tableView beginUpdates];

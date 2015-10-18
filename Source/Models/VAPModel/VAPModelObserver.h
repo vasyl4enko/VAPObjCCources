@@ -10,9 +10,10 @@
 
 @protocol VAPModelObserver <NSObject>
 
-- (void)modelWillLoad:(id)self;
-- (void)modelDidLoad:(id)self;
-- (void)modelDidFailed:(id)self;
-- (void)modelDidUnload:(id)self;
+@optional
+- (void)modelWillLoad:(id)object;
+- (void)modelDidLoad:(id)object;
+- (void)modelDidFail:(id)object;
+- (void)modelDidUnload:(id)object;
 
 @end

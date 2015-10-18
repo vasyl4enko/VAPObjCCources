@@ -13,7 +13,7 @@
 
 + (id)loadingView:(UIView *)superView;
 
-- (void)setVisible:(BOOL)visible withAnimated:(BOOL)animated;
-- (void)setVisible:(BOOL)visible withAnimated:(BOOL)animated completion:(void (^)())completion;
+- (void)setVisible:(BOOL)visible animated:(BOOL)animated;
+- (void)setVisible:(BOOL)visible animated:(BOOL)animated completion:(void (^)())completion;
 
 @end

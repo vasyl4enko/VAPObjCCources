@@ -17,7 +17,7 @@ if (_##var != var ) { \
 }
 
 #define VAPSynthesizeObservingSetter(var) \
-VAPSetterWithExpressions(var, [_##var removeObserver:self], [_##var addObserver:self])
+    VAPSynthesizeSetterWithExpressions(var, [_##var removeObserver:self], [_##var addObserver:self])
 
 #define VAPWeakify(variable) \
     __weak typeof(variable) __VAPWeak__##__##variable = variable
@@ -28,8 +28,8 @@ VAPSetterWithExpressions(var, [_##var removeObserver:self], [_##var addObserver:
 #define VAPEntety
 
 #define VAPStrongifyAndReturnEntety(variable, entety) \
-    VAPStrongify(varible); \
-    if(!variable) { \
+    VAPStrongify(variable); \
+    if(variable == 0) { \
         return entety; \
     }
 

@@ -6,9 +6,9 @@
 //  Copyright (c) 2015 Aleksandr Vasylchenko. All rights reserved.
 //
 
-#import "VAPObservable.h"
+#import "VAPModel.h"
 
-@interface VAPArray : VAPObservable <NSCoding>
+@interface VAPArray : VAPModel <NSCoding>
 @property (nonatomic, readonly)     NSArray         *data;
 @property (nonatomic, readonly)     NSUInteger      count;
 

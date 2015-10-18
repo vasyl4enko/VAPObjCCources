@@ -23,18 +23,36 @@ static NSUInteger const kVAPCountRows = 10;
 #pragma mark -
 #pragma mark Initializations and Deallocations
 
-- (instancetype)init {
-   
-    return [self initWithCount:kVAPCountRows];
-}
+//- (instancetype)init {
+//   
+//    return [self initWithCount:kVAPCountRows];
+//}
 
-- (instancetype)initWithCount:(NSUInteger)count {
-    self = [super init];
-    if (self) {
-        [self fillDataArray];
-    }
-    
-    return self;
+//- (instancetype)init
+//{
+//    self = [super init];
+//    if (self) {
+//        [self loadModel];
+//    }
+//    return self;
+//}
+
+//- (instancetype)initWithCount:(NSUInteger)count {
+//    self = [super init];
+//    if (self) {
+//        [self fillDataArray];
+//    }
+//    
+//    return self;
+//}
+
+#pragma mark -
+#pragma mark Public Methods
+
+
+- (void)performLoading {
+    sleep(3);
+    [self fillDataArray];
 }
 
 #pragma mark -

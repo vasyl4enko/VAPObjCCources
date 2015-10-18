@@ -22,18 +22,18 @@
     [super awakeFromNib];
     
     self.loadingView = [VAPLoadingView loadingView:[[UIApplication sharedApplication] keyWindow]]; 
-    [self.loadingView setVisible:NO withAnimated:YES];
+    [self.loadingView setVisible:NO animated:YES];
 }
 
 #pragma mark -
 #pragma mark Public Methods
 
 - (void)show {
-    [self.loadingView setVisible:YES withAnimated:YES];
+    [self.loadingView setVisible:YES animated:YES];
 }
 
 - (void)hide {
-    [self.loadingView setVisible:NO withAnimated:NO];
+    [self.loadingView setVisible:NO animated:NO];
 }
 
 - (BOOL)isHidden {

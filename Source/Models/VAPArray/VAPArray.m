@@ -59,7 +59,7 @@ static NSString * const kVAPArchiveFileName = @"data.plist";
         [self.mutableData addObject:object];
     }
     
-    [self notifyWithChangesModel:[VAPChangesModel insertModelWithIndex:self.count]];
+//    [self notifyWithChangesModel:[VAPChangesModel insertModelWithIndex:self.count]];
 }
 
 - (void)removeObject:(id)object {
@@ -91,13 +91,13 @@ static NSString * const kVAPArchiveFileName = @"data.plist";
 - (void)removeObjectAtIndex:(NSUInteger)index {
     [self.mutableData removeObjectAtIndex:index];
     
-    [self notifyWithChangesModel:[VAPChangesModel deleteModelWithIndex:index]];
+//    [self notifyWithChangesModel:[VAPChangesModel deleteModelWithIndex:index]];
 }
 
 - (void)insertObject:(id)object atIndex:(NSUInteger)index {
     [self.mutableData insertObject:object atIndex:index];
     
-    [self notifyWithChangesModel:[VAPChangesModel insertModelWithIndex:index]];
+//    [self notifyWithChangesModel:[VAPChangesModel insertModelWithIndex:index]];
 }
 
 - (void)replaceObjectAtIndex:(NSUInteger)index withObject:(id)object {
@@ -107,7 +107,7 @@ static NSString * const kVAPArchiveFileName = @"data.plist";
 - (void)moveObjectFromIndex:(NSUInteger)fromIndex toIndex:(NSUInteger)toIndex {
     [self.mutableData moveObjectFromIndex:fromIndex toIndex:toIndex];
     
-    [self notifyWithChangesModel:[VAPChangesModel moveModelFromIndex:fromIndex toIndex:toIndex]];
+//    [self notifyWithChangesModel:[VAPChangesModel moveModelFromIndex:fromIndex toIndex:toIndex]];
 }
 
 - (void)notifyWithChangesModel:(id)model {
@@ -118,17 +118,17 @@ static NSString * const kVAPArchiveFileName = @"data.plist";
 
 
 - (void)save {
-    [NSKeyedArchiver archiveRootObject:self toFile:kVAPMutableDataKey];
+    [NSKeyedArchiver archiveRootObject:self.mutableData toFile:kVAPMutableDataKey];
 }
 
-- (id)loadWithPath:(NSString *)path {
-    id array = [NSKeyedUnarchiver unarchiveObjectWithFile:path];;
-    if (!array) {
-        array = self;
-    }
-
-    return array;
-}
+//- (id)loadWithPath:(NSString *)path {
+//    id array = [NSKeyedUnarchiver unarchiveObjectWithFile:path];;
+//    if (!array) {
+//        array = self;
+//    }
+//
+//    return array;
+//}
 
 #pragma mark -
 #pragma mark NSCoding

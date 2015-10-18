@@ -44,7 +44,7 @@ VAPViewControllerMainViewProperty(VAPRandomStringViewController, randomStringVie
 #pragma mark Accessors
 
 - (void)setDataArray:(VAPDataArray *)dataArray {
-    VAPObserverSetter(dataArray);
+    VAPSynthesizeObservingSetter(dataArray);
 }
 
 #pragma mark -
@@ -53,7 +53,8 @@ VAPViewControllerMainViewProperty(VAPRandomStringViewController, randomStringVie
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self.randomStringView.tableView reloadData];
+    [self.dataArray loadModel];
+//    [self.randomStringView.tableView reloadData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -115,6 +116,15 @@ VAPViewControllerMainViewProperty(VAPRandomStringViewController, randomStringVie
           toIndexPath:(NSIndexPath *)destinationIndexPath
 {
     [self.dataArray moveObjectFromIndex:sourceIndexPath.row toIndex:destinationIndexPath.row];
+}
+
+#pragma mark -
+#pragma mark VAPModelObserver
+
+- (void)modelDidLoad:(id)object {
+    NSLog(@"string");
+    
+    [self.randomStringView.tableView reloadData];
 }
 
 #pragma mark -

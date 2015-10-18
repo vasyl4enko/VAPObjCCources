@@ -24,14 +24,14 @@ static NSTimeInterval const kVAPDelay               = 0;
 }
 
 - (void)setVisible:(BOOL)visible {
-    [self setVisible:visible withAnimated:NO];
+    [self setVisible:visible animated:NO];
 }
 
-- (void)setVisible:(BOOL)visible withAnimated:(BOOL)animated {
-    [self setVisible:visible withAnimated:animated completion:nil];
+- (void)setVisible:(BOOL)visible animated:(BOOL)animated {
+    [self setVisible:visible animated:animated completion:nil];
 }
 
-- (void)setVisible:(BOOL)visible withAnimated:(BOOL)animated completion:(void (^)())completion {
+- (void)setVisible:(BOOL)visible animated:(BOOL)animated completion:(void (^)())completion {
     NSUInteger animationDuration = animated ? kVAPAnimatedDuration : 0;
     [UIView animateWithDuration:animationDuration
                           delay:kVAPDelay

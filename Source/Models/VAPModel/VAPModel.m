@@ -10,6 +10,8 @@
 
 #import "VAPModelObserver.h"
 
+#import "VAPMacros.h"
+
 @implementation VAPModel
 
 #pragma mark -
@@ -33,12 +35,24 @@
         return;
     }
     
+    [self setupLoading];
+    
+    VAPWeakify(self);
     dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void){
-        
+        VAPStrongifyAndReturnIfNil(self);
+        [self performLoading];
         dispatch_sync(dispatch_get_main_queue(), ^(void){
             self.state = VAPLoadingStatesDidLoad;
         });
     });
+}
+
+- (void)setupLoading {
+    
+}
+
+- (void)performLoading {
+    
 }
 
 #pragma mark -
@@ -60,7 +74,7 @@
 
             break;
         case VAPLoadingStatesDidFailed:
-            selector = @selector(modelDidFailed:);
+            selector = @selector(modelDidFail:);
             break;
             
         default:

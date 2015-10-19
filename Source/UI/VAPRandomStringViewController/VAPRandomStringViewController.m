@@ -123,6 +123,7 @@ VAPViewControllerMainViewProperty(VAPRandomStringViewController, randomStringVie
 
 - (void)modelDidLoad:(id)object {
     [self.randomStringView.tableView reloadData];
+    [self.randomStringView hide];
 }
 
 - (void)model:(VAPArray *)object didChangeWithChangesModel:(VAPChangesModel *)model{

@@ -10,13 +10,13 @@
 
 #import "UINib+VAPExtensions.h"
 
-static NSTimeInterval const kVAPAnimatedDuration    = 3;
+static NSTimeInterval const kVAPAnimatedDuration    = 2;
 static NSTimeInterval const kVAPDelay               = 0;
 
 @implementation VAPLoadingView
 
 + (id)loadingView:(UIView *)superView {
-    UIView *view =[UINib objectWithClass:self];
+    UIView *view = [UINib objectWithClass:self];
     [superView addSubview:view];
     view.frame = superView.bounds;
     

@@ -25,19 +25,19 @@ if (_##var != var ) { \
 #define VAPStrongify(variable) \
     __strong typeof(variable) variable = __VAPWeak__##__##variable
 
-#define VAPEntety
+#define VAPEmpty
 
-#define VAPStrongifyAndReturnEntety(variable, entety) \
+#define VAPStrongifyAndReturnEntity(variable, entety) \
     VAPStrongify(variable); \
-    if(variable == 0) { \
+    if(!variable) { \
         return entety; \
     }
 
 #define VAPStrongifyAndReturnIfNil(variable) \
-    VAPStrongifyAndReturnEntety(variable, VAPEntety);
+    VAPStrongifyAndReturnEntity(variable, VAPEmpty);
 
 #define VAPStrongifyAndReturnNilIfNil(variable) \
-    VAPStrongifyAndReturnEntety(variable, nil);
+    VAPStrongifyAndReturnEntity(variable, nil);
 
 #define VAPMainViewProperty(propertyName, viewClass) \
     @property (nonatomic, readonly) viewClass   *propertyName;

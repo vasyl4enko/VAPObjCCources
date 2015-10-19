@@ -52,7 +52,9 @@ static NSUInteger const kVAPCountRows = 10;
 
 - (void)performLoading {
     sleep(3);
-    [self fillDataArray];
+    [self performBlock:^{
+        [self fillDataArray];
+    } shouldNotify:NO];
 }
 
 #pragma mark -

@@ -122,15 +122,10 @@ VAPViewControllerMainViewProperty(VAPRandomStringViewController, randomStringVie
 #pragma mark VAPModelObserver
 
 - (void)modelDidLoad:(id)object {
-    NSLog(@"string");
-    
     [self.randomStringView.tableView reloadData];
 }
 
-#pragma mark -
-#pragma mark VAPArrayObserver
-
-- (void)dataArray:(VAPArray *)object didChangeWithChangesModel:(VAPChangesModel *)model{
+- (void)model:(VAPArray *)object didChangeWithChangesModel:(VAPChangesModel *)model{
     [self.randomStringView.tableView updateWithChangesModel:model];
 }
 

@@ -9,12 +9,10 @@
 #import <UIKit/UIKit.h>
 
 #import "VAPDataArray.h"
-#import "VAPArrayObserver.h"
 #import "VAPModelObserver.h"
 
 @interface VAPRandomStringViewController : UIViewController <UITableViewDataSource,
                                                             UITableViewDelegate,
-                                                            VAPArrayObserver,
                                                             VAPModelObserver>
 @property (nonatomic, strong)   VAPDataArray    *dataArray;
 

@@ -38,7 +38,7 @@ static NSTimeInterval const kVAPDelay               = 0;
                         options:UIViewAnimationOptionCurveLinear
                      animations:^{self.alpha = visible ? 1.0 : 0.0;}
                      completion:^(BOOL finished) {
-                         _visible = NO;
+                         _visible = visible;
                          if (completion) {
                              completion();
                          }

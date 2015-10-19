@@ -9,7 +9,7 @@
 #import "VAPArray.h"
 
 #import "VAPChangesModel.h"
-#import "VAPArrayObserver.h"
+#import "VAPModelObserver.h"
 
 #import "NSMutableArray+VAPExtensions.h"
 
@@ -59,7 +59,7 @@ static NSString * const kVAPArchiveFileName = @"data.plist";
         [self.mutableData addObject:object];
     }
     
-//    [self notifyWithChangesModel:[VAPChangesModel insertModelWithIndex:self.count]];
+    [self setState:VAPLoadingStatesDidLoad withObject:[VAPChangesModel insertModelWithIndex:self.count]];
 }
 
 - (void)removeObject:(id)object {
@@ -91,13 +91,13 @@ static NSString * const kVAPArchiveFileName = @"data.plist";
 - (void)removeObjectAtIndex:(NSUInteger)index {
     [self.mutableData removeObjectAtIndex:index];
     
-//    [self notifyWithChangesModel:[VAPChangesModel deleteModelWithIndex:index]];
+    [self setState:VAPLoadingStatesDidLoad withObject:[VAPChangesModel deleteModelWithIndex:index]];
 }
 
 - (void)insertObject:(id)object atIndex:(NSUInteger)index {
     [self.mutableData insertObject:object atIndex:index];
-    
-//    [self notifyWithChangesModel:[VAPChangesModel insertModelWithIndex:index]];
+
+    [self setState:VAPLoadingStatesDidLoad withObject:[VAPChangesModel insertModelWithIndex:index]];
 }
 
 - (void)replaceObjectAtIndex:(NSUInteger)index withObject:(id)object {
@@ -107,13 +107,12 @@ static NSString * const kVAPArchiveFileName = @"data.plist";
 - (void)moveObjectFromIndex:(NSUInteger)fromIndex toIndex:(NSUInteger)toIndex {
     [self.mutableData moveObjectFromIndex:fromIndex toIndex:toIndex];
     
-//    [self notifyWithChangesModel:[VAPChangesModel moveModelFromIndex:fromIndex toIndex:toIndex]];
+    [self setState:VAPLoadingStatesDidLoad withObject:[VAPChangesModel moveModelFromIndex:fromIndex toIndex:toIndex]];
+
 }
 
 - (void)notifyWithChangesModel:(id)model {
-    [self notifyObserversWithSelector:@selector(dataArray:didChangeWithChangesModel:)
-                           withObject:self
-                           withObject:model];
+    [self notifyLoadedModelWithSelector:@selector(model:didChangeWithChangesModel:) withObject:model];
 }
 
 
@@ -146,6 +145,5 @@ static NSString * const kVAPArchiveFileName = @"data.plist";
 - (void)encodeWithCoder:(NSCoder *)coder {
     [coder encodeObject:self.mutableData forKey:kVAPMutableDataKey];
 }
-
 
 @end

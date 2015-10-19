@@ -15,5 +15,6 @@
 - (void)modelDidLoad:(id)object;
 - (void)modelDidFail:(id)object;
 - (void)modelDidUnload:(id)object;
+- (void)model:(id)object didChangeWithChangesModel:(id)model;
 
 @end

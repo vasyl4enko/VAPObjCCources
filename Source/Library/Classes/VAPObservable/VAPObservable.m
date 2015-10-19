@@ -9,7 +9,9 @@
 #import "VAPObservable.h"
 
 @interface VAPObservable ()
-@property (nonatomic, strong)    NSHashTable     *mutableObservers;
+@property (nonatomic, strong)   NSHashTable     *mutableObservers;
+@property (nonatomic, assign)   BOOL            shouldNotify;
+
 @end
 
 @implementation VAPObservable
@@ -21,9 +23,27 @@
     self = [super init];
     if (self) {
         self.mutableObservers = [NSHashTable weakObjectsHashTable];
+        self.shouldNotify = YES;
     }
     
     return self;
+}
+
+#pragma mark -
+#pragma mark Accesors
+
+- (void)setState:(NSInteger) state {
+    [self setState:state withObject:nil];
+}
+
+- (void)setState:(NSInteger)state withObject:(id)object {
+    if (_state != state) {
+        _state = state;
+    }
+    
+    if (self.shouldNotify) {
+        [self notifyLoadedModelWithSelector:[self selectorWithState:state] withObject:object];
+    }
 }
 
 #pragma mark -
@@ -46,6 +66,29 @@
 
 - (void)notifyObserversWithSelector:(SEL)selector withObject:(id)object {
     [self notifyObserversWithSelector:selector withObject:object withObject:nil];
+}
+
+- (void)notifyLoadedModelWithSelector:(SEL)selector {
+    [self notifyObserversWithSelector:selector withObject:self];
+}
+
+- (void)notifyLoadedModelWithSelector:(SEL)selector withObject:(id)object {
+    [self notifyObserversWithSelector:selector withObject:self withObject:object];
+}
+
+- (void)performBlock:(void (^)())block shouldNotify:(BOOL)shouldNotify {
+    BOOL state = self.shouldNotify;
+    self.shouldNotify = shouldNotify;
+    
+    if (block) {
+        block();
+    }
+    
+    self.shouldNotify = state;
+}
+
+- (SEL)selectorWithState:(NSInteger )state {
+    return nil;
 }
 
 #pragma clang diagnostic push

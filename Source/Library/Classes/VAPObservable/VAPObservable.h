@@ -9,6 +9,9 @@
 #import <Foundation/Foundation.h>
 
 @interface VAPObservable : NSObject
+@property (nonatomic, assign)   NSInteger  state;
+
+- (void)setState:(NSInteger)state withObject:(id)object;
 
 - (void)addObserver:(id)object;
 - (void)removeObserver:(id)object;
@@ -19,6 +22,13 @@
 - (void)notifyObserversWithSelector:(SEL)selector withObject:(id)object;
 - (void)notifyObserversWithSelector:(SEL)selector withObject:(id)object withObject:(id)object2;
 
+- (void)notifyLoadedModelWithSelector:(SEL)selector;
+- (void)notifyLoadedModelWithSelector:(SEL)selector withObject:(id)object;
+
 - (void)notifyObserversOnMainThreadWithSelector:(SEL)selector withObject:(id)object;
+
+- (void)performBlock:(void (^)())block shouldNotify:(BOOL)shouldNotify;
+
+- (SEL)selectorWithState:(NSInteger )state;
 
 @end

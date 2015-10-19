@@ -8,20 +8,18 @@
 
 #import "VAPObservable.h"
 
-typedef NS_ENUM(NSInteger, VAPLoadingStates) {
-    VAPLoadingStatesDidFailed = -1,
+typedef NS_ENUM(NSUInteger, VAPLoadingStates) {
+    VAPLoadingStatesDidFailed,
     VAPLoadingStatesDidUnload,
     VAPLoadingStatesWillLoad,
     VAPLoadingStatesDidLoad,
 };
 
 @interface VAPModel : VAPObservable
-@property (nonatomic, assign)     VAPLoadingStates    state;
+
 
 - (void)loadModel;
 - (void)setupLoading;
 - (void)performLoading;
-
-- (SEL)selectorWithState:(VAPLoadingStates)state;
 
 @end

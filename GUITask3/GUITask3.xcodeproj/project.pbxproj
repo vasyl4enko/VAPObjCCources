@@ -81,7 +81,6 @@
 		1F01CB9E1BC1D43400D28033 /* VAPMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VAPMacros.h; sourceTree = "<group>"; };
 		1F01CBA11BC1D43400D28033 /* VAPArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VAPArray.h; sourceTree = "<group>"; };
 		1F01CBA21BC1D43400D28033 /* VAPArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VAPArray.m; sourceTree = "<group>"; };
-		1F01CBA31BC1D43400D28033 /* VAPArrayObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VAPArrayObserver.h; sourceTree = "<group>"; };
 		1F01CBA61BC1D43400D28033 /* VAPChangesModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VAPChangesModel.h; sourceTree = "<group>"; };
 		1F01CBA71BC1D43400D28033 /* VAPChangesModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VAPChangesModel.m; sourceTree = "<group>"; };
 		1F01CBA91BC1D43400D28033 /* VAPChangesModelOneIndex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VAPChangesModelOneIndex.h; sourceTree = "<group>"; };
@@ -342,7 +341,6 @@
 			children = (
 				1F01CBA11BC1D43400D28033 /* VAPArray.h */,
 				1F01CBA21BC1D43400D28033 /* VAPArray.m */,
-				1F01CBA31BC1D43400D28033 /* VAPArrayObserver.h */,
 			);
 			path = VAPArray;
 			sourceTree = "<group>";

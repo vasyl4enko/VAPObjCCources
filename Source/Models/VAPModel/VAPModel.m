@@ -17,22 +17,18 @@
 #pragma mark -
 #pragma mark Accessors
 
-- (void)setState:(VAPLoadingStates)state {
-    if (_state != state) {
-        _state = state;
-        [self notifyLoadedModelWithSelector:[self selectorWithState:state]];
-    }
-}
 
 #pragma mark -
 #pragma mark Public
 
 - (void)loadModel {
-    VAPLoadingStates state = self.state;
-    if (VAPLoadingStatesDidLoad == state || VAPLoadingStatesWillLoad == state) {
-        [self notifyLoadedModelWithSelector:[self selectorWithState:self.state]];
-        
-        return;
+    @synchronized(self) {
+        VAPLoadingStates state = self.state;
+        if (VAPLoadingStatesDidLoad == state || VAPLoadingStatesWillLoad == state) {
+            [self notifyLoadedModelWithSelector:[self selectorWithState:self.state]];
+            
+            return;
+        }
     }
     
     [self setupLoading];
@@ -58,7 +54,7 @@
 #pragma mark -
 #pragma mark Private Methods
 
-- (SEL)selectorWithState:(VAPLoadingStates)state {
+- (SEL)selectorWithState:(NSInteger)state {
     SEL selector = nil;
     switch (state) {
         case VAPLoadingStatesWillLoad:
@@ -82,10 +78,6 @@
     }
     
     return selector;
-}
-
-- (void)notifyLoadedModelWithSelector:(SEL)selector {
-    [self notifyObserversWithSelector:selector withObject:self];
 }
 
 @end

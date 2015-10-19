@@ -16,6 +16,6 @@
 
 - (void)updateWithChangesModel:(VAPChangesModel *)changesModel;
 - (void)updateWithChangesModel:(VAPChangesModel *)changesModel
-                   withRowAnimation:(UITableViewRowAnimation)rowAnimation;
+              withRowAnimation:(UITableViewRowAnimation)rowAnimation;
 
 @end

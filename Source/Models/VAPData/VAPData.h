@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface VAPData : NSObject <NSCoding>
+#import "VAPModel.h"
+
+@interface VAPData : VAPModel <NSCoding>
 @property (nonatomic, readonly)     NSString    *name;
 @property (nonatomic, readonly)     NSURL       *url;
 @property (nonatomic, readonly)     UIImage     *image;

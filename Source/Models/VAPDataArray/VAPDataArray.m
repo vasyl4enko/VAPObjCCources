@@ -10,7 +10,11 @@
 
 #import "VAPData.h"
 
+#import "NSFileManager+VAPExtensions.h"
+
 static NSUInteger const kVAPCountRows = 10;
+static NSString * const kVAPArchiveFileName = @"data.plist";
+static NSString * const kVAPMutableDataKey  = @"mutableData";
 
 @interface VAPDataArray ()
 
@@ -23,38 +27,37 @@ static NSUInteger const kVAPCountRows = 10;
 #pragma mark -
 #pragma mark Initializations and Deallocations
 
-//- (instancetype)init {
-//   
-//    return [self initWithCount:kVAPCountRows];
-//}
-
-//- (instancetype)init
-//{
-//    self = [super init];
-//    if (self) {
-//        [self loadModel];
-//    }
-//    return self;
-//}
-
-//- (instancetype)initWithCount:(NSUInteger)count {
-//    self = [super init];
-//    if (self) {
-//        [self fillDataArray];
-//    }
-//    
-//    return self;
-//}
+- (instancetype)initWithCount:(NSUInteger)count {
+    self = [super init];
+    if (self) {
+        [self fillDataArray];
+    }
+    
+    return self;
+}
 
 #pragma mark -
 #pragma mark Public Methods
 
+- (void)save {
+    [[NSKeyedArchiver archivedDataWithRootObject:self.data] writeToFile:[NSFileManager pathWithFileName:kVAPArchiveFileName] atomically:YES];
+}
 
 - (void)performLoading {
-    sleep(3);
-    [self performBlock:^{
-        [self fillDataArray];
-    } shouldNotify:NO];
+    sleep(2);
+    
+    id array = [NSKeyedUnarchiver unarchiveObjectWithFile:[NSFileManager pathWithFileName:kVAPArchiveFileName]];
+    if (array) {
+        for (id object in array) {
+            [self performBlock:^{
+                [self addObject:object];
+            } shouldNotify:NO];
+        }
+    } else {
+        [self performBlock:^{
+            [self fillDataArray];
+        } shouldNotify:NO];
+    }
 }
 
 #pragma mark -

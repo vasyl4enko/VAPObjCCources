@@ -27,11 +27,11 @@
 #pragma mark -
 #pragma mark Public Methods
 
-- (void)show {
-    [self.loadingView setVisible:YES animated:YES];
+- (void)showLoadingView {
+    [self.loadingView setVisible:YES animated:NO];
 }
 
-- (void)hide {
+- (void)hideLoadingView {
     [self.loadingView setVisible:NO animated:YES];
 }
 

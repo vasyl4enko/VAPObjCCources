@@ -121,13 +121,17 @@ VAPViewControllerMainViewProperty(VAPRandomStringViewController, randomStringVie
 #pragma mark -
 #pragma mark VAPModelObserver
 
-- (void)modelDidLoad:(id)object {
-    [self.randomStringView.tableView reloadData];
-    [self.randomStringView hide];
-}
-
 - (void)model:(VAPArray *)object didChangeWithChangesModel:(VAPChangesModel *)model{
     [self.randomStringView.tableView updateWithChangesModel:model];
+}
+
+- (void)modelWillLoad:(id)object {
+    [self.randomStringView showLoadingView];
+}
+
+- (void)modelDidLoad:(id)object {
+    [self.randomStringView.tableView reloadData];
+    [self.randomStringView hideLoadingView];
 }
 
 @end

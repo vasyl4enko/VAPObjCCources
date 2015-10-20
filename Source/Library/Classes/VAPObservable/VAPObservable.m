@@ -42,7 +42,7 @@
     }
     
     if (self.shouldNotify) {
-        [self notifyLoadedModelWithSelector:[self selectorWithState:state] withObject:object];
+        [self notifyObserversWithSelector:[self selectorWithState:state] withObject:object];
     }
 }
 
@@ -64,22 +64,11 @@
     [self notifyObserversWithSelector:selector withObject:nil];
 }
 
-- (void)notifyObserversWithSelector:(SEL)selector withObject:(id)object {
-    [self notifyObserversWithSelector:selector withObject:object withObject:nil];
-}
 
-- (void)notifyLoadedModelWithSelector:(SEL)selector {
-    [self notifyObserversWithSelector:selector withObject:self];
-}
-
-- (void)notifyLoadedModelWithSelector:(SEL)selector withObject:(id)object {
-    [self notifyObserversWithSelector:selector withObject:self withObject:object];
-}
 
 - (void)performBlock:(void (^)())block shouldNotify:(BOOL)shouldNotify {
     BOOL state = self.shouldNotify;
     self.shouldNotify = shouldNotify;
-    
     if (block) {
         block();
     }
@@ -94,11 +83,11 @@
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Warc-performSelector-leaks"
 
-- (void)notifyObserversWithSelector:(SEL)selector withObject:(id)object withObject:(id)object2 {
+- (void)notifyObserversWithSelector:(SEL)selector withObject:(id)object {
     NSArray *observers = [self.mutableObservers allObjects];
     for (id observer in observers) {
         if ([observer respondsToSelector:selector]) {
-            [observer performSelector:selector withObject:object withObject:object2];
+            [observer performSelector:selector withObject:self withObject:object];
         }
     }
 }

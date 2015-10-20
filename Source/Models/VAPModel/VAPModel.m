@@ -25,7 +25,7 @@
     @synchronized(self) {
         VAPLoadingStates state = self.state;
         if (VAPLoadingStatesDidLoad == state || VAPLoadingStatesWillLoad == state) {
-            [self notifyLoadedModelWithSelector:[self selectorWithState:self.state]];
+            [self notifyObserversWithSelector:[self selectorWithState:self.state]];
             
             return;
         }
@@ -37,14 +37,14 @@
     dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void){
         VAPStrongifyAndReturnIfNil(self);
         [self performLoading];
-        dispatch_sync(dispatch_get_main_queue(), ^(void){
+        dispatch_async(dispatch_get_main_queue(), ^(void){
             self.state = VAPLoadingStatesDidLoad;
         });
     });
 }
 
 - (void)setupLoading {
-    
+    self.state = VAPLoadingStatesWillLoad;
 }
 
 - (void)performLoading {
@@ -73,7 +73,12 @@
             selector = @selector(modelDidFail:);
             break;
             
+            case VAPLoadingStatesDidChange:
+            selector = @selector(model:didChangeWithChangesModel:);
+            break;
+            
         default:
+            [super selectorWithState:state];
             break;
     }
     

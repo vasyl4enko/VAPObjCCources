@@ -27,10 +27,10 @@ if (_##var != var ) { \
 
 #define VAPEmpty
 
-#define VAPStrongifyAndReturnEntity(variable, entety) \
+#define VAPStrongifyAndReturnEntity(variable, entity) \
     VAPStrongify(variable); \
     if(!variable) { \
-        return entety; \
+        return entity; \
     }
 
 #define VAPStrongifyAndReturnIfNil(variable) \

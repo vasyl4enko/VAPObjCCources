@@ -13,8 +13,8 @@
 @interface VAPRandomStringView : UIView
 @property (nonatomic, strong)   IBOutlet UITableView        *tableView;
 
-- (void)show;
-- (void)hide;
+- (void)showLoadingView;
+- (void)hideLoadingView;
 - (BOOL)isHidden;
 
 - (id)newLoadingView;

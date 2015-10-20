@@ -19,8 +19,6 @@ static NSString * const kVAPArchiveFileName = @"data.plist";
 @interface VAPArray ()
 @property (nonatomic, strong)     NSMutableArray        *mutableData;
 
-- (void)notifyWithChangesModel:(id)model;
-
 @end
 
 @implementation VAPArray
@@ -97,7 +95,6 @@ static NSString * const kVAPArchiveFileName = @"data.plist";
 - (void)insertObject:(id)object atIndex:(NSUInteger)index {
     [self.mutableData insertObject:object atIndex:index];
     
-
     [self setState:VAPLoadingStatesDidChange withObject:[VAPChangesModel insertModelWithIndex:index]];
 }
 
@@ -109,11 +106,6 @@ static NSString * const kVAPArchiveFileName = @"data.plist";
     [self.mutableData moveObjectFromIndex:fromIndex toIndex:toIndex];
     
     [self setState:VAPLoadingStatesDidChange withObject:[VAPChangesModel moveModelFromIndex:fromIndex toIndex:toIndex]];
-
-}
-
-- (void)notifyWithChangesModel:(id)model {
-    [self notifyObserversWithSelector:@selector(model:didChangeWithChangesModel:) withObject:model];
 }
 
 - (void)save {

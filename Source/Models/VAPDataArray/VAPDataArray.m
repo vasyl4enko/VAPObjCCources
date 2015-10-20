@@ -40,12 +40,12 @@ static NSString * const kVAPMutableDataKey  = @"mutableData";
 #pragma mark Public Methods
 
 - (void)save {
-    [[NSKeyedArchiver archivedDataWithRootObject:self.data] writeToFile:[NSFileManager pathWithFileName:kVAPArchiveFileName] atomically:YES];
+    NSString *path = [NSFileManager pathWithFileName:kVAPArchiveFileName];
+    [[NSKeyedArchiver archivedDataWithRootObject:self.data] writeToFile:path atomically:YES];
 }
 
 - (void)performLoading {
     sleep(2);
-    
     id array = [NSKeyedUnarchiver unarchiveObjectWithFile:[NSFileManager pathWithFileName:kVAPArchiveFileName]];
     if (array) {
         for (id object in array) {

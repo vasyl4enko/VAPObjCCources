@@ -116,7 +116,6 @@ static NSString * const kVAPArchiveFileName = @"data.plist";
     [self notifyObserversWithSelector:@selector(model:didChangeWithChangesModel:) withObject:model];
 }
 
-
 - (void)save {
 
 }

@@ -45,7 +45,7 @@ static NSString * const kUrlDataKey =   @"url";
 #pragma mark Public Methods
 
 - (void)performLoading {
-    [NSThread sleepForTimeInterval:2];
+    [NSThread sleepForTimeInterval:5];
 //    self.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:self.url]];
     self.image = [UIImage imageNamed:@"Slowpoke"];
 }

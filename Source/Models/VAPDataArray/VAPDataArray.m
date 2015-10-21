@@ -33,11 +33,12 @@ static NSString * const kVAPMutableDataKey  = @"mutableData";
 }
 
 - (void)performLoading {
-    [NSThread sleepForTimeInterval:2];
+    
     id array = [NSKeyedUnarchiver unarchiveObjectWithFile:[NSFileManager pathWithFileName:kVAPArchiveFileName]];
     if (!array) {
         [self fillDataArray];
     } else {
+        [NSThread sleepForTimeInterval:2];
         [self performBlock:^{
             for (VAPData *object in array) {
                 [self addObject:object];

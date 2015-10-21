@@ -25,18 +25,6 @@ static NSString * const kVAPMutableDataKey  = @"mutableData";
 @implementation VAPDataArray
 
 #pragma mark -
-#pragma mark Initializations and Deallocations
-
-- (instancetype)initWithCount:(NSUInteger)count {
-    self = [super init];
-    if (self) {
-        [self fillDataArray];
-    }
-    
-    return self;
-}
-
-#pragma mark -
 #pragma mark Public Methods
 
 - (void)save {
@@ -45,17 +33,15 @@ static NSString * const kVAPMutableDataKey  = @"mutableData";
 }
 
 - (void)performLoading {
-    sleep(2);
+    [NSThread sleepForTimeInterval:2];
     id array = [NSKeyedUnarchiver unarchiveObjectWithFile:[NSFileManager pathWithFileName:kVAPArchiveFileName]];
-    if (array) {
-        for (id object in array) {
-            [self performBlock:^{
-                [self addObject:object];
-            } shouldNotify:NO];
-        }
+    if (!array) {
+        [self fillDataArray];
     } else {
         [self performBlock:^{
-            [self fillDataArray];
+            for (VAPData *object in array) {
+                [self addObject:object];
+            }
         } shouldNotify:NO];
     }
 }
@@ -64,9 +50,13 @@ static NSString * const kVAPMutableDataKey  = @"mutableData";
 #pragma mark Private Methods
 
 - (void)fillDataArray {
-    for (NSUInteger index = 0; index < kVAPCountRows; index++) {
-        [self addObject:[VAPData new]];
-    }
+    [self performBlock:^{
+        for (NSUInteger index = 0; index < kVAPCountRows; index++) {
+            [self addObject:[VAPData new]];
+        }
+    } shouldNotify:NO];
+    
+    self.state = VAPLoadingStatesDidLoad;
 }
 
 @end

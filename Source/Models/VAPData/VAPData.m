@@ -10,20 +10,23 @@
 
 #import "NSString+VAPRandomString.h"
 
+#import "VAPMacros.h"
+
 static NSString * const kSlowpokeName = @"Slowpoke";
 static NSString * const kPNGExtension = @"png";
 static NSString * const kNameDataKey =  @"name";
 static NSString * const kUrlDataKey =   @"url";
 
 @interface VAPData ()
-@property (nonatomic, strong)     NSString    *name;
-@property (nonatomic, strong)     NSURL       *url;
+@property (nonatomic, strong)       NSString    *name;
+@property (nonatomic, strong)       NSURL       *url;
+@property (nonatomic, readwrite)    UIImage     *image;
 
 @end
 
 @implementation VAPData
 
-@dynamic image;
+//@dynamic image;
 
 #pragma mark -
 #pragma mark Initializations and Deallocations
@@ -39,21 +42,16 @@ static NSString * const kUrlDataKey =   @"url";
 }
 
 #pragma mark -
-#pragma mark Accessors
+#pragma mark Public Methods
 
-- (UIImage *)image {
-    static UIImage *__slowpokeImage = nil;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-            NSData *fileFromUrl = [NSData dataWithContentsOfURL:self.url];
-            __slowpokeImage = [UIImage imageWithData:fileFromUrl];
-    });
-
-    return __slowpokeImage;
+- (void)performLoading {
+    [NSThread sleepForTimeInterval:2];
+//    self.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:self.url]];
+    self.image = [UIImage imageNamed:@"Slowpoke"];
 }
 
 #pragma mark -
-#pragma mark
+#pragma mark NSCoding
 
 - (instancetype)initWithCoder:(NSCoder *)coder
 {
@@ -69,6 +67,5 @@ static NSString * const kUrlDataKey =   @"url";
     [coder encodeObject:self.name forKey:kNameDataKey];
     [coder encodeObject:self.url forKey:kUrlDataKey];
 }
-
 
 @end

@@ -29,16 +29,15 @@
             
             return;
         }
+        [self setupLoading];
     }
-    
-    [self setupLoading];
     
     VAPWeakify(self);
     dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void){
         VAPStrongifyAndReturnIfNil(self);
         [self performLoading];
         dispatch_async(dispatch_get_main_queue(), ^(void){
-            self.state = VAPLoadingStatesDidLoad;
+
         });
     });
 }
@@ -69,7 +68,7 @@
             selector = @selector(modelDidUnload:);
 
             break;
-        case VAPLoadingStatesDidFailed:
+        case VAPLoadingStatesDidFail:
             selector = @selector(modelDidFail:);
             break;
             

@@ -54,7 +54,6 @@ VAPViewControllerMainViewProperty(VAPRandomStringViewController, randomStringVie
     [super viewDidLoad];
     
     [self.dataArray loadModel];
-//    [self.randomStringView.tableView reloadData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -130,8 +129,9 @@ VAPViewControllerMainViewProperty(VAPRandomStringViewController, randomStringVie
 }
 
 - (void)modelDidLoad:(id)object {
-    [self.randomStringView.tableView reloadData];
-    [self.randomStringView hideLoadingView];
+    VAPRandomStringView *view = self.randomStringView;
+    [view.tableView reloadData];
+    [view hideLoadingView];
 }
 
 @end

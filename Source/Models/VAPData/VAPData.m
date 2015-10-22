@@ -18,15 +18,12 @@ static NSString * const kNameDataKey =  @"name";
 static NSString * const kUrlDataKey =   @"url";
 
 @interface VAPData ()
-@property (nonatomic, strong)       NSString    *name;
-@property (nonatomic, strong)       NSURL       *url;
-@property (nonatomic, readwrite)    UIImage     *image;
+@property (nonatomic, strong)   NSString    *name;
+@property (nonatomic, strong)   UIImage     *image;
 
 @end
 
 @implementation VAPData
-
-//@dynamic image;
 
 #pragma mark -
 #pragma mark Initializations and Deallocations
@@ -35,7 +32,6 @@ static NSString * const kUrlDataKey =   @"url";
     self = [super init];
     if (self) {
         self.name = [NSString randomString];
-        self.url = [[NSBundle mainBundle] URLForResource:kSlowpokeName withExtension:kPNGExtension];
     }
     
     return self;
@@ -45,27 +41,28 @@ static NSString * const kUrlDataKey =   @"url";
 #pragma mark Public Methods
 
 - (void)performLoading {
-    [NSThread sleepForTimeInterval:5];
-//    self.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:self.url]];
-    self.image = [UIImage imageNamed:@"Slowpoke"];
+    [NSThread sleepForTimeInterval:1];
+    NSURL *url = [[NSBundle mainBundle] URLForResource:kSlowpokeName withExtension:kPNGExtension];
+    self.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:url]];
+    
+    dispatch_async(dispatch_get_main_queue(), ^(void){
+        self.state = VAPLoadingStatesDidLoad;
+    });
 }
 
 #pragma mark -
 #pragma mark NSCoding
 
-- (instancetype)initWithCoder:(NSCoder *)coder
-{
+- (instancetype)initWithCoder:(NSCoder *)coder {
     self = [super init];
     if (self) {
         self.name = [coder decodeObjectForKey:kNameDataKey];
-        self.url = [coder decodeObjectForKey:kUrlDataKey];
     }
     return self;
 }
 
 - (void)encodeWithCoder:(NSCoder *)coder {
     [coder encodeObject:self.name forKey:kNameDataKey];
-    [coder encodeObject:self.url forKey:kUrlDataKey];
 }
 
 @end

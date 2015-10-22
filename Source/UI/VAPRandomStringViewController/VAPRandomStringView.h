@@ -11,11 +11,11 @@
 @class VAPLoadingView;
 
 @interface VAPRandomStringView : UIView
-@property (nonatomic, strong)   IBOutlet UITableView        *tableView;
+@property (nonatomic, strong)                                       IBOutlet UITableView        *tableView;
+@property (nonatomic, readonly, getter = isLoadingViewHidden)       BOOL                        hidden;
 
 - (void)showLoadingView;
 - (void)hideLoadingView;
-- (BOOL)isHidden;
 
 - (id)newLoadingView;
 

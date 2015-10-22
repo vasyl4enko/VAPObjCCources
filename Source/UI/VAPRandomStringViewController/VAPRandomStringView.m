@@ -12,7 +12,7 @@
 
 
 @interface VAPRandomStringView ()
-@property (nonatomic, readwrite)    VAPLoadingView  *loadingView;
+@property (nonatomic, strong)   VAPLoadingView  *loadingView;
 
 @end
 
@@ -35,7 +35,7 @@
     [self.loadingView setVisible:NO animated:YES];
 }
 
-- (BOOL)isHidden {
+- (BOOL)isLoadingViewHidden {
     return self.loadingView.hidden;
 }
 

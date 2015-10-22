@@ -108,10 +108,6 @@ static NSString * const kVAPArchiveFileName = @"data.plist";
     [self setState:VAPLoadingStatesDidChange withObject:[VAPChangesModel moveModelFromIndex:fromIndex toIndex:toIndex]];
 }
 
-- (void)save {
-
-}
-
 #pragma mark -
 #pragma mark NSCoding
 

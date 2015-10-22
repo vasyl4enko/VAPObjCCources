@@ -9,7 +9,7 @@
 #import "VAPObservable.h"
 
 typedef NS_ENUM(NSInteger, VAPLoadingStates) {
-    VAPLoadingStatesDidFailed = -1,
+    VAPLoadingStatesDidFail = -1,
     VAPLoadingStatesDidUnload,
     VAPLoadingStatesWillLoad,
     VAPLoadingStatesDidLoad,

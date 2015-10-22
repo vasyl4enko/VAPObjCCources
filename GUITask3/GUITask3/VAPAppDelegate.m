@@ -34,20 +34,4 @@
     return YES;
 }
 
-- (void)applicationWillResignActive:(UIApplication *)application {
-    [self.dataArray save];
-}
-
-- (void)applicationDidEnterBackground:(UIApplication *)application {
-}
-
-- (void)applicationWillEnterForeground:(UIApplication *)application {
-}
-
-- (void)applicationDidBecomeActive:(UIApplication *)application {
-}
-
-- (void)applicationWillTerminate:(UIApplication *)application {
-}
-
 @end

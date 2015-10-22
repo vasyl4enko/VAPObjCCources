@@ -13,6 +13,7 @@
 @interface VAPDataCell : VAPTableViewCell
 @property (nonatomic, strong)   IBOutlet UILabel        *cellLabel;
 @property (nonatomic, strong)   IBOutlet UIImageView    *contentImage;
+@property (nonatomic, strong)   IBOutlet UIActivityIndicatorView *spiner;
 
 @property (nonatomic, strong)   VAPData                 *content;
 

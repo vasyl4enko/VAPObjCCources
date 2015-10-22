@@ -35,11 +35,12 @@
 #pragma mark VAPModelObserver
 
 - (void)modelWillLoad:(id)object {
-    
+    [self.spiner startAnimating];
 }
 
 - (void)modelDidLoad:(id)object {
     [self fillWithContent:object];
+    [self.spiner stopAnimating];
 }
 
 - (void)modelDidFail:(id)object {

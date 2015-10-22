@@ -92,15 +92,12 @@
     }
 }
 
-- (void)notifyObserversOnMainThreadWithSelector:(SEL)selector withObject:(id)object {
-    NSArray *observers = [self.mutableObservers allObjects];
-    for (id observer in observers) {
-        if ([observer respondsToSelector:selector]) {
-            [observer performSelectorOnMainThread:selector withObject:object waitUntilDone:NO];
-        }
-    }
-}
-
 #pragma clang diagnostic pop
+
+- (void)notifyObserversOnMainThreadWithSelector:(SEL)selector withObject:(id)object {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self notifyObserversWithSelector:selector withObject:object];
+    });
+}
 
 @end

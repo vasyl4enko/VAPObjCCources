@@ -9,6 +9,7 @@
 #import "VAPData.h"
 
 #import "NSString+VAPRandomString.h"
+#import "VAPDispatch.h"
 
 #import "VAPMacros.h"
 
@@ -45,7 +46,7 @@ static NSString * const kUrlDataKey =   @"url";
     NSURL *url = [[NSBundle mainBundle] URLForResource:kSlowpokeName withExtension:kPNGExtension];
     self.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:url]];
     
-    dispatch_async(dispatch_get_main_queue(), ^(void){
+    VAPDispatchAsyncOnMainThread(^{
         self.state = VAPLoadingStatesDidLoad;
     });
 }

@@ -10,6 +10,8 @@
 
 #import "VAPModelObserver.h"
 
+#import "VAPDispatch.h"
+
 #import "VAPMacros.h"
 
 @implementation VAPModel
@@ -33,12 +35,9 @@
     }
     
     VAPWeakify(self);
-    dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void){
+    VAPDispatchAsyncOnBackgroundThread(^{
         VAPStrongifyAndReturnIfNil(self);
         [self performLoading];
-        dispatch_async(dispatch_get_main_queue(), ^(void){
-
-        });
     });
 }
 

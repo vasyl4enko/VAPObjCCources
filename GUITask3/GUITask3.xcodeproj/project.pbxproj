@@ -38,6 +38,7 @@
 		1F8C623E1BDD236600ED1AD4 /* VAPFileImageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F8C623D1BDD236600ED1AD4 /* VAPFileImageModel.m */; };
 		1F8C62411BDD239900ED1AD4 /* VAPURLImageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F8C62401BDD239900ED1AD4 /* VAPURLImageModel.m */; };
 		1F8C62441BDD23E800ED1AD4 /* VAPCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F8C62431BDD23E800ED1AD4 /* VAPCache.m */; };
+		1F8C62481BDD262100ED1AD4 /* VAPDispatch.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F8C62471BDD262100ED1AD4 /* VAPDispatch.m */; };
 		1FEE91FF1BC44C3E00E1F18D /* NSFileManager+VAPExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FEE91FE1BC44C3E00E1F18D /* NSFileManager+VAPExtensions.m */; };
 		1FEE92041BC4730600E1F18D /* VAPDataCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FEE92021BC4730600E1F18D /* VAPDataCell.m */; };
 		1FEE92051BC4730600E1F18D /* VAPDataCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1FEE92031BC4730600E1F18D /* VAPDataCell.xib */; };
@@ -117,6 +118,8 @@
 		1F8C62401BDD239900ED1AD4 /* VAPURLImageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VAPURLImageModel.m; sourceTree = "<group>"; };
 		1F8C62421BDD23E800ED1AD4 /* VAPCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VAPCache.h; sourceTree = "<group>"; };
 		1F8C62431BDD23E800ED1AD4 /* VAPCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VAPCache.m; sourceTree = "<group>"; };
+		1F8C62461BDD262100ED1AD4 /* VAPDispatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VAPDispatch.h; sourceTree = "<group>"; };
+		1F8C62471BDD262100ED1AD4 /* VAPDispatch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VAPDispatch.m; sourceTree = "<group>"; };
 		1FEE91FD1BC44C3E00E1F18D /* NSFileManager+VAPExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSFileManager+VAPExtensions.h"; path = "GUITask3.xcodeproj/../../Source/Library/Categories/NSIndexPath+VAPExtensions/NSFileManager+VAPExtensions.h"; sourceTree = SOURCE_ROOT; };
 		1FEE91FE1BC44C3E00E1F18D /* NSFileManager+VAPExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSFileManager+VAPExtensions.m"; path = "GUITask3.xcodeproj/../../Source/Library/Categories/NSIndexPath+VAPExtensions/NSFileManager+VAPExtensions.m"; sourceTree = SOURCE_ROOT; };
 		1FEE92011BC4730600E1F18D /* VAPDataCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VAPDataCell.h; sourceTree = "<group>"; };
@@ -225,6 +228,7 @@
 		1F01CB801BC1D43400D28033 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				1F8C62451BDD258300ED1AD4 /* VAPDispatch */,
 				1FCB80CA1BD0445B00857F3D /* VAPChangesModel+UITableView */,
 				1FB7D46B1BC44B0100441AED /* NSFileManager+VAPExtensions */,
 				1F01CB811BC1D43400D28033 /* NSIndexPath+VAPExtensions */,
@@ -467,6 +471,15 @@
 			path = VAPModel;
 			sourceTree = "<group>";
 		};
+		1F8C62451BDD258300ED1AD4 /* VAPDispatch */ = {
+			isa = PBXGroup;
+			children = (
+				1F8C62461BDD262100ED1AD4 /* VAPDispatch.h */,
+				1F8C62471BDD262100ED1AD4 /* VAPDispatch.m */,
+			);
+			path = VAPDispatch;
+			sourceTree = "<group>";
+		};
 		1FB7D46B1BC44B0100441AED /* NSFileManager+VAPExtensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -653,6 +666,7 @@
 				1F01CBC21BC1D43400D28033 /* UINib+VAPExtensions.m in Sources */,
 				1F01CBC61BC1D43400D28033 /* VAPObservable.m in Sources */,
 				1F01CBC81BC1D43400D28033 /* VAPArray.m in Sources */,
+				1F8C62481BDD262100ED1AD4 /* VAPDispatch.m in Sources */,
 				1F01CB081BC1D2A400D28033 /* VAPAppDelegate.m in Sources */,
 				1F8C62441BDD23E800ED1AD4 /* VAPCache.m in Sources */,
 				1F01CBCD1BC1D43400D28033 /* VAPData.m in Sources */,

@@ -8,6 +8,8 @@
 
 #import "VAPObservable.h"
 
+#import "VAPDispatch.h"
+
 @interface VAPObservable ()
 @property (nonatomic, strong)   NSHashTable     *mutableObservers;
 @property (nonatomic, assign)   BOOL            shouldNotify;
@@ -95,7 +97,7 @@
 #pragma clang diagnostic pop
 
 - (void)notifyObserversOnMainThreadWithSelector:(SEL)selector withObject:(id)object {
-    dispatch_async(dispatch_get_main_queue(), ^{
+    VAPDispatchAsyncOnMainThread(^{
         [self notifyObserversWithSelector:selector withObject:object];
     });
 }

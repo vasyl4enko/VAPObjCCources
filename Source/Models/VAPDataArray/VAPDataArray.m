@@ -11,6 +11,7 @@
 #import "VAPData.h"
 
 #import "NSFileManager+VAPExtensions.h"
+#import "VAPDispatch.h"
 
 static NSUInteger const kVAPCountRows = 10;
 static NSString * const kVAPArchiveFileName = @"data.plist";
@@ -81,7 +82,7 @@ static NSString * const kVAPMutableDataKey  = @"mutableData";
             }
         } shouldNotify:NO];
         
-        dispatch_async(dispatch_get_main_queue(), ^(void){
+        VAPDispatchAsyncOnMainThread(^{
             self.state = VAPLoadingStatesDidLoad;
         });
     }
@@ -97,8 +98,7 @@ static NSString * const kVAPMutableDataKey  = @"mutableData";
         }
     } shouldNotify:NO];
     
-
-    dispatch_async(dispatch_get_main_queue(), ^(void){
+    VAPDispatchAsyncOnMainThread(^{
         self.state = VAPLoadingStatesDidLoad;
     });
 }

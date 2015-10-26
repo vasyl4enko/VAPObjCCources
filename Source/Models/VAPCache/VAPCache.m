@@ -54,6 +54,12 @@
     }
 }
 
+- (id)objectForKey:(id)key {
+    @synchronized(self) {
+        return [self.mapTable objectForKey:key];
+    }
+}
+
 - (BOOL)containsObjecWithKey:(id)key {
     @synchronized(self) {
         return [self.mapTable objectForKey:key];

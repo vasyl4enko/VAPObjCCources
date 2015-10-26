@@ -10,4 +10,9 @@
 
 @implementation VAPFileImageModel
 
+@dynamic fileFolder;
+@dynamic fileName;
+@dynamic filePath;
+@dynamic cached;
+
 @end

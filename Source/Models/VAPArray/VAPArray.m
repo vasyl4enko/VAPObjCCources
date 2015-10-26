@@ -111,8 +111,7 @@ static NSString * const kVAPArchiveFileName = @"data.plist";
 #pragma mark -
 #pragma mark NSCoding
 
-- (instancetype)initWithCoder:(NSCoder *)coder
-{
+- (instancetype)initWithCoder:(NSCoder *)coder {
     self = [super init];
     if (self) {
         self.mutableData = [coder decodeObjectForKey:kVAPMutableDataKey];

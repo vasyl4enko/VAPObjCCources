@@ -11,11 +11,11 @@
 @class VAPData;
 
 @interface VAPDataCell : VAPTableViewCell
-@property (nonatomic, strong)   IBOutlet UILabel        *cellLabel;
-@property (nonatomic, strong)   IBOutlet UIImageView    *contentImage;
-@property (nonatomic, strong)   IBOutlet UIActivityIndicatorView *spiner;
+@property (nonatomic, strong)   IBOutlet UILabel                    *cellLabel;
+@property (nonatomic, strong)   IBOutlet UIImageView                *contentImage;
+@property (nonatomic, strong)   IBOutlet UIActivityIndicatorView    *activityIndicatorViewSpiner;
 
-@property (nonatomic, strong)   VAPData                 *content;
+@property (nonatomic, strong)   VAPData                             *content;
 
 - (void)fillWithContent:(VAPData *)content;
 

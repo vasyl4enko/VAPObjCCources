@@ -10,4 +10,10 @@
 
 @interface VAPCache : NSObject
 
++ (VAPCache *)sharedChache;
+
+- (void)addObject:(id)object withKey:(id)key;
+- (void)removeObjectWithKey:(id)key;
+- (BOOL)containsObjecWithKey:(id)key;
+
 @end

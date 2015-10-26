@@ -66,4 +66,12 @@ if (_##var != var ) { \
     \
     @end
 
+#define VAPShouldSleep 1
+
+#if VAPShouldSleep == 1
+    #define VAPSleep(time) [NSThread sleepForTimeInterval:time];
+#else
+    #define VAPSleep(time)
+#endif
+
 #endif

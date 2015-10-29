@@ -18,33 +18,21 @@
 #pragma mark Accessors
 
 - (void)setContent:(VAPData *)content {
-    VAPSynthesizeObservingSetter(content);
+    if (content) {
+        _content = content;
+    }
+    
     [self fillWithContent:_content];
-    [_content loadModel];
 }
 
 #pragma mark -
 #pragma mark Public Methods
 
 - (void)fillWithContent:(VAPData *)content {
-    self.contentImage.image = content.image;
+    self.dogeImageView.dogeImageModel = content.image;
+    
     self.cellLabel.text = content.name;
 }
 
-#pragma mark -
-#pragma mark VAPModelObserver
-
-- (void)modelWillLoad:(id)object {
-    [self.activityIndicatorViewSpiner startAnimating];
-}
-
-- (void)modelDidLoad:(id)object {
-    [self fillWithContent:object];
-    [self.activityIndicatorViewSpiner stopAnimating];
-}
-
-- (void)modelDidFail:(id)object {
-    [self.content loadModel];
-}
 
 @end

@@ -8,12 +8,13 @@
 
 #import "VAPTableViewCell.h"
 
+#import "VAPImageView.h"
+
 @class VAPData;
 
 @interface VAPDataCell : VAPTableViewCell
 @property (nonatomic, strong)   IBOutlet UILabel                    *cellLabel;
-@property (nonatomic, strong)   IBOutlet UIImageView                *contentImage;
-@property (nonatomic, strong)   IBOutlet UIActivityIndicatorView    *activityIndicatorViewSpiner;
+@property (nonatomic, strong)   IBOutlet VAPImageView               *dogeImageView;
 
 @property (nonatomic, strong)   VAPData                             *content;
 

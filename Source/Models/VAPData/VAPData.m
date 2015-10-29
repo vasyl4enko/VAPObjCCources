@@ -12,15 +12,17 @@
 #import "VAPDispatch.h"
 
 #import "VAPMacros.h"
+#import "VAPImageModel.h"
 
 static NSString * const kSlowpokeName = @"Slowpoke";
 static NSString * const kPNGExtension = @"png";
 static NSString * const kNameDataKey =  @"name";
 static NSString * const kUrlDataKey =   @"url";
+static NSString * const kUrl =          @"http://multidoge.org/images/MultiDoge.png";
 
 @interface VAPData ()
-@property (nonatomic, strong)   NSString    *name;
-@property (nonatomic, strong)   UIImage     *image;
+@property (nonatomic, strong)   NSString            *name;
+@property (nonatomic, strong)   VAPImageModel       *image;
 
 @end
 
@@ -41,15 +43,20 @@ static NSString * const kUrlDataKey =   @"url";
 #pragma mark -
 #pragma mark Public Methods
 
-- (void)performLoading {
-    [NSThread sleepForTimeInterval:1];
-    NSURL *url = [[NSBundle mainBundle] URLForResource:kSlowpokeName withExtension:kPNGExtension];
-    self.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:url]];
-    
-    VAPDispatchAsyncOnMainThread(^{
-        self.state = VAPLoadingStatesDidLoad;
-    });
+- (VAPImageModel *)image {
+    NSURL *url = [NSURL URLWithString:kUrl];
+    return [VAPImageModel imageModelWithUrl:url];
 }
+
+//- (void)performLoading {
+//    [NSThread sleepForTimeInterval:1];
+//    NSURL *url = [[NSBundle mainBundle] URLForResource:kSlowpokeName withExtension:kPNGExtension];
+//    self.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:url]];
+//    
+//    VAPDispatchAsyncOnMainThread(^{
+//        self.state = VAPLoadingStatesDidLoad;
+//    });
+//}
 
 #pragma mark -
 #pragma mark NSCoding

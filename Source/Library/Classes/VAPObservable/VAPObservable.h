@@ -25,6 +25,6 @@
 
 - (void)performBlock:(void (^)())block shouldNotify:(BOOL)shouldNotify;
 
-- (SEL)selectorWithState:(NSInteger )state;
+- (SEL)selectorWithState:(NSInteger)state;
 
 @end

@@ -10,9 +10,11 @@
 
 #import "VAPModel.h"
 
+@class VAPImageModel;
+
 @interface VAPData : VAPModel <NSCoding>
-@property (nonatomic, readonly)     NSString    *name;
-@property (nonatomic, readonly)     NSURL       *url;
-@property (nonatomic, readonly)     UIImage     *image;
+@property (nonatomic, readonly)     NSString            *name;
+@property (nonatomic, readonly)     NSURL               *url;
+@property (nonatomic, readonly)     VAPImageModel       *image;
 
 @end

@@ -12,11 +12,14 @@
 #import "VAPFileImageModel.h"
 #import "VAPURLImageModel.h"
 
+#import "VAPMacros.h"
+#import "VAPDispatch.h"
+
 @interface VAPImageModel ()
 @property (nonatomic, strong)   NSURL       *imageURL;
 @property (nonatomic, strong)   UIImage     *image;
 
-+ (instancetype)imageModelWithUrl:(NSURL *)url;
++ (VAPCache *)sharedCache;
 
 @end
 
@@ -38,35 +41,54 @@
 #pragma mark -
 #pragma mark Initializations and Deallocations
 
-- (instancetype)initWithURL:(NSURL *)url {
-    
-    VAPCache *cache =[[self class] sharedCache];
-    if([cache containsObjecWithKey:url]) {
-        return [cache objectForKey:url];
-    }
-    
-    self = [super init];
-    if (self) {
-        self.imageURL = url;
-        [cache addObject:self withKey:url];
-    }
+- (void)dealloc {
+    [[VAPImageModel sharedCache] removeObjectWithKey:self.imageURL];
+}
 
+- (instancetype)initWithURL:(NSURL *)url {
+    @synchronized([VAPImageModel sharedCache]) {
+        VAPCache *cache =[[self class] sharedCache];
+        if([cache containsObjecWithKey:url]) {
+            return [cache objectForKey:url];
+        }
+        
+        self = [super init];
+        if (self) {
+            self.imageURL = url;
+            [cache addObject:self withKey:url];
+        }
+    }
+    
     return self;
 }
 
 #pragma mark -
 #pragma mark Public Methods
 
+- (void)performLoading {
+    VAPWeakify(self);
+    
+    [self performLoadingWithCompletion:^(UIImage *image, id error) {
+        VAPStrongifyAndReturnIfNil(self);
+        
+        [self finalizeLoadingWithImage:image error:error];
+        [self notifyLoadingWithImage:image error:error];
+    }];
+}
+
 - (void)cancel {
     
 }
 
-- (void)performLoadingWithCompletion:(void(^)(UIImage *image,id error))completion {
+- (void)performLoadingWithCompletion:(void(^)(UIImage *image, id error))completion {
     
 }
 
 - (void)notifyLoadingWithImage:(UIImage *)image error:(id)error {
-    self.state = image ? VAPLoadingStatesDidLoad : VAPLoadingStatesDidFail;
+    VAPDispatchAsyncOnMainThread(^{
+        self.state = self.image ? VAPLoadingStatesDidLoad : VAPLoadingStatesDidFail;
+    });
+    
 }
 
 - (void)finalizeLoadingWithImage:(UIImage *)image error:(id)error {

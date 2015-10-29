@@ -78,7 +78,7 @@
     self.shouldNotify = state;
 }
 
-- (SEL)selectorWithState:(NSInteger )state {
+- (SEL)selectorWithState:(NSInteger)state {
     return nil;
 }
 

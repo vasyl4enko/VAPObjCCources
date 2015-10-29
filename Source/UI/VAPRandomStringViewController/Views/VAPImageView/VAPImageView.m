@@ -19,10 +19,10 @@
 #pragma mark -
 #pragma mark Accessors
 
-- (void)setDogeImageModel:(id)dogeImageModel {
-    VAPSynthesizeObservingSetter(dogeImageModel);
-    [self fillWithContent:dogeImageModel];
-    [dogeImageModel loadModel];
+- (void)setImageModel:(id)imageModel {
+    VAPSynthesizeObservingSetter(imageModel);
+    [self fillWithContent:imageModel];
+    [imageModel loadModel];
 }
 
 #pragma mark -
@@ -39,7 +39,7 @@
 }
 
 - (void)modelDidFail:(id)object {
-    [self.dogeImageModel loadModel];
+    [self.imageModel loadModel];
 }
 
 - (void)modelDidLoad:(id)object {

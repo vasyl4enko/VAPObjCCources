@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface VAPLoadingView : UIView
-@property (nonatomic, readonly, getter = isVisible) BOOL visible;
+@property (nonatomic, readonly, getter = isVisible)     BOOL    visible;
 
 + (id)loadingView:(UIView *)superView;
 

@@ -15,7 +15,7 @@
 
 @interface VAPImageView : VAPView <VAPModelObserver>
 @property (nonatomic, strong)   IBOutlet        UIImageView     *imageView;
-@property (nonatomic, strong)   VAPImageModel   *dogeImageModel;
+@property (nonatomic, strong)   VAPImageModel                   *imageModel;
 
 - (void)fillWithContent:(VAPImageModel *)content;
 

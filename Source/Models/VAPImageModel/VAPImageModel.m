@@ -46,8 +46,8 @@
 }
 
 - (instancetype)initWithURL:(NSURL *)url {
-    @synchronized([VAPImageModel sharedCache]) {
-        VAPCache *cache =[[self class] sharedCache];
+    VAPCache *cache = [[self class] sharedCache];
+    @synchronized(cache) {
         if([cache containsObjecWithKey:url]) {
             return [cache objectForKey:url];
         }
@@ -67,10 +67,8 @@
 
 - (void)performLoading {
     VAPWeakify(self);
-    
     [self performLoadingWithCompletion:^(UIImage *image, id error) {
         VAPStrongifyAndReturnIfNil(self);
-        
         [self finalizeLoadingWithImage:image error:error];
         [self notifyLoadingWithImage:image error:error];
     }];

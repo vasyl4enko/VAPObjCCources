@@ -48,16 +48,6 @@ static NSString * const kUrl =          @"http://multidoge.org/images/MultiDoge.
     return [VAPImageModel imageModelWithUrl:url];
 }
 
-//- (void)performLoading {
-//    [NSThread sleepForTimeInterval:1];
-//    NSURL *url = [[NSBundle mainBundle] URLForResource:kSlowpokeName withExtension:kPNGExtension];
-//    self.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:url]];
-//    
-//    VAPDispatchAsyncOnMainThread(^{
-//        self.state = VAPLoadingStatesDidLoad;
-//    });
-//}
-
 #pragma mark -
 #pragma mark NSCoding
 

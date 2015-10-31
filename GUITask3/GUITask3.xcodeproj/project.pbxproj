@@ -47,6 +47,7 @@
 		1FEE92051BC4730600E1F18D /* VAPDataCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1FEE92031BC4730600E1F18D /* VAPDataCell.xib */; };
 		1FEE92081BC4757D00E1F18D /* VAPLoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1FEE92071BC4757D00E1F18D /* VAPLoadingView.xib */; };
 		1FEE920B1BC475A500E1F18D /* VAPLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FEE920A1BC475A500E1F18D /* VAPLoadingView.m */; };
+		BB481C3AF45E615CF6F578A7 /* libPods-GUITask3.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6394BAE51E036EECD96B54BE /* libPods-GUITask3.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -136,6 +137,9 @@
 		1FEE92071BC4757D00E1F18D /* VAPLoadingView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VAPLoadingView.xib; sourceTree = "<group>"; };
 		1FEE92091BC475A500E1F18D /* VAPLoadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VAPLoadingView.h; sourceTree = "<group>"; };
 		1FEE920A1BC475A500E1F18D /* VAPLoadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VAPLoadingView.m; sourceTree = "<group>"; };
+		6394BAE51E036EECD96B54BE /* libPods-GUITask3.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GUITask3.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BDFB713874FB8097C8D277F5 /* Pods-GUITask3.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GUITask3.release.xcconfig"; path = "Pods/Target Support Files/Pods-GUITask3/Pods-GUITask3.release.xcconfig"; sourceTree = "<group>"; };
+		BF239F60A665044ADCC4C0F9 /* Pods-GUITask3.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GUITask3.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GUITask3/Pods-GUITask3.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +147,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BB481C3AF45E615CF6F578A7 /* libPods-GUITask3.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -156,6 +161,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		068BAFD3C41415A0976ACCFF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6394BAE51E036EECD96B54BE /* libPods-GUITask3.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		1F01CAF61BC1D2A300D28033 = {
 			isa = PBXGroup;
 			children = (
@@ -164,6 +177,8 @@
 				1F01CB011BC1D2A300D28033 /* GUITask3 */,
 				1F01CB1B1BC1D2A400D28033 /* GUITask3Tests */,
 				1F01CB001BC1D2A300D28033 /* Products */,
+				4D99410C265F997CC6D83B95 /* Pods */,
+				068BAFD3C41415A0976ACCFF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -583,6 +598,15 @@
 			path = VAPLoadingView;
 			sourceTree = "<group>";
 		};
+		4D99410C265F997CC6D83B95 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				BF239F60A665044ADCC4C0F9 /* Pods-GUITask3.debug.xcconfig */,
+				BDFB713874FB8097C8D277F5 /* Pods-GUITask3.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -590,9 +614,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1F01CB221BC1D2A400D28033 /* Build configuration list for PBXNativeTarget "GUITask3" */;
 			buildPhases = (
+				6701B585EE7C718118B5B68B /* Check Pods Manifest.lock */,
 				1F01CAFB1BC1D2A300D28033 /* Sources */,
 				1F01CAFC1BC1D2A300D28033 /* Frameworks */,
 				1F01CAFD1BC1D2A300D28033 /* Resources */,
+				9240DAF9532FEB24B7DD13F7 /* Embed Pods Frameworks */,
+				77E26433132C4DE35AA3086F /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -683,6 +710,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		6701B585EE7C718118B5B68B /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		77E26433132C4DE35AA3086F /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GUITask3/Pods-GUITask3-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9240DAF9532FEB24B7DD13F7 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GUITask3/Pods-GUITask3-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		1F01CAFB1BC1D2A300D28033 /* Sources */ = {
@@ -835,6 +910,7 @@
 		};
 		1F01CB231BC1D2A400D28033 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BF239F60A665044ADCC4C0F9 /* Pods-GUITask3.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = GUITask3/Info.plist;
@@ -846,6 +922,7 @@
 		};
 		1F01CB241BC1D2A400D28033 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BDFB713874FB8097C8D277F5 /* Pods-GUITask3.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = GUITask3/Info.plist;

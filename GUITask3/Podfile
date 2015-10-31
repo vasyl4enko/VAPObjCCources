@@ -5,6 +5,8 @@
 
 target 'GUITask3' do
 pod 'FBSDKCoreKit', '~> 4.7'
+pod 'FBSDKLoginKit', '~> 4.7'
+pod 'FBSDKShareKit', '~> 4.7'
 end
 
 target 'GUITask3Tests' do

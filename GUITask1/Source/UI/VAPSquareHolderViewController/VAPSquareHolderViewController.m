@@ -7,16 +7,14 @@
 //
 
 #import "VAPSquareHolderViewController.h"
+#import "VAPMacros.h"
+
 #import "VAPSquareView.h"
 
-@interface VAPSquareHolderViewController ()
-@property (nonatomic, readonly) VAPSquareView *squareView;
-
-@end
+VAPViewControllerMainViewProperty(VAPSquareHolderViewController, squareView, VAPSquareView);
 
 @implementation VAPSquareHolderViewController
 
-@dynamic squareView;
 
 - (VAPSquareView *)squareView {
     if ([self isViewLoaded] && [self.view isKindOfClass:[VAPSquareView class]]) {
@@ -38,6 +36,7 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
+    
 }
 
 @end

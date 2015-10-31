@@ -10,8 +10,8 @@
 
 #import "VAPMacros.h"
 
-NSUInteger const kVAPAnimatedDuration = 2;
-NSUInteger const kVAPDelay = 0;
+static const NSUInteger kVAPAnimatedDuration = 2;
+static const NSUInteger kVAPDelay = 0;
 
 @interface VAPSquareView ()
 @property (nonatomic, assign, getter = isAnimating) BOOL animating;
@@ -36,8 +36,6 @@ NSUInteger const kVAPDelay = 0;
     [self setSquarePosition:squarePosition animated:isAnimated completionHandler:NULL];
 }
 
-
-
 - (void)setSquarePosition:(VAPSquarePosition)squarePosition
                  animated:(BOOL)isAnimated
         completionHandler:(void (^)())completion
@@ -46,9 +44,10 @@ NSUInteger const kVAPDelay = 0;
     
     [UIView animateWithDuration:animationDuration
                           delay:kVAPDelay
-                        options:UIViewAnimationOptionCurveLinear animations:^{
-                            self.squareView.frame = [self frameWithPosition:squarePosition];
-                        }
+                        options:UIViewAnimationOptionCurveLinear
+                     animations:^{
+                         self.squareView.frame = [self frameWithPosition:squarePosition];
+                     }
                      completion:^(BOOL finished) {
                          _squarePosition = squarePosition;
                          self.animating = NO;
@@ -75,12 +74,12 @@ NSUInteger const kVAPDelay = 0;
 
 - (void)animateSquareView {
     VAPSquarePosition squarePosition = [self nextPosition];
-    if (self.isMoving && !self.isAnimating) {
+    if (self.isMoving && !self.animating) {
         self.animating = YES;
         VAPWeakify(self);
         [self setSquarePosition:squarePosition animated:YES completionHandler:^{
-            VAPStrongify(weakSelf);
-            [strongSelf animateSquareView];
+            VAPStrongifyAndReturnIfNil(self);
+            [self animateSquareView];
         }];
     }
 }

@@ -1,0 +1,46 @@
+//
+//  VAPRandomStringView.m
+//  Task2
+//
+//  Created by Aleksandr Vasylchenko on 19.09.15.
+//  Copyright (c) 2015 Aleksandr Vasylchenko. All rights reserved.
+//
+
+#import "VAPRandomStringView.h"
+
+#import "VAPLoadingView.h"
+
+
+@interface VAPRandomStringView ()
+@property (nonatomic, strong)   VAPLoadingView  *loadingView;
+
+@end
+
+@implementation VAPRandomStringView
+
+- (void)awakeFromNib {
+    [super awakeFromNib];
+    
+    self.loadingView = [self newLoadingView];
+}
+
+#pragma mark -
+#pragma mark Public Methods
+
+- (void)showLoadingView {
+    [self.loadingView setVisible:YES animated:NO];
+}
+
+- (void)hideLoadingView {
+    [self.loadingView setVisible:NO animated:YES];
+}
+
+- (BOOL)isLoadingViewHidden {
+    return self.loadingView.hidden;
+}
+
+- (id)newLoadingView {
+    return [VAPLoadingView loadingView:[[UIApplication sharedApplication] keyWindow]];
+}
+
+@end

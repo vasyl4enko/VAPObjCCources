@@ -14,11 +14,20 @@
 
 @implementation VAPFileImageModel
 
+@dynamic filePath;
+
+- (NSString *)filePath {
+    return self.imageURL.path;
+}
+
 #pragma mark -
 #pragma mark Public Methods
 
 - (void)performLoadingWithCompletion:(void(^)(UIImage *image, id error))completion {
-    
+    UIImage *image = [UIImage imageWithContentsOfFile:self.filePath];
+    if(completion) {
+        completion(image, nil);
+    }
 }
 
 @end

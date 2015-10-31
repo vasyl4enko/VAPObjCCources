@@ -14,13 +14,14 @@
 
 - (void)downloadImage:(void(^)(UIImage *image, id error))completion;
 
+- (void)removeFromCache;
+
 @end
 
 @implementation VAPURLImageModel
 
 @dynamic fileFolder;
 @dynamic fileName;
-@dynamic filePath;
 @dynamic cached;
 
 #pragma mark -
@@ -81,7 +82,10 @@
 
 - (void)performLoadingWithCompletion:(void(^)(UIImage *image, id error))completion {
     if (self.cached) {
-        [self loadImageWithFilePath:completion];
+        [super performLoadingWithCompletion:completion];
+        if (!self.image) {
+            [self removeFromCache];
+        }
     } else {
         [self downloadImage:completion];
     }
@@ -91,11 +95,11 @@
 #pragma mark Private Method
 
 - (void)downloadImage:(void (^)(UIImage *, id))completion {
-    id block = ^(NSURL *url, NSURLResponse *response, NSError *error) {
-        [[NSFileManager defaultManager] copyItemAtURL:url
+    id block = ^(NSURL *location, NSURLResponse *response, NSError *error) {
+        [[NSFileManager defaultManager] copyItemAtURL:location
                                                 toURL:[NSURL fileURLWithPath:self.filePath]
                                                 error:nil];
-        [self loadImageWithFilePath:completion];
+        [super performLoadingWithCompletion:completion];
     };
     
     self.downloadTask = [self.urlSession downloadTaskWithURL:self.imageURL completionHandler:block];
@@ -105,17 +109,6 @@
     NSFileManager *fileManager = [NSFileManager defaultManager];
     NSError *error = nil;
     [fileManager removeItemAtPath:self.filePath error:&error];
-}
-
-- (void)loadImageWithFilePath:(void (^)(UIImage *, id))completion {
-    UIImage *image = [UIImage imageWithContentsOfFile:self.filePath];
-    if (!image) {
-        [self removeFromCache];
-    }
-    
-    if(completion) {
-        completion(image, nil);
-    }
 }
 
 @end

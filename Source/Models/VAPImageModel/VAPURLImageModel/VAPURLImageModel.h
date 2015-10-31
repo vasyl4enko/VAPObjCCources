@@ -1,16 +1,15 @@
 //
-//  VAPFileImageModel.h
+//  VAPURLImageModel.h
 //  
 //
 //  Created by Aleksandr Vasylchenko on 25.10.15.
 //
 //
 
-#import "VAPImageModel.h"
+#import "VAPFileImageModel.h"
 
-@interface VAPFileImageModel : VAPImageModel
+@interface VAPURLImageModel : VAPFileImageModel
 @property (nonatomic, readonly)                     NSString    *fileFolder;
-@property (nonatomic, readonly)                     NSString    *filePath;
 @property (nonatomic, readonly)                     NSString    *fileName;
 @property (nonatomic, readonly, getter = isCached)  BOOL        cached;
 

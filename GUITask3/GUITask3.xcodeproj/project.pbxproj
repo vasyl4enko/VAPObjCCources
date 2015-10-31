@@ -32,6 +32,9 @@
 		1F01CBD91BC1D43D00D28033 /* Slowpoke.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F01CBD71BC1D43D00D28033 /* Slowpoke.png */; };
 		1F01CBDF1BC1D47A00D28033 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F01CBDD1BC1D47A00D28033 /* Images.xcassets */; };
 		1F01CBE21BC1D49700D28033 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F01CBE01BC1D49700D28033 /* LaunchScreen.xib */; };
+		1F2D7DF31BE500D000090C8A /* VAPBaseContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F2D7DF21BE500D000090C8A /* VAPBaseContext.m */; };
+		1F2D7DF51BE5010000090C8A /* VAPLoginContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F2D7DF41BE5010000090C8A /* VAPLoginContext.m */; };
+		1F2D7DF91BE5013300090C8A /* VAPUserContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F2D7DF81BE5013300090C8A /* VAPUserContext.m */; };
 		1F482E741BCAC2FF00165C2F /* VAPModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F482E731BCAC2FF00165C2F /* VAPModel.m */; };
 		1F4E866D1BE1557E00FE3CFA /* VAPView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F4E866C1BE1557E00FE3CFA /* VAPView.m */; };
 		1F4E86711BE1561B00FE3CFA /* VAPImageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F4E86701BE1561B00FE3CFA /* VAPImageView.xib */; };
@@ -109,6 +112,12 @@
 		1F01CBD71BC1D43D00D28033 /* Slowpoke.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Slowpoke.png; sourceTree = "<group>"; };
 		1F01CBDD1BC1D47A00D28033 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		1F01CBE11BC1D49700D28033 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		1F2D7DF11BE500D000090C8A /* VAPBaseContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VAPBaseContext.h; sourceTree = "<group>"; };
+		1F2D7DF21BE500D000090C8A /* VAPBaseContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VAPBaseContext.m; sourceTree = "<group>"; };
+		1F2D7DF41BE5010000090C8A /* VAPLoginContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VAPLoginContext.m; sourceTree = "<group>"; };
+		1F2D7DF61BE5010600090C8A /* VAPLoginContext.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VAPLoginContext.h; sourceTree = "<group>"; };
+		1F2D7DF71BE5013300090C8A /* VAPUserContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VAPUserContext.h; sourceTree = "<group>"; };
+		1F2D7DF81BE5013300090C8A /* VAPUserContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VAPUserContext.m; sourceTree = "<group>"; };
 		1F482E721BCAC2FF00165C2F /* VAPModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VAPModel.h; sourceTree = "<group>"; };
 		1F482E731BCAC2FF00165C2F /* VAPModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VAPModel.m; sourceTree = "<group>"; };
 		1F482E751BCADF9F00165C2F /* VAPModelObserver.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VAPModelObserver.h; sourceTree = "<group>"; };
@@ -366,6 +375,7 @@
 		1F01CB9F1BC1D43400D28033 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				1F2D7DED1BE4F6D600090C8A /* VAPContexts */,
 				1FEE23DA1BDD203700B46A63 /* VAPCache */,
 				1FEE23D71BDD1F9900B46A63 /* VAPImageModel */,
 				1F482E711BCAB6FD00165C2F /* VAPModel */,
@@ -436,6 +446,7 @@
 		1F01CBB41BC1D43400D28033 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				1F2D7DFA1BE501BE00090C8A /* VAPLoginViewController */,
 				1FAC0CEC1BE1547700E6A737 /* VAPView */,
 				1F01CBB51BC1D43400D28033 /* VAPRandomStringViewController */,
 			);
@@ -482,6 +493,50 @@
 				1F01CBD71BC1D43D00D28033 /* Slowpoke.png */,
 			);
 			path = Images;
+			sourceTree = "<group>";
+		};
+		1F2D7DED1BE4F6D600090C8A /* VAPContexts */ = {
+			isa = PBXGroup;
+			children = (
+				1F2D7DF01BE4F72800090C8A /* VAPUserContext */,
+				1F2D7DEF1BE4F71A00090C8A /* VAPLoginContext */,
+				1F2D7DEE1BE4F70C00090C8A /* VAPBaseContext */,
+			);
+			path = VAPContexts;
+			sourceTree = "<group>";
+		};
+		1F2D7DEE1BE4F70C00090C8A /* VAPBaseContext */ = {
+			isa = PBXGroup;
+			children = (
+				1F2D7DF11BE500D000090C8A /* VAPBaseContext.h */,
+				1F2D7DF21BE500D000090C8A /* VAPBaseContext.m */,
+			);
+			path = VAPBaseContext;
+			sourceTree = "<group>";
+		};
+		1F2D7DEF1BE4F71A00090C8A /* VAPLoginContext */ = {
+			isa = PBXGroup;
+			children = (
+				1F2D7DF61BE5010600090C8A /* VAPLoginContext.h */,
+				1F2D7DF41BE5010000090C8A /* VAPLoginContext.m */,
+			);
+			path = VAPLoginContext;
+			sourceTree = "<group>";
+		};
+		1F2D7DF01BE4F72800090C8A /* VAPUserContext */ = {
+			isa = PBXGroup;
+			children = (
+				1F2D7DF71BE5013300090C8A /* VAPUserContext.h */,
+				1F2D7DF81BE5013300090C8A /* VAPUserContext.m */,
+			);
+			path = VAPUserContext;
+			sourceTree = "<group>";
+		};
+		1F2D7DFA1BE501BE00090C8A /* VAPLoginViewController */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = VAPLoginViewController;
 			sourceTree = "<group>";
 		};
 		1F482E711BCAB6FD00165C2F /* VAPModel */ = {
@@ -775,6 +830,8 @@
 				1F8C62481BDD262100ED1AD4 /* VAPDispatch.m in Sources */,
 				1F01CB081BC1D2A400D28033 /* VAPAppDelegate.m in Sources */,
 				1F8C62441BDD23E800ED1AD4 /* VAPCache.m in Sources */,
+				1F2D7DF51BE5010000090C8A /* VAPLoginContext.m in Sources */,
+				1F2D7DF91BE5013300090C8A /* VAPUserContext.m in Sources */,
 				1F01CBCD1BC1D43400D28033 /* VAPData.m in Sources */,
 				1F01CBC01BC1D43400D28033 /* NSMutableArray+VAPExtensions.m in Sources */,
 				1F01CBC41BC1D43400D28033 /* UIViewController+VAPExtensions.m in Sources */,
@@ -782,6 +839,7 @@
 				1F01CBBF1BC1D43400D28033 /* NSIndexPath+VAPExtensions.m in Sources */,
 				1F01CBCF1BC1D43400D28033 /* VAPRandomStringView.m in Sources */,
 				1FB9540B1BE4D6B200A820C6 /* VAPFileImageModel.m in Sources */,
+				1F2D7DF31BE500D000090C8A /* VAPBaseContext.m in Sources */,
 				1F01CBC51BC1D43400D28033 /* UIWindow+VAPExtensions.m in Sources */,
 				1F01CBCB1BC1D43400D28033 /* VAPChangesModelOneIndex.m in Sources */,
 				1F01CBC71BC1D43400D28033 /* VAPTableViewCell.m in Sources */,

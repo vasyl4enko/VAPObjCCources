@@ -8,6 +8,16 @@
 
 #import "VAPLoginView.h"
 
+#import "VAPMacros.h"
+#import "VAPUser.h"
+
 @implementation VAPLoginView
+
+#pragma mark -
+#pragma mark Accessors
+
+- (void)setUser:(VAPUser *)user {
+    VAPSynthesizeObservingSetter(user);
+}
 
 @end

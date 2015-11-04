@@ -85,6 +85,7 @@
         [super performLoadingWithCompletion:completion];
         if (!self.image) {
             [self removeFromCache];
+            
         }
     } else {
         [self downloadImage:completion];

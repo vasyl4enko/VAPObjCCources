@@ -12,6 +12,6 @@
 
 @interface VAPLoginViewController : UIViewController
 
-
+- (IBAction)loginButton:(id)sender;
 
 @end

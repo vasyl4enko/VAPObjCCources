@@ -8,6 +8,18 @@
 
 #import "VAPUserContext.h"
 
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
+#import <FBSDKLoginKit/FBSDKLoginKit.h>
+
+#import "VAPUser.h"
+
+@interface VAPUserContext ()
+
+
+@end
+
 @implementation VAPUserContext
+
+
 
 @end

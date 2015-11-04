@@ -14,7 +14,7 @@
 
 @interface VAPDataCell : VAPTableViewCell
 @property (nonatomic, strong)   IBOutlet UILabel                    *cellLabel;
-@property (nonatomic, strong)   IBOutlet VAPImageView               *dogeImageView;
+@property (nonatomic, strong)   IBOutlet VAPImageView               *imageViewContent;
 
 @property (nonatomic, strong)   VAPData                             *content;
 

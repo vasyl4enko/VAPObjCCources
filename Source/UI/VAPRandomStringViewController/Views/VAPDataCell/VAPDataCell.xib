@@ -47,7 +47,7 @@
             <animations/>
             <connections>
                 <outlet property="cellLabel" destination="vM7-ep-PPc" id="jdL-Ir-lQo"/>
-                <outlet property="dogeImageView" destination="0HZ-G5-O6D" id="oRu-SG-80p"/>
+                <outlet property="imageViewContent" destination="0HZ-G5-O6D" id="YpG-mI-682"/>
             </connections>
             <point key="canvasLocation" x="190" y="48"/>
         </tableViewCell>

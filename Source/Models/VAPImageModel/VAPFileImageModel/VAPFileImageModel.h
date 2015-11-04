@@ -9,6 +9,6 @@
 #import "VAPImageModel.h"
 
 @interface VAPFileImageModel : VAPImageModel
-@property (nonatomic, readonly)                     NSString    *filePath;
+@property (nonatomic, readonly)     NSString    *filePath;
 
 @end

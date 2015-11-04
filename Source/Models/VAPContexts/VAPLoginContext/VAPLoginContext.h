@@ -8,6 +8,10 @@
 
 #import "VAPBaseContext.h"
 
+@class VAPUser;
+
 @interface VAPLoginContext : VAPBaseContext
+
+- (instancetype)initWithUser:(VAPUser *)user;
 
 @end

@@ -24,8 +24,9 @@
 #pragma mark Public Methods
 
 - (void)performLoadingWithCompletion:(void(^)(UIImage *image, id error))completion {
-    UIImage *image = [UIImage imageWithContentsOfFile:self.filePath];
+    
     if(completion) {
+        UIImage *image = [UIImage imageWithContentsOfFile:self.filePath];
         completion(image, nil);
     }
 }

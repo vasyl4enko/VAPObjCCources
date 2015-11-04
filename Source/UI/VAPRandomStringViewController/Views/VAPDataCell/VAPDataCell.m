@@ -29,7 +29,7 @@
 #pragma mark Public Methods
 
 - (void)fillWithContent:(VAPData *)content {
-    self.dogeImageView.imageModel = content.image;
+    self.imageViewContent.imageModel = content.image;
     self.cellLabel.text = content.name;
 }
 

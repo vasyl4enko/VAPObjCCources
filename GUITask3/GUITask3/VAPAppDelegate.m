@@ -8,14 +8,15 @@
 
 #import "VAPAppDelegate.h"
 
-#import "VAPRandomStringViewController.h"
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
 
+#import "VAPLoginViewController.h"
+#import <FBSDKLoginKit/FBSDKLoginKit.h>
 #import "UIWindow+VAPExtensions.h"
 #import "UIViewController+VAPExtensions.h"
 
 
 @interface VAPAppDelegate ()
-@property (nonatomic, strong) VAPDataArray *dataArray;
 
 @end
 
@@ -24,14 +25,27 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     UIWindow *window = [UIWindow window];
     self.window = window;
-    VAPRandomStringViewController *randomStringViewController = [VAPRandomStringViewController controller];
-
-    self.dataArray = [VAPDataArray new];
-    randomStringViewController.dataArray = self.dataArray;
-    window.rootViewController = [[UINavigationController alloc] initWithRootViewController:randomStringViewController];
-    [window makeKeyAndVisible];
+    VAPLoginViewController *loginViewController = [VAPLoginViewController controller];
     
-    return YES;
+    window.rootViewController = [[UINavigationController alloc] initWithRootViewController:loginViewController];
+    [window makeKeyAndVisible];
+   
+    return [[FBSDKApplicationDelegate sharedInstance] application:application
+                                    didFinishLaunchingWithOptions:launchOptions];;
 }
+
+- (BOOL)application:(UIApplication *)application
+            openURL:(NSURL *)url
+  sourceApplication:(NSString *)sourceApplication
+         annotation:(id)annotation
+{
+    return [[FBSDKApplicationDelegate sharedInstance] application:application
+                                                          openURL:url
+                                                sourceApplication:sourceApplication
+                                                       annotation:annotation];
+}
+
+
+
 
 @end

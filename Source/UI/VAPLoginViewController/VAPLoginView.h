@@ -8,6 +8,14 @@
 
 #import "VAPView.h"
 
+#import "VAPImageView.h"
+
+@class VAPUser;
+
 @interface VAPLoginView : VAPView
+@property (nonatomic, strong)   IBOutlet    UIButton       *loginButton;
+@property (nonatomic, strong)   IBOutlet    VAPImageView   *imageView;
+@property (nonatomic, strong)   IBOutlet    UILabel        *fullNameLabel;
+@property (nonatomic, strong)               VAPUser        *user;
 
 @end

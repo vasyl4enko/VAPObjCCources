@@ -10,4 +10,5 @@
 
 @interface VAPUserContext : VAPBaseContext
 
+
 @end

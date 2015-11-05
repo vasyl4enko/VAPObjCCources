@@ -20,4 +20,19 @@
     VAPSynthesizeObservingSetter(user);
 }
 
+#pragma mark -
+#pragma mark Public Methods
+
+- (void)fillWithContent:(VAPUser *)user {
+    self.contentImageView.imageModel = user.imageModel;
+    self.fullNameLabel.text = user.name;
+}
+
+#pragma mark -
+#pragma mark Model Observer
+
+- (void)modelDidLoad:(id)object {
+    [self fillWithContent:object];
+}
+
 @end

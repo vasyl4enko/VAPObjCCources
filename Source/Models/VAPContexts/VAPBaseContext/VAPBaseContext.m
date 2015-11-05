@@ -8,6 +8,13 @@
 
 #import "VAPBaseContext.h"
 
+#import "VAPUser.h"
+
+
+@interface VAPBaseContext ()
+
+@end
+
 @implementation VAPBaseContext
 
 - (void)execute {

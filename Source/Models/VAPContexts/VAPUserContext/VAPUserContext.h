@@ -10,5 +10,6 @@
 
 @interface VAPUserContext : VAPBaseContext
 
+- (instancetype)initWithUser:(VAPUser *)user;
 
 @end

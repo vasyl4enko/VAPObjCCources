@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+@class VAPUser;
+
 @interface VAPBaseContext : NSObject
 
 - (void)execute;

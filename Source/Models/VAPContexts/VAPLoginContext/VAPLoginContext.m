@@ -12,12 +12,14 @@
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
 
 #import "VAPUser.h"
+#import "VAPUserContext.h"
 
 static NSString * const kVAPName =  @"name";
 static NSString * const kVAPID =    @"id";
 
 @interface VAPLoginContext ()
-@property (nonatomic, strong)   VAPUser           *user;
+@property (nonatomic, strong)   VAPUser         *user;
+@property (nonatomic, strong)   VAPUserContext  *userContext;
 
 @end
 
@@ -35,6 +37,16 @@ static NSString * const kVAPID =    @"id";
     return self;
 }
 
+#pragma mark -
+#pragma mark Accessors
+
+- (void)setUserContext:(VAPUserContext *)userContext {
+    if (_userContext != userContext) {
+        [_userContext cancel];
+        _userContext = userContext;
+        [_userContext execute];
+    }
+}
 
 #pragma mark -
 #pragma mark Public Methods
@@ -42,9 +54,13 @@ static NSString * const kVAPID =    @"id";
 - (void)execute {
     FBSDKLoginManager *loginManager = [FBSDKLoginManager new];
     [loginManager logInWithReadPermissions:@[@"public_profile", @"email"] fromViewController:nil handler:^(FBSDKLoginManagerLoginResult *result, NSError *error){
-        FBSDKAccessToken *token = [FBSDKAccessToken currentAccessToken];
-        self.user.ID = token.userID;
-        
+        if (error) {
+            self.user.state = VAPLoadingStatesDidFail;
+        } else {
+            FBSDKAccessToken *token = [FBSDKAccessToken currentAccessToken];
+            self.user.ID = token.userID;
+            self.userContext = [[VAPUserContext new] initWithUser:self.user];
+        }
     }];
 }
 

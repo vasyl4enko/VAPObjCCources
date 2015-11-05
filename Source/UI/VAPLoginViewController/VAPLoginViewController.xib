@@ -40,7 +40,7 @@
                     <animations/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <connections>
-                        <outlet property="imageView" destination="ea8-xc-msQ" id="rw1-Yp-rds"/>
+                        <outlet property="imageView" destination="ea8-xc-msQ" id="e7W-Ry-ZYr"/>
                     </connections>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="7lL-7v-GGt">
@@ -54,8 +54,8 @@
             <animations/>
             <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
             <connections>
+                <outlet property="contentImageView" destination="u2O-wO-JRz" id="ZmG-qC-19Y"/>
                 <outlet property="fullNameLabel" destination="7lL-7v-GGt" id="EOn-n4-zIy"/>
-                <outlet property="imageView" destination="u2O-wO-JRz" id="GDM-tX-Dfz"/>
                 <outlet property="loginButton" destination="cFU-gK-Yy6" id="0va-2t-sw6"/>
             </connections>
             <point key="canvasLocation" x="373" y="280"/>

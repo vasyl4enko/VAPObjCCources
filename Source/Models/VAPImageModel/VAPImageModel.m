@@ -33,7 +33,12 @@
 }
 
 + (instancetype)imageModelWithUrl:(NSURL *)url {
-    Class class = url.fileURL ? [VAPFileImageModel class] : [VAPURLImageModel class];
+    Class class = nil;
+    if (url.fileURL) {
+        class = [VAPFileImageModel class];
+    } else {
+        class = [VAPURLImageModel class];
+    }
     
     return [[class alloc] initWithURL:url];
 }

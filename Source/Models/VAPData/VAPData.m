@@ -45,6 +45,7 @@ static NSString * const kUrl =          @"http://multidoge.org/images/MultiDoge.
 
 - (VAPImageModel *)image {
     NSURL *url = [NSURL URLWithString:kUrl];
+    
     return [VAPImageModel imageModelWithUrl:url];
 }
 
@@ -56,6 +57,7 @@ static NSString * const kUrl =          @"http://multidoge.org/images/MultiDoge.
     if (self) {
         self.name = [coder decodeObjectForKey:kNameDataKey];
     }
+    
     return self;
 }
 

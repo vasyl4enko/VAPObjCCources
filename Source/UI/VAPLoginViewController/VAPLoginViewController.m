@@ -20,7 +20,7 @@
 
 @interface VAPLoginViewController ()
 @property (nonatomic, strong) VAPLoginContext   *loginContext;
-//@property (nonatomic, strong) VAPUser           *user;
+@property (nonatomic, strong) VAPUser           *user;
 
 @end
 
@@ -33,8 +33,8 @@ VAPViewControllerMainViewProperty(VAPLoginViewController, loginView, VAPLoginVie
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    self.user = [VAPUser new];
-    self.loginView.user = [VAPUser new];
+    self.user = [VAPUser new];
+    self.loginView.user = self.user;
     
 }
 
@@ -45,10 +45,6 @@ VAPViewControllerMainViewProperty(VAPLoginViewController, loginView, VAPLoginVie
 #pragma mark -
 #pragma mark Accessors
 
-//- (void)setUser:(VAPUser *)user {
-//    
-//}
-
 - (void)setLoginContext:(VAPLoginContext *)loginContext {
     if (_loginContext != loginContext) {
         [_loginContext cancel];
@@ -57,25 +53,17 @@ VAPViewControllerMainViewProperty(VAPLoginViewController, loginView, VAPLoginVie
     }
 }
 
-
 #pragma mark -
 #pragma mark Private Methods
 
 - (IBAction)loginButton:(id)sender {
     VAPUser *user = self.loginView.user;
     if (user.ID) {
-        [[[FBSDKLoginManager alloc] init] logOut];
+        [[FBSDKLoginManager new] logOut];
         user.ID = nil;
     } else {
         self.loginContext = [[VAPLoginContext alloc] initWithUser:user];
     }
 }
-#pragma mark -
-#pragma mark VAPVodelObserver
-
-- (void)modelDidLoad:(id)object {
-    
-}
-
 
 @end

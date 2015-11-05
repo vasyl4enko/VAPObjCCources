@@ -12,9 +12,10 @@
 @class VAPArray;
 
 @interface VAPUser : VAPModel
-@property (nonatomic, copy)     NSString    *ID;
-@property (nonatomic, copy)     NSString    *name;
-@property (nonatomic, strong)   NSURL       *photo;
-@property (nonatomic, strong)   VAPArray    *friends;
+@property (nonatomic, copy)         NSString        *ID;
+@property (nonatomic, copy)         NSString        *name;
+@property (nonatomic, strong)       NSString        *imageURL;
+@property (nonatomic, strong)       VAPArray        *friends;
+@property (nonatomic, readonly)     VAPImageModel   *imageModel;
 
 @end
